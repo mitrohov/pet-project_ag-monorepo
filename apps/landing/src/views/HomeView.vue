@@ -32,7 +32,7 @@ import FooterBlock from "@/components/FooterBlock.vue";
 import LessonsBlock from "@/components/LessonsBlock.vue";
 </script>
 
-<style lang="scss">
+<style>
 .page {
   width: 100%;
   display: flex;

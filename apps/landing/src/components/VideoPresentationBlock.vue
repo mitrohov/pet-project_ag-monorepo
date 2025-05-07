@@ -2,8 +2,10 @@
   <div class="m-heading presentation-heading size-54 text-bold">
     Почему выбирают мои занятия и услуги?
   </div>
+
   <div class="video-presentation-container">
     <div class="text-bold">Узнай о наших занятиях за одну минуту</div>
+
     <div>
       <iframe
         class="mt-10"
@@ -18,14 +20,10 @@
   </div>
 </template>
 
-<script setup></script>
-
-<style lang="scss" scoped>
+<style scoped>
 .presentation-heading {
   background-image: linear-gradient(269.98deg, #f8b65f 23.73%, #ff7e2e 98.99%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-.video-presentation-container {
 }
 </style>

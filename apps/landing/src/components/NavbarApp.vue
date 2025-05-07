@@ -10,8 +10,13 @@
   </div>
 </template>
 
-<script setup>
-const navItems = [
+<script lang="ts" setup>
+interface NavItem {
+  title: string;
+  route: string;
+}
+
+const navItems: NavItem[] = [
   {
     title: "Начало",
     route: "",
@@ -35,11 +40,12 @@ const navItems = [
 ];
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .nav-container {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   margin-top: 15px;
+
   .nav-item {
     font-size: 24px;
     cursor: pointer;

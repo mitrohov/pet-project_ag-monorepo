@@ -10,11 +10,9 @@
   </div>
 </template>
 
-<script setup></script>
-
-<style lang="scss" scoped>
+<style scoped>
 .bio-block-container {
-  box-shadow: 0px 4px 25px 5px rgba(0, 0, 0, 0.11);
+  box-shadow: 0 4px 25px 5px rgba(0, 0, 0, 0.11);
   border-radius: 10px;
   padding: 30px;
   margin-top: 50px;
@@ -22,6 +20,7 @@
 .circles {
   display: flex;
   margin-bottom: 50px;
+
   .circle {
     background: #42b983;
     height: 20px;

@@ -6,24 +6,29 @@
         'background-image': 'url(/images/lesson-1.jpg)',
       }"
     ></div>
+
     <div style="display: flex; align-items: center">
       <div>
         <div class="size-36 text-bold lesson-heading lesson-text">
           Английский может быть интересным!
         </div>
+
         <div class="mt-3 lesson-text">
           Смотри, удивляйся, обсуждай видео и погружайся в настоящий язык.
         </div>
+
         <div>
           <div class="size-36 mt-5 text-bold lesson-text">
             Стоимость занятий
           </div>
+
           <div
             style="font-size: 80px"
             class="text-bold price-heading lesson-text"
           >
             60 мин
           </div>
+
           <div class="text-bold size-32 price-heading lesson-text">
             2000 руб
           </div>
@@ -33,13 +38,12 @@
   </div>
 </template>
 
-<script setup></script>
-
-<style lang="scss" scoped>
+<style scoped>
 .lessons-block-container {
   display: grid;
   grid-template-columns: 4fr 3fr;
   grid-column-gap: 20px;
+
   .image-lesson {
     height: 500px;
     background-position: 0 0;

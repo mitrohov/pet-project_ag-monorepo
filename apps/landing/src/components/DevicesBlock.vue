@@ -3,20 +3,20 @@
     <div>Учим английский</div>
     <div>на любом устройстве</div>
   </div>
+
   <div class="image-container">
     <img class="interactive-image" src="/images/devices.jpg" alt="" />
   </div>
 </template>
 
-<script setup></script>
-
-<style lang="scss" scoped>
+<style scoped>
 .device-heading {
   background-image: linear-gradient(269.98deg, #f8b65f 23.73%, #ff7e2e 98.99%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
 }
+
 .image-container {
   display: flex;
   justify-content: center;
@@ -24,6 +24,7 @@
     width: 100%;
   }
 }
+
 @media only screen and (max-width: 600px) {
   .device-heading {
     text-align: left;

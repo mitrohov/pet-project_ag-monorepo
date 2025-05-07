@@ -3,25 +3,31 @@
     <div>Всего 1 приложение</div>
     <div>и целый океан возможностей</div>
   </div>
+
   <div class="sub-heading mt-3">
     Погрузись в современный формат и занимайся в свое удовольствие благодаря
     яркой и удобной платформе
   </div>
+
   <div class="progress-block-container mt-10">
     <div class="online-lesson">
       <div>
         <img class="online-image" src="/images/online.png" alt="" />
       </div>
+
       <div class="online-content">
         <div>
           <div class="size-48 text-bold">
             <div>Все занятия</div>
             <div>проходят online</div>
           </div>
+
           <div class="mt-5">
             Больше никаких PDF, долгих скачиваний и google-документов.
           </div>
+
           <div>Все материалы размещены в цифровом учебнике.</div>
+
           <div class="mt-6 text-bold">
             Урок проходит по видеосвязи со всеми возможными интерактивными
             инструментами .
@@ -32,9 +38,7 @@
   </div>
 </template>
 
-<script setup></script>
-
-<style lang="scss" scoped>
+<style scoped>
 .progress-heading {
   background-image: linear-gradient(269.98deg, #f8b65f 23.73%, #ff7e2e 98.99%);
   -webkit-background-clip: text;
@@ -57,14 +61,14 @@
     grid-column-gap: 60px;
     color: white;
     padding: 60px 20px 60px 0;
-    .online-image {
-      width: 100%;
-      border-radius: 0 10px 10px 0;
-    }
-    .online-content {
-      display: flex;
-      align-items: center;
-    }
+  }
+  .online-image {
+    width: 100%;
+    border-radius: 0 10px 10px 0;
+  }
+  .online-content {
+    display: flex;
+    align-items: center;
   }
 }
 

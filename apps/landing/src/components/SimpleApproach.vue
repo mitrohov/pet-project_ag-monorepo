@@ -3,27 +3,29 @@
     <div class="simple-content">
       <div>
         <div class="size-48 text-bold">Просто. Удобно. Эффективно.</div>
+
         <div class="mt-6">
           В одном приложении собраны все необходимые обучающие материалы,
           домашние задания, расписание.
         </div>
+
         <div class="mt-6 text-bold">Занимайся тогда, когда удобно тебе!</div>
       </div>
     </div>
+
     <div class="simple-img-container">
       <img class="interactive-image" src="/images/materials.png" alt="" />
     </div>
   </div>
 </template>
 
-<script setup></script>
-
-<style lang="scss" scoped>
+<style scoped>
 .simple-approach-container {
   display: grid;
   grid-column-gap: 20px;
   grid-template-columns: 3fr 4fr;
   grid-template-areas: "simpleContent simpleImage";
+
   .simple-content {
     display: flex;
     align-items: center;
@@ -38,10 +40,10 @@
     );
     padding: 30px;
     border-radius: 10px;
-    .interactive-image {
-      width: 100%;
-      border-radius: 10px;
-    }
+  }
+  .interactive-image {
+    width: 100%;
+    border-radius: 10px;
   }
 }
 

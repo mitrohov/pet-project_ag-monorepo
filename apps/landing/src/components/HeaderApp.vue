@@ -6,13 +6,11 @@
   </div>
 </template>
 
-<script setup lang="ts">
-</script>
-
-<style lang="scss" scoped>
+<style scoped>
 .header-app-container {
   border-bottom: 1px solid #e1e1e1;
   padding-bottom: 10px;
+
   header {
     display: flex;
     justify-content: space-between;

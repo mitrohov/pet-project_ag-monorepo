@@ -4,8 +4,6 @@
   </button>
 </template>
 
-<script setup></script>
-
 <style scoped>
 button {
   border: 1px solid #818181;

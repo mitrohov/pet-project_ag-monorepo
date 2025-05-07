@@ -3,6 +3,7 @@
     <div>Как проходят пробные уроки</div>
     <div>расскажут мои ученики</div>
   </div>
+
   <div class="reviews-container">
     <div>
       <div v-for="(review, index) in reviews" :key="index" class="student">
@@ -12,17 +13,21 @@
           }"
           class="student-photo"
         ></div>
+
         <div class="student-title">
           <div class="text-bold">{{ review.name }}</div>
           <div class="size-18">{{ review.position }}</div>
         </div>
       </div>
     </div>
+
     <div class="student-video">
       <!-- Тут видео плеер -->
     </div>
+
     <div class="student-bio">
       <div class="text-bold">Запрос ученика</div>
+
       <div
         v-for="(goal, index) in selectedReview.goals"
         :key="index"
@@ -30,7 +35,9 @@
       >
         {{ goal }}
       </div>
+
       <div class="text-bold mb-2 mt-8">Что делали</div>
+
       <div
         v-for="(action, index) in selectedReview.actions"
         :key="index"
@@ -38,7 +45,9 @@
       >
         {{ action }}
       </div>
+
       <div class="text-bold mb-2 mt-8">Результат</div>
+
       <div
         v-for="(result, index) in selectedReview.result"
         :key="index"
@@ -140,20 +149,20 @@ const reviews: Review[] = [
 ];
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .reviews-container {
   margin-top: 80px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 20px;
-  .student-video {
-    .video-cover {
-      height: 100%;
-      background-position: 0 0;
-      background-repeat: no-repeat;
-      background-size: cover;
-      border-radius: 10px;
-    }
+}
+.student-video {
+  .video-cover {
+    height: 100%;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
   }
 }
 .reviews-heading {
@@ -162,14 +171,15 @@ const reviews: Review[] = [
   -webkit-text-fill-color: transparent;
 }
 .student {
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
   cursor: pointer;
-  &-photo {
+
+  .student-photo {
     width: 50px;
     height: 50px;
     border-radius: 30px;
@@ -178,13 +188,13 @@ const reviews: Review[] = [
     background-repeat: no-repeat;
     background-size: cover;
   }
-  &-title {
+  .student-title {
     display: flex;
     flex-direction: column;
   }
 }
 .student-bio {
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   padding: 20px;
 }

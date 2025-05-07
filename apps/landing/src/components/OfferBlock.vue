@@ -3,6 +3,7 @@
     <div class="offer-text">
       <div>
         <div class="size-36">Всем привет)</div>
+
         <div class="size-48 text-bold mt-5">
           <div>Меня зовут Настя</div>
           <div>я учитель</div>
@@ -10,24 +11,26 @@
         </div>
       </div>
     </div>
+
     <div
-        :style="{ 'background-image': `url(${imageUrl})` }"
+      :style="{ 'background-image': `url(${imageUrl})` }"
       class="offer-image"
     ></div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import imageUrl from '@/assets/images/offer-image.png';
+import imageUrl from "@/assets/images/offer-image.png";
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .offer-block-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "text image";
   grid-column-gap: 20px;
   margin-top: 50px;
+
   .offer-text {
     padding: 50px 0;
     grid-area: text;

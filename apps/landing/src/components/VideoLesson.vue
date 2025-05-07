@@ -3,30 +3,36 @@
     <div>Учи английский без зубрежки</div>
     <div>и скучных заданий!</div>
   </div>
+
   <div class="text-bold mt-5">
     Играй, слушай песни, смотри любимые сериалы, изучая язык таким, какой он
     есть на самом деле
   </div>
+
   <div class="mt-6">
     <img class="video-image" src="/images/apple-tv.jpg" alt="" />
   </div>
+
   <div class="video-content text-bold mt-6">
     <div>
       <div>Разборы песен</div>
+
       <div>Ваши любимые сериалы</div>
+
       <div>Подборки видео</div>
     </div>
+
     <div>
       <div>Новости BBC</div>
+
       <div>Ted Talks</div>
     </div>
   </div>
+
   <div class="text-bold mt-6">И много другое будет включено в уроки</div>
 </template>
 
-<script setup></script>
-
-<style lang="scss" scoped>
+<style scoped>
 .m-heading {
   background-image: linear-gradient(269.98deg, #f8b65f 23.73%, #ff7e2e 98.99%);
   -webkit-background-clip: text;
@@ -40,9 +46,4 @@
   border-radius: 10px;
   width: 100%;
 }
-//@media only screen and (max-width: 600px) {
-//  .size-32 {
-//    font-size: 22px !important;
-//  }
-//}
 </style>
