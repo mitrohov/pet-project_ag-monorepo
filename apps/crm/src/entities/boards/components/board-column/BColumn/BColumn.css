@@ -1,0 +1,23 @@
+.board-column {
+    .board-column_column {
+        padding: 15px;
+        border: 1px solid #dcdcdc;
+        border-radius: 10px;
+        overflow: auto;
+        height: calc(100vh - 220px);
+        margin-bottom: 20px;
+        background-color: #f1f1f1;
+    }
+
+    .board-column_column-title {
+        font-size: 18px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+    }
+
+    .board-column_new-task-btn {
+        width: 100%;
+        margin-top: 20px;
+    }
+}

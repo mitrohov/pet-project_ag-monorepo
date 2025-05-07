@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --primary-color: #10b981;
+  --surface-100: #f3f4f6;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", "sans-serif";
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.mr-20 {
+  margin-right: 20px;
+}
+
+.mr-5 {
+  margin-right: 5px;
+}
+
+.mt-5 {
+  margin-top: 5px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+.mb-5 {
+  margin-bottom: 5px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-end {
+  justify-content: end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px 0;
+
+  .title {
+    font-size: 20px;
+    font-weight: 500;
+    color: black;
+  }
+}
+
+.font-bold {
+  font-weight: 600;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  --webkit-box-shadow: 4px 4px 39px -22px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 4px 4px 39px -22px rgba(34, 60, 80, 0.2);
+  box-shadow: 4px 4px 39px -22px rgba(34, 60, 80, 0.2);
+  color: #4b5563;
+}
+
+:root {
+  --sidebar-bg-color: #ffffff;
+  --p-button-secondary-background: #eaeaea !important;
+}
+
+.p-button {
+  font-size: 15px !important;
+}
+
+.p-editor .p-editor-content .ql-editor, .ql-editor .ql-blank {
+  background: white !important;
+}
+
+.required-icon {
+  font-size: 18px;
+  color: red;
+}
+
+.p-error {
+  color: red;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.page-header {
+  font-size: 20px;
+}
+
+.table-mobile_column-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.p-datatable-table-container {
+  border-radius: 10px;
+}
+
+.p-tag {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+}
