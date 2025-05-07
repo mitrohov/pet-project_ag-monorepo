@@ -2,8 +2,8 @@
   "name": "@ag/crm",
   "version": "2.1.0",
   "type": "module",
-  "author": "mitrohov-dmitriy",
   "private": true,
+  "author": "mitrohov-dmitriy",
   "license": "SEE LICENSE IN LICENSE.md",
   "scripts": {
     "dev": "vite",

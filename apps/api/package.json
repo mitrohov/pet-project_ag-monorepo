@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "private": true,
   "author": "mitrohov-dmitriy",
-  "license": "UNLICENSED",
+  "license": "SEE LICENSE IN LICENSE.md",
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -16,9 +16,6 @@
     "migrate": "npx prisma migrate dev --name init",
     "studio": "npx prisma studio",
     "generate-client": "npx prisma generate"
-  },
-  "engines": {
-    "node": "22.8.0"
   },
   "dependencies": {
     "@grammyjs/hydrate": "^1.4.1",

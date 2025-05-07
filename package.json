@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "author": "mitrohov-dmitriy",
+  "license": "SEE LICENSE IN LICENSE.md",
   "scripts": {
     "up": "pnpm -r i",
     "dev-crm": "pnpm --filter @ag/crm run dev",
     "build-crm": "pnpm --filter @ag/crm run build",
     "dev-api": "pnpm --filter @ag/api run dev",
     "build-api": "pnpm --filter @ag/api run build",
+    "start-api": "cd apps/api && pnpm run start",
     "dev-docs": "pnpm --filter @ag/docs run dev",
     "build-docs": "pnpm --filter @ag/docs run build",
     "dev-landing": "pnpm --filter @ag/landing run dev",
@@ -16,7 +19,5 @@
     "delete-all-deps": "rm -rf pnpm-lock.yaml && pnpm --filter @ag/crm run delete-deps && pnpm --filter @ag/docs run delete-deps && pnpm --filter @ag/landing run delete-deps && pnpm cache delete"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
   "packageManager": "pnpm@10.10.0"
 }

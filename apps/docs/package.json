@@ -2,14 +2,14 @@
   "name": "@ag/docs",
   "version": "1.0.0",
   "main": "index.js",
+  "author": "mitrohov-dmitriy",
+  "license": "SEE LICENSE IN LICENSE.md",
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview",
     "delete-deps": "rm -rf node_modules"
   },
-  "author": "mitrohov-dmitriy",
-  "license": "UNLICENSED",
   "devDependencies": {
     "vitepress": "^1.3.1"
   }
