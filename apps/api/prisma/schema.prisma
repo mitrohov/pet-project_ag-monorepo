@@ -1,0 +1,256 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  hash      String
+  salt      String
+  createdAt DateTime @default(now())
+  isMock    Boolean  @default(false)
+  isDeleted Boolean  @default(false)
+}
+
+model EnglishLevel {
+  id        Int      @id @default(autoincrement())
+  title     String
+  createdAt DateTime @default(now())
+  isMock    Boolean  @default(false)
+  isDeleted Boolean  @default(false)
+
+  students Student[]
+}
+
+model Settings {
+  id        Int      @id @default(autoincrement())
+  field     String
+  value     String
+  createdAt DateTime @default(now())
+  isMock    Boolean  @default(false)
+  isDeleted Boolean  @default(false)
+}
+
+model Color {
+  id              Int      @id @default(autoincrement())
+  title           String
+  code            String
+  color           String
+  backgroundColor String
+  createdAt       DateTime @default(now())
+  isMock          Boolean  @default(false)
+  isDeleted       Boolean  @default(false)
+
+  students           Student[]
+  columnTaskStatuses ColumnTaskStatus[]
+  columnTasks        ColumnTask[]
+  eventCategory      EventCategory[]
+}
+
+model OrderPlatform {
+  id        Int      @id @default(autoincrement())
+  title     String
+  createdAt DateTime @default(now())
+  isMock    Boolean  @default(false)
+  isDeleted Boolean  @default(false)
+
+  contacts Contact[]
+}
+
+model Contact {
+  id           Int      @id @default(autoincrement())
+  fio          String
+  mobileNumber String?
+  socials      String?
+  description  String?
+  createdAt    DateTime @default(now())
+  isMock       Boolean  @default(false)
+  isDeleted    Boolean  @default(false)
+
+  orderPlatformId Int?
+  orderPlatform   OrderPlatform? @relation(fields: [orderPlatformId], references: [id])
+}
+
+model PurposeLesson {
+  id        Int      @id @default(autoincrement())
+  title     String
+  createdAt DateTime @default(now())
+  isMock    Boolean  @default(false)
+  isDeleted Boolean  @default(false)
+
+  students Student[]
+}
+
+model Student {
+  id                 Int      @id @default(autoincrement())
+  fio                String
+  lessonTime         Int
+  lessonCost         Int
+  description        String?
+  qtyLessonsPerWeek  Int
+  phone              String?
+  social             String?
+  progressMeLogin    String?
+  progressMePassword String?
+  createdAt          DateTime @default(now())
+  isMock             Boolean  @default(false)
+  isDeleted          Boolean  @default(false)
+
+  englishLevelId Int?
+  englishLevel   EnglishLevel? @relation(fields: [englishLevelId], references: [id])
+
+  purposeLessonId Int?
+  purposeLesson   PurposeLesson? @relation(fields: [purposeLessonId], references: [id])
+
+  colorId Int?
+  color   Color? @relation(fields: [colorId], references: [id])
+
+  payments         Payment[]
+  lessons          Lesson[]
+  studentSchedules StudentSchedule[]
+  botUsers         BotUser[]
+}
+
+model Payment {
+  id            Int      @id @default(autoincrement())
+  title         String
+  date          DateTime
+  lessonQty     Int
+  sum           Int
+  isMessageSent Boolean? @default(false)
+  createdAt     DateTime @default(now())
+  isMock        Boolean  @default(false)
+  isDeleted     Boolean  @default(false)
+
+  studentId Int?
+  student   Student? @relation(fields: [studentId], references: [id])
+
+  lessons Lesson[]
+}
+
+model StudentSchedule {
+  id        Int      @id @default(autoincrement())
+  dayWeek   Int
+  time      DateTime
+  isMock    Boolean  @default(false)
+  isDeleted Boolean  @default(false)
+
+  studentId Int
+  student   Student @relation(fields: [studentId], references: [id])
+}
+
+model Lesson {
+  id                    Int      @id @default(autoincrement())
+  title                 String
+  hasHomeWork           Boolean  @default(false)
+  startTime             DateTime
+  endTime               DateTime
+  description           String?
+  isMissed              Boolean  @default(false)
+  isReschedule          Boolean  @default(false)
+  isPreparationComplete Boolean  @default(false)
+  createdAt             DateTime @default(now())
+  isMock                Boolean  @default(false)
+  isDeleted             Boolean  @default(false)
+
+  paymentId Int?
+  payment   Payment? @relation(fields: [paymentId], references: [id])
+
+  studentId Int?
+  student   Student? @relation(fields: [studentId], references: [id])
+}
+
+model Event {
+  id          Int      @id @default(autoincrement())
+  title       String
+  startTime   DateTime
+  endTime     DateTime
+  description String?
+  createdAt   DateTime @default(now())
+  isMock      Boolean  @default(false)
+  isDeleted   Boolean  @default(false)
+
+  eventCategoryId Int?
+  eventCategory   EventCategory? @relation(fields: [eventCategoryId], references: [id])
+}
+
+model EventCategory {
+  id        Int      @id @default(autoincrement())
+  title     String
+  createdAt DateTime @default(now())
+  isMock    Boolean  @default(false)
+  isDeleted Boolean  @default(false)
+
+  colorId Int?
+  color   Color?  @relation(fields: [colorId], references: [id])
+  events  Event[]
+}
+
+model BotUser {
+  id        Int      @id @default(autoincrement())
+  role      String
+  userName  String
+  chatId    Int?
+  createdAt DateTime @default(now())
+  isMock    Boolean  @default(false)
+  isDeleted Boolean  @default(false)
+  isActive  Boolean  @default(true)
+
+  studentId Int?
+  student   Student? @relation(fields: [studentId], references: [id])
+}
+
+model Board {
+  id           Int           @id @default(autoincrement())
+  title        String
+  createdAt    DateTime      @default(now())
+  isMock       Boolean       @default(false)
+  isDeleted    Boolean       @default(false)
+  boardColumns BoardColumn[]
+}
+
+model BoardColumn {
+  id        Int      @id @default(autoincrement())
+  title     String
+  createdAt DateTime @default(now())
+  isMock    Boolean  @default(false)
+  isDeleted Boolean  @default(false)
+
+  boardId     Int?
+  board       Board?       @relation(fields: [boardId], references: [id])
+  columnTasks ColumnTask[]
+}
+
+model ColumnTask {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  createdAt   DateTime @default(now())
+  isMock      Boolean  @default(false)
+  isDeleted   Boolean  @default(false)
+
+  boardColumnId Int?
+  boardColumn   BoardColumn? @relation(fields: [boardColumnId], references: [id])
+
+  columnTaskStatusId Int?
+  columnTaskStatus   ColumnTaskStatus? @relation(fields: [columnTaskStatusId], references: [id])
+  color              Color?            @relation(fields: [colorId], references: [id])
+  colorId            Int?
+}
+
+model ColumnTaskStatus {
+  id          Int          @id @default(autoincrement())
+  title       String
+  createdAt   DateTime     @default(now())
+  isMock      Boolean      @default(false)
+  isDeleted   Boolean      @default(false)
+  columnTasks ColumnTask[]
+
+  colorId Int?
+  color   Color? @relation(fields: [colorId], references: [id])
+}

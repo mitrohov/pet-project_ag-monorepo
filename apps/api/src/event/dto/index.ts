@@ -1,0 +1,5 @@
+export * from './create-event-body.dto';
+export * from './update-event-body.dto';
+export * from './event.dto';
+export * from './get-event-response.dto';
+export * from './delete-event-response.dto';
