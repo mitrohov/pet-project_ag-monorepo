@@ -13,7 +13,8 @@
     "typecheck": "vue-tsc --build",
     "lint": "eslint . --fix",
     "format": "prettier --write src/",
-    "test": "vitest --workspace=vitest.workspace.ts"
+    "test": "vitest --workspace=vitest.workspace.ts",
+    "delete-deps": "rm -rf node_modules"
   },
   "dependencies": {
     "@primeuix/themes": "^1.1.1",
