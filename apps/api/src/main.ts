@@ -11,22 +11,20 @@ async function bootstrap() {
     logger: ['log', 'debug', 'error', 'warn', 'verbose'],
   });
 
-  // app.enableCors({
-  //   origin: (origin, callback) => {
-  //     const WHITE_LIST: string[] = process.env.WHITE_LIST
-  //       ? process.env.WHITE_LIST.split(',')
-  //       : [];
-  //
-  //     if (!origin || WHITE_LIST.indexOf(origin) !== -1) {
-  //       callback(null, true);
-  //     } else {
-  //       callback(new Error('Not allowed by CORS'));
-  //     }
-  //   },
-  //   credentials: true,
-  // });
+  app.enableCors({
+    origin: (origin, callback) => {
+      const WHITE_LIST: string[] = process.env.WHITE_LIST
+        ? process.env.WHITE_LIST.split(',')
+        : [];
 
-  app.enableCors();
+      if (!origin || WHITE_LIST.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true,
+  });
 
   const config = new DocumentBuilder()
     .addCookieAuth('access-token')
