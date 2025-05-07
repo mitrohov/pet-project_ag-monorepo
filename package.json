@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "pnpm -r i && cd apps/crm && pnpm run build"
+    "up": "pnpm -r i",
+    "dev-crm": "pnpm --filter @ag/crm run dev",
+    "build-crm": "pnpm -r i && pnpm --filter @ag/crm run build"
   },
   "keywords": [],
   "author": "",
