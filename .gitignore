@@ -1,5 +1,7 @@
 **/.env
 **/node_modules
 **/deps/html
-
 **/.idea
+**/.DS_Store
+**/.trae
+**/.playwright-report
