@@ -16,7 +16,7 @@
     "test": "vitest --workspace=vitest.workspace.ts"
   },
   "engines": {
-    "node": ">=22.8.0"
+    "node": "v18.20.5"
   },
   "dependencies": {
     "@primeuix/themes": "^1.0.3",
