@@ -7,24 +7,26 @@ import * as process from 'node:process';
 dotenv.config();
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule,  {
+  const app = await NestFactory.create(AppModule, {
     logger: ['log', 'debug', 'error', 'warn', 'verbose'],
   });
 
-  app.enableCors({
-    origin: (origin, callback) => {
-      const WHITE_LIST: string[] = process.env.WHITE_LIST
-        ? process.env.WHITE_LIST.split(',')
-        : [];
+  // app.enableCors({
+  //   origin: (origin, callback) => {
+  //     const WHITE_LIST: string[] = process.env.WHITE_LIST
+  //       ? process.env.WHITE_LIST.split(',')
+  //       : [];
+  //
+  //     if (!origin || WHITE_LIST.indexOf(origin) !== -1) {
+  //       callback(null, true);
+  //     } else {
+  //       callback(new Error('Not allowed by CORS'));
+  //     }
+  //   },
+  //   credentials: true,
+  // });
 
-      if (!origin || WHITE_LIST.indexOf(origin) !== -1) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    credentials: true,
-  });
+  app.enableCors();
 
   const config = new DocumentBuilder()
     .addCookieAuth('access-token')
