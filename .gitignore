@@ -6,3 +6,7 @@
 **/.trae
 **/.playwright-report
 **/dist
+**/.vitepress/dist
+**/.vitepress/.cache
+**/.vscode
+**/.vitepress/cache

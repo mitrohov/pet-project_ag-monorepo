@@ -6,7 +6,9 @@
   "scripts": {
     "up": "pnpm -r i",
     "dev-crm": "pnpm --filter @ag/crm run dev",
-    "build-crm": "pnpm --filter @ag/crm run build"
+    "build-crm": "pnpm --filter @ag/crm run build",
+    "dev-docs": "pnpm --filter @ag/docs run dev",
+    "build-docs": "pnpm --filter @ag/docs run build"
   },
   "keywords": [],
   "author": "",
