@@ -10,9 +10,10 @@
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",
-    "type-check": "vue-tsc --build",
+    "typecheck": "vue-tsc --build",
     "lint": "eslint . --fix",
     "format": "prettier --write src/",
+    "delete-build": "rm -rf dist",
     "delete-deps": "rm -rf node_modules"
   },
   "dependencies": {
@@ -20,18 +21,17 @@
     "vue-router": "catalog:"
   },
   "devDependencies": {
-    "@tsconfig/node22": "^22.0.0",
-    "@types/node": "^22.10.7",
-    "@vitejs/plugin-vue": "^5.2.1",
-    "@vue/tsconfig": "^0.7.0",
-    "autoprefixer": "^10.4.21",
-    "npm-run-all2": "^7.0.2",
+    "@tsconfig/node22": "catalog:",
+    "@types/node": "catalog:",
+    "@vitejs/plugin-vue": "catalog:",
+    "@vue/tsconfig": "catalog:",
+    "npm-run-all": "catalog:",
     "prettier": "catalog:",
-    "sass": "^1.83.4",
+    "sass": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
     "vue-tsc": "catalog:",
-    "@ag/eslint": "workspace:*",
-    "eslint": "catalog:"
+    "eslint": "catalog:",
+    "@ag/eslint": "workspace:*"
   }
 }

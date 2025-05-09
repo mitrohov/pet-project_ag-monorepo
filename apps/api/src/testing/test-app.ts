@@ -63,7 +63,11 @@ export class TestApp {
     }
   }
 
-  createRequest(method: 'post' | 'delete' | 'patch' | 'get', url: string) {
+  createRequest(
+    method: 'post' | 'delete' | 'patch' | 'get',
+    url: string,
+    status: 'bad' | 'notFound' | undefined = undefined,
+  ) {
     if (this.authCookies.length === 0) {
       throw new Error(
         'No auth cookies available. Did setup() complete successfully?',
@@ -72,12 +76,12 @@ export class TestApp {
 
     return request(this.app.getHttpServer())
       [method](url)
-      .set('Cookie', this.authCookies);
-    // .expect(
-    //   status
-    //     ? this.checkableStatuses[status]
-    //     : this.checkableStatuses[method],
-    // );
+      .set('Cookie', this.authCookies)
+      .expect(
+        status
+          ? this.checkableStatuses[status]
+          : this.checkableStatuses[method],
+      );
   }
 
   async removeAllMock(urls: string[]) {

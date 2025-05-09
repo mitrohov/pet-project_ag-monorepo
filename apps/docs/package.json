@@ -11,6 +11,7 @@
     "build": "vitepress build",
     "preview": "vitepress preview",
     "lint": "eslint . --fix",
+    "delete-build": "rm -rf dist",
     "delete-deps": "rm -rf node_modules"
   },
   "devDependencies": {
