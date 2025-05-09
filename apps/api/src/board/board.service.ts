@@ -130,7 +130,7 @@ export class BoardService {
       });
 
       return responses[0];
-    } catch (e) {
+    } catch {
       return { result: 'ERROR' };
     }
   }

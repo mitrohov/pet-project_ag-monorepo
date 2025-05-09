@@ -1,16 +1,21 @@
 {
   "name": "@ag/docs",
-  "version": "1.0.0",
-  "main": "index.js",
   "author": "mitrohov-dmitriy",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
   "license": "SEE LICENSE IN LICENSE.md",
+  "main": "index.js",
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview",
+    "lint": "eslint . --fix",
     "delete-deps": "rm -rf node_modules"
   },
   "devDependencies": {
-    "vitepress": "catalog:"
+    "vitepress": "catalog:",
+    "@ag/eslint": "workspace:*",
+    "eslint": "catalog:"
   }
 }

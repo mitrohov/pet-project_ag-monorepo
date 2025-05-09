@@ -136,7 +136,7 @@ export class PaymentService {
       });
 
       return response;
-    } catch (e) {
+    } catch {
       return { result: 'ERROR' };
     }
   }

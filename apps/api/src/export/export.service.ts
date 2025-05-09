@@ -14,9 +14,7 @@ import * as moment from 'moment-timezone';
 export class ExportService {
   private readonly logger = new Logger(ExportService.name);
 
-  constructor(
-    private readonly dbService: DbService,
-  ) {}
+  constructor(private readonly dbService: DbService) {}
 
   async getLessonByStartAndEndDate(query: ExportWordDocQueryDto) {
     const start = new Date(query.startTime);
@@ -113,7 +111,7 @@ export class ExportService {
     try {
       const scheduleTemplateFilePath = path.resolve(
         process.cwd(),
-        'dist/assets/schedule-template.docx'
+        'dist/assets/schedule-template.docx',
       );
 
       const content = await fs.readFile(scheduleTemplateFilePath, 'binary'); // Используем await для чтения файла
@@ -134,16 +132,15 @@ export class ExportService {
         compression: 'DEFLATE',
       });
 
-      const scheduleFilePath = path.resolve(path.resolve(
-        process.cwd(),
-        'dist/assets/schedule.docx'
-      ));
+      const scheduleFilePath = path.resolve(
+        path.resolve(process.cwd(), 'dist/assets/schedule.docx'),
+      );
 
       await fs.writeFile(scheduleFilePath, buf);
 
       return scheduleFilePath;
     } catch (e) {
-      this.logger.error(e)
+      this.logger.error(e);
       return null;
     }
   }
@@ -188,7 +185,7 @@ export class ExportService {
         await fs.writeFile(filePath, sqlStatements, 'utf8');
 
         return filePath;
-      } catch (error) {
+      } catch {
         return null;
       }
     }

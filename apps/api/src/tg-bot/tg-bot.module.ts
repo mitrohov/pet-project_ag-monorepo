@@ -12,8 +12,7 @@ import { TgBotNotificationsService } from './services/tg-bot-notifications.servi
 import { TgBotUsersService } from './services/tg-bot-users.service';
 import { TgBotLessonService } from './services/tg-bot-lesson.service';
 import { Bot, GrammyError, HttpError } from 'grammy';
-import { hydrate } from "@grammyjs/hydrate";
-import { URL } from 'url';
+import { hydrate } from '@grammyjs/hydrate';
 
 dotenv.config();
 
@@ -185,5 +184,3 @@ export class TgBotModule implements OnModuleInit {
     }
   }
 }
-
-const exampleUrl = new URL('https://example.com');

@@ -63,11 +63,7 @@ export class TestApp {
     }
   }
 
-  createRequest(
-    method: 'post' | 'delete' | 'patch' | 'get',
-    url: string,
-    status?: 'bad' | 'notFound',
-  ) {
+  createRequest(method: 'post' | 'delete' | 'patch' | 'get', url: string) {
     if (this.authCookies.length === 0) {
       throw new Error(
         'No auth cookies available. Did setup() complete successfully?',
@@ -89,7 +85,7 @@ export class TestApp {
       for (const url of urls) {
         await this.createRequest('delete', url);
       }
-    } catch (e) {
+    } catch {
       throw new Error('Failed to delete all mock records');
     }
   }

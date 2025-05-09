@@ -102,18 +102,19 @@ export class TgBotUsersService {
 
     if (Array.isArray(allBotUsers)) {
       allBotUsers
-        .filter(botUser => botUser.isActive)
+        .filter((botUser) => botUser.isActive)
         .forEach((user) => {
           if (user.studentId) {
             if (user.role === 'admin') {
               adminUsersNames.push(new BotUser(user.userName, user.studentId));
             }
-            authorizedUserNames.push(new BotUser(user.userName, user.studentId));
+            authorizedUserNames.push(
+              new BotUser(user.userName, user.studentId),
+            );
           }
         });
 
-      // @ts-ignore
-      this.allBotUsers = allBotUsers;
+      this.allBotUsers = allBotUsers as unknown as BotUserResponseDto[];
     }
 
     return { authorizedUserNames, adminUsersNames };

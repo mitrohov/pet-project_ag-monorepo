@@ -28,7 +28,7 @@ describe('Форма авторизации', () => {
 
   test('Форма имеет заголовок', async () => {
     const header = screen.getByTestId('auth-page-header')
-    expect(header).toBeVisible()
+    await expect(header).toBeVisible()
     expect(header).toHaveTextContent('Авторизация')
   })
 
@@ -70,14 +70,14 @@ describe('Форма авторизации', () => {
     const emailInput = screen.getByTestId('auth-page-email-input')
     const passwordInput = screen.getByTestId('auth-page-password-input')
 
-    expect(emailInput).toHaveValue(import.meta.env.VITE_BASE_LOGIN || '')
-    expect(passwordInput).toHaveValue(import.meta.env.VITE_BASE_PASSWORD || '')
+    await expect(emailInput).toHaveValue(import.meta.env.VITE_BASE_LOGIN || '')
+    await expect(passwordInput).toHaveValue(import.meta.env.VITE_BASE_PASSWORD || '')
   })
 
   test('Форма имеет кнопку входа', async () => {
     const enterButton = screen.getByTestId('auth-page-enter-btn')
 
-    expect(enterButton).toBeVisible()
+    await expect(enterButton).toBeVisible()
     expect(enterButton).toHaveTextContent('Войти')
   })
 

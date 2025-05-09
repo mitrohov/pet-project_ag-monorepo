@@ -134,7 +134,7 @@ export class StudentService {
       });
 
       return { result: 'OK' };
-    } catch (e) {
+    } catch {
       return { result: 'ERROR' };
     }
   }

@@ -1,23 +1,6 @@
-import {
-  Controller,
-  Body,
-  Patch,
-  Param,
-  UsePipes,
-  ValidationPipe,
-  ParseIntPipe,
-  UseGuards,
-  HttpStatus,
-} from '@nestjs/common';
+import { Controller } from '@nestjs/common';
 import { LessonService } from './lesson.service';
-import {
-  ApiOkResponse,
-  ApiResponse,
-  ApiTags,
-  ApiCookieAuth,
-} from '@nestjs/swagger';
-import { GetLessonResponseDto, UpdateLessonBodyDto } from './dto';
-import { AuthGuard } from '../auth/auth.guard';
+import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('lesson')
 @Controller('lesson')

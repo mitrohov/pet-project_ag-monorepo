@@ -3,18 +3,39 @@ packages:
   - "packages/*"
 
 catalog:
-  vitepress: "^1.6.3"
+  # Vue
   vue: "^3.5.13"
   pinia: "^3.0.2"
   vue-router: "^4.5.0"
-  zod: "^3.24.3"
-  typescript: "~5.7.3"
-  prettier: "^3.4.2"
-  vite: "^6.0.11"
   vue-tsc: "^2.2.0"
+
+  # Eslint
+  eslint: "^9.26.0"
   eslint-plugin-vue: "^9.32.0"
+  prettier: "^3.4.2"
+
+  # Vite
+  vitepress: "^1.6.3"
+  vite: "^6.0.11"
+
+  # TypeScript
+  typescript: "~5.7.3"
+  zod: "^3.24.3"
+
+  # Testing
   vitest: "^3.1.2"
   faker: "^6.6.6"
+
+  # Nest
+  "@nestjs/common": "^10.0.0"
+  "@nestjs/core": "^10.0.0"
+  "@nestjs/jwt": "^10.2.0"
+  "@nestjs/mapped-types": "*"
+  "@nestjs/platform-express": "^10.0.0"
+  "@nestjs/swagger": "^7.3.1"
+
+  # Prisma
+  "@prisma/client": "^6.3.1"
 
 
 

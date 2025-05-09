@@ -66,7 +66,7 @@ export class BoardColumnService {
       ]);
 
       return responses[0];
-    } catch (e) {
+    } catch {
       return { result: 'ERROR' };
     }
   }

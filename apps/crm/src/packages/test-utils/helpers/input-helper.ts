@@ -24,7 +24,7 @@ export async function inputHelper(params: CheckInputParams, timeOutForRender: nu
   const newInputValue = 'test@gmail.com'
 
   await input.fill(newInputValue)
-  expect(input).toHaveValue(newInputValue)
+  await expect(input).toHaveValue(newInputValue)
 
   if (params.label) {
     const label = params.screen.getByTestId(params.label.testId)
@@ -33,18 +33,18 @@ export async function inputHelper(params: CheckInputParams, timeOutForRender: nu
 
   if (params.requireIconTestId) {
     const requireIcon = params.screen.getByTestId(params.requireIconTestId)
-    expect(requireIcon).toBeVisible()
+    await expect(requireIcon).toBeVisible()
   }
 
   if (params.validation) {
     await input.fill(params.validation.value)
-    expect(input).toHaveValue(params.validation.value)
+    await expect(input).toHaveValue(params.validation.value)
 
     const emailErrorMessage = params.screen.getByTestId(params.validation.testId)
 
     await new Promise((resolve) => setTimeout(resolve, timeOutForRender))
 
-    expect(emailErrorMessage).toBeVisible()
+    await expect(emailErrorMessage).toBeVisible()
     expect(emailErrorMessage).toHaveTextContent(params.validation.message)
   }
 }
