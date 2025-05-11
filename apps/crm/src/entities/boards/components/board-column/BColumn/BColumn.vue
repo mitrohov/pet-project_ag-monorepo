@@ -28,7 +28,6 @@
       <Button
         v-if="!props.isStatusBoard"
         label="Новая задача"
-        severity="secondary"
         class="board-column_new-task-btn"
         @click="emit('openNewTaskForm')"
       />

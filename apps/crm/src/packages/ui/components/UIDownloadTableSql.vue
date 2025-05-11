@@ -19,16 +19,4 @@ const props = defineProps<{
 const apiService = useApi()
 const settingsStore = useSettingsStore()
 const isLoading = ref(false)
-
-async function downloadTableSql() {
-  isLoading.value = true
-
-  await apiService.download.downloadTableSql({
-    query: `?tableName=${props.tableName}`,
-    url: 'sql-table',
-    table: props.tableName
-  })
-
-  isLoading.value = false
-}
 </script>

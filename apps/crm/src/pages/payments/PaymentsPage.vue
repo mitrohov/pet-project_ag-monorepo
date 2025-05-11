@@ -1,17 +1,8 @@
 <template>
   <div class="payments-page">
-    <div class="d-flex justify-between align-center mb-20">
-      <div class="page-header">Оплаты</div>
+    <div class="page-header mb-20">Оплаты</div>
 
-      <UIAddBtnAndSqlBtn
-        tableName="payment"
-        doc-url="https://docs.anastasia-geiko.ru/docs/payment.html"
-      >
-        <template v-slot:addButton>
-          <Button label="Добавить" @click="paymentsStore.openNewPaymentForm" />
-        </template>
-      </UIAddBtnAndSqlBtn>
-    </div>
+    <Button label="Добавить" @click="paymentsStore.openNewPaymentForm" class="mb-20" />
 
     <PaymentsTableDesktop
       v-if="isDesktop"
@@ -49,7 +40,7 @@ import { useStudentsStore } from '@/entities/students'
 import PaymentsTableDesktop from '@/entities/payments/components/PaymentsTableDesktop.vue'
 import PaymentsTableMobile from '@/entities/payments/components/PaymentsTableMobile.vue'
 import { Button } from '@/packages/prime'
-import { UIAddBtnAndSqlBtn, UIDeleteWarningModal, type TableContextItem } from '@/packages/ui'
+import { UIDeleteWarningModal, type TableContextItem } from '@/packages/ui'
 
 const { isDesktop } = useAgent()
 const studentsStore = useStudentsStore()

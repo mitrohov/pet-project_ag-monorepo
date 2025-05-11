@@ -1,17 +1,8 @@
 <template>
   <div class="bot-users-page">
-    <div class="d-flex justify-between align-center mb-20">
-      <div class="page-header">Пользователи бота</div>
+    <div class="page-header mb-20">Пользователи бота</div>
 
-      <UIAddBtnAndSqlBtn
-        tableName="botUser"
-        doc-url="https://docs.anastasia-geiko.ru/docs/bot-user.html"
-      >
-        <template v-slot:addButton>
-          <Button label="Добавить" @click="botUsersStore.openBotUserForm" />
-        </template>
-      </UIAddBtnAndSqlBtn>
-    </div>
+    <Button label="Добавить" @click="botUsersStore.openBotUserForm" class="mb-20" />
 
     <BotUsersTableDesktop
       v-if="isDesktop"
@@ -44,7 +35,7 @@ import { useBotUsersStore } from '@/entities/bot-users/stores/use-bot-users-stor
 import BotUsersTableDesktop from '@/entities/bot-users/components/BotUsersTableDesktop.vue'
 import BotUsersTableMobile from '@/entities/bot-users/components/BotUsersTableMobile.vue'
 import { Button } from '@/packages/prime'
-import { UIDeleteWarningModal, UIAddBtnAndSqlBtn, type TableContextItem } from '@/packages/ui'
+import { UIDeleteWarningModal, type TableContextItem } from '@/packages/ui'
 
 const { isDesktop } = useAgent()
 const router = useRouter()

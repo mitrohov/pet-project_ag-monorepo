@@ -9,7 +9,7 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class ColumnTaskStatusDto {
   @IsString()
-  @MaxLength(100)
+  @MaxLength(200)
   @ApiProperty({ example: 'В работе' })
   title: string;
 

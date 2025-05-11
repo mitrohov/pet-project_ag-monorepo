@@ -10,7 +10,7 @@ import {
 
 export class BoardDto {
   @IsString()
-  @MaxLength(100)
+  @MaxLength(200)
   @ApiProperty({ example: 'Планы по видео' })
   title: string;
   columnTasks?: ColumnTaskResponseDto[];

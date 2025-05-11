@@ -1,17 +1,8 @@
 <template>
   <div class="events-page">
-    <div class="d-flex justify-between align-center mb-20">
-      <div class="page-header">События</div>
+    <div class="page-header mb-20">События</div>
 
-      <UIAddBtnAndSqlBtn
-        tableName="event"
-        doc-url="https://docs.anastasia-geiko.ru/docs/event.html"
-      >
-        <template v-slot:addButton>
-          <Button label="Добавить" @click="eventsStore.openNewEventForm" />
-        </template>
-      </UIAddBtnAndSqlBtn>
-    </div>
+    <Button label="Добавить" @click="eventsStore.openNewEventForm" class="mb-20" />
 
     <EventsTableDesktop
       v-if="isDesktop"
@@ -63,7 +54,7 @@ import { useStudentsStore } from '@/entities/students'
 import EventsTableDesktop from '@/entities/events/components/EventsTableDesktop.vue'
 import EventsTableDesktopMobile from '@/entities/events/components/EventsTableMobile.vue'
 import { Dialog, Button } from '@/packages/prime'
-import { UIAddBtnAndSqlBtn, UIDeleteWarningModal, type TableContextItem } from '@/packages/ui'
+import { UIDeleteWarningModal, type TableContextItem } from '@/packages/ui'
 import type { GetEvent } from '@/packages/api/types/event.ts'
 
 const router = useRouter()

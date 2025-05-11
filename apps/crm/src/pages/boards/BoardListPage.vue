@@ -1,18 +1,9 @@
 <template>
+  <div class="page-header mb-20">Доски</div>
+
+  <Button label="Добавить доску" @click="openBoardForm(null)" class="mb-20" />
+
   <div class="boards">
-    <div class="page-header mb-20">Доски</div>
-
-    <div class="boards_buttons">
-      <Button label="Добавить доску" @click="openBoardForm(null)" class="boards_new-board-button" />
-
-      <div class="boards_load-sql-buttons">
-        <Button icon="pi pi-file" outlined class="mr-20" @click="openDocUrl" />
-        <UIDownloadTableSql tableName="board" :label="'Доски'" class="mr-20" />
-        <UIDownloadTableSql tableName="boardColumn" :label="'Колонки'" class="mr-20" />
-        <UIDownloadTableSql tableName="columnTask" :label="'Задачи'" />
-      </div>
-    </div>
-
     <div v-if="boards.length" class="boards_container">
       <BCard v-if="isHasTasks" :board="statusBoard" :isStatusBoard="true" @getBoards="getBoards" />
 
@@ -34,7 +25,6 @@ import BCard from '@/entities/boards/components/board-card/BCard.vue'
 import BForm from '@/entities/boards/components/BFormModal.vue'
 import BDelete from '@/entities/boards/components/BDelete.vue'
 import { Button } from '@/packages/prime'
-import { UIDownloadTableSql } from '@/packages/ui'
 
 const {
   boards,
@@ -45,10 +35,6 @@ const {
   openBoardForm,
   getBoards
 } = useBoard()
-
-function openDocUrl() {
-  window.open('https://docs.anastasia-geiko.ru/docs/board.html', '_blank')
-}
 
 onMounted(() => {
   getBoards()
@@ -62,17 +48,8 @@ onMounted(() => {
   grid-column-gap: 20px;
 }
 
-.boards_buttons {
-  display: flex;
-  justify-content: space-between;
-}
-
 .boards_load-sql-buttons {
   display: flex;
-  margin-bottom: 20px;
-}
-
-.boards_new-board-button {
   margin-bottom: 20px;
 }
 

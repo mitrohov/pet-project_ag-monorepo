@@ -27,7 +27,6 @@
     "@vue/tsconfig": "catalog:",
     "npm-run-all": "catalog:",
     "prettier": "catalog:",
-    "sass": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
     "vue-tsc": "catalog:",

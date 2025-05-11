@@ -1,17 +1,8 @@
 <template>
   <div class="contact-page">
-    <div class="d-flex justify-between align-center mb-20">
-      <div class="page-header">Контакты</div>
+    <div class="page-header mb-20">Контакты</div>
 
-      <UIAddBtnAndSqlBtn
-        tableName="contact"
-        doc-url="https://docs.anastasia-geiko.ru/docs/contact.html"
-      >
-        <template v-slot:addButton>
-          <Button label="Добавить" @click="contactsStore.openContactForm" />
-        </template>
-      </UIAddBtnAndSqlBtn>
-    </div>
+    <Button label="Добавить" @click="contactsStore.openContactForm" class="mb-20" />
 
     <ContactsTableDesktop
       v-if="isDesktop"
@@ -47,7 +38,7 @@ import { useOrderPlatformsStore } from '@/entities/order-platforms'
 import ContactsTableDesktop from '@/entities/contacts/components/ContactsTableDesktop.vue'
 import ContactsTableMobile from '@/entities/contacts/components/ContactsTableMobile.vue'
 import { Button } from '@/packages/prime'
-import { UIAddBtnAndSqlBtn, UIDeleteWarningModal, type TableContextItem } from '@/packages/ui'
+import { UIDeleteWarningModal, type TableContextItem } from '@/packages/ui'
 import type { GetContact } from '@/packages/api/types'
 
 const { isDesktop } = useAgent()

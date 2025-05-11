@@ -1,17 +1,8 @@
 <template>
   <div class="student-page">
-    <div class="d-flex justify-between align-center mb-20">
-      <div class="page-header">Ученики</div>
+    <div class="page-header mb-20">Ученики</div>
 
-      <UIAddBtnAndSqlBtn
-        tableName="student"
-        doc-url="https://docs.anastasia-geiko.ru/docs/student.html"
-      >
-        <template v-slot:addButton>
-          <Button label="Добавить" @click="studentsStore.openNewStudentForm" />
-        </template>
-      </UIAddBtnAndSqlBtn>
-    </div>
+    <Button label="Добавить" @click="studentsStore.openNewStudentForm" class="mb-20" />
 
     <template v-if="studentsAggregate.length">
       <StudentsTableDesktop
@@ -64,7 +55,7 @@ import StudentsTableDesktop from '@/entities/students/components/StudentsTableDe
 import StudentDescriptionModal from '@/entities/students/components/StudentDescriptionModal.vue'
 import StudentsTableMobile from '@/entities/students/components/StudentsTableMobile.vue'
 import { Button } from '@/packages/prime'
-import { UIAddBtnAndSqlBtn, UIDeleteWarningModal, type TableContextItem } from '@/packages/ui'
+import { UIDeleteWarningModal, type TableContextItem } from '@/packages/ui'
 import type { GetStudent } from '@/packages/api/types'
 
 const { isDesktop } = useAgent()

@@ -1,17 +1,8 @@
 <template>
   <div class="purpose-lesson-page">
-    <div class="d-flex justify-between align-center mb-20">
-      <div class="page-header">Цели занятий</div>
+    <div class="page-header mb-20">Цели занятий</div>
 
-      <UIAddBtnAndSqlBtn
-        tableName="purposeLesson"
-        doc-url="https://docs.anastasia-geiko.ru/docs/purposes-lesson.html"
-      >
-        <template v-slot:addButton>
-          <Button label="Добавить" @click="purposeLessonsStore.openPurposeLessonForm" />
-        </template>
-      </UIAddBtnAndSqlBtn>
-    </div>
+    <Button label="Добавить" @click="purposeLessonsStore.openPurposeLessonForm" class="mb-20" />
 
     <PurposeLessonsTableDesktop
       :purpose-lessons="purposeLessonsStore.purposeLessons"
@@ -25,7 +16,7 @@
 import { useRouter } from 'vue-router'
 import { usePurposeLessonsStore } from '@/entities/purpose-lessons/stores/use-purpose-lessons-store.ts'
 import { Button } from '@/packages/prime'
-import { UIAddBtnAndSqlBtn, type TableContextItem } from '@/packages/ui'
+import { type TableContextItem } from '@/packages/ui'
 import PurposeLessonsTableDesktop from '@/entities/purpose-lessons/components/PurposeLessonsTableDesktop.vue'
 
 const router = useRouter()

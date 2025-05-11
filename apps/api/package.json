@@ -31,14 +31,12 @@
     "class-transformer": "catalog:",
     "class-validator": "catalog:",
     "cookie-parser": "catalog:",
-    "docx": "catalog:",
     "docxtemplater": "catalog:",
     "dotenv": "catalog:",
     "grammy": "catalog:",
     "moment": "catalog:",
     "moment-timezone": "catalog:",
-    "pizzip": "catalog:",
-    "sql-formatter": "catalog:"
+    "pizzip": "catalog:"
   },
   "devDependencies": {
     "@faker-js/faker": "catalog:",

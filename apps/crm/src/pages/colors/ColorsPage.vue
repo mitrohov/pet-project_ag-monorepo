@@ -1,13 +1,6 @@
 <template>
   <div class="color-page">
-    <div class="d-flex justify-between align-center mb-20">
-      <div class="page-header">Цвета</div>
-
-      <UIAddBtnAndSqlBtn
-        tableName="color"
-        doc-url="https://docs.anastasia-geiko.ru/docs/color.html"
-      />
-    </div>
+    <div class="page-header mb-20">Цвета</div>
 
     <DataTable :value="colorsStore.colors" :rows="colorsStore.rows" paginator>
       <Column header="Цвет">
@@ -51,7 +44,7 @@
 <script lang="ts" setup>
 import { useColorsStore } from '@/entities/colors/stores/use-colors-store.ts'
 import { Column, DataTable, Button } from '@/packages/prime'
-import { UINotDataMessage, UIAddBtnAndSqlBtn } from '@/packages/ui'
+import { UINotDataMessage } from '@/packages/ui'
 
 const colorsStore = useColorsStore()
 </script>

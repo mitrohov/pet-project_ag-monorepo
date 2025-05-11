@@ -1,17 +1,8 @@
 <template>
   <div class="lessons-page">
-    <div class="d-flex justify-between align-center mb-20">
-      <div class="page-header">Уроки</div>
+    <div class="page-header mb-20">Уроки</div>
 
-      <UIAddBtnAndSqlBtn
-        tableName="lesson"
-        doc-url="https://docs.anastasia-geiko.ru/docs/lesson.html"
-      >
-        <template v-slot:addButton>
-          <Button label="Добавить" @click="lessonsStore.openNewLessonForm" />
-        </template>
-      </UIAddBtnAndSqlBtn>
-    </div>
+    <Button label="Добавить" @click="lessonsStore.openNewLessonForm" class="mb-20" />
 
     <template v-if="!lessonsStore.isLoading">
       <div class="mb-20">
@@ -76,7 +67,6 @@ import { Dialog, Button } from '@/packages/prime'
 import LessonsTableDesktop from '@/entities/lessons/components/LessonsTableDesktop.vue'
 import LessonsTableMobile from '@/entities/lessons/components/LessonsTableMobile.vue'
 import {
-  UIAddBtnAndSqlBtn,
   UIProgressSpinner,
   UIInputSwitch,
   UIDeleteWarningModal,

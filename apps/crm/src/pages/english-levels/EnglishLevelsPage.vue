@@ -1,17 +1,8 @@
 <template>
   <div class="event-category-page">
-    <div class="d-flex justify-between align-center mb-20">
-      <div class="page-header">Уровни языка</div>
+    <div class="page-header mb-20">Уровни языка</div>
 
-      <UIAddBtnAndSqlBtn
-        tableName="englishLevel"
-        doc-url="https://docs.anastasia-geiko.ru/docs/english-level.html"
-      >
-        <template v-slot:addButton>
-          <Button label="Добавить" @click="englishLevelsStore.openEnglishLevelForm" />
-        </template>
-      </UIAddBtnAndSqlBtn>
-    </div>
+    <Button label="Добавить" @click="englishLevelsStore.openEnglishLevelForm" class="mb-20" />
 
     <EnglishLevelsTableDesktop
       :english-levels="englishLevelsStore.englishLevels"
@@ -25,7 +16,7 @@
 import { useRouter } from 'vue-router'
 import { useEnglishLevelsStore } from '@/entities/english-levels/stores/use-english-level-store.ts'
 import EnglishLevelsTableDesktop from '@/entities/english-levels/components/EnglishLevelsTableDesktop.vue'
-import { UIAddBtnAndSqlBtn, type TableContextItem } from '@/packages/ui'
+import { type TableContextItem } from '@/packages/ui'
 import { Button } from '@/packages/prime'
 
 const router = useRouter()

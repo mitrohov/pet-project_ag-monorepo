@@ -1,17 +1,8 @@
 <template>
   <div class="order-platforms-page">
-    <div class="d-flex justify-between align-center mb-20">
-      <div class="page-header">Платформы</div>
+    <div class="page-header mb-20">Платформы</div>
 
-      <UIAddBtnAndSqlBtn
-        tableName="orderPlatform"
-        doc-url="https://docs.anastasia-geiko.ru/docs/order-platform.html"
-      >
-        <template v-slot:addButton>
-          <Button label="Добавить" @click="orderPlatformsStore.openOrderPlatformsForm" />
-        </template>
-      </UIAddBtnAndSqlBtn>
-    </div>
+    <Button label="Добавить" @click="orderPlatformsStore.openOrderPlatformsForm" class="mb-20" />
 
     <OrderPlatformsTableDesktop
       :order-platforms="orderPlatformsStore.orderPlatforms"
@@ -25,7 +16,7 @@
 import { useOrderPlatformsStore } from '@/entities/order-platforms/stores/use-order-platforms-store.ts'
 import { useRouter } from 'vue-router'
 import { Button } from '@/packages/prime'
-import { UIAddBtnAndSqlBtn, type TableContextItem } from '@/packages/ui'
+import { type TableContextItem } from '@/packages/ui'
 import OrderPlatformsTableDesktop from '@/entities/order-platforms/components/OrderPlatformsTableDesktop.vue'
 
 const router = useRouter()

@@ -16,28 +16,6 @@ import { createReadStream } from 'fs';
 export class ExportController {
   constructor(private readonly exportService: ExportService) {}
 
-  @Get('sql-table')
-  @ApiQuery({
-    name: 'tableName',
-    required: false,
-    type: String,
-    example: 'student',
-  })
-  @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
-  async exportTableSql(@Query() query) {
-    const isCreatedFile = await this.exportService.exportTableSql(query);
-
-    if (isCreatedFile) {
-      const file = createReadStream(join(isCreatedFile));
-      return new StreamableFile(file);
-    } else {
-      throw new BadRequestException('Something bad happened', {
-        cause: new Error(),
-        description: 'Some error description',
-      });
-    }
-  }
-
   @Get('event-on-week')
   @ApiQuery({
     name: 'endTime',

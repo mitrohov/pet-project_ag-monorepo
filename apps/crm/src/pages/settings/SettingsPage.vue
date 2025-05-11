@@ -2,10 +2,6 @@
   <div class="form">
     <div class="d-flex justify-between">
       <div class="page-header d-flex align-center">Настройки</div>
-      <UIAddBtnAndSqlBtn
-        tableName="settings"
-        doc-url="https://docs.anastasia-geiko.ru/docs/settings.html"
-      />
     </div>
 
     <UIMultiSelect
@@ -40,7 +36,7 @@
 import { useSettingsStore } from '@/entities/settings/stores/use-settings-store.ts'
 import { useEventCategoriesStore } from '@/entities/event-categories'
 import { Button } from '@/packages/prime'
-import { UINotDataMessage, UIAddBtnAndSqlBtn, UIMultiSelect, UIInputSwitch } from '@/packages/ui'
+import { UINotDataMessage, UIMultiSelect, UIInputSwitch } from '@/packages/ui'
 
 const eventCategoriesStore = useEventCategoriesStore()
 const settingsStore = useSettingsStore()
