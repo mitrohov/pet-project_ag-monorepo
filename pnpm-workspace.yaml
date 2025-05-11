@@ -77,7 +77,6 @@ catalog:
   "@types/cookie-parser": "^1.4.8"
   "dotenv": "^16.5.0"
   "pizzip": "^3.1.8"
-  "tsconfig-paths": "^4.2.0"
 
   # Prisma
   "prisma": "^6.7.0"

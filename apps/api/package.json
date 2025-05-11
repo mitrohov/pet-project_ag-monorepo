@@ -55,7 +55,6 @@
     "ts-jest": "catalog:",
     "ts-loader": "catalog:",
     "ts-node": "catalog:",
-    "tsconfig-paths": "catalog:",
     "typescript": "catalog:",
     "@ag/eslint": "workspace:*",
     "eslint": "catalog:"
