@@ -14,12 +14,6 @@
       class="mb-20"
     />
 
-    <UIInputSwitch
-      v-model="settingsStore.isShowDownloadTableSqlButtons"
-      true-label="Скрыть отображение кнопок загрузки SQL"
-      false-label="Отобразить кнопки загрузки SQL"
-    />
-
     <UINotDataMessage
       v-if="!eventCategoriesStore.isLoading && eventCategoriesStore.eventCategories.length === 0"
       :title="'Необходимо добавить хотя бы одну категорию событий'"
@@ -36,7 +30,7 @@
 import { useSettingsStore } from '@/entities/settings/stores/use-settings-store.ts'
 import { useEventCategoriesStore } from '@/entities/event-categories'
 import { Button } from '@/packages/prime'
-import { UINotDataMessage, UIMultiSelect, UIInputSwitch } from '@/packages/ui'
+import { UINotDataMessage, UIMultiSelect } from '@/packages/ui'
 
 const eventCategoriesStore = useEventCategoriesStore()
 const settingsStore = useSettingsStore()

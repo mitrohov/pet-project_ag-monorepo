@@ -12,7 +12,6 @@ export const useSettingsStore = defineStore('settingsStore', () => {
   const defaultEventCategoriesId = ref<number | null>(null)
   const isLoading = ref(true)
   const settingsItems = ref<GetSettingsItem[]>([])
-  const isShowDownloadTableSqlButtons = ref(false)
 
   function setValues(settings: GetSettingsItem[]) {
     const defaultEventCategoriesIdsSet = settings.find(
@@ -75,7 +74,6 @@ export const useSettingsStore = defineStore('settingsStore', () => {
     selectedEventCategoryIds,
     isLoading,
     settingsItems,
-    isShowDownloadTableSqlButtons,
     getSettings,
     onSubmit
   }
