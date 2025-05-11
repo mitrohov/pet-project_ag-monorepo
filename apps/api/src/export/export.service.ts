@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { DbService } from '../db/db.service';
-import { ExportQueryDto, ExportWordDocQueryDto } from './export.dto';
+import { ExportWordDocQueryDto } from './export.dto';
 import { promises as fs } from 'fs';
 import * as path from 'path';
 import Docxtemplater from 'docxtemplater';

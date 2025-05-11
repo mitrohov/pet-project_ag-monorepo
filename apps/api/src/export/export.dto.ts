@@ -1,12 +1,6 @@
 import { IsString, IsOptional } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
-export class ExportQueryDto {
-  @IsString()
-  @IsOptional()
-  tableName: string;
-}
-
 export class ExportWordDocQueryDto {
   @IsString()
   @IsOptional()
