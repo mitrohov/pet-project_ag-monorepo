@@ -16,7 +16,7 @@
             href="https://docs.anastasia-geiko.ru/docs/version.html"
             target="_blank"
           >
-            version 2.1
+            version 2.2
           </a>
         </div>
 
