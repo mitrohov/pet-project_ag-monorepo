@@ -1,3 +1,4 @@
+import { describe, beforeAll, afterAll, it } from 'vitest';
 import { TestApp } from '../testing/test-app';
 import { OrderPlatformModule } from './order-platform.module';
 import { BaseTest } from '../testing/base-test';

@@ -12,7 +12,7 @@
     "start:debug": "nest start --debug --watch",
     "start:prod": "pnpm generate-client && node dist/main",
     "lint": "eslint . --fix",
-    "test": "jest --config ./jest-e2e.json --runInBand",
+    "test": "vitest",
     "migrate": "npx prisma migrate dev --name init",
     "studio": "npx prisma studio",
     "generate-client": "npx prisma generate",
@@ -39,24 +39,26 @@
     "pizzip": "catalog:"
   },
   "devDependencies": {
+    "@ag/eslint": "workspace:*",
     "@faker-js/faker": "catalog:",
     "@nestjs/cli": "catalog:",
     "@nestjs/schematics": "catalog:",
     "@nestjs/testing": "catalog:",
+    "@swc/core": "catalog:",
     "@types/cookie-parser": "catalog:",
     "@types/express": "catalog:",
-    "@types/jest": "catalog:",
     "@types/node": "catalog:",
     "@types/supertest": "catalog:",
-    "jest": "catalog:",
+    "@vitest/coverage-v8": "catalog:",
+    "eslint": "catalog:",
+    "express": "catalog:",
     "prettier": "catalog:",
     "prisma": "catalog:",
     "supertest": "catalog:",
-    "ts-jest": "catalog:",
     "ts-loader": "catalog:",
     "ts-node": "catalog:",
     "typescript": "catalog:",
-    "@ag/eslint": "workspace:*",
-    "eslint": "catalog:"
+    "unplugin-swc": "catalog:",
+    "vitest": "catalog:"
   }
 }

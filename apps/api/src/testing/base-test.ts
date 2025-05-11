@@ -1,4 +1,5 @@
 import { TestApp } from './test-app';
+import { expect } from 'vitest';
 
 interface TestData {
   post: {

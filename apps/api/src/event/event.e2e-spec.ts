@@ -1,3 +1,4 @@
+import { describe, beforeAll, afterAll, it, expect } from 'vitest';
 import { TestApp } from '../testing/test-app';
 import { EventModule } from './event.module';
 import { BaseTest } from '../testing/base-test';
@@ -21,9 +22,9 @@ describe('EventModule (e2e)', () => {
     await test.app.setup([EventModule]);
   });
 
-  // afterAll(async () => {
-  //   await test.app.removeAllMock([`${url}remove-all-mock`]);
-  // });
+  afterAll(async () => {
+    await test.app.removeAllMock([`${url}remove-all-mock`]);
+  });
 
   it(`${url} (POST)`, async () => {
     await test.post();

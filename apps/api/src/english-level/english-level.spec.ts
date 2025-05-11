@@ -1,3 +1,4 @@
+import { describe, beforeAll, afterAll, it, expect } from 'vitest';
 import { TestApp } from '../testing/test-app';
 import { EnglishLevelModule } from './english-level.module';
 import { BaseTest } from '../testing/base-test';
@@ -32,6 +33,8 @@ describe('EnglishLevelModule (e2e)', () => {
 
   it(`${url} (POST)`, async () => {
     await test.post();
+
+    await expect(1).toBe;
   });
 
   it(`${url} (GET)`, async () => {

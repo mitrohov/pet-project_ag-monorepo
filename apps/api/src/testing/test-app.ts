@@ -6,8 +6,8 @@ import {
   INestApplication,
   Type,
 } from '@nestjs/common';
-import * as cookieParser from 'cookie-parser';
-import * as request from 'supertest';
+import cookieParser from 'cookie-parser';
+import request from 'supertest';
 
 export class TestApp {
   app: INestApplication;
@@ -39,6 +39,8 @@ export class TestApp {
           .send({ email: 'test@gmail.com', password: '1234' });
 
         const setCookieHeader = response.headers['set-cookie'];
+        console.log('response', response.body);
+        console.log('response.headers', response.headers);
 
         this.authCookies = Array.isArray(setCookieHeader)
           ? setCookieHeader

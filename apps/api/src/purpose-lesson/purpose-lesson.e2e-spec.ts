@@ -1,3 +1,4 @@
+import { describe, beforeAll, afterAll, it } from 'vitest';
 import { TestApp } from '../testing/test-app';
 import { PurposeLessonModule } from './purpose-lesson.module';
 import { BaseTest } from '../testing/base-test';

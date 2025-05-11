@@ -1,3 +1,4 @@
+import { describe, beforeAll, afterAll, it } from 'vitest';
 import { TestApp } from '../testing/test-app';
 import { ColumnTaskStatusModule } from './column-task-status.module';
 import { BaseTest } from '../testing/base-test';
