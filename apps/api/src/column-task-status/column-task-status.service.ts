@@ -31,11 +31,10 @@ export class ColumnTaskStatusService {
             boardColumn: { where: { isDeleted: false } },
             columnTaskStatusId: true,
           },
+          orderBy: { id: 'asc' },
         },
       },
-      orderBy: {
-        id: 'desc',
-      },
+      orderBy: { id: 'asc' },
     });
   }
 

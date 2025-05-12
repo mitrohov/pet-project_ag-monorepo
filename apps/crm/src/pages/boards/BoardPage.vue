@@ -1,8 +1,10 @@
 <template>
   <div class="boards-page">
-    <Button label="К доскам" severity="secondary" @click="routeToBoardList" />
+    <div>
+      <Button label="К доскам" severity="secondary" @click="routeToBoardList" />
+    </div>
 
-    <div class="h-100 mt-20">
+    <div style="height: 100%">
       <template v-if="board">
         <BContainer
           v-if="board.boardColumns"
@@ -73,3 +75,11 @@ onMounted(() => {
   initBoardPage()
 })
 </script>
+
+<style scoped>
+.boards-page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+</style>

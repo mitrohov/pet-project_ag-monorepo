@@ -2,12 +2,12 @@
   <div class="boards-task" @dragstart="drag(task.id)">
     <div
       :id="`task-${props.task.id}`"
-      class="card boards-task_task pointer mt-20"
+      class="card boards-task_task pointer mb-20"
       draggable="true"
       :style="taskStyle"
       @click="showTask(props.task)"
     >
-      <div class="d-flex justify-between">
+      <div class="d-flex justify-between mb-10">
         <div class="boards-task_task-title">
           {{ task.title }}
         </div>
@@ -65,5 +65,30 @@ function drag(taskId: number) {
 </script>
 
 <style scoped>
-@import 'BTask.css';
+.boards-task {
+  .boards-task_controls {
+    display: flex;
+  }
+
+  .boards-task_task {
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .boards-task_task-title {
+    font-weight: 600;
+    width: 100%;
+    margin-right: 10px;
+  }
+
+  .boards-task_task-description {
+    height: 50px;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
 </style>

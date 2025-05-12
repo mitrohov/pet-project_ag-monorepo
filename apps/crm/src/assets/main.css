@@ -5,8 +5,23 @@
   --surface-100: #f3f4f6;
 }
 
-body {
+html,
+body, #app {
+  height: 100%;
   margin: 0;
+}
+
+a,
+a:link,
+a:visited,
+a:focus,
+a:hover,
+a:active {
+  color: #686868;
+  text-decoration: none;
+}
+
+body {
   font-family: "Montserrat", "sans-serif";
   font-optical-sizing: auto;
   font-style: normal;

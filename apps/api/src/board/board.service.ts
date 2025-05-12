@@ -30,11 +30,13 @@ export class BoardService {
                 columnTaskStatusId: true,
                 boardColumnId: true,
               },
+              orderBy: { id: 'asc' },
             },
           },
+          orderBy: { id: 'asc' },
         },
       },
-      orderBy: { id: 'desc' },
+      orderBy: { id: 'asc' },
     });
   }
 
@@ -69,8 +71,10 @@ export class BoardService {
                   },
                 },
               },
+              orderBy: { id: 'asc' },
             },
           },
+          orderBy: { id: 'asc' },
         },
       },
     });

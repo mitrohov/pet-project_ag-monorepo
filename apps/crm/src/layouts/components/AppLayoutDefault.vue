@@ -8,8 +8,8 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAgent } from '@/packages/agent'
 import { useCookie } from '@/packages/cookie'
-import DesktopLayoutDefault from './DesktopLayoutDefault/DesktopLayoutDefault.vue'
-import MobileLayoutDefault from './MobileLayoutDefault/MobileLayoutDefault.vue'
+import DesktopLayoutDefault from './DesktopLayoutDefault.vue'
+import MobileLayoutDefault from './MobileLayoutDefault.vue'
 import type { NavItem } from '@/packages/ui'
 
 const router = useRouter()

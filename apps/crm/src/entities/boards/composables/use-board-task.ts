@@ -26,6 +26,7 @@ export function useBoardTask() {
       const response = await apiService.columnTask.getOneById({
         id: selectedTaskId.value
       })
+
       if (response) task.value = response
     }
   }

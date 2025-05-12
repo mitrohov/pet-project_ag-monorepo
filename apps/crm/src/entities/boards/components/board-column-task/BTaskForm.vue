@@ -97,7 +97,11 @@ async function initForm() {
 
     if (task.value) {
       title.value = task.value.title
-      description.value = task.value.description
+
+      if (task.value.description) {
+        description.value = task.value.description
+      }
+
       columnTaskStatusId.value = task.value.columnTaskStatusId
       boardColumnId.value = task.value.boardColumnId
     }

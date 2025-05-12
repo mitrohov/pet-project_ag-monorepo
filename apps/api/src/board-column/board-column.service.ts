@@ -16,7 +16,7 @@ export class BoardColumnService {
   findAll() {
     return this.dbService.boardColumn.findMany({
       where: { isDeleted: false },
-      orderBy: { id: 'desc' },
+      orderBy: { id: 'asc' },
     });
   }
 

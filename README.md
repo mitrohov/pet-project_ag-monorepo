@@ -46,6 +46,12 @@ pnpm dev-api
 pnpm build-api
 ```
 
+### Запуск Prisma Studio
+
+```bash
+pnpm studio
+```
+
 ### Запуск api сервера на сервере (build-сборка)
 
 ```bash

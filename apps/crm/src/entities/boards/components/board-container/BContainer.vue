@@ -1,6 +1,8 @@
 <template>
   <div class="board-container">
-    <slot name="boardActions" />
+    <div>
+      <slot name="boardActions" />
+    </div>
 
     <div class="board-container_columns">
       <BColumn
@@ -15,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import BColumn from '../board-column/BColumn/BColumn.vue'
+import BColumn from '../board-column/BColumn.vue'
 import type { GetBoardColumn } from '@/packages/api/types'
 
 const props = defineProps<{
@@ -30,18 +32,18 @@ const emit = defineEmits<{
 
 <style scoped>
 .board-container {
-  height: 100%;
   width: 100%;
+  height: 100%;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
 }
-
 .board-container_columns {
-  margin-top: 20px;
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 320px;
-  grid-template-rows: auto;
+  padding-top: 20px;
+  display: flex;
+  gap: 50px;
+  max-width: calc(100vw - 40px);
   overflow-x: auto;
-  grid-column-gap: 50px;
+  height: 100%;
 }
 </style>

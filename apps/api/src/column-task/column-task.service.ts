@@ -16,7 +16,7 @@ export class ColumnTaskService {
   findAll() {
     return this.dbService.columnTask.findMany({
       where: { isDeleted: false },
-      orderBy: { id: 'desc' },
+      orderBy: { id: 'asc' },
     });
   }
 
