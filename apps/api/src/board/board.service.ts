@@ -52,6 +52,7 @@ export class BoardService {
           select: {
             id: true,
             title: true,
+            sortIndex: true,
             columnTasks: {
               where: { isDeleted: false },
               select: {

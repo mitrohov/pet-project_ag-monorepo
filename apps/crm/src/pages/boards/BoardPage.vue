@@ -40,8 +40,6 @@
           @delete="deleteTask()"
         />
       </template>
-
-      <div v-else>Не удалось загрузить задачу</div>
     </div>
   </div>
 </template>

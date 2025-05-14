@@ -14,6 +14,8 @@
     "build-api": "pnpm --filter @ag/api build",
     "start-api": "pnpm --filter @ag/api start:prod",
     "studio": "pnpm --filter @ag/api studio",
+    "migrate": "pnpm --filter @ag/api migrate",
+    "generate-client": "pnpm --filter @ag/api generate-client",
     "dev-docs": "pnpm --filter @ag/docs dev",
     "build-docs": "pnpm --filter @ag/docs build",
     "dev-landing": "pnpm --filter @ag/landing dev",

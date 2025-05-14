@@ -215,8 +215,10 @@ model Board {
 }
 
 model BoardColumn {
-  id        Int      @id @default(autoincrement())
+  id        Int    @id @default(autoincrement())
   title     String
+  sortIndex Int?
+
   createdAt DateTime @default(now())
   isMock    Boolean  @default(false)
   isDeleted Boolean  @default(false)

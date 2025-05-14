@@ -2,7 +2,7 @@ import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useBoardColumnStore } from '../stores/use-board-column-store'
 import { useBoard } from '../composables/use-bord'
-import { useApi } from '@/packages/api'
+import { type PatchBoardColumn, useApi } from '@/packages/api'
 import type { PostBoardColumn } from '@/packages/api/types'
 import { useBoardStatuses } from '../composables/use-board-statuses'
 
@@ -58,6 +58,21 @@ export function useBoardColumn() {
     }
   }
 
+  async function updateManyColumns(columns: PatchBoardColumn[]) {
+    const promises: Promise<PostBoardColumn | null>[] = []
+
+    columns.forEach((column) => {
+      promises.push(
+        apiService.boardColumn.updateOneById({
+          id: column.id,
+          body: column
+        })
+      )
+    })
+
+    await Promise.all(promises)
+  }
+
   async function getColumn(columnId: number) {
     return await apiService.boardColumn.getOneById({ id: columnId })
   }
@@ -67,6 +82,7 @@ export function useBoardColumn() {
     selectedColumnId,
     isShowColumnDeleteWarning,
     isLoading,
+    updateManyColumns,
     boardColumnDeleted,
     openNewColumnForm,
     openEditColumnForm,

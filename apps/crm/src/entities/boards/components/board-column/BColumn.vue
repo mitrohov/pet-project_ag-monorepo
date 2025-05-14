@@ -23,6 +23,20 @@
               style="font-weight: 600; color: orangeRed"
               @click="clickOnDeleteIcon(props.column.id)"
             />
+
+            <i
+              v-if="!isFirstColumn"
+              class="pi pi-arrow-left ml-10 pointer"
+              style="font-weight: 600; color: orange"
+              @click="updateSortIndexInColumn(props.columnIndex, 'left')"
+            />
+
+            <i
+              v-if="!isLastColumn"
+              class="pi pi-arrow-right ml-10 pointer"
+              style="font-weight: 600; color: orange"
+              @click="updateSortIndexInColumn(props.columnIndex, 'right')"
+            />
           </div>
         </div>
 
@@ -69,6 +83,7 @@ import { ref } from 'vue'
 import { useBoardColumn } from '../../composables/use-board-column.ts'
 import { useBoardTask } from '../../composables/use-board-task.ts'
 import { useBoardStatuses } from '../../composables/use-board-statuses.ts'
+import { useBoardColumnSort } from '../../composables/use-board-column-sort.ts'
 import BTask from '../board-column-task/BTask/BTask.vue'
 import BDeleteColumn from './BDeleteColumn.vue'
 import { Button, Dialog } from '@/packages/prime'
@@ -77,6 +92,9 @@ import type { GetBoardColumn } from '@/packages/api/types'
 const props = defineProps<{
   column: GetBoardColumn
   isStatusBoard: boolean
+  isLastColumn: boolean
+  isFirstColumn: boolean
+  columnIndex: number
 }>()
 
 const emit = defineEmits<{
@@ -86,6 +104,7 @@ const emit = defineEmits<{
 const { isShowColumnDeleteWarning, boardColumnDeleted, openEditColumnForm } = useBoardColumn()
 const { dropTask } = useBoardTask()
 const { isShowDeleteStatusWarning, selectedStatusId } = useBoardStatuses()
+const { updateSortIndexInColumn } = useBoardColumnSort()
 
 const prohibitingStatusDeletionModal = ref(false)
 

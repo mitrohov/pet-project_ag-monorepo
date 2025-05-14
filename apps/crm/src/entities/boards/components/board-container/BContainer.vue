@@ -6,10 +6,13 @@
 
     <div class="board-container_columns">
       <BColumn
-        v-for="column in props.columns"
+        v-for="(column, index) in sortedColumns"
         :key="column.id"
         :column="column"
         :isStatusBoard="props.isStatusBoard"
+        :isLastColumn="index === props.columns.length - 1"
+        :isFirstColumn="index === 0"
+        :columnIndex="index"
         @openNewTaskForm="emit('openNewTaskForm', column.id)"
       />
     </div>
@@ -19,11 +22,14 @@
 <script setup lang="ts">
 import BColumn from '../board-column/BColumn.vue'
 import type { GetBoardColumn } from '@/packages/api/types'
+import { useBoardColumnSort } from '../../composables/use-board-column-sort.ts'
 
 const props = defineProps<{
   columns: GetBoardColumn[]
   isStatusBoard: boolean
 }>()
+
+const { sortedColumns } = useBoardColumnSort()
 
 const emit = defineEmits<{
   (e: 'openNewTaskForm', columnId: number): number
