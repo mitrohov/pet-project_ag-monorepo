@@ -27,6 +27,6 @@
     "commit": "git add . && git commit -m 'save changes' && git push"
   },
   "keywords": [],
-  "packageManager": "pnpm@10.10.0",
+  "packageManager": "pnpm@10.11.0",
   "eslint": "catalog:"
 }

@@ -30,6 +30,7 @@ export function useBoardStatuses() {
       columnsHashMap[status.id] = {
         id: status.id,
         title: status.title,
+        sortIndex: null,
         boardId: generateUniqueNumbers(),
         columnTasks: []
       }
