@@ -5,6 +5,9 @@
   "private": "true",
   "type": "module",
   "license": "SEE LICENSE IN LICENSE.md",
+  "scripts": {
+    "delete-deps": "rm -rf node_modules"
+  },
   "devDependencies": {
     "@eslint/js": "^9.26.0",
     "@typescript-eslint/parser": "^8.32.0",

@@ -1,0 +1,14 @@
+{
+  "name": "@ag/tsconfig",
+  "author": "mitrohov-dmitriy",
+  "version": "2.0.0",
+  "private": "true",
+  "type": "module",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "scripts": {
+    "delete-deps": "rm -rf node_modules"
+  },
+  "devDependencies": {
+    "@ag/eslint": "workspace:*"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@ag/schemas",
+  "author": "mitrohov-dmitriy",
+  "version": "2.0.0",
+  "private": "true",
+  "type": "module",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "scripts": {
+    "delete-deps": "rm -rf node_modules"
+  },
+  "dependencies": {
+    "@nestjs/swagger": "catalog:",
+    "nestjs-zod": "^4.3.1",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@ag/eslint": "workspace:*",
+    "@ag/tsconfig": "workspace:*"
+  }
+}

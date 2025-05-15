@@ -17,7 +17,8 @@
     "studio": "npx prisma studio",
     "generate-client": "npx prisma generate",
     "typecheck": "tsc --noEmit",
-    "delete-build": "rm -rf dist"
+    "delete-build": "rm -rf dist",
+    "delete-deps": "rm -rf node_modules"
   },
   "dependencies": {
     "@grammyjs/hydrate": "catalog:",

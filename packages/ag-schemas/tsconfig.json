@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "allowJs": true
+  },
+  "extends": "@ag/tsconfig/base.json",
+  "include": ["./**/*"]
+}
