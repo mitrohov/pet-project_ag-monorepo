@@ -52,12 +52,23 @@ pnpm build-api
 pnpm studio
 ```
 
+### Запуск миграции (prisma) для базы данных
+
+```bash
+pnpm migrate
+```
+
+### Генерация Prisma клиента
+
+```bash
+pnpm generate-client
+```
+
 ### Запуск api сервера на сервере (build-сборка)
 
 ```bash
 pnpm start-api
 ```
-
 
 ### Запуск документации в dev-режиме
 

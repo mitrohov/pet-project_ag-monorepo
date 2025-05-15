@@ -45,37 +45,10 @@ export default defineConfig({
           { text: 'Доска "Задачи по статусам"', link: '/docs/task-statuses' },
         ]
       },
-      {
-        text: 'Тест-кейсы',
-        collapsible: true,
-        collapsed: true,
-        items: [
-          { text: 'Что такое тест-кейсы', link: '/docs/test-cases/start' },
-          { text: 'Авторизация', link: '/docs/test-cases/auth' },
-          { text: 'Шаблон страницы', link: '/docs/test-cases/menu' },
-          { text: 'Доски', link: '/docs/test-cases/boards' },
-          { text: 'Доска с задачами', link: '/docs/board' },
-          { text: 'Доска с статусами', link: '/docs/status-board' },
-          { text: 'Ученики', link: '/docs/test-cases/student' },
-          { text: 'Оплаты', link: '/docs/test-cases/payment' },
-          { text: 'Уроки', link: '/docs/test-cases/lesson' },
-          { text: 'События', link: '/docs/test-cases/event' },
-          { text: 'Расписание', link: '/docs/test-cases/event-calendar' },
-          { text: 'Контакты', link: '/docs/test-cases/contact' },
-          { text: 'Категории событий', link: '/docs/test-cases/event-category' },
-          { text: 'Уровни языка', link: '/docs/test-cases/english-level' },
-          { text: 'Цели занятий', link: '/docs/test-cases/purposes-lesson' },
-          { text: 'Платформы', link: '/docs/test-cases/order-platform' },
-          { text: 'Цвета', link: '/docs/test-cases/colors' },
-          { text: 'Настройки', link: '/docs/test-cases/settings' },
-          { text: 'Пользователи бота', link: '/docs/test-cases/bot-user' },
-          { text: 'Выход', link: '/docs/test-cases/exit' },
-        ]
-      }
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/mitrohov/new-crm' }
+      { icon: 'github', link: 'https://github.com/mitrohov/pet-project_ag-monorepo' }
     ]
   }
 })
