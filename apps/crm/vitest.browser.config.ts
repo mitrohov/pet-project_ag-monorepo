@@ -1,24 +1,24 @@
-import { defineConfig } from "vitest/config";
-import vue from "@vitejs/plugin-vue";
-import path from "node:path";
+import { defineConfig } from 'vitest/config'
+import vue from '@vitejs/plugin-vue'
+import path from 'node:path'
 
 export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      '@': path.resolve(__dirname, './src'),
     },
   },
   test: {
-    name: "browser-tests",
-    include: ["src/**/*.spec.ts"],
-    setupFiles: ["vitest-browser-vue"],
+    name: 'browser-tests',
+    include: ['src/**/*.spec.ts'],
+    setupFiles: ['vitest-browser-vue'],
     testTimeout: 5000,
     hookTimeout: 5000,
     browser: {
-      provider: "playwright",
+      provider: 'playwright',
       enabled: true,
-      instances: [{ browser: "chromium" }],
+      instances: [{ browser: 'chromium' }],
     },
   },
-});
+})

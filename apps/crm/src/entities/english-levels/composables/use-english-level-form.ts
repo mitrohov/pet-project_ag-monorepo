@@ -3,7 +3,10 @@ import { useRouter, useRoute } from 'vue-router'
 import { useApi } from '@/packages/api'
 import { useEnglishLevelsStore } from '@/entities/english-levels'
 import { useForm } from 'vee-validate'
-import { type PostEnglishLevel, PostEnglishLevelSchema } from '@/packages/api/types'
+import {
+  type PostEnglishLevel,
+  PostEnglishLevelSchema,
+} from '@/packages/api/types'
 
 export function useEnglishLevelForm() {
   const router = useRouter()
@@ -14,7 +17,7 @@ export function useEnglishLevelForm() {
   const isLoading = ref(false)
 
   const { errors, defineField, handleSubmit } = useForm({
-    validationSchema: PostEnglishLevelSchema
+    validationSchema: PostEnglishLevelSchema,
   })
 
   const [title] = defineField('title')
@@ -34,7 +37,7 @@ export function useEnglishLevelForm() {
     if (englishLevelId.value) {
       await apiService.englishLevels.updateOneById({
         id: englishLevelId.value,
-        body
+        body,
       })
     } else {
       await apiService.englishLevels.createOne({ body })
@@ -54,7 +57,7 @@ export function useEnglishLevelForm() {
       if (englishLevel) setValues(englishLevel)
       else {
         const response = await apiService.englishLevels.getOneById({
-          id: englishLevelId.value
+          id: englishLevelId.value,
         })
 
         if (response) setValues(response)
@@ -79,6 +82,6 @@ export function useEnglishLevelForm() {
     englishLevelId,
     onSubmit,
     routeToEnglishLevelsTableDesktop,
-    initForm
+    initForm,
   }
 }

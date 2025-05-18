@@ -201,7 +201,11 @@ catalogs:
 
 importers:
 
-  .: {}
+  .:
+    dependencies:
+      prettier:
+        specifier: 'catalog:'
+        version: 3.5.3
 
   apps/api:
     dependencies:
@@ -260,9 +264,6 @@ importers:
       '@ag/eslint':
         specifier: workspace:*
         version: link:../../packages/ag-eslint
-      '@ag/prettier':
-        specifier: workspace:*
-        version: link:../../packages/ag-prettier
       '@ag/schemas':
         specifier: workspace:*
         version: link:../../packages/ag-schemas
@@ -302,9 +303,6 @@ importers:
       express:
         specifier: 'catalog:'
         version: 5.1.0
-      prettier:
-        specifier: 'catalog:'
-        version: 3.5.3
       prisma:
         specifier: 'catalog:'
         version: 6.7.0(typescript@5.8.3)
@@ -329,6 +327,12 @@ importers:
 
   apps/crm:
     dependencies:
+      '@ag/agent':
+        specifier: workspace:*
+        version: link:../../packages/ag-agent
+      '@ag/ui':
+        specifier: workspace:*
+        version: link:../../packages/ag-ui
       '@faker-js/faker':
         specifier: 'catalog:'
         version: 9.7.0
@@ -384,9 +388,6 @@ importers:
       '@ag/form-validation':
         specifier: workspace:*
         version: link:../../packages/ag-form-validation
-      '@ag/prettier':
-        specifier: workspace:*
-        version: link:../../packages/ag-prettier
       '@ag/schemas':
         specifier: workspace:*
         version: link:../../packages/ag-schemas
@@ -420,9 +421,6 @@ importers:
       playwright:
         specifier: 'catalog:'
         version: 1.52.0
-      prettier:
-        specifier: 'catalog:'
-        version: 3.5.3
       typescript:
         specifier: 'catalog:'
         version: 5.8.3
@@ -447,15 +445,9 @@ importers:
       '@ag/eslint':
         specifier: workspace:*
         version: link:../../packages/ag-eslint
-      '@ag/prettier':
-        specifier: workspace:*
-        version: link:../../packages/ag-prettier
       eslint:
         specifier: 'catalog:'
         version: 9.26.0(jiti@2.4.2)
-      prettier:
-        specifier: 'catalog:'
-        version: 3.5.3
       vitepress:
         specifier: 'catalog:'
         version: 1.6.3(@algolia/client-search@5.24.0)(@types/node@22.15.17)(postcss@8.5.3)(sass@1.87.0)(search-insights@2.17.3)(terser@5.39.0)(typescript@5.8.3)
@@ -472,9 +464,6 @@ importers:
       '@ag/eslint':
         specifier: workspace:*
         version: link:../../packages/ag-eslint
-      '@ag/prettier':
-        specifier: workspace:*
-        version: link:../../packages/ag-prettier
       '@tsconfig/node22':
         specifier: 'catalog:'
         version: 22.0.1
@@ -493,15 +482,110 @@ importers:
       npm-run-all:
         specifier: 'catalog:'
         version: 4.1.5
-      prettier:
-        specifier: 'catalog:'
-        version: 3.5.3
       typescript:
         specifier: 'catalog:'
         version: 5.8.3
       vite:
         specifier: 'catalog:'
         version: 6.3.5(@types/node@22.15.17)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.8.0)
+      vue-tsc:
+        specifier: 'catalog:'
+        version: 2.2.10(typescript@5.8.3)
+
+  packages/ag-admin-message:
+    dependencies:
+      vue:
+        specifier: 'catalog:'
+        version: 3.5.13(typescript@5.8.3)
+    devDependencies:
+      '@ag/admin-message':
+        specifier: workspace:*
+        version: 'link:'
+      '@ag/eslint':
+        specifier: workspace:*
+        version: link:../ag-eslint
+      '@ag/tsconfig':
+        specifier: workspace:*
+        version: link:../ag-tsconfig
+      eslint:
+        specifier: 'catalog:'
+        version: 9.26.0(jiti@2.4.2)
+      vue-tsc:
+        specifier: 'catalog:'
+        version: 2.2.10(typescript@5.8.3)
+
+  packages/ag-agent:
+    dependencies:
+      vue:
+        specifier: 'catalog:'
+        version: 3.5.13(typescript@5.8.3)
+    devDependencies:
+      '@ag/eslint':
+        specifier: workspace:*
+        version: link:../ag-eslint
+      '@ag/tsconfig':
+        specifier: workspace:*
+        version: link:../ag-tsconfig
+      eslint:
+        specifier: 'catalog:'
+        version: 9.26.0(jiti@2.4.2)
+      vue-tsc:
+        specifier: 'catalog:'
+        version: 2.2.10(typescript@5.8.3)
+
+  packages/ag-cookie:
+    dependencies:
+      vue:
+        specifier: 'catalog:'
+        version: 3.5.13(typescript@5.8.3)
+    devDependencies:
+      '@ag/eslint':
+        specifier: workspace:*
+        version: link:../ag-eslint
+      '@ag/tsconfig':
+        specifier: workspace:*
+        version: link:../ag-tsconfig
+      eslint:
+        specifier: 'catalog:'
+        version: 9.26.0(jiti@2.4.2)
+      vue-tsc:
+        specifier: 'catalog:'
+        version: 2.2.10(typescript@5.8.3)
+
+  packages/ag-date:
+    dependencies:
+      vue:
+        specifier: 'catalog:'
+        version: 3.5.13(typescript@5.8.3)
+    devDependencies:
+      '@ag/eslint':
+        specifier: workspace:*
+        version: link:../ag-eslint
+      '@ag/tsconfig':
+        specifier: workspace:*
+        version: link:../ag-tsconfig
+      eslint:
+        specifier: 'catalog:'
+        version: 9.26.0(jiti@2.4.2)
+      vue-tsc:
+        specifier: 'catalog:'
+        version: 2.2.10(typescript@5.8.3)
+
+  packages/ag-deps:
+    dependencies:
+      vue:
+        specifier: 'catalog:'
+        version: 3.5.13(typescript@5.8.3)
+    devDependencies:
+      '@ag/eslint':
+        specifier: workspace:*
+        version: link:../ag-eslint
+      '@ag/tsconfig':
+        specifier: workspace:*
+        version: link:../ag-tsconfig
+      eslint:
+        specifier: 'catalog:'
+        version: 9.26.0(jiti@2.4.2)
       vue-tsc:
         specifier: 'catalog:'
         version: 2.2.10(typescript@5.8.3)
@@ -551,9 +635,6 @@ importers:
       '@ag/eslint':
         specifier: workspace:*
         version: link:../ag-eslint
-      '@ag/prettier':
-        specifier: workspace:*
-        version: link:../ag-prettier
       '@ag/schemas':
         specifier: workspace:*
         version: link:../ag-schemas
@@ -563,14 +644,9 @@ importers:
       eslint:
         specifier: 'catalog:'
         version: 9.26.0(jiti@2.4.2)
-      prettier:
-        specifier: 'catalog:'
-        version: 3.5.3
       vue-tsc:
         specifier: 'catalog:'
         version: 2.2.10(typescript@5.8.3)
-
-  packages/ag-prettier: {}
 
   packages/ag-schemas:
     dependencies:
@@ -587,24 +663,46 @@ importers:
       '@ag/eslint':
         specifier: workspace:*
         version: link:../ag-eslint
-      '@ag/prettier':
-        specifier: workspace:*
-        version: link:../ag-prettier
       '@ag/tsconfig':
         specifier: workspace:*
         version: link:../ag-tsconfig
       eslint:
         specifier: 'catalog:'
         version: 9.26.0(jiti@2.4.2)
-      prettier:
-        specifier: 'catalog:'
-        version: 3.5.3
 
   packages/ag-tsconfig:
     devDependencies:
       '@ag/eslint':
         specifier: workspace:*
         version: link:../ag-eslint
+
+  packages/ag-ui:
+    dependencies:
+      primevue:
+        specifier: 'catalog:'
+        version: 4.3.4(vue@3.5.13(typescript@5.8.3))
+      vue:
+        specifier: 'catalog:'
+        version: 3.5.13(typescript@5.8.3)
+      vue-router:
+        specifier: 'catalog:'
+        version: 4.5.1(vue@3.5.13(typescript@5.8.3))
+    devDependencies:
+      '@ag/admin-message':
+        specifier: workspace:*
+        version: link:../ag-admin-message
+      '@ag/eslint':
+        specifier: workspace:*
+        version: link:../ag-eslint
+      '@ag/tsconfig':
+        specifier: workspace:*
+        version: link:../ag-tsconfig
+      eslint:
+        specifier: 'catalog:'
+        version: 9.26.0(jiti@2.4.2)
+      vue-tsc:
+        specifier: 'catalog:'
+        version: 2.2.10(typescript@5.8.3)
 
 packages:
 

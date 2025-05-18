@@ -4,20 +4,20 @@ import {
   IsNumber,
   IsBoolean,
   IsOptional,
-} from 'class-validator';
-import { ApiProperty } from '@nestjs/swagger';
+} from 'class-validator'
+import { ApiProperty } from '@nestjs/swagger'
 
 export class BoardColumnDto {
   @IsString()
   @MaxLength(200)
   @ApiProperty({ example: 'Backlog' })
-  title: string;
+  title: string
 }
 
 export class BoardColumnResponseDto extends BoardColumnDto {
   @IsNumber()
   @ApiProperty({ example: 1 })
-  id: number;
+  id: number
 }
 
 export class UpdateBoardColumnBodyDto extends BoardColumnDto {}
@@ -25,11 +25,11 @@ export class UpdateBoardColumnBodyDto extends BoardColumnDto {}
 export class CreateBoardColumnBodyDto extends BoardColumnDto {
   @IsBoolean()
   @IsOptional()
-  isMock?: boolean;
+  isMock?: boolean
 }
 
 export class DeleteBoardColumnResponseDto extends BoardColumnResponseDto {
   @IsBoolean()
   @IsOptional()
-  isDeleted?: boolean;
+  isDeleted?: boolean
 }

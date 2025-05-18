@@ -2,7 +2,10 @@ import { computed, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useForm } from 'vee-validate'
 import { useApi } from '@/packages/api'
-import { type PostPurposeLesson, PostPurposeLessonSchema } from '@/packages/api/types'
+import {
+  type PostPurposeLesson,
+  PostPurposeLessonSchema,
+} from '@/packages/api/types'
 import { usePurposeLessonsStore } from '../stores/use-purpose-lessons-store'
 
 export function usePurposeLessonsForm() {
@@ -13,7 +16,7 @@ export function usePurposeLessonsForm() {
   const { getPurposeLessons, findPurposeLessonById } = usePurposeLessonsStore()
 
   const { errors, defineField, handleSubmit } = useForm({
-    validationSchema: PostPurposeLessonSchema
+    validationSchema: PostPurposeLessonSchema,
   })
 
   const [title] = defineField('title')
@@ -37,7 +40,7 @@ export function usePurposeLessonsForm() {
     if (purposeLessonId.value) {
       await apiService.purposeLessons.updateOneById({
         id: purposeLessonId.value,
-        body
+        body,
       })
     } else {
       await apiService.purposeLessons.createOne({ body })
@@ -57,7 +60,7 @@ export function usePurposeLessonsForm() {
       if (purposeLesson) setValues(purposeLesson)
       else {
         const response = await apiService.purposeLessons.getOneById({
-          id: purposeLessonId.value
+          id: purposeLessonId.value,
         })
         if (response) setValues(response as PostPurposeLesson)
       }
@@ -77,6 +80,6 @@ export function usePurposeLessonsForm() {
     errors,
     onSubmit,
     routeToPurposeLessonTable,
-    initForm
+    initForm,
   }
 }

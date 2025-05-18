@@ -25,7 +25,11 @@
 
         <BForm v-if="isShowBoardForm" />
 
-        <BColumnForm v-if="isShowColumnForm" :column-id="selectedColumnId" :isStatusBoard="false" />
+        <BColumnForm
+          v-if="isShowColumnForm"
+          :column-id="selectedColumnId"
+          :isStatusBoard="false"
+        />
 
         <BTaskForm :isStatusBoard="false" v-if="isShowTaskForm" />
 
@@ -58,16 +62,28 @@ import BActions from '@/entities/boards/components/board-actions/BActions.vue'
 import BContainer from '@/entities/boards/components/board-container/BContainer.vue'
 import BTaskCard from '@/entities/boards/components/board-column-task/BTaskCard.vue'
 import { Button } from '@/packages/prime'
-import { UIDeleteWarningModal } from '@/packages/ui'
+import { UIDeleteWarningModal } from '@ag/ui'
 
-const { board, isShowBoardForm, openBoardForm, routeToBoardList, initBoardPage } = useBoard()
+const {
+  board,
+  isShowBoardForm,
+  openBoardForm,
+  routeToBoardList,
+  initBoardPage,
+} = useBoard()
 
-const { isShowColumnForm, selectedColumnId, openNewColumnForm } = useBoardColumn()
+const { isShowColumnForm, selectedColumnId, openNewColumnForm } =
+  useBoardColumn()
 
 const { isShowStatusForm } = useBoardStatuses()
 
-const { isShowTaskForm, isShowDeleteTask, isShowTaskCard, deleteTask, openNewTaskForm } =
-  useBoardTask()
+const {
+  isShowTaskForm,
+  isShowDeleteTask,
+  isShowTaskCard,
+  deleteTask,
+  openNewTaskForm,
+} = useBoardTask()
 
 onMounted(() => {
   initBoardPage()

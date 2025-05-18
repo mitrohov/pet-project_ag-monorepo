@@ -74,7 +74,9 @@
     modal
     @update:visible="prohibitingStatusDeletionModal = false"
   >
-    <div class="d-flex justify-center">Нельзя удалить статус пока к нему привязаны задачи</div>
+    <div class="d-flex justify-center">
+      Нельзя удалить статус пока к нему привязаны задачи
+    </div>
   </Dialog>
 </template>
 
@@ -101,7 +103,8 @@ const emit = defineEmits<{
   (e: 'openNewTaskForm'): void
 }>()
 
-const { isShowColumnDeleteWarning, boardColumnDeleted, openEditColumnForm } = useBoardColumn()
+const { isShowColumnDeleteWarning, boardColumnDeleted, openEditColumnForm } =
+  useBoardColumn()
 const { dropTask } = useBoardTask()
 const { isShowDeleteStatusWarning, selectedStatusId } = useBoardStatuses()
 const { updateSortIndexInColumn } = useBoardColumnSort()

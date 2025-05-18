@@ -18,7 +18,10 @@ export class BaseApiSettings<DATA> {
   responseProcessing(response: any): any | undefined {
     if (!this.isApiResponseErrorBody(response)) return response as DATA
     else {
-      if (typeof response.message === 'string' && response.message === 'Unauthorized') {
+      if (
+        typeof response.message === 'string' &&
+        response.message === 'Unauthorized'
+      ) {
         router.push('/auth')
       } else {
         this.userMessage.showUserMessage('error', response.message)
@@ -26,7 +29,11 @@ export class BaseApiSettings<DATA> {
     }
   }
 
-  createUrl(params?: { id?: number; query?: string | undefined; url?: string }): string {
+  createUrl(params?: {
+    id?: number
+    query?: string | undefined
+    url?: string
+  }): string {
     let url: string
 
     if (params?.id) url = `${this.apiUrl}${this.route}/${params.id}`

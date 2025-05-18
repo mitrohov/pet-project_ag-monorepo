@@ -1,6 +1,9 @@
 import { computed, watch } from 'vue'
 import { useBoardStore } from '../stores/use-board-store.ts'
-import type { GetBoardColumn, PatchBoardColumn } from '@/packages/api/types/board-column'
+import type {
+  GetBoardColumn,
+  PatchBoardColumn,
+} from '@/packages/api/types/board-column'
 import { useBoardColumn } from './use-board-column.ts'
 
 export function useBoardColumnSort() {
@@ -35,9 +38,12 @@ export function useBoardColumnSort() {
       columnSortIndexes.value.length !== boardStore.board?.boardColumns?.length
 
     const hasDuplicateSortIndex =
-      new Set(columnSortIndexes.value).size !== boardStore.board?.boardColumns?.length
+      new Set(columnSortIndexes.value).size !==
+      boardStore.board?.boardColumns?.length
 
-    return columnSortIndexesEqualsZero || hasNullSortIndex || hasDuplicateSortIndex
+    return (
+      columnSortIndexesEqualsZero || hasNullSortIndex || hasDuplicateSortIndex
+    )
   })
 
   watch(
@@ -52,11 +58,16 @@ export function useBoardColumnSort() {
 
   function setDefaultSortIndexes() {
     if (Array.isArray(boardStore.board?.boardColumns)) {
-      boardStore.board.boardColumns.forEach((column, index) => (column.sortIndex = index))
+      boardStore.board.boardColumns.forEach(
+        (column, index) => (column.sortIndex = index)
+      )
     }
   }
 
-  async function updateSortIndexInColumn(columnIndex: number, direction: 'right' | 'left') {
+  async function updateSortIndexInColumn(
+    columnIndex: number,
+    direction: 'right' | 'left'
+  ) {
     if (columns.value.length < 2) return
 
     if (columns.value.length === 2) boardStore.board?.boardColumns?.reverse()
@@ -82,7 +93,7 @@ export function useBoardColumnSort() {
             id: column.id,
             title: column.title,
             boardId: column.boardId,
-            sortIndex: column.sortIndex
+            sortIndex: column.sortIndex,
           } as PatchBoardColumn
         })
 
@@ -93,6 +104,6 @@ export function useBoardColumnSort() {
 
   return {
     sortedColumns,
-    updateSortIndexInColumn
+    updateSortIndexInColumn,
   }
 }

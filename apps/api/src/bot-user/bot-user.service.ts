@@ -1,13 +1,13 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { DbService } from '../db/db.service';
-import { UpdateBotUserBodyDto, CreateBotUserBodyDto } from './bot-user.dto';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
+import { DbService } from '../db/db.service'
+import { UpdateBotUserBodyDto, CreateBotUserBodyDto } from './bot-user.dto'
 
 @Injectable()
 export class BotUserService {
   constructor(private readonly dbService: DbService) {}
 
   create(data: CreateBotUserBodyDto) {
-    return this.dbService.botUser.create({ data });
+    return this.dbService.botUser.create({ data })
   }
 
   findAll() {
@@ -25,50 +25,50 @@ export class BotUserService {
       orderBy: {
         id: 'desc',
       },
-    });
+    })
   }
 
   async findOne(id: number) {
     const response = await this.dbService.botUser.findUnique({
       where: { id, isDeleted: false },
-    });
+    })
 
     if (!response) {
-      throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
+      throw new HttpException('Not Found', HttpStatus.NOT_FOUND)
     }
-    return response;
+    return response
   }
 
   async update(id: number, data: UpdateBotUserBodyDto) {
     const response = await this.dbService.botUser.findUnique({
       where: { id, isDeleted: false },
-    });
+    })
 
     if (!response) {
-      throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
+      throw new HttpException('Not Found', HttpStatus.NOT_FOUND)
     }
 
-    return this.dbService.botUser.update({ where: { id }, data });
+    return this.dbService.botUser.update({ where: { id }, data })
   }
 
   async remove(id: number) {
     const response = await this.dbService.botUser.findUnique({
       where: { id },
-    });
+    })
 
     if (!response) {
-      throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
+      throw new HttpException('Not Found', HttpStatus.NOT_FOUND)
     }
 
     return this.dbService.botUser.update({
       where: { id },
       data: { isDeleted: true },
-    });
+    })
   }
 
   removeAllMock() {
     return this.dbService.botUser.deleteMany({
       where: { isMock: true },
-    });
+    })
   }
 }

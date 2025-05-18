@@ -2,7 +2,11 @@
   <div class="order-platforms-page">
     <div class="page-header mb-20">Платформы</div>
 
-    <Button label="Добавить" @click="orderPlatformsStore.openOrderPlatformsForm" class="mb-20" />
+    <Button
+      label="Добавить"
+      @click="orderPlatformsStore.openOrderPlatformsForm"
+      class="mb-20"
+    />
 
     <OrderPlatformsTableDesktop
       :order-platforms="orderPlatformsStore.orderPlatforms"
@@ -16,7 +20,7 @@
 import { useOrderPlatformsStore } from '@/entities/order-platforms/stores/use-order-platforms-store.ts'
 import { useRouter } from 'vue-router'
 import { Button } from '@/packages/prime'
-import { type TableContextItem } from '@/packages/ui'
+import { type TableContextItem } from '@ag/ui'
 import OrderPlatformsTableDesktop from '@/entities/order-platforms/components/OrderPlatformsTableDesktop.vue'
 
 const router = useRouter()
@@ -33,12 +37,12 @@ const contextItems: TableContextItem[] = [
           if (orderPlatformsStore.selectedOrderPlatformId) {
             router.push({
               name: 'OrderPlatformForm',
-              query: { id: orderPlatformsStore.selectedOrderPlatformId }
+              query: { id: orderPlatformsStore.selectedOrderPlatformId },
             })
           }
-        }
-      }
-    ]
-  }
+        },
+      },
+    ],
+  },
 ]
 </script>

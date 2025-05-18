@@ -1,6 +1,6 @@
-import { Controller } from '@nestjs/common';
-import { LessonService } from './lesson.service';
-import { ApiTags } from '@nestjs/swagger';
+import { Controller } from '@nestjs/common'
+import { LessonService } from './lesson.service'
+import { ApiTags } from '@nestjs/swagger'
 
 @ApiTags('lesson')
 @Controller('lesson')

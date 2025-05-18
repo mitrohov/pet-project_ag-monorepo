@@ -2,7 +2,11 @@
   <div class="bot-users-page">
     <div class="page-header mb-20">Пользователи бота</div>
 
-    <Button label="Добавить" @click="botUsersStore.openBotUserForm" class="mb-20" />
+    <Button
+      label="Добавить"
+      @click="botUsersStore.openBotUserForm"
+      class="mb-20"
+    />
 
     <BotUsersTableDesktop
       v-if="isDesktop"
@@ -30,12 +34,12 @@
 
 <script lang="ts" setup>
 import { useRouter } from 'vue-router'
-import { useAgent } from '@/packages/agent'
+import { useAgent } from '@ag/agent'
 import { useBotUsersStore } from '@/entities/bot-users/stores/use-bot-users-store.ts'
 import BotUsersTableDesktop from '@/entities/bot-users/components/BotUsersTableDesktop.vue'
 import BotUsersTableMobile from '@/entities/bot-users/components/BotUsersTableMobile.vue'
 import { Button } from '@/packages/prime'
-import { UIDeleteWarningModal, type TableContextItem } from '@/packages/ui'
+import { UIDeleteWarningModal, type TableContextItem } from '@ag/ui'
 
 const { isDesktop } = useAgent()
 const router = useRouter()
@@ -50,18 +54,21 @@ const contextItems: TableContextItem[] = [
         icon: 'pi pi-pencil',
         command: () => {
           if (botUsersStore.selectedId) {
-            router.push({ name: 'BotUsersFormPage', query: { id: botUsersStore.selectedId } })
+            router.push({
+              name: 'BotUsersFormPage',
+              query: { id: botUsersStore.selectedId },
+            })
           }
-        }
+        },
       },
       {
         label: 'Удалить',
         icon: 'pi pi-trash',
         command: () => {
           botUsersStore.isShowDeleteWarning = true
-        }
-      }
-    ]
-  }
+        },
+      },
+    ],
+  },
 ]
 </script>

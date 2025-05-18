@@ -4,8 +4,8 @@ import {
   IsNumber,
   IsBoolean,
   IsOptional,
-} from 'class-validator';
-import { ApiProperty } from '@nestjs/swagger';
+} from 'class-validator'
+import { ApiProperty } from '@nestjs/swagger'
 
 export enum UserRole {
   ADMIN = 'admin',
@@ -15,38 +15,38 @@ export enum UserRole {
 export class BotUserDto {
   @IsString()
   @ApiProperty({ example: 'admin', enum: UserRole })
-  role: string;
+  role: string
 
   @IsString()
   @MaxLength(100)
   @ApiProperty({ example: 'ivanov' })
-  userName: string;
+  userName: string
 
   @IsNumber()
   @ApiProperty({ example: 1 })
   @IsOptional()
-  chatId?: number | null;
+  chatId?: number | null
 
   @IsNumber()
   @ApiProperty({ example: 1 })
-  studentId: number;
+  studentId: number
 
   @IsBoolean()
   @IsOptional()
-  isDeleted?: boolean;
+  isDeleted?: boolean
 
   @IsBoolean()
-  isActive: boolean;
+  isActive: boolean
 
   @IsBoolean()
   @IsOptional()
-  isMock?: boolean;
+  isMock?: boolean
 }
 
 export class BotUserResponseDto extends BotUserDto {
   @IsNumber()
   @ApiProperty({ example: 1 })
-  id: number;
+  id: number
 }
 
 export class UpdateBotUserBodyDto extends BotUserDto {}

@@ -35,9 +35,12 @@
 
 <script lang="ts" setup>
 import { useStudentForm } from '../composables/use-student-form'
-import { UICalendar, UISelect } from '@/packages/ui'
+import { UICalendar, UISelect } from '@ag/ui'
 import { Button, Divider } from '@/packages/prime'
-import type { GetStudentSchedule, PostStudentSchedule } from '@/packages/api/types'
+import type {
+  GetStudentSchedule,
+  PostStudentSchedule,
+} from '@/packages/api/types'
 
 const props = defineProps<{
   schedule: GetStudentSchedule | PostStudentSchedule

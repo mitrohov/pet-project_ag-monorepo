@@ -1,14 +1,22 @@
 <template>
   <div class="form">
     <div>
-      <Button label="Назад" severity="secondary" @click="routeToPaymentsTableDesktop" />
+      <Button
+        label="Назад"
+        severity="secondary"
+        @click="routeToPaymentsTableDesktop"
+      />
     </div>
 
     <div class="title">
       {{ paymentId ? 'Редактирование оплаты' : 'Новая оплата' }}
     </div>
 
-    <UIInputText v-model="title" :error-message="errors.title" label="Название оплаты" />
+    <UIInputText
+      v-model="title"
+      :error-message="errors.title"
+      label="Название оплаты"
+    />
 
     <UISelect
       v-model="studentId"
@@ -20,11 +28,18 @@
     />
 
     <div v-if="selectedStudent" class="payment-form_lesson_cost">
-      <div>Стоимость одного занятия - {{ selectedStudent.lessonCost }} рублей</div>
+      <div>
+        Стоимость одного занятия - {{ selectedStudent.lessonCost }} рублей
+      </div>
       <div>Занятий в месяц - {{ selectedStudent.qtyLessonsPerWeek * 4 }}</div>
     </div>
 
-    <UIInputNumber v-model="sum" :error-message="errors.sum" type="text" label="Сумма" />
+    <UIInputNumber
+      v-model="sum"
+      :error-message="errors.sum"
+      type="text"
+      label="Сумма"
+    />
 
     <UIInputNumber
       v-model="lessonQty"
@@ -45,7 +60,13 @@
 import { onMounted } from 'vue'
 import { useStudentsStore } from '@/entities/students'
 import { usePaymentForm } from '@/entities/payments/composables/use-payment-form.ts'
-import { UICalendar, UIInputNumber, UISelect, UIInputText, UIFormSubmitButton } from '@/packages/ui'
+import {
+  UICalendar,
+  UIInputNumber,
+  UISelect,
+  UIInputText,
+  UIFormSubmitButton,
+} from '@ag/ui'
 import { Button } from '@/packages/prime'
 
 const studentsStore = useStudentsStore()
@@ -61,7 +82,7 @@ const {
   date,
   onSubmit,
   routeToPaymentsTableDesktop,
-  initForm
+  initForm,
 } = usePaymentForm()
 
 onMounted(() => {

@@ -79,7 +79,12 @@
 
       <Column field="hasHomeWork" header="Домашняя работа">
         <template #body="{ data }">
-          <Tag v-if="data.hasHomeWork" severity="success" value="Есть" style="padding: 5px 8px" />
+          <Tag
+            v-if="data.hasHomeWork"
+            severity="success"
+            value="Есть"
+            style="padding: 5px 8px"
+          />
           <Tag v-else severity="warn" value="Нет" style="padding: 5px 8px" />
         </template>
 
@@ -95,7 +100,12 @@
 
       <Column field="isMissed" header="Пропуск">
         <template #body="{ data }">
-          <Tag v-if="data.isMissed" severity="danger" value="Пропуск" style="padding: 5px 8px" />
+          <Tag
+            v-if="data.isMissed"
+            severity="danger"
+            value="Пропуск"
+            style="padding: 5px 8px"
+          />
           <Tag v-else severity="success" value="Нет" style="padding: 5px 8px" />
         </template>
 
@@ -111,7 +121,12 @@
 
       <Column field="reschedule" header="Перенос">
         <template #body="{ data }">
-          <Tag v-if="data.reschedule" severity="danger" value="Перенос" style="padding: 5px 8px" />
+          <Tag
+            v-if="data.reschedule"
+            severity="danger"
+            value="Перенос"
+            style="padding: 5px 8px"
+          />
           <Tag v-else severity="success" value="Нет" style="padding: 5px 8px" />
         </template>
 
@@ -133,7 +148,12 @@
             value="Готов"
             style="padding: 5px 8px"
           />
-          <Tag v-else severity="warn" value="Не готов" style="padding: 5px 8px" />
+          <Tag
+            v-else
+            severity="warn"
+            value="Не готов"
+            style="padding: 5px 8px"
+          />
         </template>
 
         <template #filter="{ filterModel, filterCallback }">
@@ -149,7 +169,10 @@
       <Column>
         <template #body="{ data }">
           <div class="d-flex justify-end">
-            <UITableContextNav :items="contextItems" @onAction="emit('selectedId', data.id)" />
+            <UITableContextNav
+              :items="contextItems"
+              @onAction="emit('selectedId', data.id)"
+            />
           </div>
         </template>
       </Column>
@@ -167,9 +190,9 @@ import {
   InputText,
   MultiSelect,
   Checkbox,
-  FilterMatchMode
+  FilterMatchMode,
 } from '@/packages/prime'
-import { UITableContextNav, type TableContextItem } from '@/packages/ui'
+import { UITableContextNav, type TableContextItem } from '@ag/ui'
 import type { GetLesson, GetStudent, GetPayment } from '@/packages/api/types'
 
 const props = defineProps<{
@@ -195,7 +218,7 @@ const globalFilterFields = ref<string[]>([
   'hasHomeWork',
   'isMissed',
   'reschedule',
-  'isPreparationComplete'
+  'isPreparationComplete',
 ])
 
 const filters = ref({
@@ -207,7 +230,7 @@ const filters = ref({
   hasHomeWork: { value: null, matchMode: FilterMatchMode.EQUALS },
   isMissed: { value: null, matchMode: FilterMatchMode.EQUALS },
   reschedule: { value: null, matchMode: FilterMatchMode.EQUALS },
-  isPreparationComplete: { value: null, matchMode: FilterMatchMode.EQUALS }
+  isPreparationComplete: { value: null, matchMode: FilterMatchMode.EQUALS },
 })
 </script>
 

@@ -2,7 +2,7 @@
   <div
     :style="{
       color: props.calendarItem.colorScheme.color,
-      backgroundColor: props.calendarItem.colorScheme.backgroundColor
+      backgroundColor: props.calendarItem.colorScheme.backgroundColor,
     }"
   >
     <div v-if="props.calendarItem.isLesson" class="lesson">
@@ -12,7 +12,10 @@
             {{ props.calendarItem.with }}
           </div>
 
-          <div :style="{ background: colorLessonsLeft() }" class="lesson_lessonsLeft">
+          <div
+            :style="{ background: colorLessonsLeft() }"
+            class="lesson_lessonsLeft"
+          >
             {{ props.calendarItem.lessonsLeftToCompleteOnPayment }}
           </div>
         </div>
@@ -20,7 +23,9 @@
         <div class="mt-5">
           <span>{{ props.calendarItem.time.start.split(' ')[1] }} - </span>
 
-          <span class="mr-5">{{ props.calendarItem.time.end.split(' ')[1] }}</span>
+          <span class="mr-5">{{
+            props.calendarItem.time.end.split(' ')[1]
+          }}</span>
 
           <i
             v-if="!props.calendarItem.isReschedule"
@@ -28,7 +33,11 @@
             style="color: green; font-size: 11px"
           />
 
-          <i v-else class="pi pi pi-times" style="color: red; font-size: 11px" />
+          <i
+            v-else
+            class="pi pi pi-times"
+            style="color: red; font-size: 11px"
+          />
         </div>
       </div>
 

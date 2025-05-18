@@ -5,16 +5,16 @@ import {
   Delete,
   Param,
   ParseIntPipe,
-} from '@nestjs/common';
+} from '@nestjs/common'
 import {
   ApiResponse,
   ApiTags,
   ApiCookieAuth,
   ApiOkResponse,
-} from '@nestjs/swagger';
-import { AuthGuard } from '../../auth/auth.guard';
-import { DeleteContactResponseDto } from '../contact.dto';
-import { ContactService } from '../contact.service';
+} from '@nestjs/swagger'
+import { AuthGuard } from '../../auth/auth.guard'
+import { DeleteContactResponseDto } from '../contact.dto'
+import { ContactService } from '../contact.service'
 
 @ApiTags('contact')
 @Controller('contact')
@@ -27,6 +27,6 @@ export class RemoveContactController {
   @ApiOkResponse({ type: DeleteContactResponseDto })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   remove(@Param('id', ParseIntPipe) id: number) {
-    return this.contactService.remove(id);
+    return this.contactService.remove(id)
   }
 }

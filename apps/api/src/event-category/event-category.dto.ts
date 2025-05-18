@@ -5,36 +5,36 @@ import {
   IsNumber,
   IsBoolean,
   IsOptional,
-} from 'class-validator';
-import { ApiProperty } from '@nestjs/swagger';
-import { ColorResponseDto } from '../color/color.dto';
+} from 'class-validator'
+import { ApiProperty } from '@nestjs/swagger'
+import { ColorResponseDto } from '../color/color.dto'
 
 export class EventCategoryDto {
   @IsString()
   @MinLength(3)
   @MaxLength(50)
   @ApiProperty({ example: 'Домашние дела' })
-  title: string;
+  title: string
 
   @IsNumber()
   @ApiProperty({ example: 1 })
   @IsOptional()
-  colorId?: number;
+  colorId?: number
 
   @IsBoolean()
   @IsOptional()
-  isMock?: boolean;
+  isMock?: boolean
 
   @IsBoolean()
   @IsOptional()
-  isDeleted?: boolean;
+  isDeleted?: boolean
 }
 
 export class EventCategoryResponseDto extends EventCategoryDto {
   @IsNumber()
   @ApiProperty({ example: 1 })
-  id: number;
-  color?: ColorResponseDto;
+  id: number
+  color?: ColorResponseDto
 }
 
 export class UpdateEventCategoryBodyDto extends EventCategoryDto {}

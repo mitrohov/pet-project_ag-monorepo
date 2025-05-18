@@ -8,16 +8,16 @@ import {
   ParseIntPipe,
   UseGuards,
   HttpStatus,
-} from '@nestjs/common';
-import { StudentService } from '../student.service';
+} from '@nestjs/common'
+import { StudentService } from '../student.service'
 import {
   ApiCookieAuth,
   ApiOkResponse,
   ApiResponse,
   ApiTags,
-} from '@nestjs/swagger';
-import { GetStudentResponseDto, UpdateStudentBodyDto } from '../dto/index.dto';
-import { AuthGuard } from '../../auth/auth.guard';
+} from '@nestjs/swagger'
+import { GetStudentResponseDto, UpdateStudentBodyDto } from '../dto/index.dto'
+import { AuthGuard } from '../../auth/auth.guard'
 
 @ApiTags('student')
 @Controller('student')
@@ -32,8 +32,8 @@ export class UpdateStudentController {
   @ApiCookieAuth()
   update(
     @Param('id', ParseIntPipe) id: number,
-    @Body() body: UpdateStudentBodyDto,
+    @Body() body: UpdateStudentBodyDto
   ) {
-    return this.studentService.update(id, body);
+    return this.studentService.update(id, body)
   }
 }

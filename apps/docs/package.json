@@ -17,8 +17,6 @@
   "devDependencies": {
     "vitepress": "catalog:",
     "@ag/eslint": "workspace:*",
-    "eslint": "catalog:",
-    "prettier": "catalog:",
-    "@ag/prettier": "workspace:*"
+    "eslint": "catalog:"
   }
 }

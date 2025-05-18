@@ -3,7 +3,11 @@ import { useForm } from 'vee-validate'
 import { useApi } from '@/packages/api'
 import { useEventsStore } from '../stores/use-events-store'
 import { useEventCalendarStore } from '@/entities/event-calendar'
-import { type PostEvent, type GetEvent, PostEventSchema } from '@/packages/api/types'
+import {
+  type PostEvent,
+  type GetEvent,
+  PostEventSchema,
+} from '@/packages/api/types'
 
 export function useEventForm() {
   const apiService = useApi()
@@ -14,7 +18,7 @@ export function useEventForm() {
   const isLoading = ref(false)
 
   const { errors, defineField, handleSubmit, values } = useForm({
-    validationSchema: PostEventSchema
+    validationSchema: PostEventSchema,
   })
 
   const [title] = defineField('title')
@@ -66,7 +70,9 @@ export function useEventForm() {
 
       if (event) setValues(event)
       else {
-        const response = await apiService.events.getOneById({ id: selectedEventId.value })
+        const response = await apiService.events.getOneById({
+          id: selectedEventId.value,
+        })
         if (response) setValues(response)
       }
       isLoading.value = false
@@ -113,6 +119,6 @@ export function useEventForm() {
     description,
     onSubmit,
     updateStartTime,
-    initForm
+    initForm,
   }
 }

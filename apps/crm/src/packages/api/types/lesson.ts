@@ -12,7 +12,9 @@ export const PostLessonSchema = object({
     .max(50, 'Название урока должно быть не более 50 символов')
     .required('Это поле обязательное'),
   hasHomeWork: boolean(),
-  description: string().max(50, 'Описание должно быть не более 50 символов').nullable(),
+  description: string()
+    .max(50, 'Описание должно быть не более 50 символов')
+    .nullable(),
   startTime: string().required('Это поле обязательное'),
   endTime: string().required('Это поле обязательное'),
   paymentId: number()
@@ -22,7 +24,7 @@ export const PostLessonSchema = object({
     .nullable(),
   isMissed: boolean(),
   isReschedule: boolean(),
-  isPreparationComplete: boolean()
+  isPreparationComplete: boolean(),
 })
 
 export type PostLesson = InferType<typeof PostLessonSchema>

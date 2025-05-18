@@ -1,15 +1,15 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { type Api, Bot, type Context, type RawApi } from 'grammy';
-import { UpdatePaymentBodyDto } from '../../payment/dto/update-payment-body.dto';
-import { DbService } from '../../db/db.service';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
+import { type Api, Bot, type Context, type RawApi } from 'grammy'
+import { UpdatePaymentBodyDto } from '../../payment/dto/update-payment-body.dto'
+import { DbService } from '../../db/db.service'
 
 @Injectable()
 export class TgBotNotificationsService {
-  messageInterval: NodeJS.Timeout | null = null;
-  private readonly dbService: DbService;
+  messageInterval: NodeJS.Timeout | null = null
+  private readonly dbService: DbService
 
   constructor(public readonly bot: Bot<Context, Api<RawApi>>) {
-    this.dbService = new DbService();
+    this.dbService = new DbService()
   }
 
   getBotUsers() {
@@ -39,61 +39,61 @@ export class TgBotNotificationsService {
           },
         },
       },
-    });
+    })
   }
 
   async updatePayment(id: number, data: UpdatePaymentBodyDto) {
     const response = await this.dbService.payment.findUnique({
       where: { id, isDeleted: false },
-    });
+    })
 
     if (!response) {
-      throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
+      throw new HttpException('Not Found', HttpStatus.NOT_FOUND)
     }
 
     return this.dbService.payment.update({
       where: { id },
       data,
-    });
+    })
   }
 
   async botUserVerification() {
-    const botUsers = await this.getBotUsers();
+    const botUsers = await this.getBotUsers()
 
     if (botUsers) {
       botUsers.forEach((botUser) => {
         botUser.student?.payments.forEach((payment) => {
           if (payment.lessonQty - payment.lessons.length < 1) {
             if (botUser.chatId && !payment.isMessageSent) {
-              this.sendMessage(botUser.chatId);
+              this.sendMessage(botUser.chatId)
 
-              payment.isMessageSent = true;
+              payment.isMessageSent = true
 
               this.updatePayment(
                 payment.id,
-                payment as unknown as UpdatePaymentBodyDto,
-              );
+                payment as unknown as UpdatePaymentBodyDto
+              )
             }
           }
-        });
-      });
+        })
+      })
     }
   }
   async sendMessage(chatId: number) {
     await this.bot.api.sendMessage(
       `${chatId}`,
-      `У тебя не осталось оплаченных уроков. Пожалуйста, внеси следующую оплату.`,
-    );
+      `У тебя не осталось оплаченных уроков. Пожалуйста, внеси следующую оплату.`
+    )
   }
   start() {
-    const oneSecond = 1000;
-    const oneMinute = oneSecond * 60;
-    const oneHour = oneMinute * 60;
-    const oneDay = oneHour * 24;
+    const oneSecond = 1000
+    const oneMinute = oneSecond * 60
+    const oneHour = oneMinute * 60
+    const oneDay = oneHour * 24
 
     this.messageInterval = setInterval(
       this.botUserVerification.bind(this),
-      oneDay,
-    );
+      oneDay
+    )
   }
 }

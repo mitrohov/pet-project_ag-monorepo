@@ -42,6 +42,6 @@ export const usePurposeLessonsStore = defineStore('purposeLessonsStore', () => {
     purposeLessonsById,
     findPurposeLessonById,
     openPurposeLessonForm,
-    getPurposeLessons
+    getPurposeLessons,
   }
 })

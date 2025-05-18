@@ -1,46 +1,46 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-import * as dotenv from 'dotenv';
-import * as process from 'node:process';
-import { ValidationPipe } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core'
+import { AppModule } from './app.module'
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger'
+import * as dotenv from 'dotenv'
+import * as process from 'node:process'
+import { ValidationPipe } from '@nestjs/common'
 
-dotenv.config();
+dotenv.config()
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
     logger: ['log', 'debug', 'error', 'warn', 'verbose'],
-  });
+  })
 
-  app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalPipes(new ValidationPipe())
 
   app.enableCors({
     origin: (origin, callback) => {
       const WHITE_LIST: string[] = process.env.WHITE_LIST
         ? process.env.WHITE_LIST.split(',')
-        : [];
+        : []
 
       if (!origin || WHITE_LIST.indexOf(origin) !== -1) {
-        callback(null, true);
+        callback(null, true)
       } else {
-        callback(new Error('Not allowed by CORS'));
+        callback(new Error('Not allowed by CORS'))
       }
     },
     credentials: true,
-  });
+  })
 
   const config = new DocumentBuilder()
     .addCookieAuth('access-token')
     .setTitle('api.anastasiageiko.ru')
     .setDescription('Anastasia Geiko CRM API description')
     .setVersion('2.0')
-    .build();
+    .build()
 
-  const PORT: number = process.env.PORT ? Number(process.env.PORT) : 3000;
+  const PORT: number = process.env.PORT ? Number(process.env.PORT) : 3000
 
-  const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('docs', app, document);
+  const document = SwaggerModule.createDocument(app, config)
+  SwaggerModule.setup('docs', app, document)
 
-  await app.listen(PORT);
+  await app.listen(PORT)
 }
-bootstrap().then();
+bootstrap().then()

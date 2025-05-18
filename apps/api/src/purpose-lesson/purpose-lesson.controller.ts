@@ -11,22 +11,22 @@ import {
   ParseIntPipe,
   UseGuards,
   HttpStatus,
-} from '@nestjs/common';
-import { PurposeLessonService } from './purpose-lesson.service';
+} from '@nestjs/common'
+import { PurposeLessonService } from './purpose-lesson.service'
 import {
   ApiOkResponse,
   ApiResponse,
   ApiTags,
   ApiCookieAuth,
-} from '@nestjs/swagger';
+} from '@nestjs/swagger'
 import {
   PurposeGetLessonResponseDto,
   UpdatePurposeLessonBodyDto,
   CreatePurposeLessonBodyDto,
   DeletePurposeGetLessonResponseDto,
-} from './purpose-lesson.dto';
-import { AuthGuard } from '../auth/auth.guard';
-import { SettingsResponseDto } from '../settings/settings.dto';
+} from './purpose-lesson.dto'
+import { AuthGuard } from '../auth/auth.guard'
+import { SettingsResponseDto } from '../settings/settings.dto'
 
 @ApiTags('purpose-lesson')
 @Controller('purpose-lesson')
@@ -40,7 +40,7 @@ export class PurposeLessonController {
   })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   async findAll() {
-    return this.purposeLessonService.findAll();
+    return this.purposeLessonService.findAll()
   }
 
   @Get(':id')
@@ -49,7 +49,7 @@ export class PurposeLessonController {
   @ApiOkResponse({ type: PurposeGetLessonResponseDto })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.purposeLessonService.findOne(id);
+    return this.purposeLessonService.findOne(id)
   }
 
   @Post()
@@ -59,7 +59,7 @@ export class PurposeLessonController {
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   @UsePipes(new ValidationPipe())
   create(@Body() body: CreatePurposeLessonBodyDto) {
-    return this.purposeLessonService.create(body);
+    return this.purposeLessonService.create(body)
   }
 
   @Patch(':id')
@@ -70,9 +70,9 @@ export class PurposeLessonController {
   @UsePipes(new ValidationPipe())
   update(
     @Param('id', ParseIntPipe) id: number,
-    @Body() body: UpdatePurposeLessonBodyDto,
+    @Body() body: UpdatePurposeLessonBodyDto
   ) {
-    return this.purposeLessonService.update(id, body);
+    return this.purposeLessonService.update(id, body)
   }
 
   @Delete('remove-all-mock')
@@ -81,7 +81,7 @@ export class PurposeLessonController {
   @ApiOkResponse()
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   removeAllMock() {
-    return this.purposeLessonService.removeAllMock();
+    return this.purposeLessonService.removeAllMock()
   }
 
   @Delete(':id')
@@ -90,6 +90,6 @@ export class PurposeLessonController {
   @ApiOkResponse({ type: DeletePurposeGetLessonResponseDto })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   remove(@Param('id', ParseIntPipe) id: number) {
-    return this.purposeLessonService.remove(id);
+    return this.purposeLessonService.remove(id)
   }
 }

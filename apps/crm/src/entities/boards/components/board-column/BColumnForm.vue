@@ -36,18 +36,22 @@ import { useForm } from 'vee-validate'
 import { useBoardColumn } from '../../composables/use-board-column'
 import { useBoard } from '../../composables/use-bord'
 import { Dialog, ProgressSpinner } from '@/packages/prime'
-import { UIInputText, UIFormSubmitButton } from '@/packages/ui'
-import { type PostBoardColumn, PostBoardColumnSchema } from '@/packages/api/types'
+import { UIInputText, UIFormSubmitButton } from '@ag/ui'
+import {
+  type PostBoardColumn,
+  PostBoardColumnSchema,
+} from '@/packages/api/types'
 
 const props = defineProps<{
   columnId?: number | null
 }>()
 
 const { currentBoardId } = useBoard()
-const { isShowColumnForm, isLoading, createColumn, updateColumn, getColumn } = useBoardColumn()
+const { isShowColumnForm, isLoading, createColumn, updateColumn, getColumn } =
+  useBoardColumn()
 
 const { errors, defineField, handleSubmit } = useForm({
-  validationSchema: PostBoardColumnSchema
+  validationSchema: PostBoardColumnSchema,
 })
 
 const [title] = defineField('title')
@@ -61,7 +65,7 @@ const onSubmit = handleSubmit(async () => {
   if (currentBoardId.value) {
     const body: PostBoardColumn = {
       title: title.value,
-      boardId: currentBoardId.value
+      boardId: currentBoardId.value,
     }
 
     if (props.columnId) await updateColumn(body)

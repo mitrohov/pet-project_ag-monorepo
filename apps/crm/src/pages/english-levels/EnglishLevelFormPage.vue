@@ -2,14 +2,27 @@
   <div class="card">
     <div class="form">
       <div>
-        <Button label="Назад" severity="secondary" @click="routeToEnglishLevelsTableDesktop" />
+        <Button
+          label="Назад"
+          severity="secondary"
+          @click="routeToEnglishLevelsTableDesktop"
+        />
       </div>
 
       <div class="title">
-        {{ englishLevelId ? 'Редактирование уровня английского' : 'Создание уровня английского' }}
+        {{
+          englishLevelId
+            ? 'Редактирование уровня английского'
+            : 'Создание уровня английского'
+        }}
       </div>
 
-      <UIInputText v-model="title" :error-message="errors.title" label="Название уровня" required />
+      <UIInputText
+        v-model="title"
+        :error-message="errors.title"
+        label="Название уровня"
+        required
+      />
 
       <div class="mt-20">
         <UIFormSubmitButton :isSave="englishLevelId" @onSubmit="onSubmit" />
@@ -21,11 +34,17 @@
 <script lang="ts" setup>
 import { onMounted } from 'vue'
 import { useEnglishLevelForm } from '@/entities/english-levels/composables/use-english-level-form.ts'
-import { UIInputText, UIFormSubmitButton } from '@/packages/ui'
+import { UIInputText, UIFormSubmitButton } from '@ag/ui'
 import { Button } from '@/packages/prime'
 
-const { title, englishLevelId, errors, initForm, routeToEnglishLevelsTableDesktop, onSubmit } =
-  useEnglishLevelForm()
+const {
+  title,
+  englishLevelId,
+  errors,
+  initForm,
+  routeToEnglishLevelsTableDesktop,
+  onSubmit,
+} = useEnglishLevelForm()
 
 onMounted(() => {
   initForm()

@@ -1,7 +1,9 @@
 <template>
   <Dialog
     :visible="true"
-    :header="selectedStatusId ? 'Редактирование статуса задач' : 'Новый статус задач'"
+    :header="
+      selectedStatusId ? 'Редактирование статуса задач' : 'Новый статус задач'
+    "
     :style="{ width: '600px' }"
     modal
     maximizable
@@ -64,9 +66,12 @@ import { useForm } from 'vee-validate'
 import { useColorsStore } from '@/entities/colors'
 import { useApi } from '@/packages/api'
 import { useBoardStatuses } from '../../composables/use-board-statuses'
-import { UIInputText, UITag, UIFormSubmitButton } from '@/packages/ui'
+import { UIInputText, UITag, UIFormSubmitButton } from '@ag/ui'
 import { Dialog, Button, Select, ProgressSpinner } from '@/packages/prime'
-import { PostColumnTaskStatusSchema, type PostColumnTaskStatus } from '@/packages/api/types'
+import {
+  PostColumnTaskStatusSchema,
+  type PostColumnTaskStatus,
+} from '@/packages/api/types'
 
 const props = defineProps<{
   isStatusBoard: boolean
@@ -79,7 +84,7 @@ const {
   selectedStatusId,
   isShowDeleteStatusWarning,
   createStatus,
-  updateStatus
+  updateStatus,
 } = useBoardStatuses()
 
 const colorsStore = useColorsStore()
@@ -87,7 +92,7 @@ const colorsStore = useColorsStore()
 const isLoading = ref(false)
 
 const { errors, defineField, handleSubmit } = useForm({
-  validationSchema: PostColumnTaskStatusSchema
+  validationSchema: PostColumnTaskStatusSchema,
 })
 
 const [title] = defineField('title')
@@ -96,7 +101,7 @@ const [colorId] = defineField('colorId')
 const onSubmit = handleSubmit(async () => {
   const body: PostColumnTaskStatus = {
     title: title.value,
-    colorId: colorId.value
+    colorId: colorId.value,
   }
 
   if (selectedStatusId.value) await updateStatus(body, props.isStatusBoard)
@@ -108,7 +113,7 @@ async function initForm() {
 
   if (selectedStatusId.value) {
     const response = await apiService.columnTaskStatus.getOneById({
-      id: selectedStatusId.value
+      id: selectedStatusId.value,
     })
 
     if (response) {

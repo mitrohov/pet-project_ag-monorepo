@@ -11,10 +11,10 @@ export class AuthApi extends BaseApiSettings<null> {
     const response = await fetch(`${this.apiUrl}/auth/sign-in`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json;charset=utf-8'
+        'Content-Type': 'application/json;charset=utf-8',
       },
       credentials: 'include',
-      body: JSON.stringify(body)
+      body: JSON.stringify(body),
     })
 
     return (await response.json()) as ApiResponseErrorBody | AuthSuccessResponse

@@ -8,16 +8,16 @@ import {
   ParseIntPipe,
   UseGuards,
   HttpStatus,
-} from '@nestjs/common';
-import { EventService } from '../event.service';
+} from '@nestjs/common'
+import { EventService } from '../event.service'
 import {
   ApiOkResponse,
   ApiResponse,
   ApiTags,
   ApiCookieAuth,
-} from '@nestjs/swagger';
-import { GetEventResponseDto, UpdateEventBodyDto } from '../dto';
-import { AuthGuard } from '../../auth/auth.guard';
+} from '@nestjs/swagger'
+import { GetEventResponseDto, UpdateEventBodyDto } from '../dto'
+import { AuthGuard } from '../../auth/auth.guard'
 
 @ApiTags('event')
 @Controller('event')
@@ -32,8 +32,8 @@ export class UpdateEventController {
   @UsePipes(new ValidationPipe())
   update(
     @Param('id', ParseIntPipe) id: number,
-    @Body() body: UpdateEventBodyDto,
+    @Body() body: UpdateEventBodyDto
   ) {
-    return this.eventService.update(id, body);
+    return this.eventService.update(id, body)
   }
 }

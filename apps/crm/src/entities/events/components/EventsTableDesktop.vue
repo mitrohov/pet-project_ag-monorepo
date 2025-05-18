@@ -37,7 +37,11 @@
         </template>
       </Column>
 
-      <Column field="eventCategoryId" header="Категория" :showFilterMenu="false">
+      <Column
+        field="eventCategoryId"
+        header="Категория"
+        :showFilterMenu="false"
+      >
         <template #body="{ data }">
           <div v-if="data.eventCategory">
             {{ data.eventCategory.title }}
@@ -80,7 +84,10 @@
       <Column>
         <template #body="{ data }">
           <div class="d-flex justify-end">
-            <UITableContextNav :items="contextItems" @onAction="emit('selectedId', data.id)" />
+            <UITableContextNav
+              :items="contextItems"
+              @onAction="emit('selectedId', data.id)"
+            />
           </div>
         </template>
       </Column>
@@ -91,9 +98,19 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { useHelpers } from '@/packages/helpers'
-import { UITableContextNav, type TableContextItem } from '@/packages/ui'
-import { Column, DataTable, MultiSelect, InputText, FilterMatchMode } from '@/packages/prime'
-import type { GetEvent, GetStudent, GetEventCategory } from '@/packages/api/types'
+import { UITableContextNav, type TableContextItem } from '@ag/ui'
+import {
+  Column,
+  DataTable,
+  MultiSelect,
+  InputText,
+  FilterMatchMode,
+} from '@/packages/prime'
+import type {
+  GetEvent,
+  GetStudent,
+  GetEventCategory,
+} from '@/packages/api/types'
 
 const props = defineProps<{
   events: GetEvent[]
@@ -109,12 +126,16 @@ const emit = defineEmits<{
 
 const { getEventTime } = useHelpers()
 
-const globalFilterFields = ref<string[]>(['eventCategoryId', 'title', 'description'])
+const globalFilterFields = ref<string[]>([
+  'eventCategoryId',
+  'title',
+  'description',
+])
 
 const filters = ref({
   eventCategoryId: { value: null, matchMode: FilterMatchMode.IN },
   title: { value: null, matchMode: FilterMatchMode.CONTAINS },
-  description: { value: null, matchMode: FilterMatchMode.CONTAINS }
+  description: { value: null, matchMode: FilterMatchMode.CONTAINS },
 })
 </script>
 

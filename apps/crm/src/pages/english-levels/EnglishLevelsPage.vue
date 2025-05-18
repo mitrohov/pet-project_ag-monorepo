@@ -2,7 +2,11 @@
   <div class="event-category-page">
     <div class="page-header mb-20">Уровни языка</div>
 
-    <Button label="Добавить" @click="englishLevelsStore.openEnglishLevelForm" class="mb-20" />
+    <Button
+      label="Добавить"
+      @click="englishLevelsStore.openEnglishLevelForm"
+      class="mb-20"
+    />
 
     <EnglishLevelsTableDesktop
       :english-levels="englishLevelsStore.englishLevels"
@@ -16,7 +20,7 @@
 import { useRouter } from 'vue-router'
 import { useEnglishLevelsStore } from '@/entities/english-levels/stores/use-english-level-store.ts'
 import EnglishLevelsTableDesktop from '@/entities/english-levels/components/EnglishLevelsTableDesktop.vue'
-import { type TableContextItem } from '@/packages/ui'
+import { type TableContextItem } from '@ag/ui'
 import { Button } from '@/packages/prime'
 
 const router = useRouter()
@@ -33,12 +37,12 @@ const contextItems: TableContextItem[] = [
           if (englishLevelsStore.selectedId) {
             router.push({
               name: 'EnglishLevelFormPage',
-              query: { id: englishLevelsStore.selectedId }
+              query: { id: englishLevelsStore.selectedId },
             })
           }
-        }
-      }
-    ]
-  }
+        },
+      },
+    ],
+  },
 ]
 </script>

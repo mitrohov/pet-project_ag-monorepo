@@ -1,11 +1,19 @@
 <template>
   <div class="form">
     <div>
-      <Button label="Назад" severity="secondary" @click="routeToBotUsersTable" />
+      <Button
+        label="Назад"
+        severity="secondary"
+        @click="routeToBotUsersTable"
+      />
     </div>
 
     <div class="title">
-      {{ botUserId ? 'Редактирование пользователя бота' : 'Создание пользователя бота' }}
+      {{
+        botUserId
+          ? 'Редактирование пользователя бота'
+          : 'Создание пользователя бота'
+      }}
     </div>
 
     <UIInputText
@@ -15,7 +23,13 @@
       label="TG user name"
     />
 
-    <UISelect v-model="role" :options="roles" optionLabel="name" optionValue="code" label="Роль" />
+    <UISelect
+      v-model="role"
+      :options="roles"
+      optionLabel="name"
+      optionValue="code"
+      label="Роль"
+    />
 
     <UISelect
       v-model="studentId"
@@ -43,7 +57,7 @@ import { onMounted } from 'vue'
 import { useStudentsStore } from '@/entities/students'
 import { useBotUsersForm } from '@/entities/bot-users/composables/use-bot-user-form.ts'
 import { Button } from '@/packages/prime'
-import { UISelect, UIInputText, UIInputSwitch } from '@/packages/ui'
+import { UISelect, UIInputText, UIInputSwitch } from '@ag/ui'
 
 const studentsStore = useStudentsStore()
 
@@ -57,7 +71,7 @@ const {
   isActive,
   initForm,
   routeToBotUsersTable,
-  onSubmit
+  onSubmit,
 } = useBotUsersForm()
 
 onMounted(() => {

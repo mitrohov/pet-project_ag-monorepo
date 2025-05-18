@@ -1,14 +1,23 @@
 <template>
   <div class="form">
     <div>
-      <Button label="Назад" severity="secondary" @click="routeToContactsTable" />
+      <Button
+        label="Назад"
+        severity="secondary"
+        @click="routeToContactsTable"
+      />
     </div>
 
     <div class="title">
       {{ contactId ? 'Редактирование контакта' : 'Создание контакта' }}
     </div>
 
-    <UIInputText v-model="fio" :error-message="errors.fio" label="ФИО" required />
+    <UIInputText
+      v-model="fio"
+      :error-message="errors.fio"
+      label="ФИО"
+      required
+    />
 
     <UIInputText
       v-model="mobileNumber"
@@ -25,9 +34,17 @@
       label="Откуда контакт"
     />
 
-    <UITextEditor v-model="socials" :error-message="errors.socials" label="Социальные сети" />
+    <UITextEditor
+      v-model="socials"
+      :error-message="errors.socials"
+      label="Социальные сети"
+    />
 
-    <UITextEditor v-model="description" :error-message="errors.description" label="Описание" />
+    <UITextEditor
+      v-model="description"
+      :error-message="errors.description"
+      label="Описание"
+    />
 
     <div class="mt-20">
       <UIFormSubmitButton :isSave="contactId" @onSubmit="onSubmit" />
@@ -40,7 +57,7 @@ import { onMounted } from 'vue'
 import { useOrderPlatformsStore } from '@/entities/order-platforms'
 import { useContactsForm } from '@/entities/contacts/composables/use-contacts-form.ts'
 import { Button } from '@/packages/prime'
-import { UIInputText, UISelect, UITextEditor, UIFormSubmitButton } from '@/packages/ui'
+import { UIInputText, UISelect, UITextEditor, UIFormSubmitButton } from '@ag/ui'
 
 const orderPlatformsStore = useOrderPlatformsStore()
 
@@ -54,7 +71,7 @@ const {
   description,
   initForm,
   routeToContactsTable,
-  onSubmit
+  onSubmit,
 } = useContactsForm()
 
 onMounted(() => {

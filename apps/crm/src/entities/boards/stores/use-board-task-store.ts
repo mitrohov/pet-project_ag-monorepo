@@ -20,6 +20,6 @@ export const useBoardTaskStore = defineStore('boardTaskStore', () => {
     isShowDeleteTask,
     selectedTaskId,
     selectedTask,
-    targetDragTask
+    targetDragTask,
   }
 })

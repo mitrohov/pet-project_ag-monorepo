@@ -42,6 +42,6 @@ export const useBotUsersStore = defineStore('botUsersStore', () => {
     findBotUserById,
     openBotUserForm,
     deleteBotUser,
-    getBotUsers
+    getBotUsers,
   }
 })

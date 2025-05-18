@@ -80,7 +80,11 @@
         </template>
       </Column>
 
-      <Column field="orderPlatformId" header="Платформа" :showFilterMenu="false">
+      <Column
+        field="orderPlatformId"
+        header="Платформа"
+        :showFilterMenu="false"
+      >
         <template #body="{ data }">
           <div v-if="data.orderPlatform">
             {{ data.orderPlatform.title }}
@@ -119,8 +123,14 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { UITableContextNav, type TableContextItem } from '@/packages/ui'
-import { DataTable, Column, InputText, MultiSelect, FilterMatchMode } from '@/packages/prime'
+import { UITableContextNav, type TableContextItem } from '@ag/ui'
+import {
+  DataTable,
+  Column,
+  InputText,
+  MultiSelect,
+  FilterMatchMode,
+} from '@/packages/prime'
 import type { GetContact, GetOrderPlatform } from '@/packages/api/types'
 
 const props = defineProps<{
@@ -139,7 +149,7 @@ const globalFilterFields = ref<string[]>([
   'mobileNumber',
   'socials',
   'description',
-  'orderPlatformId'
+  'orderPlatformId',
 ])
 
 const filters = ref({
@@ -147,6 +157,6 @@ const filters = ref({
   mobileNumber: { value: null, matchMode: FilterMatchMode.CONTAINS },
   socials: { value: null, matchMode: FilterMatchMode.CONTAINS },
   description: { value: null, matchMode: FilterMatchMode.CONTAINS },
-  orderPlatformId: { value: null, matchMode: FilterMatchMode.IN }
+  orderPlatformId: { value: null, matchMode: FilterMatchMode.IN },
 })
 </script>

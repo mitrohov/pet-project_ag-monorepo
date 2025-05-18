@@ -104,17 +104,23 @@
 
 @font-face {
   font-family: SamsungOne-900;
-  src: local("SamsungOne-900"), url(../assets/fonts/SamsungOne-900.ttf) format("truetype");
+  src:
+    local("SamsungOne-900"),
+    url(../assets/fonts/SamsungOne-900.ttf) format("truetype");
 }
 
 @font-face {
   font-family: SamsungOne-700;
-  src: local("SamsungOne-700"), url(../assets/fonts/SamsungOne-700.ttf) format("truetype");
+  src:
+    local("SamsungOne-700"),
+    url(../assets/fonts/SamsungOne-700.ttf) format("truetype");
 }
 
 @font-face {
   font-family: SamsungOne-400;
-  src: local("SamsungOne-400"), url(../assets/fonts/SamsungOne-400.ttf) format("truetype");
+  src:
+    local("SamsungOne-400"),
+    url(../assets/fonts/SamsungOne-400.ttf) format("truetype");
 }
 
 body {
@@ -123,7 +129,11 @@ body {
   font-family: "SamsungOne-400", Helvetica;
 }
 
-a, a:link, a:visited, a:hover, a:active {
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
   font-family: "SamsungOne-900", Helvetica;
   color: #f8b65f;
   cursor: pointer;
@@ -146,7 +156,11 @@ input::placeholder {
   font-size: 13px;
 }
 
-button, button:link, button:visited, button:hover, button:active {
+button,
+button:link,
+button:visited,
+button:hover,
+button:active {
   color: black;
 }
 

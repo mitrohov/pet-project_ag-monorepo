@@ -10,8 +10,13 @@ export function useBoard() {
   const route = useRoute()
   const apiService = useApi()
 
-  const { board, boards, isShowBoardDeleteWarning, isShowBoardForm, selectedBoardId } =
-    storeToRefs(useBoardStore())
+  const {
+    board,
+    boards,
+    isShowBoardDeleteWarning,
+    isShowBoardForm,
+    selectedBoardId,
+  } = storeToRefs(useBoardStore())
 
   const isHasTasks = ref(false)
   const isDisabledDeleteWarningButtons = ref(false)
@@ -19,7 +24,7 @@ export function useBoard() {
 
   const statusBoard = {
     id: 0,
-    title: 'Задачи по статусам'
+    title: 'Задачи по статусам',
   }
 
   const currentBoardId = computed<number | null>(() => {
@@ -29,7 +34,9 @@ export function useBoard() {
 
   async function getBoard() {
     if (currentBoardId.value) {
-      const response = await apiService.boards.getOneById({ id: currentBoardId.value })
+      const response = await apiService.boards.getOneById({
+        id: currentBoardId.value,
+      })
       if (response) board.value = response
     }
   }
@@ -139,6 +146,6 @@ export function useBoard() {
     updateBoard,
     deleteBoard,
     routeToBoardList,
-    initBoardPage
+    initBoardPage,
   }
 }

@@ -14,8 +14,6 @@
     "lint": "eslint . --fix",
     "format": "prettier --write src/",
     "test-all": "vitest --workspace=vitest.workspace.ts",
-    "test-browser": "vitest --workspace=vitest.browser.config.ts",
-    "test-node": "vitest --workspace=vitest.node.config.ts",
     "delete-build": "rm -rf dist",
     "delete-deps": "rm -rf node_modules"
   },
@@ -35,12 +33,13 @@
     "vee-validate": "catalog:",
     "vue": "catalog:",
     "vue-router": "catalog:",
-    "yup": "catalog:"
+    "yup": "catalog:",
+    "@ag/agent": "workspace:*",
+    "@ag/ui": "workspace:*"
   },
   "devDependencies": {
     "@ag/eslint": "workspace:*",
     "@ag/form-validation": "workspace:*",
-    "@ag/prettier": "workspace:*",
     "@ag/schemas": "workspace:*",
     "@playwright/test": "catalog:",
     "@tsconfig/node22": "catalog:",
@@ -52,7 +51,6 @@
     "eslint": "catalog:",
     "npm-run-all": "catalog:",
     "playwright": "catalog:",
-    "prettier": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
     "vite-plugin-vue-devtools": "catalog:",

@@ -11,22 +11,22 @@ import {
   ParseIntPipe,
   UseGuards,
   HttpStatus,
-} from '@nestjs/common';
-import { LessonService } from './lesson.service';
+} from '@nestjs/common'
+import { LessonService } from './lesson.service'
 import {
   ApiOkResponse,
   ApiResponse,
   ApiTags,
   ApiCookieAuth,
-} from '@nestjs/swagger';
-import { AuthGuard } from '../auth/auth.guard';
-import { SettingsResponseDto } from '../settings/settings.dto';
+} from '@nestjs/swagger'
+import { AuthGuard } from '../auth/auth.guard'
+import { SettingsResponseDto } from '../settings/settings.dto'
 import {
   CreateLessonBodyDto,
   DeleteGetLessonResponseDto,
   GetLessonResponseDto,
   UpdateLessonBodyDto,
-} from './dto';
+} from './dto'
 
 @ApiTags('lesson')
 @Controller('lesson')
@@ -40,7 +40,7 @@ export class LessonController {
   })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   async findAll() {
-    return this.lessonService.findAll();
+    return this.lessonService.findAll()
   }
 
   @Get(':id')
@@ -49,7 +49,7 @@ export class LessonController {
   @ApiOkResponse({ type: GetLessonResponseDto })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.lessonService.findOne(id);
+    return this.lessonService.findOne(id)
   }
 
   @Post('create-many')
@@ -59,7 +59,7 @@ export class LessonController {
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   @UsePipes(new ValidationPipe())
   createMany(@Body() body: CreateLessonBodyDto[]) {
-    return this.lessonService.createMany(body);
+    return this.lessonService.createMany(body)
   }
 
   @Post()
@@ -69,7 +69,7 @@ export class LessonController {
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   @UsePipes(new ValidationPipe())
   create(@Body() body: CreateLessonBodyDto) {
-    return this.lessonService.create(body);
+    return this.lessonService.create(body)
   }
 
   @Patch(':id')
@@ -80,9 +80,9 @@ export class LessonController {
   @UsePipes(new ValidationPipe())
   update(
     @Param('id', ParseIntPipe) id: number,
-    @Body() body: UpdateLessonBodyDto,
+    @Body() body: UpdateLessonBodyDto
   ) {
-    return this.lessonService.update(id, body);
+    return this.lessonService.update(id, body)
   }
 
   @Delete()
@@ -91,7 +91,7 @@ export class LessonController {
   @ApiOkResponse()
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   removeAllMock() {
-    return this.lessonService.removeAllMock();
+    return this.lessonService.removeAllMock()
   }
 
   @Delete(':id')
@@ -100,6 +100,6 @@ export class LessonController {
   @ApiOkResponse({ type: DeleteGetLessonResponseDto })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   remove(@Param('id', ParseIntPipe) id: number) {
-    return this.lessonService.remove(id);
+    return this.lessonService.remove(id)
   }
 }

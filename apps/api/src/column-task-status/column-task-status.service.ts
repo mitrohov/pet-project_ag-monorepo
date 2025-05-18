@@ -1,16 +1,16 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { DbService } from '../db/db.service';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
+import { DbService } from '../db/db.service'
 import {
   UpdateColumnTaskStatusBodyDto,
   CreateColumnTaskStatusBodyDto,
-} from './column-task-status.dto';
+} from './column-task-status.dto'
 
 @Injectable()
 export class ColumnTaskStatusService {
   constructor(private readonly dbService: DbService) {}
 
   create(data: CreateColumnTaskStatusBodyDto) {
-    return this.dbService.columnTaskStatus.create({ data });
+    return this.dbService.columnTaskStatus.create({ data })
   }
 
   findAll() {
@@ -35,50 +35,50 @@ export class ColumnTaskStatusService {
         },
       },
       orderBy: { id: 'asc' },
-    });
+    })
   }
 
   async findOne(id: number) {
     const response = await this.dbService.columnTaskStatus.findUnique({
       where: { id, isDeleted: false },
-    });
+    })
 
     if (!response) {
-      throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
+      throw new HttpException('Not Found', HttpStatus.NOT_FOUND)
     }
-    return response;
+    return response
   }
 
   async update(id: number, data: UpdateColumnTaskStatusBodyDto) {
     const response = await this.dbService.columnTaskStatus.findUnique({
       where: { id, isDeleted: false },
-    });
+    })
 
     if (!response) {
-      throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
+      throw new HttpException('Not Found', HttpStatus.NOT_FOUND)
     }
 
-    return this.dbService.columnTaskStatus.update({ where: { id }, data });
+    return this.dbService.columnTaskStatus.update({ where: { id }, data })
   }
 
   async remove(id: number) {
     const response = await this.dbService.columnTaskStatus.findUnique({
       where: { id },
-    });
+    })
 
     if (!response) {
-      throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
+      throw new HttpException('Not Found', HttpStatus.NOT_FOUND)
     }
 
     return this.dbService.columnTaskStatus.update({
       where: { id },
       data: { isDeleted: true },
-    });
+    })
   }
 
   removeAllMock() {
     return this.dbService.columnTaskStatus.deleteMany({
       where: { isMock: true },
-    });
+    })
   }
 }

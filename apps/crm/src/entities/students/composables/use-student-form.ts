@@ -7,7 +7,7 @@ import {
   PostStudentSchema,
   type PostStudent,
   type PostStudentSchedule,
-  type DayWeek
+  type DayWeek,
 } from '@/packages/api/types'
 type SchedulesArray = 'schedulesForUpdate' | 'schedulesForCreate'
 
@@ -28,7 +28,7 @@ export function useStudentForm() {
     { label: 'Четверг', shortLabel: 'Чт.', day: 4 },
     { label: 'Пятница', shortLabel: 'Пят.', day: 5 },
     { label: 'Суббота', shortLabel: 'Суб.', day: 6 },
-    { label: 'Воскресенье', shortLabel: 'Вос.', day: 7 }
+    { label: 'Воскресенье', shortLabel: 'Вос.', day: 7 },
   ]
 
   const studentId = computed<number | null>(() => {
@@ -36,7 +36,7 @@ export function useStudentForm() {
   })
 
   const { values, errors, defineField, handleSubmit } = useForm({
-    validationSchema: PostStudentSchema
+    validationSchema: PostStudentSchema,
   })
 
   const [fio] = defineField('fio')
@@ -52,21 +52,33 @@ export function useStudentForm() {
   const [progressMeLogin] = defineField('progressMeLogin')
   const [progressMePassword] = defineField('progressMePassword')
 
-  function updateDayWeek(dayWeek: number, index: number, array: SchedulesArray) {
-    if (array === 'schedulesForUpdate') schedulesForUpdate.value[index].dayWeek = dayWeek
-    if (array === 'schedulesForCreate') schedulesForCreate.value[index].dayWeek = dayWeek
+  function updateDayWeek(
+    dayWeek: number,
+    index: number,
+    array: SchedulesArray
+  ) {
+    if (array === 'schedulesForUpdate')
+      schedulesForUpdate.value[index].dayWeek = dayWeek
+    if (array === 'schedulesForCreate')
+      schedulesForCreate.value[index].dayWeek = dayWeek
   }
 
-  function updateTime(time: string | null, index: number, array: SchedulesArray) {
-    if (array === 'schedulesForUpdate' && time) schedulesForUpdate.value[index].time = time
-    if (array === 'schedulesForCreate' && time) schedulesForCreate.value[index].time = time
+  function updateTime(
+    time: string | null,
+    index: number,
+    array: SchedulesArray
+  ) {
+    if (array === 'schedulesForUpdate' && time)
+      schedulesForUpdate.value[index].time = time
+    if (array === 'schedulesForCreate' && time)
+      schedulesForCreate.value[index].time = time
   }
 
   function addSchedule() {
     schedulesForCreate.value.push({
       studentId: studentId.value || 0,
       dayWeek: 1,
-      time: new Date().toISOString()
+      time: new Date().toISOString(),
     })
   }
 
@@ -76,7 +88,8 @@ export function useStudentForm() {
       await apiService.studentSchedule.deleteOneById({ id: scheduleId })
       schedulesForUpdate.value.splice(index, 1)
     }
-    if (array === 'schedulesForCreate') schedulesForCreate.value.splice(index, 1)
+    if (array === 'schedulesForCreate')
+      schedulesForCreate.value.splice(index, 1)
   }
 
   function routeToStudentsTableDesktop() {
@@ -85,16 +98,18 @@ export function useStudentForm() {
 
   async function updateSchedules() {
     await apiService.studentSchedule.updateMany({
-      body: schedulesForUpdate.value
+      body: schedulesForUpdate.value,
     })
   }
 
   async function createSchedules(studentId: number) {
     if (schedulesForCreate.value.length > 0) {
-      schedulesForCreate.value.forEach((schedule) => (schedule.studentId = studentId))
+      schedulesForCreate.value.forEach(
+        (schedule) => (schedule.studentId = studentId)
+      )
 
       await apiService.studentSchedule.createMany({
-        body: schedulesForCreate.value
+        body: schedulesForCreate.value,
       })
     }
   }
@@ -103,7 +118,7 @@ export function useStudentForm() {
     if (studentId.value) {
       await apiService.students.updateOneById({
         id: studentId.value,
-        body
+        body,
       })
 
       await Promise.all([createSchedules(studentId.value), updateSchedules()])
@@ -152,7 +167,9 @@ export function useStudentForm() {
         setValues(student)
         schedulesForUpdate.value = student.studentSchedules
       } else {
-        const response = await apiService.students.getOneById({ id: studentId.value })
+        const response = await apiService.students.getOneById({
+          id: studentId.value,
+        })
 
         if (response) {
           setValues(response)
@@ -206,6 +223,6 @@ export function useStudentForm() {
     deleteSchedule,
     updateDayWeek,
     updateTime,
-    routeToStudentsTableDesktop
+    routeToStudentsTableDesktop,
   }
 }

@@ -1,15 +1,15 @@
-import { faker } from '@faker-js/faker';
+import { faker } from '@faker-js/faker'
 
 export class PaymentMock {
-  private readonly title = faker.lorem.word();
-  private readonly date = new Date().toISOString();
-  private readonly lessonQty = faker.number.int({ min: 1, max: 30 });
-  private readonly sum = faker.number.int({ min: 500, max: 30000 });
-  private readonly isMessageSent = false;
-  private readonly isMock = true;
+  private readonly title = faker.lorem.word()
+  private readonly date = new Date().toISOString()
+  private readonly lessonQty = faker.number.int({ min: 1, max: 30 })
+  private readonly sum = faker.number.int({ min: 500, max: 30000 })
+  private readonly isMessageSent = false
+  private readonly isMock = true
 }
 
-export const payment = new PaymentMock();
+export const payment = new PaymentMock()
 
 export const notValidPayment = {
   title: 1,
@@ -17,7 +17,7 @@ export const notValidPayment = {
   lessonQty: '',
   sum: '',
   isMessageSent: 1,
-};
+}
 
 export const notValidPaymentErrors = [
   'title must be shorter than or equal to 50 characters',
@@ -30,4 +30,4 @@ export const notValidPaymentErrors = [
   'sum must not be less than 500',
   'sum must be a number conforming to the specified constraints',
   'isMessageSent must be a boolean value',
-];
+]

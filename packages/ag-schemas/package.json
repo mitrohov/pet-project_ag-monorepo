@@ -17,8 +17,6 @@
   "devDependencies": {
     "@ag/eslint": "workspace:*",
     "@ag/tsconfig": "workspace:*",
-    "@ag/prettier": "workspace:*",
-    "eslint": "catalog:",
-    "prettier": "catalog:"
+    "eslint": "catalog:"
   }
 }

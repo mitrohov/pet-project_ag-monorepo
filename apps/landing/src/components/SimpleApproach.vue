@@ -24,7 +24,7 @@
   display: grid;
   grid-column-gap: 20px;
   grid-template-columns: 3fr 4fr;
-  grid-template-areas: "simpleContent simpleImage";
+  grid-template-areas: 'simpleContent simpleImage';
 
   .simple-content {
     display: flex;
@@ -51,8 +51,8 @@
   .simple-approach-container {
     grid-template-columns: none;
     grid-template-areas:
-      "simpleImage simpleImage"
-      "simpleContent simpleContent";
+      'simpleImage simpleImage'
+      'simpleContent simpleContent';
     .simple-img-container {
       padding: 15px;
     }

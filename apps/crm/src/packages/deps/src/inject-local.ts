@@ -19,7 +19,10 @@ export const injectLocal: typeof inject = (...args) => {
     throw new Error('injectLocal must be called in setup')
   }
 
-  if (localProvidedStateMap.has(instance) && key in localProvidedStateMap.get(instance)!) {
+  if (
+    localProvidedStateMap.has(instance) &&
+    key in localProvidedStateMap.get(instance)!
+  ) {
     return localProvidedStateMap.get(instance)![key]
   }
 

@@ -3,7 +3,9 @@
     <div class="container">
       <div class="sidebar">
         <div class="sidebar-header">
-          <div class="default-layout_logo" @click="openEventCalendarPage">Anastasia Geiko crm</div>
+          <div class="default-layout_logo" @click="openEventCalendarPage">
+            Anastasia Geiko crm
+          </div>
         </div>
 
         <TieredMenu class="vertical-nav" :model="props.navItems" />
@@ -31,7 +33,7 @@
 <script lang="ts" setup>
 import { useRouter } from 'vue-router'
 import { TieredMenu } from '@/packages/prime'
-import type { NavItem } from '@/packages/ui'
+import type { NavItem } from '@ag/ui'
 
 const props = defineProps<{
   navItems: NavItem[]

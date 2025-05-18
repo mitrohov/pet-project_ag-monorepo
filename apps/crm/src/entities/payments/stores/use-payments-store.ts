@@ -24,11 +24,13 @@ export const usePaymentsStore = defineStore('paymentStore', () => {
 
   async function deletePayment() {
     if (selectedId.value) {
-      await apiService.payments.deleteOneById({ id: selectedId.value }).then(() => {
-        getPayments()
-        lessonsStore.getLessons()
-        showDeleteWarning.value = false
-      })
+      await apiService.payments
+        .deleteOneById({ id: selectedId.value })
+        .then(() => {
+          getPayments()
+          lessonsStore.getLessons()
+          showDeleteWarning.value = false
+        })
     }
   }
 
@@ -62,6 +64,6 @@ export const usePaymentsStore = defineStore('paymentStore', () => {
     editPayment,
     openNewPaymentForm,
     getPayments,
-    deletePayment
+    deletePayment,
   }
 })

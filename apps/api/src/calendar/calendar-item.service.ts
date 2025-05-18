@@ -1,11 +1,11 @@
-import { Injectable } from '@nestjs/common';
-import { DbService } from '../db/db.service';
-import { getColorScheme } from '../color-schema/color-schema';
-import { CalendarItemResponseDto } from './dto/calendar-item-response.dto';
-import { CalendarItemColor } from './dto/calendar-item-color';
-import { GetStudentResponseDto } from '../student/dto/get-student.dto';
-import { GetEventResponseDto } from '../event/dto';
-import { GetLessonResponseDto } from '../lesson/dto';
+import { Injectable } from '@nestjs/common'
+import { DbService } from '../db/db.service'
+import { getColorScheme } from '../color-schema/color-schema'
+import { CalendarItemResponseDto } from './dto/calendar-item-response.dto'
+import { CalendarItemColor } from './dto/calendar-item-color'
+import { GetStudentResponseDto } from '../student/dto/get-student.dto'
+import { GetEventResponseDto } from '../event/dto'
+import { GetLessonResponseDto } from '../lesson/dto'
 
 @Injectable()
 export class CalendarService {
@@ -16,25 +16,24 @@ export class CalendarService {
       this.getStudents(),
       this.getEvents(),
       this.getLessonsNotHasPayment(),
-    ]);
+    ])
 
-    const students = data[0] as unknown as GetStudentResponseDto[];
-    const events = data[1] as unknown as GetEventResponseDto[];
-    const lessonsNotHasPayment = data[2] as unknown as GetLessonResponseDto[];
+    const students = data[0] as unknown as GetStudentResponseDto[]
+    const events = data[1] as unknown as GetEventResponseDto[]
+    const lessonsNotHasPayment = data[2] as unknown as GetLessonResponseDto[]
 
     const calendarItemMadeOfLessons =
-      this.createCalendarItemMadeOfLessons(students);
-    const calendarItemMadeOfEvents =
-      this.createCalendarItemMadeOfEvents(events);
+      this.createCalendarItemMadeOfLessons(students)
+    const calendarItemMadeOfEvents = this.createCalendarItemMadeOfEvents(events)
     const calendarItemMadeOfLessonsNotHasPayment =
-      this.createCalendarItemObjectForLesson(lessonsNotHasPayment);
+      this.createCalendarItemObjectForLesson(lessonsNotHasPayment)
 
     const calendarItemsArray: CalendarItemResponseDto[] = [
       ...calendarItemMadeOfLessons,
       ...calendarItemMadeOfEvents,
       ...calendarItemMadeOfLessonsNotHasPayment,
-    ];
-    return calendarItemsArray.sort((a, b) => a.id - b.id);
+    ]
+    return calendarItemsArray.sort((a, b) => a.id - b.id)
   }
 
   async getLessonsNotHasPayment() {
@@ -72,7 +71,7 @@ export class CalendarService {
           },
         },
       },
-    });
+    })
   }
 
   async getStudents() {
@@ -107,7 +106,7 @@ export class CalendarService {
           },
         },
       },
-    });
+    })
   }
 
   async getEvents() {
@@ -130,18 +129,18 @@ export class CalendarService {
           },
         },
       },
-    });
+    })
   }
 
   createCalendarItemObjectForLesson(
-    lessons: GetLessonResponseDto[],
+    lessons: GetLessonResponseDto[]
   ): CalendarItemResponseDto[] {
-    let colorScheme: CalendarItemColor;
-    const calendarItemsArray: CalendarItemResponseDto[] = [];
+    let colorScheme: CalendarItemColor
+    const calendarItemsArray: CalendarItemResponseDto[] = []
 
     lessons.forEach((lesson) => {
       if (lesson.student?.color?.code) {
-        colorScheme = getColorScheme(lesson.student?.color?.code);
+        colorScheme = getColorScheme(lesson.student?.color?.code)
       }
 
       const calendarItem: CalendarItemResponseDto = {
@@ -163,40 +162,40 @@ export class CalendarService {
         lessonsLeftToCompleteOnPayment: 'Без оплаты',
         isPreparationComplete: lesson.isPreparationComplete,
         isLesson: true,
-      };
+      }
 
-      calendarItemsArray.push(calendarItem);
-    });
+      calendarItemsArray.push(calendarItem)
+    })
 
-    return calendarItemsArray;
+    return calendarItemsArray
   }
 
   createCalendarItemMadeOfLessons(
-    students?: GetStudentResponseDto[],
+    students?: GetStudentResponseDto[]
   ): CalendarItemResponseDto[] {
-    let colorScheme: CalendarItemColor;
-    const calendarItemsArray: CalendarItemResponseDto[] = [];
+    let colorScheme: CalendarItemColor
+    const calendarItemsArray: CalendarItemResponseDto[] = []
 
     if (students) {
       students.forEach((student) => {
         if (student.payments) {
           student.payments.forEach((payment) => {
-            let lessonQty = payment.lessonQty;
+            let lessonQty = payment.lessonQty
 
             payment.lessons = payment.lessons.sort(
               (lessonsA, lessonsB) =>
                 new Date(lessonsA.startTime).getTime() -
-                new Date(lessonsB.startTime).getTime(),
-            );
+                new Date(lessonsB.startTime).getTime()
+            )
 
             payment.lessons.forEach((lesson) => {
               if (student?.color?.code) {
-                colorScheme = getColorScheme(student?.color?.code);
+                colorScheme = getColorScheme(student?.color?.code)
               }
 
-              lessonQty = lessonQty - 1;
+              lessonQty = lessonQty - 1
 
-              const lessonsLeftToCompleteOnPayment = lessonQty;
+              const lessonsLeftToCompleteOnPayment = lessonQty
 
               const calendarItem: CalendarItemResponseDto = {
                 id: lesson.id,
@@ -217,27 +216,27 @@ export class CalendarService {
                 lessonsLeftToCompleteOnPayment,
                 isPreparationComplete: lesson.isPreparationComplete,
                 isLesson: true,
-              };
+              }
 
-              calendarItemsArray.push(calendarItem);
-            });
-          });
+              calendarItemsArray.push(calendarItem)
+            })
+          })
         }
-      });
+      })
     }
 
-    return calendarItemsArray;
+    return calendarItemsArray
   }
 
   createCalendarItemMadeOfEvents(
-    events: GetEventResponseDto[],
+    events: GetEventResponseDto[]
   ): CalendarItemResponseDto[] {
-    let colorScheme: CalendarItemColor;
-    const calendarItemsArray: CalendarItemResponseDto[] = [];
+    let colorScheme: CalendarItemColor
+    const calendarItemsArray: CalendarItemResponseDto[] = []
 
     events.forEach((event) => {
       if (event.eventCategory?.color?.code)
-        colorScheme = getColorScheme(event.eventCategory.color.code);
+        colorScheme = getColorScheme(event.eventCategory.color.code)
 
       const calendarItem: CalendarItemResponseDto = {
         id: event.id,
@@ -258,11 +257,11 @@ export class CalendarService {
         lessonsLeftToCompleteOnPayment: null,
         isPreparationComplete: null,
         isLesson: false,
-      };
+      }
 
-      calendarItemsArray.push(calendarItem);
-    });
+      calendarItemsArray.push(calendarItem)
+    })
 
-    return calendarItemsArray;
+    return calendarItemsArray
   }
 }

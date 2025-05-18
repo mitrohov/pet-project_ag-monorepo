@@ -8,7 +8,12 @@
     />
 
     <div>
-      <Button v-if="isLoading" class="mt-20 ml-10" icon="pi pi-spin pi-refresh" outlined />
+      <Button
+        v-if="isLoading"
+        class="mt-20 ml-10"
+        icon="pi pi-spin pi-refresh"
+        outlined
+      />
       <Button
         v-else
         icon="pi pi-download"
@@ -25,7 +30,7 @@ import { ref } from 'vue'
 import { useApi } from '@/packages/api'
 import { useDate } from '@/packages/date'
 import { Button } from '@/packages/prime'
-import { UICalendar } from '@/packages/ui'
+import { UICalendar } from '@ag/ui'
 
 const { addDayToDate, getMondayDateOnCurrentWeek } = useDate()
 const apiService = useApi()
@@ -42,7 +47,7 @@ async function loadLessonOnWeekWordFile() {
   await apiService.download.downloadLessonOnWeekWordFile({
     query: `?startTime=${startTime}&endTime=${endTime}`,
     url: 'event-on-week',
-    fileName: `${startTime.split('T')[0]} - ${endTime.split('T')[0]}`
+    fileName: `${startTime.split('T')[0]} - ${endTime.split('T')[0]}`,
   })
 
   isLoading.value = false

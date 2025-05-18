@@ -1,7 +1,12 @@
 <template>
   <div>
     <div>
-      <Button label="К доскам" severity="secondary" class="mr-20" @click="routeToBoardList" />
+      <Button
+        label="К доскам"
+        severity="secondary"
+        class="mr-20"
+        @click="routeToBoardList"
+      />
 
       <Button
         label="Добавить статус задач"
@@ -23,7 +28,10 @@
       <div class="mt-20">
         <BContainer :columns="statusColumnsFiltered" :isStatusBoard="true">
           <template v-slot:boardActions>
-            <BActions :board-title="'Задачи по статусам'" :isStatusBoard="true" />
+            <BActions
+              :board-title="'Задачи по статусам'"
+              :isStatusBoard="true"
+            />
           </template>
         </BContainer>
       </div>
@@ -59,7 +67,7 @@ import BContainer from '@/entities/boards/components/board-container/BContainer.
 import BTaskForm from '@/entities/boards/components/board-column-task/BTaskForm.vue'
 import BTaskCard from '@/entities/boards/components/board-column-task/BTaskCard.vue'
 import { Button } from '@/packages/prime'
-import { UIDeleteWarningModal, UIMultiSelect } from '@/packages/ui'
+import { UIDeleteWarningModal, UIMultiSelect } from '@ag/ui'
 
 const {
   selectedBoardIds,
@@ -67,7 +75,7 @@ const {
   statusColumnsFiltered,
   isShowDeleteStatusWarning,
   deleteStatus,
-  initPage
+  initPage,
 } = useBoardStatuses()
 
 const { boards, routeToBoardList } = useBoard()

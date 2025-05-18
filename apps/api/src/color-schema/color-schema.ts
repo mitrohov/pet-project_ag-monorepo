@@ -1,4 +1,4 @@
-import type { ColorSchema, Color } from './color-schema.dto';
+import type { ColorSchema, Color } from './color-schema.dto'
 
 export const colorSchemas: ColorSchema = {
   indianRed: {
@@ -581,15 +581,15 @@ export const colorSchemas: ColorSchema = {
     color: '#ffffff',
     backgroundColor: '#2f4f4f',
   },
-};
+}
 
 export const defaultSchema: Color = {
   color: '#000000',
   backgroundColor: '#ffffff',
-};
+}
 
 export function getColorScheme(schemeName: string): Color {
-  const scheme = colorSchemas[schemeName];
-  if (scheme) return scheme;
-  else return defaultSchema;
+  const scheme = colorSchemas[schemeName]
+  if (scheme) return scheme
+  else return defaultSchema
 }

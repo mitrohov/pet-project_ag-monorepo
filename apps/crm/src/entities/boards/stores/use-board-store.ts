@@ -14,6 +14,6 @@ export const useBoardStore = defineStore('boardStore', () => {
     boards,
     isShowBoardDeleteWarning,
     isShowBoardForm,
-    selectedBoardId
+    selectedBoardId,
   }
 })

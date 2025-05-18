@@ -11,7 +11,10 @@
       <Column field="">
         <template #body="{ data }">
           <div class="d-flex justify-end">
-            <UITableContextNav :items="contextItems" @onAction="emit('selectedId', data.id)" />
+            <UITableContextNav
+              :items="contextItems"
+              @onAction="emit('selectedId', data.id)"
+            />
           </div>
         </template>
       </Column>
@@ -22,7 +25,7 @@
 
 <script lang="ts" setup>
 import { DataTable, Column } from '@/packages/prime'
-import { UITableContextNav, type TableContextItem } from '@/packages/ui'
+import { UITableContextNav, type TableContextItem } from '@ag/ui'
 import type { GetEnglishLevel } from '@/packages/api/types'
 
 const props = defineProps<{

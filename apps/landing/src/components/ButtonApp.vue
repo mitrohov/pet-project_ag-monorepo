@@ -10,7 +10,7 @@ button {
   background: transparent;
   cursor: pointer;
   padding: 10px 15px;
-  font-family: "SamsungOne-900", Helvetica;
+  font-family: 'SamsungOne-900', Helvetica;
   border-radius: 10px;
 }
 </style>

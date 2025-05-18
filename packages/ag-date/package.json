@@ -1,0 +1,22 @@
+{
+  "name": "@ag/date",
+  "author": "mitrohov-dmitriy",
+  "version": "2.0.0",
+  "private": "true",
+  "type": "module",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "scripts": {
+    "typecheck": "vue-tsc --noEmit",
+    "lint": "eslint . --fix",
+    "delete-deps": "rm -rf ../date/node_modules"
+  },
+  "peerDependencies": {
+    "vue": "catalog:"
+  },
+  "devDependencies": {
+    "vue-tsc": "catalog:",
+    "eslint": "catalog:",
+    "@ag/eslint": "workspace:*",
+    "@ag/tsconfig": "workspace:*"
+  }
+}

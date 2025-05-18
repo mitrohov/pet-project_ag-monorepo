@@ -12,32 +12,32 @@
 
 <script lang="ts" setup>
 interface NavItem {
-  title: string;
-  route: string;
+  title: string
+  route: string
 }
 
 const navItems: NavItem[] = [
   {
-    title: "Начало",
-    route: "",
+    title: 'Начало',
+    route: '',
   },
   {
-    title: "Услуги",
-    route: "",
+    title: 'Услуги',
+    route: '',
   },
   {
-    title: "Обо мне",
-    route: "",
+    title: 'Обо мне',
+    route: '',
   },
   {
-    title: "Отзывы",
-    route: "",
+    title: 'Отзывы',
+    route: '',
   },
   {
-    title: "Контакты",
-    route: "",
+    title: 'Контакты',
+    route: '',
   },
-];
+]
 </script>
 
 <style scoped>

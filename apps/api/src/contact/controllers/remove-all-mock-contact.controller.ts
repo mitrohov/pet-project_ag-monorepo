@@ -1,12 +1,12 @@
-import { Controller, UseGuards, HttpStatus, Delete } from '@nestjs/common';
+import { Controller, UseGuards, HttpStatus, Delete } from '@nestjs/common'
 import {
   ApiResponse,
   ApiTags,
   ApiCookieAuth,
   ApiOkResponse,
-} from '@nestjs/swagger';
-import { AuthGuard } from '../../auth/auth.guard';
-import { ContactService } from '../contact.service';
+} from '@nestjs/swagger'
+import { AuthGuard } from '../../auth/auth.guard'
+import { ContactService } from '../contact.service'
 
 @ApiTags('contact')
 @Controller('contact')
@@ -19,6 +19,6 @@ export class RemoveAllMockContactController {
   @ApiOkResponse()
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   removeAllMock() {
-    return this.contactService.removeAllMock();
+    return this.contactService.removeAllMock()
   }
 }

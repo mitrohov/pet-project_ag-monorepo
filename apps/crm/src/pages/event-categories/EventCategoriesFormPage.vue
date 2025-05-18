@@ -1,14 +1,26 @@
 <template>
   <div class="form">
     <div>
-      <Button label="Назад" severity="secondary" @click="routeToEventCategoryTable" />
+      <Button
+        label="Назад"
+        severity="secondary"
+        @click="routeToEventCategoryTable"
+      />
     </div>
 
     <div class="title">
-      {{ isNewEventCategory ? 'Новая категория событий' : 'Редактирование категории событий' }}
+      {{
+        isNewEventCategory
+          ? 'Новая категория событий'
+          : 'Редактирование категории событий'
+      }}
     </div>
 
-    <UIInputText v-model="title" :error-message="errors.title" label="Название категории" />
+    <UIInputText
+      v-model="title"
+      :error-message="errors.title"
+      label="Название категории"
+    />
 
     <div class="d-flex flex-column">
       <label class="mb-5">Цвет</label>
@@ -50,7 +62,7 @@ import { onMounted } from 'vue'
 import { useEventCategoryForm } from '@/entities/event-categories/composables/use-event-category-form.ts'
 import { useColorsStore } from '@/entities/colors'
 import { Button, Select } from '@/packages/prime'
-import { UITag, UIInputText, UIFormSubmitButton } from '@/packages/ui'
+import { UITag, UIInputText, UIFormSubmitButton } from '@ag/ui'
 
 const colorsStore = useColorsStore()
 
@@ -62,7 +74,7 @@ const {
   isNewEventCategory,
   onSubmit,
   routeToEventCategoryTable,
-  initForm
+  initForm,
 } = useEventCategoryForm()
 
 onMounted(() => {

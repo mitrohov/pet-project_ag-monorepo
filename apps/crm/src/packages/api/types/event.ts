@@ -9,9 +9,11 @@ export const PostEventSchema = object({
   eventCategoryId: number()
     .max(999999, 'eventCategoryId должно быть не более 999999')
     .required('Категория событий обязательное поле'),
-  description: string().max(1000, 'Описание должно быть не более 1000 символов').nullable(),
+  description: string()
+    .max(1000, 'Описание должно быть не более 1000 символов')
+    .nullable(),
   startTime: string().required('Это поле обязательное'),
-  endTime: string().required('Это поле обязательное')
+  endTime: string().required('Это поле обязательное'),
 })
 
 export type PostEvent = InferType<typeof PostEventSchema>

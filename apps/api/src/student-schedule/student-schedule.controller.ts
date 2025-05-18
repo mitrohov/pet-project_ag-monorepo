@@ -11,28 +11,28 @@ import {
   ParseIntPipe,
   UseGuards,
   HttpStatus,
-} from '@nestjs/common';
-import { StudentScheduleService } from './student-schedule.service';
+} from '@nestjs/common'
+import { StudentScheduleService } from './student-schedule.service'
 import {
   ApiOkResponse,
   ApiResponse,
   ApiTags,
   ApiCookieAuth,
-} from '@nestjs/swagger';
+} from '@nestjs/swagger'
 import {
   StudentScheduleResponseDto,
   UpdateStudentScheduleBodyDto,
   CreateStudentScheduleBodyDto,
   DeleteStudentScheduleResponseDto,
-} from './student-schedule.dto';
-import { AuthGuard } from '../auth/auth.guard';
-import { SettingsResponseDto } from '../settings/settings.dto';
+} from './student-schedule.dto'
+import { AuthGuard } from '../auth/auth.guard'
+import { SettingsResponseDto } from '../settings/settings.dto'
 
 @ApiTags('student-schedule')
 @Controller('student-schedule')
 export class StudentScheduleController {
   constructor(
-    private readonly studentScheduleService: StudentScheduleService,
+    private readonly studentScheduleService: StudentScheduleService
   ) {}
 
   @Get()
@@ -42,7 +42,7 @@ export class StudentScheduleController {
   })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   async findAll() {
-    return this.studentScheduleService.findAll();
+    return this.studentScheduleService.findAll()
   }
 
   @Get(':id')
@@ -51,7 +51,7 @@ export class StudentScheduleController {
   @ApiOkResponse({ type: StudentScheduleResponseDto })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.studentScheduleService.findOne(id);
+    return this.studentScheduleService.findOne(id)
   }
 
   @Post()
@@ -61,7 +61,7 @@ export class StudentScheduleController {
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   @UsePipes(new ValidationPipe())
   createOne(@Body() body: CreateStudentScheduleBodyDto) {
-    return this.studentScheduleService.createOne(body);
+    return this.studentScheduleService.createOne(body)
   }
 
   @Post('create-many')
@@ -71,7 +71,7 @@ export class StudentScheduleController {
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   @UsePipes(new ValidationPipe())
   createMany(@Body() body: CreateStudentScheduleBodyDto[]) {
-    return this.studentScheduleService.createMany(body);
+    return this.studentScheduleService.createMany(body)
   }
 
   @Patch('update-many')
@@ -81,7 +81,7 @@ export class StudentScheduleController {
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   @UsePipes(new ValidationPipe())
   updateMany(@Body() body: UpdateStudentScheduleBodyDto[]) {
-    return this.studentScheduleService.updateMany(body);
+    return this.studentScheduleService.updateMany(body)
   }
 
   @Patch(':id')
@@ -92,9 +92,9 @@ export class StudentScheduleController {
   @UsePipes(new ValidationPipe())
   updateOne(
     @Param('id', ParseIntPipe) id: number,
-    @Body() body: UpdateStudentScheduleBodyDto,
+    @Body() body: UpdateStudentScheduleBodyDto
   ) {
-    return this.studentScheduleService.updateOne(id, body);
+    return this.studentScheduleService.updateOne(id, body)
   }
 
   @Delete('remove-all-mock')
@@ -103,7 +103,7 @@ export class StudentScheduleController {
   @ApiOkResponse()
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   removeAllMock() {
-    return this.studentScheduleService.removeAllMock();
+    return this.studentScheduleService.removeAllMock()
   }
 
   @Delete(':id')
@@ -112,6 +112,6 @@ export class StudentScheduleController {
   @ApiOkResponse({ type: DeleteStudentScheduleResponseDto })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   remove(@Param('id', ParseIntPipe) id: number) {
-    return this.studentScheduleService.remove(id);
+    return this.studentScheduleService.remove(id)
   }
 }

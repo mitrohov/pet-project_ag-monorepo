@@ -2,7 +2,11 @@
   <div class="payments-page">
     <div class="page-header mb-20">Оплаты</div>
 
-    <Button label="Добавить" @click="paymentsStore.openNewPaymentForm" class="mb-20" />
+    <Button
+      label="Добавить"
+      @click="paymentsStore.openNewPaymentForm"
+      class="mb-20"
+    />
 
     <PaymentsTableDesktop
       v-if="isDesktop"
@@ -34,13 +38,13 @@
 </template>
 
 <script lang="ts" setup>
-import { useAgent } from '@/packages/agent'
+import { useAgent } from '@ag/agent'
 import { usePaymentsStore } from '@/entities/payments/stores/use-payments-store.ts'
 import { useStudentsStore } from '@/entities/students'
 import PaymentsTableDesktop from '@/entities/payments/components/PaymentsTableDesktop.vue'
 import PaymentsTableMobile from '@/entities/payments/components/PaymentsTableMobile.vue'
 import { Button } from '@/packages/prime'
-import { UIDeleteWarningModal, type TableContextItem } from '@/packages/ui'
+import { UIDeleteWarningModal, type TableContextItem } from '@ag/ui'
 
 const { isDesktop } = useAgent()
 const studentsStore = useStudentsStore()
@@ -55,16 +59,16 @@ const contextItems: TableContextItem[] = [
         icon: 'pi pi-pencil',
         command: () => {
           paymentsStore.editPayment()
-        }
+        },
       },
       {
         label: 'Удалить',
         icon: 'pi pi-trash',
         command: () => {
           paymentsStore.showDeleteWarning = true
-        }
-      }
-    ]
-  }
+        },
+      },
+    ],
+  },
 ]
 </script>

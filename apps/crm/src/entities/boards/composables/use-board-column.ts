@@ -52,7 +52,7 @@ export function useBoardColumn() {
     if (selectedColumnId.value) {
       await apiService.boardColumn.updateOneById({
         id: selectedColumnId.value,
-        body
+        body,
       })
       await columnFormSubmitted()
     }
@@ -65,7 +65,7 @@ export function useBoardColumn() {
       promises.push(
         apiService.boardColumn.updateOneById({
           id: column.id,
-          body: column
+          body: column,
         })
       )
     })
@@ -88,6 +88,6 @@ export function useBoardColumn() {
     openEditColumnForm,
     createColumn,
     updateColumn,
-    getColumn
+    getColumn,
   }
 }

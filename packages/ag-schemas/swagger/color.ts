@@ -1,30 +1,30 @@
-import { ApiProperty } from "@nestjs/swagger";
-import { Color, ColorWithId } from "../dtos/color";
+import { ApiProperty } from '@nestjs/swagger'
+import { Color, ColorWithId } from '../dtos/color'
 
 export class ColorForSwagger extends Color {
-  @ApiProperty({ example: "Индийский красный" })
-  declare title: string;
+  @ApiProperty({ example: 'Индийский красный' })
+  declare title: string
 
-  @ApiProperty({ example: "indianRed" })
-  declare code: string;
+  @ApiProperty({ example: 'indianRed' })
+  declare code: string
 
-  @ApiProperty({ example: "#000000" })
-  declare color: string;
+  @ApiProperty({ example: '#000000' })
+  declare color: string
 
-  @ApiProperty({ example: "#CD5C5C" })
-  declare backgroundColor: string;
-
-  @ApiProperty({ example: false })
-  declare isMock?: boolean;
+  @ApiProperty({ example: '#CD5C5C' })
+  declare backgroundColor: string
 
   @ApiProperty({ example: false })
-  declare isDeleted?: boolean;
+  declare isMock?: boolean
 
-  @ApiProperty({ example: "2025-05-12T10:58:23.863Z" })
-  declare createdAt?: string;
+  @ApiProperty({ example: false })
+  declare isDeleted?: boolean
+
+  @ApiProperty({ example: '2025-05-12T10:58:23.863Z' })
+  declare createdAt?: string
 }
 
 export class ColorWithIdForSwagger extends ColorWithId {
   @ApiProperty({ example: 1 })
-  declare id: number;
+  declare id: number
 }

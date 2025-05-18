@@ -3,7 +3,7 @@ import type {
   GetStudentSchedule,
   GetEnglishLevel,
   GetColor,
-  GetPurposeLesson
+  GetPurposeLesson,
 } from '@/packages/api/types'
 
 export const PostStudentSchema = object({
@@ -23,8 +23,12 @@ export const PostStudentSchema = object({
     .min(500, 'Стоимость урока должна быть не менее 500')
     .max(3000, 'Стоимость урока должно быть не более 3000')
     .required('Это поле обязательное'),
-  description: string().max(1500, 'Описание должно быть не более 1500 символов').nullable(),
-  progressMeLogin: string().max(50, 'Логин ProgressMe должен быть не более 50 символов').nullable(),
+  description: string()
+    .max(1500, 'Описание должно быть не более 1500 символов')
+    .nullable(),
+  progressMeLogin: string()
+    .max(50, 'Логин ProgressMe должен быть не более 50 символов')
+    .nullable(),
   progressMePassword: string()
     .max(50, 'Пароль ProgressMe должен быть не более 50 символов')
     .nullable(),
@@ -44,11 +48,15 @@ export const PostStudentSchema = object({
     .integer('Значение должно быть целым числом')
     .max(999999, 'purposeLessonId должно быть не более 999999')
     .required('Это поле обязательное'),
-  phone: string().max(50, 'Телефон должно быть не более 50 символов').nullable(),
-  social: string().max(1000, 'Соц. сети должны быть не более 1000 символов').nullable(),
+  phone: string()
+    .max(50, 'Телефон должно быть не более 50 символов')
+    .nullable(),
+  social: string()
+    .max(1000, 'Соц. сети должны быть не более 1000 символов')
+    .nullable(),
   colorId: number()
     .max(999999, 'colorId должно быть не более 999999')
-    .required('Это поле обязательное')
+    .required('Это поле обязательное'),
 })
 
 export type PostStudent = InferType<typeof PostStudentSchema>

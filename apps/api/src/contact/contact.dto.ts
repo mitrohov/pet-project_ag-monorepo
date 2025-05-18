@@ -5,55 +5,55 @@ import {
   IsNumber,
   IsBoolean,
   IsOptional,
-} from 'class-validator';
-import { ApiProperty } from '@nestjs/swagger';
+} from 'class-validator'
+import { ApiProperty } from '@nestjs/swagger'
 
 export class ContactDto {
   @IsString()
   @MaxLength(50)
   @MinLength(3)
   @ApiProperty({ example: 'Иванов Иван Иванович' })
-  fio: string;
+  fio: string
 
   @IsString()
   @MaxLength(30)
   @MinLength(3)
   @ApiProperty({ example: '8 (999) 123-22-44' })
   @IsOptional()
-  mobileNumber: string;
+  mobileNumber: string
 
   @IsString()
   @MaxLength(500)
   @MinLength(3)
   @ApiProperty({ example: 'Instagram - @ivanov.' })
   @IsOptional()
-  socials: string;
+  socials: string
 
   @IsString()
   @MaxLength(1500)
   @MinLength(3)
   @ApiProperty({ example: 'Может начать заниматься после сентября.' })
   @IsOptional()
-  description: string;
+  description: string
 
   @IsNumber()
   @ApiProperty({ example: 1 })
   @IsOptional()
-  orderPlatformId: number;
+  orderPlatformId: number
 
   @IsBoolean()
   @IsOptional()
-  isMock?: boolean;
+  isMock?: boolean
 
   @IsBoolean()
   @IsOptional()
-  isDeleted?: boolean;
+  isDeleted?: boolean
 }
 
 export class ContactResponseDto extends ContactDto {
   @IsNumber()
   @ApiProperty({ example: 1 })
-  id: number;
+  id: number
 }
 
 export class UpdateContactBodyDto extends ContactDto {}

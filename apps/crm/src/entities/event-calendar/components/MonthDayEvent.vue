@@ -5,14 +5,18 @@
       color: props.calendarItem.colorScheme.color,
       width: '100%',
       height: '100%',
-      overflow: 'hidden'
+      overflow: 'hidden',
     }"
   >
     <div
-      :style="{ backgroundColor: props.calendarItem.colorScheme.backgroundColor }"
+      :style="{
+        backgroundColor: props.calendarItem.colorScheme.backgroundColor,
+      }"
       class="month-event"
     >
-      <div v-if="props.calendarItem.isLesson">{{ props.calendarItem.with }}</div>
+      <div v-if="props.calendarItem.isLesson">
+        {{ props.calendarItem.with }}
+      </div>
       <div v-else>{{ props.calendarItem.title }}</div>
     </div>
   </div>

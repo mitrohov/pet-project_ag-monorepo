@@ -1,6 +1,10 @@
 <template>
   <div v-if="props.lessons.length > 0" class="card table-mobile">
-    <DataTable v-model:expandedRows="expandedRows" :value="props.lessons" dataKey="id">
+    <DataTable
+      v-model:expandedRows="expandedRows"
+      :value="props.lessons"
+      dataKey="id"
+    >
       <Column expander style="width: 5rem" />
 
       <Column header="Дата и время">
@@ -31,7 +35,12 @@
             <div v-if="slotProps.data.payment">
               {{ slotProps.data.payment.title || '—' }}
             </div>
-            <Tag v-else severity="danger" value="Нет" style="padding: 5px 8px" />
+            <Tag
+              v-else
+              severity="danger"
+              value="Нет"
+              style="padding: 5px 8px"
+            />
           </UIMobileTableExpansion>
 
           <UIMobileTableExpansion title="Домашняя работа">
@@ -51,7 +60,12 @@
               value="Пропуск"
               style="padding: 5px 8px"
             />
-            <Tag v-else severity="success" value="Нет" style="padding: 5px 8px" />
+            <Tag
+              v-else
+              severity="success"
+              value="Нет"
+              style="padding: 5px 8px"
+            />
           </UIMobileTableExpansion>
 
           <UIMobileTableExpansion title="Перенос">
@@ -61,7 +75,12 @@
               value="Перенос"
               style="padding: 5px 8px"
             />
-            <Tag v-else severity="success" value="Нет" style="padding: 5px 8px" />
+            <Tag
+              v-else
+              severity="success"
+              value="Нет"
+              style="padding: 5px 8px"
+            />
           </UIMobileTableExpansion>
         </div>
       </template>
@@ -77,8 +96,8 @@ import { DataTable, Column, Tag } from '@/packages/prime'
 import {
   UIMobileTableExpansion,
   UIMobileTableColumnHeader,
-  type TableContextItem
-} from '@/packages/ui'
+  type TableContextItem,
+} from '@ag/ui'
 import type { GetLesson } from '@/packages/api/types'
 
 const expandedRows = ref()

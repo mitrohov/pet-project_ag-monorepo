@@ -4,43 +4,43 @@ import {
   IsNumber,
   IsBoolean,
   IsOptional,
-} from 'class-validator';
-import { ApiProperty } from '@nestjs/swagger';
+} from 'class-validator'
+import { ApiProperty } from '@nestjs/swagger'
 
 export class ColorDto {
   @IsString()
   @MaxLength(50)
   @ApiProperty({ example: 'Индийский красный' })
-  title: string;
+  title: string
 
   @IsString()
   @MaxLength(50)
   @ApiProperty({ example: 'indianRed' })
-  code: string;
+  code: string
 
   @IsString()
   @MaxLength(50)
   @ApiProperty({ example: '#000000' })
-  color: string;
+  color: string
 
   @IsString()
   @MaxLength(50)
   @ApiProperty({ example: '#CD5C5C' })
-  backgroundColor: string;
+  backgroundColor: string
 
   @IsBoolean()
   @IsOptional()
-  isMock?: boolean;
+  isMock?: boolean
 
   @IsBoolean()
   @IsOptional()
-  isDeleted?: boolean;
+  isDeleted?: boolean
 }
 
 export class ColorResponseDto extends ColorDto {
   @IsNumber()
   @ApiProperty({ example: 1 })
-  id: number;
+  id: number
 }
 
 export class UpdateColorBodyDto extends ColorDto {}

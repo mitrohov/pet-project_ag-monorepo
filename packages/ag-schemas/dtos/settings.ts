@@ -6,34 +6,34 @@ import {
   IsInt,
   IsNotEmpty,
   IsPositive,
-} from "class-validator";
+} from 'class-validator'
 
 export class Settings {
   @IsString()
   @IsNotEmpty()
-  field: string;
+  field: string
 
   @IsString()
   @IsNotEmpty()
-  value: string;
+  value: string
 
   @IsBoolean()
   @IsOptional()
-  isMock?: boolean;
+  isMock?: boolean
 
   @IsBoolean()
   @IsOptional()
-  isDeleted?: boolean;
+  isDeleted?: boolean
 
   @IsString()
   @IsNotEmpty()
   @IsOptional()
-  createdAt?: string;
+  createdAt?: string
 }
 
 export class SettingsWithId extends Settings {
   @IsNumber()
-  @IsPositive({ message: "Значение должно быть положительным числом" })
-  @IsInt({ message: "Значение должно быть целым числом" })
-  id: number;
+  @IsPositive({ message: 'Значение должно быть положительным числом' })
+  @IsInt({ message: 'Значение должно быть целым числом' })
+  id: number
 }

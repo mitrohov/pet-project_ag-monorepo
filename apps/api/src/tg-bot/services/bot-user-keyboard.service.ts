@@ -1,5 +1,5 @@
-import { InlineKeyboard } from 'grammy';
-import { Injectable } from '@nestjs/common';
+import { InlineKeyboard } from 'grammy'
+import { Injectable } from '@nestjs/common'
 
 @Injectable()
 export class TgBotUserKeyboardService {
@@ -13,7 +13,7 @@ export class TgBotUserKeyboardService {
     .text('Сколько переносов доступно', 'transfersAvailable')
     .row()
     .text('Правила посещения занятий', 'lessonRules')
-    .row();
+    .row()
 
   progressMe = new InlineKeyboard()
     .text('Войти в класс', 'loginLink')
@@ -22,5 +22,5 @@ export class TgBotUserKeyboardService {
     .row()
     .text('Обучающее видео', 'trainingVideoProgressMe')
     .row()
-    .text('< Назад', 'back');
+    .text('< Назад', 'back')
 }

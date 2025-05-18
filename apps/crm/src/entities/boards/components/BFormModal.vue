@@ -6,7 +6,12 @@
     modal
     @update:visible="isShowBoardForm = false"
   >
-    <UIInputText v-model="title" label="Название доски" required :error-message="errors.title" />
+    <UIInputText
+      v-model="title"
+      label="Название доски"
+      required
+      :error-message="errors.title"
+    />
 
     <div class="mt-20 d-flex justify-end">
       <UIFormSubmitButton
@@ -24,14 +29,15 @@ import { useForm } from 'vee-validate'
 import { useBoard } from '../composables/use-bord'
 import { useApi } from '@/packages/api'
 import { type PostBoard, PostBoardSchema } from '@/packages/api/types'
-import { UIInputText, UIFormSubmitButton } from '@/packages/ui'
+import { UIInputText, UIFormSubmitButton } from '@ag/ui'
 import { Dialog } from '@/packages/prime'
 
 const apiService = useApi()
-const { board, selectedBoardId, isShowBoardForm, createBoard, updateBoard } = useBoard()
+const { board, selectedBoardId, isShowBoardForm, createBoard, updateBoard } =
+  useBoard()
 
 const { errors, defineField, handleSubmit } = useForm({
-  validationSchema: PostBoardSchema
+  validationSchema: PostBoardSchema,
 })
 
 const [title] = defineField('title')
@@ -49,7 +55,9 @@ const onSubmit = handleSubmit(async () => {
 
 async function initForm() {
   if (selectedBoardId.value) {
-    const response = await apiService.boards.getOneById({ id: selectedBoardId.value })
+    const response = await apiService.boards.getOneById({
+      id: selectedBoardId.value,
+    })
 
     if (response) {
       board.value = response

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common'
 
 @Injectable()
 export class QueryFiltersService<QUERY, ARGS extends { where?: any }> {
@@ -9,11 +9,11 @@ export class QueryFiltersService<QUERY, ARGS extends { where?: any }> {
     query,
     args,
   }: {
-    containsQueryKeys?: string[];
-    booleanQueryKeys?: string[];
-    numberQueryKeys?: string[];
-    query: QUERY;
-    args: ARGS;
+    containsQueryKeys?: string[]
+    booleanQueryKeys?: string[]
+    numberQueryKeys?: string[]
+    query: QUERY
+    args: ARGS
   }): ARGS {
     if (containsQueryKeys) {
       containsQueryKeys.forEach((key) => {
@@ -21,9 +21,9 @@ export class QueryFiltersService<QUERY, ARGS extends { where?: any }> {
           args.where = {
             ...args.where,
             [key]: { contains: query[key], mode: 'insensitive' },
-          };
+          }
         }
-      });
+      })
     }
 
     if (booleanQueryKeys) {
@@ -32,9 +32,9 @@ export class QueryFiltersService<QUERY, ARGS extends { where?: any }> {
           args.where = {
             ...args.where,
             [key]: JSON.parse(query[key]) as boolean,
-          };
+          }
         }
-      });
+      })
     }
 
     if (numberQueryKeys) {
@@ -43,11 +43,11 @@ export class QueryFiltersService<QUERY, ARGS extends { where?: any }> {
           args.where = {
             ...args.where,
             [key]: Number(query[key]),
-          };
+          }
         }
-      });
+      })
     }
 
-    return args;
+    return args
   }
 }

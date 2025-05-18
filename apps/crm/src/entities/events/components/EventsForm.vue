@@ -8,7 +8,11 @@
       {{ props.selectedEventId ? 'Редактирование события' : 'Новое событие' }}
     </div>
 
-    <UIInputText v-model="title" :error-message="errors.title" label="Название события" />
+    <UIInputText
+      v-model="title"
+      :error-message="errors.title"
+      label="Название события"
+    />
 
     <UISelect
       v-model="eventCategoryId"
@@ -27,12 +31,20 @@
       @update:model-value="updateStartTime($event)"
     />
 
-    <UICalendar v-model="endTime" :errorMessage="errors.endTime" showTime label="Время окончания" />
+    <UICalendar
+      v-model="endTime"
+      :errorMessage="errors.endTime"
+      showTime
+      label="Время окончания"
+    />
 
     <UITextEditor v-model="description" label="Описание события" />
 
     <div class="mt-20 d-flex justify-end">
-      <UIFormSubmitButton :isSave="props.selectedEventId" @onSubmit="saveChanges" />
+      <UIFormSubmitButton
+        :isSave="props.selectedEventId"
+        @onSubmit="saveChanges"
+      />
     </div>
   </div>
 </template>
@@ -42,7 +54,13 @@ import { onMounted } from 'vue'
 import { useEventCategoriesStore } from '@/entities/event-categories'
 import { useEventForm } from '../composables/use-event-form'
 import { Button } from '@/packages/prime'
-import { UIInputText, UITextEditor, UICalendar, UISelect, UIFormSubmitButton } from '@/packages/ui'
+import {
+  UIInputText,
+  UITextEditor,
+  UICalendar,
+  UISelect,
+  UIFormSubmitButton,
+} from '@ag/ui'
 
 const props = defineProps<{
   showBackBtn: boolean
@@ -65,7 +83,7 @@ const {
   description,
   onSubmit,
   initForm,
-  updateStartTime
+  updateStartTime,
 } = useEventForm()
 
 async function saveChanges() {

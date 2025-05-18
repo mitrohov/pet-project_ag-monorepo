@@ -3,7 +3,13 @@
   "compilerOptions": {
     "strict": true,
     "strictPropertyInitialization": false,
-    "types": ["vitest", "@vitest/browser", "playwright", "@vitest/browser/matchers"]
+    "types": [
+      "vitest",
+      "@vitest/browser",
+      "playwright",
+      "@vitest/browser/matchers"
+    ],
+    "baseUrl": "."
   },
   "plugins": [
     {

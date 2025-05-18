@@ -11,22 +11,22 @@ import {
   ParseIntPipe,
   UseGuards,
   HttpStatus,
-} from '@nestjs/common';
-import { ColorService } from './color.service';
+} from '@nestjs/common'
+import { ColorService } from './color.service'
 import {
   ApiOkResponse,
   ApiResponse,
   ApiTags,
   ApiCookieAuth,
-} from '@nestjs/swagger';
+} from '@nestjs/swagger'
 import {
   ColorResponseDto,
   UpdateColorBodyDto,
   CreateColorBodyDto,
   DeleteColorResponseDto,
-} from './color.dto';
-import { AuthGuard } from '../auth/auth.guard';
-import { SettingsResponseDto } from '../settings/settings.dto';
+} from './color.dto'
+import { AuthGuard } from '../auth/auth.guard'
+import { SettingsResponseDto } from '../settings/settings.dto'
 
 @ApiTags('color')
 @Controller('color')
@@ -40,7 +40,7 @@ export class ColorController {
   })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   async getAll() {
-    return this.colorService.getAll();
+    return this.colorService.getAll()
   }
 
   @Get(':id')
@@ -49,7 +49,7 @@ export class ColorController {
   @ApiOkResponse({ type: ColorResponseDto })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.colorService.findOne(id);
+    return this.colorService.findOne(id)
   }
 
   @Post('create-many')
@@ -59,7 +59,7 @@ export class ColorController {
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   @UsePipes(new ValidationPipe())
   createMany(@Body() body: CreateColorBodyDto[]) {
-    return this.colorService.createMany(body);
+    return this.colorService.createMany(body)
   }
 
   @Post()
@@ -69,7 +69,7 @@ export class ColorController {
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   @UsePipes(new ValidationPipe())
   create(@Body() body: CreateColorBodyDto) {
-    return this.colorService.create(body);
+    return this.colorService.create(body)
   }
 
   @Patch(':id')
@@ -80,9 +80,9 @@ export class ColorController {
   @UsePipes(new ValidationPipe())
   update(
     @Param('id', ParseIntPipe) id: number,
-    @Body() body: UpdateColorBodyDto,
+    @Body() body: UpdateColorBodyDto
   ) {
-    return this.colorService.update(id, body);
+    return this.colorService.update(id, body)
   }
 
   @Delete('/remove-all-mock')
@@ -91,7 +91,7 @@ export class ColorController {
   @ApiOkResponse()
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   removeAllMock() {
-    return this.colorService.removeAllMock();
+    return this.colorService.removeAllMock()
   }
 
   @Delete(':id')
@@ -100,6 +100,6 @@ export class ColorController {
   @ApiOkResponse({ type: DeleteColorResponseDto })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   remove(@Param('id', ParseIntPipe) id: number) {
-    return this.colorService.remove(id);
+    return this.colorService.remove(id)
   }
 }

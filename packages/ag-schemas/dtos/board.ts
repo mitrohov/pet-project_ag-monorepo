@@ -1,4 +1,4 @@
-import { BoardColumnWithId } from "./board-column";
+import { BoardColumnWithId } from './board-column'
 import {
   MinLength,
   MaxLength,
@@ -10,43 +10,43 @@ import {
   IsNotEmpty,
   IsPositive,
   IsArray,
-} from "class-validator";
+} from 'class-validator'
 
 export class Board {
   @IsString()
-  @MinLength(3, { message: "Название доски должно быть не менее 3 символов" })
+  @MinLength(3, { message: 'Название доски должно быть не менее 3 символов' })
   @MaxLength(200, {
-    message: "Название доски должно быть не более 200 символов",
+    message: 'Название доски должно быть не более 200 символов',
   })
-  title: string;
+  title: string
 
   @IsBoolean()
   @IsOptional()
-  isMock?: boolean;
+  isMock?: boolean
 
   @IsBoolean()
   @IsOptional()
-  isDeleted?: boolean;
+  isDeleted?: boolean
 
   @IsString()
   @IsNotEmpty()
   @IsOptional()
-  createdAt?: string;
+  createdAt?: string
 }
 
 export class BoardWithId extends Board {
   @IsNumber()
-  @IsPositive({ message: "Значение должно быть положительным числом" })
-  @IsInt({ message: "Значение должно быть целым числом" })
-  id: number;
+  @IsPositive({ message: 'Значение должно быть положительным числом' })
+  @IsInt({ message: 'Значение должно быть целым числом' })
+  id: number
 }
 
 export class BoardAggregation extends BoardWithId {
   @IsArray()
-  boardColumns: BoardColumnWithId[];
+  boardColumns: BoardColumnWithId[]
 }
 
 export interface BoardDragStartParams {
-  columnId: number;
-  taskId: number;
+  columnId: number
+  taskId: number
 }

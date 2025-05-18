@@ -8,7 +8,7 @@ import {
   type GetStudent,
   type PostPayment,
   type GetPayment,
-  PostPaymentSchema
+  PostPaymentSchema,
 } from '@/packages/api/types'
 
 export function usePaymentForm() {
@@ -18,7 +18,7 @@ export function usePaymentForm() {
   const { getPayments, findPaymentById } = usePaymentsStore()
   const lessonsStore = useLessonsStore()
   const { errors, defineField, handleSubmit } = useForm({
-    validationSchema: PostPaymentSchema
+    validationSchema: PostPaymentSchema,
   })
 
   const isLoading = ref<boolean>(false)
@@ -74,7 +74,9 @@ export function usePaymentForm() {
 
       if (payment) setValues(payment)
       else {
-        const response = await apiService.payments.getOneById({ id: paymentId.value })
+        const response = await apiService.payments.getOneById({
+          id: paymentId.value,
+        })
         if (response) setValues(response)
       }
       isLoading.value = false
@@ -99,6 +101,6 @@ export function usePaymentForm() {
     date,
     onSubmit,
     initForm,
-    routeToPaymentsTableDesktop
+    routeToPaymentsTableDesktop,
   }
 }

@@ -11,20 +11,25 @@ export class BaseApi<GET, POST> extends BaseApiSettings<GET | GET[] | POST> {
 
   async getAll({
     query,
-    url
+    url,
   }: {
     url?: string
     query?: string | undefined
   }): Promise<GET[] | null> {
     try {
-      const response = await fetch(this.createUrl({ url, query }), { credentials: 'include' })
+      const response = await fetch(this.createUrl({ url, query }), {
+        credentials: 'include',
+      })
       const responseBody: GET[] = (await response.json()) as GET[]
       return this.responseProcessing(responseBody)
     } catch (e) {
       if (e instanceof Error) {
         this.userMessage.showUserMessage('error', e.message)
       } else {
-        this.userMessage.showUserMessage('error', 'Произошла неизвестная ошибка')
+        this.userMessage.showUserMessage(
+          'error',
+          'Произошла неизвестная ошибка'
+        )
       }
     }
 
@@ -33,20 +38,25 @@ export class BaseApi<GET, POST> extends BaseApiSettings<GET | GET[] | POST> {
 
   async find({
     query,
-    url = 'aggregation'
+    url = 'aggregation',
   }: {
     query?: string | undefined
     url?: string
   }): Promise<PaginationResponse<GET[]> | null> {
     try {
-      const response = await fetch(this.createUrl({ query, url }), { credentials: 'include' })
+      const response = await fetch(this.createUrl({ query, url }), {
+        credentials: 'include',
+      })
       const responseBody = (await response.json()) as PaginationResponse<GET[]>
       return this.responseProcessing(responseBody)
     } catch (e) {
       if (e instanceof Error) {
         this.userMessage.showUserMessage('error', e.message)
       } else {
-        this.userMessage.showUserMessage('error', 'Произошла неизвестная ошибка')
+        this.userMessage.showUserMessage(
+          'error',
+          'Произошла неизвестная ошибка'
+        )
       }
     }
 
@@ -55,14 +65,19 @@ export class BaseApi<GET, POST> extends BaseApiSettings<GET | GET[] | POST> {
 
   async getOneById({ id }: { id: number }): Promise<GET | null> {
     try {
-      const response = await fetch(this.createUrl({ id }), { credentials: 'include' })
+      const response = await fetch(this.createUrl({ id }), {
+        credentials: 'include',
+      })
       const responseBody = (await response.json()) as GET
       return this.responseProcessing(responseBody)
     } catch (e) {
       if (e instanceof Error) {
         this.userMessage.showUserMessage('error', e.message)
       } else {
-        this.userMessage.showUserMessage('error', 'Произошла неизвестная ошибка')
+        this.userMessage.showUserMessage(
+          'error',
+          'Произошла неизвестная ошибка'
+        )
       }
     }
 
@@ -75,7 +90,7 @@ export class BaseApi<GET, POST> extends BaseApiSettings<GET | GET[] | POST> {
         method: 'POST',
         headers: { 'Content-Type': 'application/json;charset=utf-8' },
         credentials: 'include',
-        body: JSON.stringify(body)
+        body: JSON.stringify(body),
       })
       const responseBody = await response.json()
       return this.responseProcessing(responseBody)
@@ -83,7 +98,10 @@ export class BaseApi<GET, POST> extends BaseApiSettings<GET | GET[] | POST> {
       if (e instanceof Error) {
         this.userMessage.showUserMessage('error', e.message)
       } else {
-        this.userMessage.showUserMessage('error', 'Произошла неизвестная ошибка')
+        this.userMessage.showUserMessage(
+          'error',
+          'Произошла неизвестная ошибка'
+        )
       }
     }
 
@@ -96,7 +114,7 @@ export class BaseApi<GET, POST> extends BaseApiSettings<GET | GET[] | POST> {
         method: 'POST',
         headers: { 'Content-Type': 'application/json;charset=utf-8' },
         credentials: 'include',
-        body: JSON.stringify(body)
+        body: JSON.stringify(body),
       })
       const responseBody = await response.json()
       return this.responseProcessing(responseBody)
@@ -104,20 +122,29 @@ export class BaseApi<GET, POST> extends BaseApiSettings<GET | GET[] | POST> {
       if (e instanceof Error) {
         this.userMessage.showUserMessage('error', e.message)
       } else {
-        this.userMessage.showUserMessage('error', 'Произошла неизвестная ошибка')
+        this.userMessage.showUserMessage(
+          'error',
+          'Произошла неизвестная ошибка'
+        )
       }
     }
 
     return null
   }
 
-  async updateOneById({ id, body }: { id: number; body: POST }): Promise<GET | null> {
+  async updateOneById({
+    id,
+    body,
+  }: {
+    id: number
+    body: POST
+  }): Promise<GET | null> {
     try {
       const response = await fetch(this.createUrl({ id }), {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json;charset=utf-8' },
         credentials: 'include',
-        body: JSON.stringify(body)
+        body: JSON.stringify(body),
       })
       const responseBody = await response.json()
       return this.responseProcessing(responseBody)
@@ -125,7 +152,10 @@ export class BaseApi<GET, POST> extends BaseApiSettings<GET | GET[] | POST> {
       if (e instanceof Error) {
         this.userMessage.showUserMessage('error', e.message)
       } else {
-        this.userMessage.showUserMessage('error', 'Произошла неизвестная ошибка')
+        this.userMessage.showUserMessage(
+          'error',
+          'Произошла неизвестная ошибка'
+        )
       }
     }
 
@@ -138,7 +168,7 @@ export class BaseApi<GET, POST> extends BaseApiSettings<GET | GET[] | POST> {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json;charset=utf-8' },
         credentials: 'include',
-        body: JSON.stringify(body)
+        body: JSON.stringify(body),
       })
       const responseBody = await response.json()
       return this.responseProcessing(responseBody)
@@ -146,7 +176,10 @@ export class BaseApi<GET, POST> extends BaseApiSettings<GET | GET[] | POST> {
       if (e instanceof Error) {
         this.userMessage.showUserMessage('error', e.message)
       } else {
-        this.userMessage.showUserMessage('error', 'Произошла неизвестная ошибка')
+        this.userMessage.showUserMessage(
+          'error',
+          'Произошла неизвестная ошибка'
+        )
       }
     }
 
@@ -158,7 +191,7 @@ export class BaseApi<GET, POST> extends BaseApiSettings<GET | GET[] | POST> {
       const response = await fetch(this.createUrl({ id }), {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json;charset=utf-8' },
-        credentials: 'include'
+        credentials: 'include',
       })
       const responseBody = await response.json()
       return this.responseProcessing(responseBody)
@@ -166,7 +199,10 @@ export class BaseApi<GET, POST> extends BaseApiSettings<GET | GET[] | POST> {
       if (e instanceof Error) {
         this.userMessage.showUserMessage('error', e.message)
       } else {
-        this.userMessage.showUserMessage('error', 'Произошла неизвестная ошибка')
+        this.userMessage.showUserMessage(
+          'error',
+          'Произошла неизвестная ошибка'
+        )
       }
     }
 

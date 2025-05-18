@@ -60,93 +60,93 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { ref } from 'vue'
 
 interface Review {
-  name: string;
-  position: string | null;
-  goals: string[];
-  actions: string[];
-  result: string[];
-  photo: string;
+  name: string
+  position: string | null
+  goals: string[]
+  actions: string[]
+  result: string[]
+  photo: string
 }
 
 const selectedReview = ref<Review>({
-  name: "Дмитрий",
-  position: "Веб-разработчик",
+  name: 'Дмитрий',
+  position: 'Веб-разработчик',
   goals: [
-    "Подготовиться к интервью в Facebook. Время 2 недели.",
-    "Подготовка к созданию CV",
+    'Подготовиться к интервью в Facebook. Время 2 недели.',
+    'Подготовка к созданию CV',
   ],
   actions: [
-    "Вместе с учеником проанализовали сильные и слабые стороны",
-    "Делали еще много всего интересного",
+    'Вместе с учеником проанализовали сильные и слабые стороны',
+    'Делали еще много всего интересного',
   ],
-  result: ["Получил крутую оценку", "Получил оффер"],
-  photo: "mitrohov",
-});
+  result: ['Получил крутую оценку', 'Получил оффер'],
+  photo: 'mitrohov',
+})
 
 const reviews: Review[] = [
   {
-    name: "Дмитрий",
-    position: "Веб-разработчик",
+    name: 'Дмитрий',
+    position: 'Веб-разработчик',
     goals: [
-      "Подготовиться к интервью в Facebook. Время 2 недели.",
-      "Подготовка к созданию CV",
+      'Подготовиться к интервью в Facebook. Время 2 недели.',
+      'Подготовка к созданию CV',
     ],
     actions: [],
     result: [],
-    photo: "",
+    photo: '',
   },
   {
-    name: "Дмитрий",
-    position: "Веб-разработчик",
+    name: 'Дмитрий',
+    position: 'Веб-разработчик',
     goals: [],
     actions: [],
     result: [],
-    photo: "",
+    photo: '',
   },
   {
-    name: "Дмитрий",
-    position: "Веб-разработчик",
+    name: 'Дмитрий',
+    position: 'Веб-разработчик',
     goals: [],
     actions: [],
     result: [],
-    photo: "",
+    photo: '',
   },
   {
-    name: "Дмитрий",
-    position: "Веб-разработчик",
+    name: 'Дмитрий',
+    position: 'Веб-разработчик',
     goals: [],
     actions: [],
     result: [],
-    photo: "",
+    photo: '',
   },
   {
-    name: "Дмитрий",
-    position: "Веб-разработчик",
+    name: 'Дмитрий',
+    position: 'Веб-разработчик',
     goals: [],
     actions: [],
     result: [],
-    photo: "",
+    photo: '',
   },
   {
-    name: "Дмитрий",
-    position: "Веб-разработчик",
+    name: 'Дмитрий',
+    position: 'Веб-разработчик',
     goals: [],
     actions: [],
     result: [],
-    photo: "",
+    photo: '',
   },
   {
-    name: "Дмитрий",
-    position: "Веб-разработчик",
+    name: 'Дмитрий',
+    position: 'Веб-разработчик',
     goals: [],
     actions: [],
     result: [],
-    photo: "",
+    photo: '',
   },
-];
+]
 </script>
 
 <style scoped>

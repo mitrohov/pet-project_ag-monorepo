@@ -5,16 +5,16 @@ import {
   ParseIntPipe,
   UseGuards,
   HttpStatus,
-} from '@nestjs/common';
-import { EventService } from '../event.service';
+} from '@nestjs/common'
+import { EventService } from '../event.service'
 import {
   ApiOkResponse,
   ApiResponse,
   ApiTags,
   ApiCookieAuth,
-} from '@nestjs/swagger';
-import { GetEventResponseDto } from '../dto';
-import { AuthGuard } from '../../auth/auth.guard';
+} from '@nestjs/swagger'
+import { GetEventResponseDto } from '../dto'
+import { AuthGuard } from '../../auth/auth.guard'
 
 @ApiTags('event')
 @Controller('event')
@@ -27,6 +27,6 @@ export class FindOneEventController {
   @ApiOkResponse({ type: GetEventResponseDto })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.eventService.findOne(id);
+    return this.eventService.findOne(id)
   }
 }

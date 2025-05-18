@@ -8,16 +8,16 @@ import {
   Patch,
   Param,
   ParseIntPipe,
-} from '@nestjs/common';
+} from '@nestjs/common'
 import {
   ApiResponse,
   ApiTags,
   ApiCookieAuth,
   ApiOkResponse,
-} from '@nestjs/swagger';
-import { AuthGuard } from '../../auth/auth.guard';
-import { ContactResponseDto, UpdateContactBodyDto } from '../contact.dto';
-import { ContactService } from '../contact.service';
+} from '@nestjs/swagger'
+import { AuthGuard } from '../../auth/auth.guard'
+import { ContactResponseDto, UpdateContactBodyDto } from '../contact.dto'
+import { ContactService } from '../contact.service'
 
 @ApiTags('contact')
 @Controller('contact')
@@ -32,8 +32,8 @@ export class UpdateContactController {
   @UsePipes(new ValidationPipe())
   update(
     @Param('id', ParseIntPipe) id: number,
-    @Body() body: UpdateContactBodyDto,
+    @Body() body: UpdateContactBodyDto
   ) {
-    return this.contactService.update(id, body);
+    return this.contactService.update(id, body)
   }
 }

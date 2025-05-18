@@ -1,3 +1,3 @@
-import { GetPaymentResponseDto } from './get-payment-response.dto';
+import { GetPaymentResponseDto } from './get-payment-response.dto'
 
 export class DeleteGetPaymentResponseDto extends GetPaymentResponseDto {}

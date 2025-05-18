@@ -51,55 +51,55 @@
 </template>
 
 <script lang="ts" setup>
-import ButtonApp from "@/components/ButtonApp.vue";
-import { ref } from "vue";
+import ButtonApp from '@/components/ButtonApp.vue'
+import { ref } from 'vue'
 
-const userName = ref<string | null>(null);
-const userPhone = ref<string | null>(null);
-const contactTime = ref<string | null>(null);
-const showError = ref<boolean>(false);
-const formSent = ref<boolean>(false);
+const userName = ref<string | null>(null)
+const userPhone = ref<string | null>(null)
+const contactTime = ref<string | null>(null)
+const showError = ref<boolean>(false)
+const formSent = ref<boolean>(false)
 
 const updatePhone = (event: Event) => {
-  const target = event.target as HTMLInputElement;
-  const phone = target.value;
+  const target = event.target as HTMLInputElement
+  const phone = target.value
 
   if (phone) {
-    userPhone.value = phone;
-    showError.value = false;
+    userPhone.value = phone
+    showError.value = false
   } else {
-    userPhone.value = null;
-    showError.value = true;
+    userPhone.value = null
+    showError.value = true
   }
-};
+}
 
 const onSubmit = async () => {
   if (userPhone.value) {
     const message = `
-    Имя: ${userName.value ? userName.value : "Имя не указано"}
-    %0AТелефон: ${userPhone.value ? userPhone.value : "Телефон не указан"}
+    Имя: ${userName.value ? userName.value : 'Имя не указано'}
+    %0AТелефон: ${userPhone.value ? userPhone.value : 'Телефон не указан'}
     %0AКогда связаться: ${
-      contactTime.value ? contactTime.value : "Время не указано"
+      contactTime.value ? contactTime.value : 'Время не указано'
     }
-  `;
+  `
 
-    const url = `https://api.telegram.org/bot6275451972:AAFa8LnyN1AHbV_8BUzpO-mC4K_KxsEE8lY/sendMessage?chat_id=-1001852466765&text=${message}`;
+    const url = `https://api.telegram.org/bot6275451972:AAFa8LnyN1AHbV_8BUzpO-mC4K_KxsEE8lY/sendMessage?chat_id=-1001852466765&text=${message}`
 
     await fetch(url, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json;charset=utf-8",
+        'Content-Type': 'application/json;charset=utf-8',
       },
-    });
+    })
 
-    contactTime.value = null;
-    userName.value = null;
-    userPhone.value = null;
-    formSent.value = true;
+    contactTime.value = null
+    userName.value = null
+    userPhone.value = null
+    formSent.value = true
   } else {
-    showError.value = true;
+    showError.value = true
   }
-};
+}
 </script>
 
 <style scoped>
@@ -134,7 +134,7 @@ const onSubmit = async () => {
 }
 .form-sent {
   color: #f8b65f;
-  font-family: "SamsungOne-900", Helvetica;
+  font-family: 'SamsungOne-900', Helvetica;
 }
 
 @media only screen and (max-width: 600px) {

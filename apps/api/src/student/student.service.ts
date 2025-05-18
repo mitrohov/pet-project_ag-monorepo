@@ -1,13 +1,13 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { CreateStudentBodyDto, StudentDto } from './dto/index.dto';
-import { DbService } from '../db/db.service';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
+import { CreateStudentBodyDto, StudentDto } from './dto/index.dto'
+import { DbService } from '../db/db.service'
 
 @Injectable()
 export class StudentService {
   constructor(private readonly dbService: DbService) {}
 
   async create(data: CreateStudentBodyDto) {
-    return this.dbService.student.create({ data });
+    return this.dbService.student.create({ data })
   }
 
   async findAll() {
@@ -30,17 +30,17 @@ export class StudentService {
         studentSchedules: { where: { isDeleted: false } },
       },
       orderBy: { id: 'desc' },
-    });
+    })
 
     response.map((student) => {
       return {
         ...student,
         paymentAmountPerMonth:
           student.lessonCost * (student.qtyLessonsPerWeek * 4),
-      };
-    });
+      }
+    })
 
-    return response;
+    return response
   }
 
   async findOne(id: number) {
@@ -62,36 +62,36 @@ export class StudentService {
         colorId: true,
         studentSchedules: { where: { isDeleted: false } },
       },
-    });
+    })
 
     if (!response) {
-      throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
+      throw new HttpException('Not Found', HttpStatus.NOT_FOUND)
     }
-    return response;
+    return response
   }
 
   async update(id: number, data: StudentDto) {
     const response = await this.dbService.student.findUnique({
       where: { id, isDeleted: false },
-    });
+    })
 
     if (!response) {
-      throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
+      throw new HttpException('Not Found', HttpStatus.NOT_FOUND)
     }
 
     return this.dbService.student.update({
       where: { id },
       data,
-    });
+    })
   }
 
   async remove(studentId: number) {
     const response = await this.dbService.student.findUnique({
       where: { id: studentId },
-    });
+    })
 
     if (!response) {
-      throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
+      throw new HttpException('Not Found', HttpStatus.NOT_FOUND)
     }
 
     try {
@@ -116,32 +116,32 @@ export class StudentService {
           where: { studentId },
           data: { isDeleted: true },
         }),
-      ]);
+      ])
 
       const studentSchedules = await this.dbService.studentSchedule.findMany({
         where: { studentId },
-      });
+      })
 
       const studentSchedulesIds: number[] = studentSchedules.map(
-        (studentSchedule) => studentSchedule.id,
-      );
+        (studentSchedule) => studentSchedule.id
+      )
 
       await this.dbService.studentSchedule.updateMany({
         where: {
           studentId: { in: studentSchedulesIds },
         },
         data: { isDeleted: true },
-      });
+      })
 
-      return { result: 'OK' };
+      return { result: 'OK' }
     } catch {
-      return { result: 'ERROR' };
+      return { result: 'ERROR' }
     }
   }
 
   removeAllMock() {
     return this.dbService.student.deleteMany({
       where: { isMock: true },
-    });
+    })
   }
 }

@@ -9,67 +9,67 @@ import {
   IsPositive,
   MinLength,
   IsNotEmpty,
-} from "class-validator";
-import { BoardColumnAggregation } from "./board-column";
-import { ColumnTaskStatusAggregation } from "./column-task-status";
+} from 'class-validator'
+import { BoardColumnAggregation } from './board-column'
+import { ColumnTaskStatusAggregation } from './column-task-status'
 
 export class ColumnTask {
   @IsString()
-  @MinLength(3, { message: "Заголовок задачи должен быть не менее 3 символов" })
+  @MinLength(3, { message: 'Заголовок задачи должен быть не менее 3 символов' })
   @MaxLength(200, {
-    message: "Заголовок задачи должен быть не более 200 символов",
+    message: 'Заголовок задачи должен быть не более 200 символов',
   })
-  title: string;
+  title: string
 
   @IsString()
-  @MinLength(3, { message: "Описание задачи должно быть не менее 3 символов" })
+  @MinLength(3, { message: 'Описание задачи должно быть не менее 3 символов' })
   @MaxLength(1000, {
-    message: "Описание задачи задачи быть не более 1000 символов",
+    message: 'Описание задачи задачи быть не более 1000 символов',
   })
   @IsOptional()
-  description?: string;
+  description?: string
 
   @IsNumber()
-  @IsPositive({ message: "Значение должно быть положительным числом" })
-  @IsInt({ message: "Значение должно быть целым числом" })
+  @IsPositive({ message: 'Значение должно быть положительным числом' })
+  @IsInt({ message: 'Значение должно быть целым числом' })
   @Min(1)
-  boardColumnId?: number;
+  boardColumnId?: number
 
   @IsNumber()
-  @IsPositive({ message: "Значение должно быть положительным числом" })
-  @IsInt({ message: "Значение должно быть целым числом" })
+  @IsPositive({ message: 'Значение должно быть положительным числом' })
+  @IsInt({ message: 'Значение должно быть целым числом' })
   @Min(1)
-  columnTaskStatusId?: number;
+  columnTaskStatusId?: number
 
   @IsBoolean()
   @IsOptional()
-  isMock?: boolean;
+  isMock?: boolean
 
   @IsBoolean()
   @IsOptional()
-  isDeleted?: boolean;
+  isDeleted?: boolean
 
   @IsString()
   @IsNotEmpty()
   @IsOptional()
-  createdAt?: string;
+  createdAt?: string
 }
 
 export class ColumnTaskWithId extends ColumnTask {
   @IsNumber()
-  @IsPositive({ message: "Значение должно быть положительным числом" })
-  @IsInt({ message: "Значение должно быть целым числом" })
-  id: number;
+  @IsPositive({ message: 'Значение должно быть положительным числом' })
+  @IsInt({ message: 'Значение должно быть целым числом' })
+  id: number
 }
 
 export class ColumnTaskAggregation extends ColumnTask {
-  boardColumn: BoardColumnAggregation;
+  boardColumn: BoardColumnAggregation
 
   @IsOptional()
-  columnTaskStatus: ColumnTaskStatusAggregation;
+  columnTaskStatus: ColumnTaskStatusAggregation
 }
 
 export interface ColumnTaskDragStartParams {
-  columnId: number;
-  taskId: number;
+  columnId: number
+  taskId: number
 }

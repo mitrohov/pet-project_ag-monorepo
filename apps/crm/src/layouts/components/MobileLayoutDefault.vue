@@ -10,10 +10,17 @@
           aria-controls="overlay_menu"
         />
 
-        <Menu ref="menu" id="overlay_menu" :model="props.navItems" :popup="true" />
+        <Menu
+          ref="menu"
+          id="overlay_menu"
+          :model="props.navItems"
+          :popup="true"
+        />
       </div>
 
-      <div class="mobile-layout_logo" @click="openEventCalendarPage">anastasia geiko crm</div>
+      <div class="mobile-layout_logo" @click="openEventCalendarPage">
+        anastasia geiko crm
+      </div>
     </header>
 
     <div class="mobile-layout_content">
@@ -26,7 +33,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { Menu, Button } from '@/packages/prime'
-import type { NavItem } from '@/packages/ui'
+import type { NavItem } from '@ag/ui'
 
 const props = defineProps<{
   navItems: NavItem[]

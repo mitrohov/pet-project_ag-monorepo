@@ -34,7 +34,11 @@
 </template>
 
 <script lang="ts" setup>
-import type { CalendarItem, CalendarItemType, EventDialogEmit } from '@/packages/api/types'
+import type {
+  CalendarItem,
+  CalendarItemType,
+  EventDialogEmit,
+} from '@/packages/api/types'
 
 const props = defineProps<{
   calendarItem: CalendarItem

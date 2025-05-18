@@ -35,8 +35,15 @@
             v-if="props.eventDialogData"
             :calendarItem="props.eventDialogData"
             @close="props.closeEventDialog"
-            @edit="eventCalendarStore.openEditForm($event, props.closeEventDialog)"
-            @delete="eventCalendarStore.openDeleteWarning($event, props.closeEventDialog)"
+            @edit="
+              eventCalendarStore.openEditForm($event, props.closeEventDialog)
+            "
+            @delete="
+              eventCalendarStore.openDeleteWarning(
+                $event,
+                props.closeEventDialog
+              )
+            "
           />
         </template>
       </Qalendar>
@@ -86,7 +93,7 @@ import EventDialog from '@/entities/event-calendar/components/EventDialog.vue'
 import { EventsFormModal } from '@/entities/events'
 import { LessonFormModal } from '@/entities/lessons'
 
-import { UIDeleteWarningModal, UIMultiSelect } from '@/packages/ui'
+import { UIDeleteWarningModal, UIMultiSelect } from '@ag/ui'
 // @eslint-ignore
 import { Qalendar } from 'qalendar'
 
@@ -98,9 +105,13 @@ const settingsStore = useSettingsStore()
 const filteredCalendarItems = computed(() => {
   return eventCalendarStore.calendarItems.filter((calendarItem) => {
     if (calendarItem.isLesson && calendarItem.studentId) {
-      return eventCalendarStore.selectedStudentIds.includes(calendarItem.studentId)
+      return eventCalendarStore.selectedStudentIds.includes(
+        calendarItem.studentId
+      )
     } else if (!calendarItem.isLesson && calendarItem.eventCategoryId) {
-      return settingsStore.selectedEventCategoryIds.includes(calendarItem.eventCategoryId)
+      return settingsStore.selectedEventCategoryIds.includes(
+        calendarItem.eventCategoryId
+      )
     }
 
     return false
@@ -113,7 +124,7 @@ const calendarConfig = {
   locale: 'ru-RU',
   defaultMode: 'week',
   dayBoundaries: { start: 10, end: 22 },
-  eventDialog: { isCustom: true }
+  eventDialog: { isCustom: true },
 }
 </script>
 
