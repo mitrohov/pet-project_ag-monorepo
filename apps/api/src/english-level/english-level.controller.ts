@@ -11,22 +11,22 @@ import {
   ParseIntPipe,
   UseGuards,
   HttpStatus,
-} from '@nestjs/common';
-import { EnglishLevelService } from './english-level.service';
+} from '@nestjs/common'
+import { EnglishLevelService } from './english-level.service'
 import {
   ApiOkResponse,
   ApiResponse,
   ApiTags,
   ApiCookieAuth,
-} from '@nestjs/swagger';
+} from '@nestjs/swagger'
 import {
   EnglishLevelResponseDto,
   UpdateEnglishLevelBodyDto,
   CreateEnglishLevelBodyDto,
   DeleteEnglishLevelResponseDto,
-} from './english-level.dto';
-import { AuthGuard } from '../auth/auth.guard';
-import { SettingsResponseDto } from '../settings/settings.dto';
+} from './english-level.dto'
+import { AuthGuard } from '../auth/auth.guard'
+import { SettingsResponseDto } from '../settings/settings.dto'
 
 @ApiTags('english-level')
 @Controller('english-level')
@@ -40,7 +40,7 @@ export class EnglishLevelController {
   })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   async findAll() {
-    return this.englishLevelService.findAll();
+    return this.englishLevelService.findAll()
   }
 
   @Get(':id')
@@ -49,7 +49,7 @@ export class EnglishLevelController {
   @ApiOkResponse({ type: EnglishLevelResponseDto })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.englishLevelService.findOne(id);
+    return this.englishLevelService.findOne(id)
   }
 
   @Post()
@@ -59,7 +59,7 @@ export class EnglishLevelController {
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   @UsePipes(new ValidationPipe())
   create(@Body() body: CreateEnglishLevelBodyDto) {
-    return this.englishLevelService.create(body);
+    return this.englishLevelService.create(body)
   }
 
   @Patch(':id')
@@ -70,9 +70,9 @@ export class EnglishLevelController {
   @UsePipes(new ValidationPipe())
   update(
     @Param('id', ParseIntPipe) id: number,
-    @Body() body: UpdateEnglishLevelBodyDto,
+    @Body() body: UpdateEnglishLevelBodyDto
   ) {
-    return this.englishLevelService.update(id, body);
+    return this.englishLevelService.update(id, body)
   }
 
   @Delete('remove-all-mock')
@@ -81,7 +81,7 @@ export class EnglishLevelController {
   @ApiOkResponse()
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   removeAllMock() {
-    return this.englishLevelService.removeAllMock();
+    return this.englishLevelService.removeAllMock()
   }
 
   @Delete(':id')
@@ -90,6 +90,6 @@ export class EnglishLevelController {
   @ApiOkResponse({ type: DeleteEnglishLevelResponseDto })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   remove(@Param('id', ParseIntPipe) id: number) {
-    return this.englishLevelService.remove(id);
+    return this.englishLevelService.remove(id)
   }
 }

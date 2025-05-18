@@ -1,6 +1,10 @@
 <template>
   <div v-if="props.events.length > 0" class="card table-mobile">
-    <DataTable v-model:expandedRows="expandedRows" :value="props.events" dataKey="id">
+    <DataTable
+      v-model:expandedRows="expandedRows"
+      :value="props.events"
+      dataKey="id"
+    >
       <Column expander style="width: 5rem" />
 
       <Column header="Событие">
@@ -27,12 +31,17 @@
 
           <UIMobileTableExpansion title="Описание">
             <div
-              v-html="slotProps.data.description ? slotProps.data.description : '—'"
+              v-html="
+                slotProps.data.description ? slotProps.data.description : '—'
+              "
               class="d-flex flex-column"
             ></div>
           </UIMobileTableExpansion>
 
-          <UIMobileTableExpansion v-if="slotProps.data.eventCategory" title="Категория">
+          <UIMobileTableExpansion
+            v-if="slotProps.data.eventCategory"
+            title="Категория"
+          >
             {{ slotProps.data.eventCategory.title || '—' }}
           </UIMobileTableExpansion>
         </div>
@@ -49,8 +58,8 @@ import { DataTable, Column } from '@/packages/prime'
 import {
   UIMobileTableExpansion,
   UIMobileTableColumnHeader,
-  type TableContextItem
-} from '@/packages/ui'
+  type TableContextItem,
+} from '@ag/ui'
 import type { GetEvent, GetLesson } from '@/packages/api/types'
 
 const expandedRows = ref()

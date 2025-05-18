@@ -20,7 +20,9 @@ export const useEventsStore = defineStore('eventsStore', () => {
 
   function openDescription() {
     if (selectedEventId.value) {
-      const selected = events.value.find((event) => event.id === selectedEventId.value)
+      const selected = events.value.find(
+        (event) => event.id === selectedEventId.value
+      )
       if (selected) {
         selectedEvent.value = selected
         showEventDescription.value = true
@@ -35,7 +37,9 @@ export const useEventsStore = defineStore('eventsStore', () => {
 
   async function deleteEvent() {
     if (selectedEventId.value) {
-      const response = await apiService.events.deleteOneById({ id: selectedEventId.value })
+      const response = await apiService.events.deleteOneById({
+        id: selectedEventId.value,
+      })
       if (response) {
         getEvents()
         getCalendarItems()
@@ -68,6 +72,6 @@ export const useEventsStore = defineStore('eventsStore', () => {
     openDescription,
     openNewEventForm,
     getEvents,
-    deleteEvent
+    deleteEvent,
   }
 })

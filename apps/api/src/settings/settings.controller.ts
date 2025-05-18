@@ -11,21 +11,21 @@ import {
   ParseIntPipe,
   UseGuards,
   HttpStatus,
-} from '@nestjs/common';
-import { SettingsService } from './settings.service';
+} from '@nestjs/common'
+import { SettingsService } from './settings.service'
 import {
   ApiCookieAuth,
   ApiOkResponse,
   ApiResponse,
   ApiTags,
-} from '@nestjs/swagger';
+} from '@nestjs/swagger'
 import {
   CreateSettingsBodyDto,
   DeleteSettingsResponseDto,
   SettingsResponseDto,
   UpdateSettingsBodyDto,
-} from './settings.dto';
-import { AuthGuard } from '../auth/auth.guard';
+} from './settings.dto'
+import { AuthGuard } from '../auth/auth.guard'
 
 @ApiTags('settings')
 @Controller('settings')
@@ -39,7 +39,7 @@ export class SettingsController {
   @ApiCookieAuth()
   @UsePipes(new ValidationPipe())
   create(@Body() body: CreateSettingsBodyDto) {
-    return this.settingsService.create(body);
+    return this.settingsService.create(body)
   }
 
   @Get()
@@ -49,7 +49,7 @@ export class SettingsController {
   })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   findAll() {
-    return this.settingsService.findAll();
+    return this.settingsService.findAll()
   }
 
   @Get(':id')
@@ -58,7 +58,7 @@ export class SettingsController {
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   @ApiCookieAuth()
   findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.settingsService.findOne(id);
+    return this.settingsService.findOne(id)
   }
 
   @Patch(':id')
@@ -69,9 +69,9 @@ export class SettingsController {
   @ApiCookieAuth()
   update(
     @Param('id', ParseIntPipe) id: number,
-    @Body() body: UpdateSettingsBodyDto,
+    @Body() body: UpdateSettingsBodyDto
   ) {
-    return this.settingsService.update(id, body);
+    return this.settingsService.update(id, body)
   }
 
   @Delete('/remove-all-mock')
@@ -80,7 +80,7 @@ export class SettingsController {
   @ApiOkResponse()
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   removeAllMock() {
-    return this.settingsService.removeAllMock();
+    return this.settingsService.removeAllMock()
   }
 
   @Delete(':id')
@@ -89,6 +89,6 @@ export class SettingsController {
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   @ApiCookieAuth()
   remove(@Param('id', ParseIntPipe) id: number) {
-    return this.settingsService.remove(id);
+    return this.settingsService.remove(id)
   }
 }

@@ -2,7 +2,11 @@
   <div class="lessons-page">
     <div class="page-header mb-20">Уроки</div>
 
-    <Button label="Добавить" @click="lessonsStore.openNewLessonForm" class="mb-20" />
+    <Button
+      label="Добавить"
+      @click="lessonsStore.openNewLessonForm"
+      class="mb-20"
+    />
 
     <template v-if="!lessonsStore.isLoading">
       <div class="mb-20">
@@ -59,7 +63,7 @@
 <script lang="ts" setup>
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { useAgent } from '@/packages/agent'
+import { useAgent } from '@ag/agent'
 import { useLessonsStore } from '@/entities/lessons/stores/use-lessons-store.ts'
 import { usePaymentsStore } from '@/entities/payments'
 import { useStudentsStore } from '@/entities/students'
@@ -70,8 +74,8 @@ import {
   UIProgressSpinner,
   UIInputSwitch,
   UIDeleteWarningModal,
-  type TableContextItem
-} from '@/packages/ui'
+  type TableContextItem,
+} from '@ag/ui'
 import type { GetLesson } from '@/packages/api/types/lesson.ts'
 
 const router = useRouter()
@@ -109,9 +113,9 @@ const contextItems: TableContextItem[] = [
         icon: 'pi pi-file',
         command: () => {
           lessonsStore.openDescription()
-        }
-      }
-    ]
+        },
+      },
+    ],
   },
   {
     label: 'Управление',
@@ -121,9 +125,12 @@ const contextItems: TableContextItem[] = [
         icon: 'pi pi-pencil',
         command: () => {
           if (lessonsStore.selectedLessonId) {
-            router.push({ name: 'LessonFormPage', query: { id: lessonsStore.selectedLessonId } })
+            router.push({
+              name: 'LessonFormPage',
+              query: { id: lessonsStore.selectedLessonId },
+            })
           }
-        }
+        },
       },
       {
         label: 'Дублировать',
@@ -133,7 +140,7 @@ const contextItems: TableContextItem[] = [
             lessonsStore.copyLesson(lessonsStore.selectedLessonId)
             router.push({ name: 'LessonFormPage' })
           }
-        }
+        },
       },
       {
         label: 'Удалить',
@@ -142,9 +149,9 @@ const contextItems: TableContextItem[] = [
           if (lessonsStore.selectedLessonId) {
             lessonsStore.showDeleteWarning = true
           }
-        }
-      }
-    ]
-  }
+        },
+      },
+    ],
+  },
 ]
 </script>

@@ -11,7 +11,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useApi } from '@/packages/api'
-import { UIDeleteWarningModal } from '@/packages/ui'
+import { UIDeleteWarningModal } from '@ag/ui'
 
 const props = defineProps<{
   boardColumnId?: number

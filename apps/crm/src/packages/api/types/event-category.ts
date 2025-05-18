@@ -10,7 +10,7 @@ export const PostEventCategorySchema = object({
     .max(999999, 'colorId должно быть не более 999999')
     .positive('Значение должно быть положительным числом')
     .integer('Значение должно быть целым числом')
-    .required('Это поле обязательное')
+    .required('Это поле обязательное'),
 })
 
 export type PostEventCategory = InferType<typeof PostEventCategorySchema>

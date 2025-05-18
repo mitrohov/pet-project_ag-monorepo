@@ -9,6 +9,6 @@ export const useBoardColumnStore = defineStore('boardColumnStore', () => {
   return {
     selectedColumnId,
     isShowColumnForm,
-    isShowColumnDeleteWarning
+    isShowColumnDeleteWarning,
   }
 })

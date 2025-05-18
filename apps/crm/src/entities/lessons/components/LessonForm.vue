@@ -35,7 +35,11 @@
       false-label="Урок не пропущен"
     />
 
-    <UIInputText v-model="title" :error-message="errors.title" label="Название урока" />
+    <UIInputText
+      v-model="title"
+      :error-message="errors.title"
+      label="Название урока"
+    />
 
     <UISelect
       :modelValue="studentId"
@@ -57,7 +61,11 @@
     />
 
     <div v-if="paymentId" class="d-flex justify-end">
-      <Button label="Отвязать оплату" severity="secondary" @click="clearPaymentId" />
+      <Button
+        label="Отвязать оплату"
+        severity="secondary"
+        @click="clearPaymentId"
+      />
     </div>
 
     <UICalendar
@@ -68,7 +76,12 @@
       @update:model-value="updateStartTime($event)"
     />
 
-    <UICalendar v-model="endTime" :errorMessage="errors.endTime" showTime label="Время окончания" />
+    <UICalendar
+      v-model="endTime"
+      :errorMessage="errors.endTime"
+      showTime
+      label="Время окончания"
+    />
 
     <UITextEditor v-model="description" label="Описание урока" />
 
@@ -92,8 +105,8 @@ import {
   UITextEditor,
   UICalendar,
   UISelect,
-  UIFormSubmitButton
-} from '@/packages/ui'
+  UIFormSubmitButton,
+} from '@ag/ui'
 import { Button } from '@/packages/prime'
 
 const props = defineProps<{
@@ -126,7 +139,7 @@ const {
   initForm,
   updateStartTime,
   clearPaymentId,
-  onSelectStudent
+  onSelectStudent,
 } = useLessonForm()
 
 async function saveChanges() {

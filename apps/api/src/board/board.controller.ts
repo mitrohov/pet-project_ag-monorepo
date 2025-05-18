@@ -11,22 +11,22 @@ import {
   ParseIntPipe,
   UseGuards,
   HttpStatus,
-} from '@nestjs/common';
-import { BoardService } from './board.service';
+} from '@nestjs/common'
+import { BoardService } from './board.service'
 import {
   ApiOkResponse,
   ApiResponse,
   ApiTags,
   ApiCookieAuth,
-} from '@nestjs/swagger';
+} from '@nestjs/swagger'
 import {
   BoardResponseDto,
   UpdateBoardBodyDto,
   CreateBoardBodyDto,
   DeleteBoardResponseDto,
-} from './board.dto';
-import { AuthGuard } from '../auth/auth.guard';
-import { SettingsResponseDto } from '../settings/settings.dto';
+} from './board.dto'
+import { AuthGuard } from '../auth/auth.guard'
+import { SettingsResponseDto } from '../settings/settings.dto'
 
 @ApiTags('board')
 @Controller('board')
@@ -40,7 +40,7 @@ export class BoardController {
   })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   async findAll() {
-    return this.boardService.findAll();
+    return this.boardService.findAll()
   }
 
   @Get(':id')
@@ -49,7 +49,7 @@ export class BoardController {
   @ApiOkResponse({ type: BoardResponseDto })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.boardService.findOne(id);
+    return this.boardService.findOne(id)
   }
 
   @Post()
@@ -59,7 +59,7 @@ export class BoardController {
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   @UsePipes(new ValidationPipe())
   create(@Body() body: CreateBoardBodyDto) {
-    return this.boardService.create(body);
+    return this.boardService.create(body)
   }
 
   @Patch(':id')
@@ -70,9 +70,9 @@ export class BoardController {
   @UsePipes(new ValidationPipe())
   update(
     @Param('id', ParseIntPipe) id: number,
-    @Body() body: UpdateBoardBodyDto,
+    @Body() body: UpdateBoardBodyDto
   ) {
-    return this.boardService.update(id, body);
+    return this.boardService.update(id, body)
   }
 
   @Delete('/remove-all-mock')
@@ -81,7 +81,7 @@ export class BoardController {
   @ApiOkResponse()
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   removeAllMock() {
-    return this.boardService.removeAllMock();
+    return this.boardService.removeAllMock()
   }
 
   @Delete(':id')
@@ -90,6 +90,6 @@ export class BoardController {
   @ApiOkResponse({ type: DeleteBoardResponseDto })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   remove(@Param('id', ParseIntPipe) id: number) {
-    return this.boardService.remove(id);
+    return this.boardService.remove(id)
   }
 }

@@ -1,4 +1,4 @@
 export interface CalendarItemTimeDto {
-  start: Date;
-  end: Date;
+  start: Date
+  end: Date
 }

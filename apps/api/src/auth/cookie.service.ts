@@ -1,9 +1,9 @@
-import { Injectable } from '@nestjs/common';
-import { Response } from 'express';
+import { Injectable } from '@nestjs/common'
+import { Response } from 'express'
 
 @Injectable()
 export class CookieService {
-  static tokenKey = 'access-token';
+  static tokenKey = 'access-token'
 
   setToken(res: Response, token: string) {
     res.cookie(CookieService.tokenKey, token, {
@@ -16,10 +16,10 @@ export class CookieService {
           ? '.anastasia-geiko.ru'
           : undefined,
       expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000),
-    });
+    })
   }
 
   removeToken(res: Response) {
-    res.clearCookie(CookieService.tokenKey);
+    res.clearCookie(CookieService.tokenKey)
   }
 }

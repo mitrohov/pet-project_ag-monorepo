@@ -1,3 +1,3 @@
-import { LessonDto } from './lesson.dto';
+import { LessonDto } from './lesson.dto'
 
 export class CreateLessonBodyDto extends LessonDto {}

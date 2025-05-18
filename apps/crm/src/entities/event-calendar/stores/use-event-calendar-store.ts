@@ -26,7 +26,9 @@ export const useEventCalendarStore = defineStore('eventCalendarStore', () => {
     () => studentsStore.students,
     () => {
       if (studentsStore.students && studentsStore.students.length > 0) {
-        selectedStudentIds.value = studentsStore.students.map((student) => student.id)
+        selectedStudentIds.value = studentsStore.students.map(
+          (student) => student.id
+        )
       }
     },
     { immediate: true }
@@ -63,7 +65,7 @@ export const useEventCalendarStore = defineStore('eventCalendarStore', () => {
 
     if (selectedLessonId.value) {
       await apiService.lessons.deleteOneById({
-        id: selectedLessonId.value
+        id: selectedLessonId.value,
       })
       isShowDeleteLessonWarning.value = false
       getCalendarItems()
@@ -71,7 +73,10 @@ export const useEventCalendarStore = defineStore('eventCalendarStore', () => {
     }
   }
 
-  function openDeleteWarning(eventDialogEmit: EventDialogEmit, closeDialog: () => void) {
+  function openDeleteWarning(
+    eventDialogEmit: EventDialogEmit,
+    closeDialog: () => void
+  ) {
     closeDialog()
 
     if (eventDialogEmit.type === 'lesson') {
@@ -85,7 +90,10 @@ export const useEventCalendarStore = defineStore('eventCalendarStore', () => {
     }
   }
 
-  function openEditForm(eventDialogEmit: EventDialogEmit, closeDialog: () => void) {
+  function openEditForm(
+    eventDialogEmit: EventDialogEmit,
+    closeDialog: () => void
+  ) {
     closeDialog()
 
     if (eventDialogEmit.type === 'lesson') {
@@ -130,6 +138,6 @@ export const useEventCalendarStore = defineStore('eventCalendarStore', () => {
     openDeleteWarning,
     deleteEvent,
     deleteLesson,
-    lessonFormSubmitted
+    lessonFormSubmitted,
   }
 })

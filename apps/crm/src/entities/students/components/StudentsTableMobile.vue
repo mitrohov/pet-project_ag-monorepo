@@ -1,6 +1,10 @@
 <template>
   <div v-if="props.students.length > 0" class="card table-mobile">
-    <DataTable v-model:expandedRows="expandedRows" :value="props.students" dataKey="id">
+    <DataTable
+      v-model:expandedRows="expandedRows"
+      :value="props.students"
+      dataKey="id"
+    >
       <Column expander style="width: 5rem" />
 
       <Column header="ФИО">
@@ -34,7 +38,9 @@
           </UIMobileTableExpansion>
 
           <UIMobileTableExpansion title="Длительность урока">
-            <div v-if="slotProps.data.lessonTime">{{ slotProps.data.lessonTime }} мин.</div>
+            <div v-if="slotProps.data.lessonTime">
+              {{ slotProps.data.lessonTime }} мин.
+            </div>
             <div v-else>—</div>
           </UIMobileTableExpansion>
 
@@ -53,7 +59,8 @@
                 :key="index"
                 class="mr-10"
               >
-                {{ getDayWeekShortLabel(schedule.dayWeek) }} в {{ formatTime(schedule.time) }}
+                {{ getDayWeekShortLabel(schedule.dayWeek) }} в
+                {{ formatTime(schedule.time) }}
               </span>
             </div>
           </UIMobileTableExpansion>
@@ -64,7 +71,10 @@
 
           <UIMobileTableExpansion title="Цвет">
             <UITag
-              :background="colorsStore.getColorScheme(slotProps.data.color.id).backgroundColor"
+              :background="
+                colorsStore.getColorScheme(slotProps.data.color.id)
+                  .backgroundColor
+              "
               :title="slotProps.data.color.title"
               :padding="'10px'"
               :color="colorsStore.getColorScheme(slotProps.data.color.id).color"
@@ -88,8 +98,8 @@ import {
   UIMobileTableExpansion,
   UIMobileTableColumnHeader,
   UITag,
-  type TableContextItem
-} from '@/packages/ui'
+  type TableContextItem,
+} from '@ag/ui'
 
 const expandedRows = ref()
 const { getDayWeekShortLabel } = useStudentForm()

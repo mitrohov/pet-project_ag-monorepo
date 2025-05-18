@@ -8,7 +8,7 @@ import {
   type PostLesson,
   type GetLesson,
   type GetPayment,
-  PostLessonSchema
+  PostLessonSchema,
 } from '@/packages/api/types'
 
 export function useLessonForm() {
@@ -22,7 +22,7 @@ export function useLessonForm() {
   const isLoading = ref(false)
 
   const { errors, defineField, handleSubmit, values } = useForm({
-    validationSchema: PostLessonSchema
+    validationSchema: PostLessonSchema,
   })
 
   const [title] = defineField('title')
@@ -51,7 +51,7 @@ export function useLessonForm() {
     if (selectedLessonId.value) {
       await apiService.lessons.updateOneById({
         id: selectedLessonId.value,
-        body
+        body,
       })
     } else {
       await apiService.lessons.createOne({ body })
@@ -117,7 +117,9 @@ export function useLessonForm() {
 
       if (lesson) setValues(lesson)
       else {
-        const response = await apiService.lessons.getOneById({ id: selectedLessonId.value })
+        const response = await apiService.lessons.getOneById({
+          id: selectedLessonId.value,
+        })
         if (response) setValues(response)
       }
       isLoading.value = false
@@ -127,7 +129,7 @@ export function useLessonForm() {
   async function getSelectedPayment() {
     if (paymentId.value) {
       const selectedPayment = await apiService.payments.getOneById({
-        id: paymentId.value!
+        id: paymentId.value!,
       })
 
       if (selectedPayment) availablePayments.value.push(selectedPayment)
@@ -137,7 +139,7 @@ export function useLessonForm() {
   async function getAvailablePayments(studentId: number) {
     const response = await apiService.payments.getAll({
       query: `?studentId=${studentId}`,
-      url: 'available-payments'
+      url: 'available-payments',
     })
 
     if (response) availablePayments.value = response
@@ -200,6 +202,6 @@ export function useLessonForm() {
     updateStartTime,
     initForm,
     clearPaymentId,
-    onSelectStudent
+    onSelectStudent,
   }
 }

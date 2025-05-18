@@ -71,7 +71,11 @@
         </template>
       </Column>
 
-      <Column field="lessonQty" header="Оплачено уроков" :showFilterMenu="false">
+      <Column
+        field="lessonQty"
+        header="Оплачено уроков"
+        :showFilterMenu="false"
+      >
         <template #body="{ data }">
           <div v-if="data.lessonQty">{{ data.lessonQty }}</div>
           <div v-else>—</div>
@@ -89,7 +93,11 @@
         </template>
       </Column>
 
-      <Column field="qtyLessonsLeft" header="Осталось уроков" :showFilterMenu="false">
+      <Column
+        field="qtyLessonsLeft"
+        header="Осталось уроков"
+        :showFilterMenu="false"
+      >
         <template #body="{ data }">
           <div v-if="data.qtyLessonsLeft > 1">
             {{ data.qtyLessonsLeft || '—' }}
@@ -129,10 +137,18 @@
             class="event-table_events"
             style="width: 150px"
           >
-            <div v-for="(event, index) in sortEvents(data.lessons)" :key="index">
+            <div
+              v-for="(event, index) in sortEvents(data.lessons)"
+              :key="index"
+            >
               <div v-if="event.title && event.startTime">
                 {{ index + 1 }}.
-                {{ formatDate(`${event.startTime}`).split(' ').reverse().join(' ') }}
+                {{
+                  formatDate(`${event.startTime}`)
+                    .split(' ')
+                    .reverse()
+                    .join(' ')
+                }}
               </div>
             </div>
           </div>
@@ -143,7 +159,10 @@
       <Column field="">
         <template #body="{ data }">
           <div class="d-flex justify-end">
-            <UITableContextNav :items="contextItems" @onAction="emit('selectedId', data.id)" />
+            <UITableContextNav
+              :items="contextItems"
+              @onAction="emit('selectedId', data.id)"
+            />
           </div>
         </template>
       </Column>
@@ -154,8 +173,15 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { useDate } from '@/packages/date'
-import { UITableContextNav, type TableContextItem } from '@/packages/ui'
-import { DataTable, Column, Tag, InputText, MultiSelect, FilterMatchMode } from '@/packages/prime'
+import { UITableContextNav, type TableContextItem } from '@ag/ui'
+import {
+  DataTable,
+  Column,
+  Tag,
+  InputText,
+  MultiSelect,
+  FilterMatchMode,
+} from '@/packages/prime'
 import type { GetEvent, GetStudent, GetPayment } from '@/packages/api/types'
 
 const props = defineProps<{
@@ -184,7 +210,7 @@ const globalFilterFields = ref<string[]>([
   'sum',
   'lessonQty',
   'qtyLessonsLeft',
-  'studentId'
+  'studentId',
 ])
 
 const filters = ref({
@@ -192,6 +218,6 @@ const filters = ref({
   sum: { value: null, matchMode: FilterMatchMode.CONTAINS },
   lessonQty: { value: null, matchMode: FilterMatchMode.CONTAINS },
   qtyLessonsLeft: { value: null, matchMode: FilterMatchMode.CONTAINS },
-  studentId: { value: null, matchMode: FilterMatchMode.IN }
+  studentId: { value: null, matchMode: FilterMatchMode.IN },
 })
 </script>

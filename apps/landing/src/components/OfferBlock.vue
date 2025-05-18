@@ -20,14 +20,14 @@
 </template>
 
 <script lang="ts" setup>
-import imageUrl from "@/assets/images/offer-image.png";
+import imageUrl from '@/assets/images/offer-image.png'
 </script>
 
 <style scoped>
 .offer-block-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "text image";
+  grid-template-areas: 'text image';
   grid-column-gap: 20px;
   margin-top: 50px;
 
@@ -47,7 +47,7 @@ import imageUrl from "@/assets/images/offer-image.png";
 @media only screen and (max-width: 600px) {
   .offer-block-container {
     background: #42b983;
-    grid-template-areas: "image" "text";
+    grid-template-areas: 'image' 'text';
     grid-template-columns: none;
   }
   .offer-image {

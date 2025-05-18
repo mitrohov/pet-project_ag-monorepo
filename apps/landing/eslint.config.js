@@ -8,7 +8,7 @@ export default defineConfig([
   {
     rules: {
       'vitest/expect-expect': 'off',
-      'playwright/expect-expect': 'off'
-    }
-  }
+      'playwright/expect-expect': 'off',
+    },
+  },
 ])

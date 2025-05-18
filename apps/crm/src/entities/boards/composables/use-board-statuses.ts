@@ -19,7 +19,7 @@ export function useBoardStatuses() {
     isLoading,
     selectedBoardIds,
     selectedStatusId,
-    isShowDeleteStatusWarning
+    isShowDeleteStatusWarning,
   } = storeToRefs(useBoardStatusesStore())
 
   const statusColumnsFiltered = computed(() => {
@@ -32,7 +32,7 @@ export function useBoardStatuses() {
         title: status.title,
         sortIndex: null,
         boardId: generateUniqueNumbers(),
-        columnTasks: []
+        columnTasks: [],
       }
     })
 
@@ -42,7 +42,10 @@ export function useBoardStatuses() {
         if (board.boardColumns) {
           board.boardColumns.forEach((column) => {
             column.columnTasks.forEach((task) => {
-              if (task.columnTaskStatusId && columnsHashMap[task.columnTaskStatusId]) {
+              if (
+                task.columnTaskStatusId &&
+                columnsHashMap[task.columnTaskStatusId]
+              ) {
                 columnsHashMap[task.columnTaskStatusId].columnTasks.push(task)
               }
             })
@@ -88,16 +91,22 @@ export function useBoardStatuses() {
     initStatusBoard()
   }
 
-  async function createStatus(body: PostColumnTaskStatus, isStatusBoard: boolean) {
+  async function createStatus(
+    body: PostColumnTaskStatus,
+    isStatusBoard: boolean
+  ) {
     await apiService.columnTaskStatus.createOne({ body })
     await statusFormSubmitted(isStatusBoard)
   }
 
-  async function updateStatus(body: PostColumnTaskStatus, isStatusBoard: boolean) {
+  async function updateStatus(
+    body: PostColumnTaskStatus,
+    isStatusBoard: boolean
+  ) {
     if (selectedStatusId.value) {
       await apiService.columnTaskStatus.updateOneById({
         id: selectedStatusId.value,
-        body
+        body,
       })
       await statusFormSubmitted(isStatusBoard)
     }
@@ -105,7 +114,9 @@ export function useBoardStatuses() {
 
   async function deleteStatus(isStatusBoard: boolean) {
     if (selectedStatusId.value) {
-      await apiService.columnTaskStatus.deleteOneById({ id: selectedStatusId.value })
+      await apiService.columnTaskStatus.deleteOneById({
+        id: selectedStatusId.value,
+      })
       isShowDeleteStatusWarning.value = false
       await statusFormSubmitted(isStatusBoard)
     }
@@ -124,6 +135,6 @@ export function useBoardStatuses() {
     getStatuses,
     deleteStatus,
     initPage,
-    updateStatusBoard
+    updateStatusBoard,
   }
 }

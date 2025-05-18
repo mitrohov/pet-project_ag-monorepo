@@ -6,6 +6,6 @@
 import { onMounted } from 'vue'
 
 onMounted(() => {
-  document.title = 'Anastasia Geiko';
-});
+  document.title = 'Anastasia Geiko'
+})
 </script>

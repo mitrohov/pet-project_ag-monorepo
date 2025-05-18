@@ -5,7 +5,9 @@
     </div>
 
     <UIMultiSelect
-      v-if="eventCategoriesStore && eventCategoriesStore.eventCategories.length > 0"
+      v-if="
+        eventCategoriesStore && eventCategoriesStore.eventCategories.length > 0
+      "
       v-model="settingsStore.selectedEventCategoryIds"
       :options="eventCategoriesStore.eventCategories"
       label="Выбранные категории по умолчанию"
@@ -15,7 +17,10 @@
     />
 
     <UINotDataMessage
-      v-if="!eventCategoriesStore.isLoading && eventCategoriesStore.eventCategories.length === 0"
+      v-if="
+        !eventCategoriesStore.isLoading &&
+        eventCategoriesStore.eventCategories.length === 0
+      "
       :title="'Необходимо добавить хотя бы одну категорию событий'"
       route-name="EventCategoriesForm"
     />
@@ -30,7 +35,7 @@
 import { useSettingsStore } from '@/entities/settings/stores/use-settings-store.ts'
 import { useEventCategoriesStore } from '@/entities/event-categories'
 import { Button } from '@/packages/prime'
-import { UINotDataMessage, UIMultiSelect } from '@/packages/ui'
+import { UINotDataMessage, UIMultiSelect } from '@ag/ui'
 
 const eventCategoriesStore = useEventCategoriesStore()
 const settingsStore = useSettingsStore()

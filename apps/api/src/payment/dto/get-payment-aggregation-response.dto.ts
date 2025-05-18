@@ -1,16 +1,16 @@
-import { IsNumber, IsOptional } from 'class-validator';
-import { ApiProperty } from '@nestjs/swagger';
-import { PaymentDto } from './payment.dto';
-import { GetLessonResponseDto } from '../../lesson/dto';
+import { IsNumber, IsOptional } from 'class-validator'
+import { ApiProperty } from '@nestjs/swagger'
+import { PaymentDto } from './payment.dto'
+import { GetLessonResponseDto } from '../../lesson/dto'
 
 export class PaymentAggregationResponseDto extends PaymentDto {
   @IsNumber()
   @ApiProperty({ example: 1 })
-  id: number;
+  id: number
 
   @IsNumber()
   @ApiProperty({ example: 1 })
-  qtyLessonsLeft: number;
+  qtyLessonsLeft: number
 
   @IsNumber()
   @ApiProperty({
@@ -28,10 +28,10 @@ export class PaymentAggregationResponseDto extends PaymentDto {
     },
   })
   @IsOptional()
-  lessons: GetLessonResponseDto[];
+  lessons: GetLessonResponseDto[]
 
   @IsNumber()
   @ApiProperty({ example: 1 })
   @IsOptional()
-  student: GetLessonResponseDto[];
+  student: GetLessonResponseDto[]
 }

@@ -11,22 +11,22 @@ import {
   ParseIntPipe,
   UseGuards,
   HttpStatus,
-} from '@nestjs/common';
-import { ColumnTaskService } from './column-task.service';
+} from '@nestjs/common'
+import { ColumnTaskService } from './column-task.service'
 import {
   ApiOkResponse,
   ApiResponse,
   ApiTags,
   ApiCookieAuth,
-} from '@nestjs/swagger';
+} from '@nestjs/swagger'
 import {
   ColumnTaskResponseDto,
   UpdateColumnTaskBodyDto,
   CreateColumnTaskBodyDto,
   DeleteColumnTaskResponseDto,
-} from './column-task.dto';
-import { AuthGuard } from '../auth/auth.guard';
-import { SettingsResponseDto } from '../settings/settings.dto';
+} from './column-task.dto'
+import { AuthGuard } from '../auth/auth.guard'
+import { SettingsResponseDto } from '../settings/settings.dto'
 
 @ApiTags('column-task')
 @Controller('column-task')
@@ -40,7 +40,7 @@ export class ColumnTaskController {
   })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   async findAll() {
-    return this.columnTaskService.findAll();
+    return this.columnTaskService.findAll()
   }
 
   @Get(':id')
@@ -49,7 +49,7 @@ export class ColumnTaskController {
   @ApiOkResponse({ type: ColumnTaskResponseDto })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.columnTaskService.findOne(id);
+    return this.columnTaskService.findOne(id)
   }
 
   @Post()
@@ -59,7 +59,7 @@ export class ColumnTaskController {
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   @UsePipes(new ValidationPipe())
   create(@Body() body: CreateColumnTaskBodyDto) {
-    return this.columnTaskService.create(body);
+    return this.columnTaskService.create(body)
   }
 
   @Patch(':id')
@@ -70,9 +70,9 @@ export class ColumnTaskController {
   @UsePipes(new ValidationPipe())
   update(
     @Param('id', ParseIntPipe) id: number,
-    @Body() body: UpdateColumnTaskBodyDto,
+    @Body() body: UpdateColumnTaskBodyDto
   ) {
-    return this.columnTaskService.update(id, body);
+    return this.columnTaskService.update(id, body)
   }
 
   @Delete('/remove-all-mock')
@@ -81,7 +81,7 @@ export class ColumnTaskController {
   @ApiOkResponse()
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   removeAllMock() {
-    return this.columnTaskService.removeAllMock();
+    return this.columnTaskService.removeAllMock()
   }
 
   @Delete(':id')
@@ -90,6 +90,6 @@ export class ColumnTaskController {
   @ApiOkResponse({ type: DeleteColumnTaskResponseDto })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   remove(@Param('id', ParseIntPipe) id: number) {
-    return this.columnTaskService.remove(id);
+    return this.columnTaskService.remove(id)
   }
 }

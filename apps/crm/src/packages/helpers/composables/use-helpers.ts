@@ -7,10 +7,14 @@ export function useHelpers() {
   const { formatDate } = useDate()
 
   // Функция генерирует уникальные числа в диапазоне от min до max
-  function generateUniqueNumbers(min: number = 1, max: number = 100000): number {
+  function generateUniqueNumbers(
+    min: number = 1,
+    max: number = 100000
+  ): number {
     const uniqueNumber = Math.floor(Math.random() * (max - min + 1)) + min
 
-    if (generatedNumbers.value.includes(uniqueNumber)) return generateUniqueNumbers()
+    if (generatedNumbers.value.includes(uniqueNumber))
+      return generateUniqueNumbers()
     else generatedNumbers.value.push(uniqueNumber)
 
     return uniqueNumber
@@ -26,6 +30,6 @@ export function useHelpers() {
   return {
     formatDate,
     generateUniqueNumbers,
-    getEventTime
+    getEventTime,
   }
 }

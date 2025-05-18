@@ -42,6 +42,6 @@ export const useEnglishLevelsStore = defineStore('englishLevelsStore', () => {
     englishLevelsById,
     findEnglishLevelById,
     openEnglishLevelForm,
-    getEnglishLevels
+    getEnglishLevels,
   }
 })

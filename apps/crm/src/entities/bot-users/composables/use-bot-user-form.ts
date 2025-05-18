@@ -3,7 +3,11 @@ import { useForm } from 'vee-validate'
 import { useRouter, useRoute } from 'vue-router'
 import { useApi } from '@/packages/api'
 import { useBotUsersStore } from '../stores/use-bot-users-store'
-import { type GetBotUser, type PostBotUser, PostBotUserSchema } from '@/packages/api/types'
+import {
+  type GetBotUser,
+  type PostBotUser,
+  PostBotUserSchema,
+} from '@/packages/api/types'
 
 export function useBotUsersForm() {
   const router = useRouter()
@@ -14,11 +18,11 @@ export function useBotUsersForm() {
   const isLoading = ref(false)
   const roles = ref([
     { name: 'Администратор', code: 'admin' },
-    { name: 'Пользователь', code: 'user' }
+    { name: 'Пользователь', code: 'user' },
   ])
 
   const { errors, defineField, handleSubmit } = useForm({
-    validationSchema: PostBotUserSchema
+    validationSchema: PostBotUserSchema,
   })
 
   const [userName] = defineField('userName')
@@ -50,7 +54,7 @@ export function useBotUsersForm() {
     if (botUserId.value) {
       await apiService.botUsers.updateOneById({
         id: botUserId.value,
-        body
+        body,
       })
     } else {
       await apiService.botUsers.createOne({ body })
@@ -69,7 +73,9 @@ export function useBotUsersForm() {
 
       if (botUser) setValues(botUser)
       else {
-        const response = await apiService.botUsers.getOneById({ id: botUserId.value })
+        const response = await apiService.botUsers.getOneById({
+          id: botUserId.value,
+        })
         if (response) setValues(response)
       }
 
@@ -95,6 +101,6 @@ export function useBotUsersForm() {
     isActive,
     onSubmit,
     initForm,
-    routeToBotUsersTable
+    routeToBotUsersTable,
   }
 }

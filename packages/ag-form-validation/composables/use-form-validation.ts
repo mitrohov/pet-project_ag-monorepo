@@ -1,126 +1,126 @@
-import { ref, watch, type Ref } from "vue";
-import { validate, type ValidationError } from "class-validator";
-import type { Constructor, InstanceObject } from "@ag/schemas/types/shared.ts";
+import { ref, watch, type Ref } from 'vue'
+import { validate, type ValidationError } from 'class-validator'
+import type { Constructor, InstanceObject } from '@ag/schemas/types/shared.ts'
 
 export function useValidationForm<T>(
   initialClass: Constructor<InstanceObject>,
-  initialInstance: InstanceObject,
+  initialInstance: InstanceObject
 ) {
-  const form = ref<InstanceObject>(initialInstance);
-  const errors = ref<Record<string, string>>({});
-  const isValidForm = ref(false);
+  const form = ref<InstanceObject>(initialInstance)
+  const errors = ref<Record<string, string>>({})
+  const isValidForm = ref(false)
 
   function getPropertyErrors(
     validationErrors: ValidationError[],
-    property: string,
+    property: string
   ) {
-    let propertyErrors = "";
+    let propertyErrors = ''
 
     const propertyError = validationErrors.find(
-      (validationError) => validationError.property === property,
-    );
+      (validationError) => validationError.property === property
+    )
 
     if (propertyError) {
-      const constraints = propertyError.constraints;
+      const constraints = propertyError.constraints
 
       if (constraints) {
-        propertyErrors = Object.values(constraints).join(". ");
+        propertyErrors = Object.values(constraints).join('. ')
       }
     }
 
-    return propertyErrors;
+    return propertyErrors
   }
 
   function setPropertyError(propertyErrors: string, property: string) {
-    errors.value[property] = propertyErrors;
-    isValidForm.value = false;
+    errors.value[property] = propertyErrors
+    isValidForm.value = false
   }
 
   function deletePropertyErrors(property: string) {
-    delete errors.value[property];
+    delete errors.value[property]
   }
 
   function setIsValidForm() {
     if (Object.keys(errors.value).length === 0) {
-      isValidForm.value = true;
-      return;
+      isValidForm.value = true
+      return
     }
 
-    isValidForm.value = false;
+    isValidForm.value = false
   }
 
   function checkPropertiesErrors(
     validationErrors: ValidationError[],
-    property: string,
+    property: string
   ) {
     if (validationErrors.length > 0) {
-      const propertyErrors = getPropertyErrors(validationErrors, property);
+      const propertyErrors = getPropertyErrors(validationErrors, property)
 
       if (propertyErrors) {
-        setPropertyError(propertyErrors, property);
+        setPropertyError(propertyErrors, property)
       } else {
-        deletePropertyErrors(property);
+        deletePropertyErrors(property)
       }
     } else {
-      deletePropertyErrors(property);
+      deletePropertyErrors(property)
     }
   }
 
   function createCurrentInstance() {
-    const currentInstance = new initialClass();
+    const currentInstance = new initialClass()
 
     Object.keys(form.value).forEach((key) => {
-      currentInstance[key] = form.value[key];
-    });
+      currentInstance[key] = form.value[key]
+    })
 
-    return currentInstance as object;
+    return currentInstance as object
   }
 
   async function validateField(property: string) {
-    const currentInstance = createCurrentInstance();
-    const validationErrors = await validate(currentInstance);
-    checkPropertiesErrors(validationErrors, property);
-    setIsValidForm();
+    const currentInstance = createCurrentInstance()
+    const validationErrors = await validate(currentInstance)
+    checkPropertiesErrors(validationErrors, property)
+    setIsValidForm()
   }
 
   async function validateForm() {
-    const currentInstance = createCurrentInstance();
-    const validationErrors = await validate(currentInstance);
+    const currentInstance = createCurrentInstance()
+    const validationErrors = await validate(currentInstance)
 
     if (validationErrors.length === 0) {
-      setIsValidForm();
-      return true;
+      setIsValidForm()
+      return true
     }
 
     validationErrors.forEach((validationError) => {
-      checkPropertiesErrors(validationErrors, validationError.property);
-    });
+      checkPropertiesErrors(validationErrors, validationError.property)
+    })
 
-    setIsValidForm();
+    setIsValidForm()
   }
 
   watch(
     () => ({ ...form.value }),
     async (newVal, oldVal) => {
-      const changedFields: string[] = [];
+      const changedFields: string[] = []
 
       for (const key in newVal) {
         if (newVal[key] !== oldVal[key]) {
-          changedFields.push(key);
+          changedFields.push(key)
         }
       }
 
       for (const field of changedFields) {
-        await validateField(field);
+        await validateField(field)
       }
     },
-    { deep: true },
-  );
+    { deep: true }
+  )
 
   return {
     form: form as Ref<T>,
     errors,
     isValidForm,
     validateForm,
-  };
+  }
 }

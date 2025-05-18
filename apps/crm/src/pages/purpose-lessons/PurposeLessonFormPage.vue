@@ -1,14 +1,22 @@
 <template>
   <div class="form">
     <div>
-      <Button label="Назад" severity="secondary" @click="routeToPurposeLessonTable" />
+      <Button
+        label="Назад"
+        severity="secondary"
+        @click="routeToPurposeLessonTable"
+      />
     </div>
 
     <div class="title">
       {{ purposeLessonId ? 'Редактирование цели уроков' : 'Новая цель уроков' }}
     </div>
 
-    <UIInputText v-model="title" :error-message="errors.title" label="Название цели" />
+    <UIInputText
+      v-model="title"
+      :error-message="errors.title"
+      label="Название цели"
+    />
 
     <div class="mt-20">
       <UIFormSubmitButton :isSave="purposeLessonId" @onSubmit="onSubmit" />
@@ -20,10 +28,16 @@
 import { onMounted } from 'vue'
 import { usePurposeLessonsForm } from '@/entities/purpose-lessons/composables/use-purpose-lessons-form.ts'
 import { Button } from '@/packages/prime'
-import { UIInputText, UIFormSubmitButton } from '@/packages/ui'
+import { UIInputText, UIFormSubmitButton } from '@ag/ui'
 
-const { purposeLessonId, title, errors, onSubmit, initForm, routeToPurposeLessonTable } =
-  usePurposeLessonsForm()
+const {
+  purposeLessonId,
+  title,
+  errors,
+  onSubmit,
+  initForm,
+  routeToPurposeLessonTable,
+} = usePurposeLessonsForm()
 
 onMounted(() => {
   initForm()

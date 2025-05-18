@@ -1,7 +1,11 @@
 <template>
   <div class="student-form">
     <div>
-      <Button label="Назад" severity="secondary" @click="routeToStudentsTableDesktop" />
+      <Button
+        label="Назад"
+        severity="secondary"
+        @click="routeToStudentsTableDesktop"
+      />
     </div>
 
     <div class="student-form_title mt-20">
@@ -43,7 +47,10 @@
           >
             <template #option="slotProps">
               <UITag
-                :background="colorsStore.getColorScheme(slotProps.option.id).backgroundColor"
+                :background="
+                  colorsStore.getColorScheme(slotProps.option.id)
+                    .backgroundColor
+                "
                 :title="slotProps.option.title"
                 :padding="'10px'"
                 :color="colorsStore.getColorScheme(slotProps.option.id).color"
@@ -54,7 +61,11 @@
       </div>
 
       <div class="student-form_col">
-        <UIInputText v-model="phone" :error-message="errors.phone" label="Мобильный телефон" />
+        <UIInputText
+          v-model="phone"
+          :error-message="errors.phone"
+          label="Мобильный телефон"
+        />
 
         <UISelect
           v-model="englishLevelId"
@@ -90,7 +101,11 @@
 
     <UITextEditor v-model="social" label="Социальные сети" class="mt-20" />
 
-    <UITextEditor v-model="description" label="Пожелания к урокам" class="mt-20" />
+    <UITextEditor
+      v-model="description"
+      label="Пожелания к урокам"
+      class="mt-20"
+    />
 
     <div class="student-form_schedule mb-20">Расписание</div>
 
@@ -115,11 +130,20 @@
     />
 
     <div class="mt-20">
-      <Button icon="pi pi-plus" size="small" label="Добавить занятие" @click="addSchedule" />
+      <Button
+        icon="pi pi-plus"
+        size="small"
+        label="Добавить занятие"
+        @click="addSchedule"
+      />
     </div>
 
     <div class="mt-20">
-      <UIFormSubmitButton :isLoading="isLoading" :isSave="studentId" @onSubmit="onSubmit" />
+      <UIFormSubmitButton
+        :isLoading="isLoading"
+        :isSave="studentId"
+        @onSubmit="onSubmit"
+      />
     </div>
   </div>
 </template>
@@ -138,8 +162,8 @@ import {
   UIInputText,
   UIInputNumber,
   UISelect,
-  UIFormSubmitButton
-} from '@/packages/ui'
+  UIFormSubmitButton,
+} from '@ag/ui'
 
 const colorsStore = useColorsStore()
 const englishLevelsStore = useEnglishLevelsStore()
@@ -169,7 +193,7 @@ const {
   deleteSchedule,
   updateDayWeek,
   updateTime,
-  routeToStudentsTableDesktop
+  routeToStudentsTableDesktop,
 } = useStudentForm()
 
 onMounted(() => {

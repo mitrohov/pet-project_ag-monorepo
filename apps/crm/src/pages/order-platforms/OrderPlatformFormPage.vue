@@ -1,14 +1,25 @@
 <template>
   <div class="form">
     <div>
-      <Button label="Назад" severity="secondary" @click="routeToOrderPlatformsTable" required />
+      <Button
+        label="Назад"
+        severity="secondary"
+        @click="routeToOrderPlatformsTable"
+        required
+      />
     </div>
 
     <div class="title">
-      {{ selectedPlatformId ? 'Редактирование платформы' : 'Создание платформы' }}
+      {{
+        selectedPlatformId ? 'Редактирование платформы' : 'Создание платформы'
+      }}
     </div>
 
-    <UIInputText v-model="title" :error-message="errors.title" label="Название платформы" />
+    <UIInputText
+      v-model="title"
+      :error-message="errors.title"
+      label="Название платформы"
+    />
 
     <div class="mt-20">
       <UIFormSubmitButton :isSave="orderPlatformId" @onSubmit="onSubmit" />
@@ -19,7 +30,7 @@
 <script lang="ts" setup>
 import { onMounted } from 'vue'
 import { useOrderPlatformsForm } from '@/entities/order-platforms/composables/use-order-platform-form.ts'
-import { UIInputText, UIFormSubmitButton } from '@/packages/ui'
+import { UIInputText, UIFormSubmitButton } from '@ag/ui'
 import { Button } from '@/packages/prime'
 
 const {
@@ -29,7 +40,7 @@ const {
   selectedPlatformId,
   onSubmit,
   initForm,
-  routeToOrderPlatformsTable
+  routeToOrderPlatformsTable,
 } = useOrderPlatformsForm()
 
 onMounted(() => {

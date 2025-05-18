@@ -22,7 +22,9 @@ export const useLessonsStore = defineStore('lessonsStore', () => {
 
   function openDescription() {
     if (selectedLessonId.value) {
-      const selected = lessons.value.find((lesson) => lesson.id === selectedLessonId.value)
+      const selected = lessons.value.find(
+        (lesson) => lesson.id === selectedLessonId.value
+      )
       if (selected) {
         selectedLesson.value = selected
         showLessonDescription.value = true
@@ -32,13 +34,14 @@ export const useLessonsStore = defineStore('lessonsStore', () => {
 
   function copyLesson(lessonId: number) {
     const copyLesson = lessons.value.find((lesson) => lesson.id === lessonId)
-    if (copyLesson) localStorage.setItem('copyLesson', JSON.stringify(copyLesson))
+    if (copyLesson)
+      localStorage.setItem('copyLesson', JSON.stringify(copyLesson))
   }
 
   async function deleteLesson() {
     if (selectedLessonId.value) {
       const response = await apiService.lessons.deleteOneById({
-        id: selectedLessonId.value
+        id: selectedLessonId.value,
       })
 
       getLessons()
@@ -55,7 +58,10 @@ export const useLessonsStore = defineStore('lessonsStore', () => {
 
     if (response) {
       lessons.value = response.sort((lessonA, lessonB) => {
-        return new Date(lessonB.startTime).getTime() - new Date(lessonA.startTime).getTime()
+        return (
+          new Date(lessonB.startTime).getTime() -
+          new Date(lessonA.startTime).getTime()
+        )
       })
       getCalendarItems()
     }
@@ -81,6 +87,6 @@ export const useLessonsStore = defineStore('lessonsStore', () => {
     copyLesson,
     openNewLessonForm,
     getLessons,
-    deleteLesson
+    deleteLesson,
   }
 })

@@ -2,7 +2,11 @@
   <div class="student-page">
     <div class="page-header mb-20">Ученики</div>
 
-    <Button label="Добавить" @click="studentsStore.openNewStudentForm" class="mb-20" />
+    <Button
+      label="Добавить"
+      @click="studentsStore.openNewStudentForm"
+      class="mb-20"
+    />
 
     <template v-if="studentsAggregate.length">
       <StudentsTableDesktop
@@ -44,7 +48,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { useAgent } from '@/packages/agent'
+import { useAgent } from '@ag/agent'
 import { useStudentsStore } from '@/entities/students/stores/use-students-store.ts'
 import { useLessonsStore } from '@/entities/lessons'
 import { useEventCalendarStore } from '@/entities/event-calendar'
@@ -55,7 +59,7 @@ import StudentsTableDesktop from '@/entities/students/components/StudentsTableDe
 import StudentDescriptionModal from '@/entities/students/components/StudentDescriptionModal.vue'
 import StudentsTableMobile from '@/entities/students/components/StudentsTableMobile.vue'
 import { Button } from '@/packages/prime'
-import { UIDeleteWarningModal, type TableContextItem } from '@/packages/ui'
+import { UIDeleteWarningModal, type TableContextItem } from '@ag/ui'
 import type { GetStudent } from '@/packages/api/types'
 
 const { isDesktop } = useAgent()
@@ -73,10 +77,12 @@ const studentsAggregate = computed<GetStudent[]>(() => {
     if (colorsStore.colorsById[student.colorId])
       student.color = colorsStore.colorsById[student.colorId]
     if (purposeLessonsStore.purposeLessonsById[student.purposeLessonId]) {
-      student.purposeLesson = purposeLessonsStore.purposeLessonsById[student.purposeLessonId]
+      student.purposeLesson =
+        purposeLessonsStore.purposeLessonsById[student.purposeLessonId]
     }
     if (englishLevelsStore.englishLevelsById[student.englishLevelId]) {
-      student.englishLevel = englishLevelsStore.englishLevelsById[student.englishLevelId]
+      student.englishLevel =
+        englishLevelsStore.englishLevelsById[student.englishLevelId]
     }
     return student
   })
@@ -91,16 +97,16 @@ const contextItems: TableContextItem[] = [
         icon: 'pi pi-book',
         command: () => {
           if (studentsStore.selectedStudent) createLessons()
-        }
+        },
       },
       {
         label: 'На следующий месяц',
         icon: 'pi pi-book',
         command: () => {
           if (studentsStore.selectedStudent) createLessons(true)
-        }
-      }
-    ]
+        },
+      },
+    ],
   },
   {
     label: 'Действия',
@@ -108,9 +114,9 @@ const contextItems: TableContextItem[] = [
       {
         label: 'Посмотреть описание',
         icon: 'pi pi-file',
-        command: () => (studentsStore.isShowStudentDescription = true)
-      }
-    ]
+        command: () => (studentsStore.isShowStudentDescription = true),
+      },
+    ],
   },
   {
     label: 'Управление',
@@ -122,18 +128,18 @@ const contextItems: TableContextItem[] = [
           if (studentsStore.selectedStudent) {
             router.push({
               name: 'StudentFormPage',
-              query: { id: studentsStore.selectedStudent.id }
+              query: { id: studentsStore.selectedStudent.id },
             })
           }
-        }
+        },
       },
       {
         label: 'Удалить',
         icon: 'pi pi-trash',
-        command: () => (studentsStore.showDeleteWarning = true)
-      }
-    ]
-  }
+        command: () => (studentsStore.showDeleteWarning = true),
+      },
+    ],
+  },
 ]
 
 async function createLessons(isForNextMonth: boolean = false) {

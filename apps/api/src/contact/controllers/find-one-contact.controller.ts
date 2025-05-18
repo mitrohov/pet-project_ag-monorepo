@@ -5,16 +5,16 @@ import {
   Get,
   Param,
   ParseIntPipe,
-} from '@nestjs/common';
+} from '@nestjs/common'
 import {
   ApiResponse,
   ApiTags,
   ApiCookieAuth,
   ApiOkResponse,
-} from '@nestjs/swagger';
-import { AuthGuard } from '../../auth/auth.guard';
-import { ContactResponseDto } from '../contact.dto';
-import { ContactService } from '../contact.service';
+} from '@nestjs/swagger'
+import { AuthGuard } from '../../auth/auth.guard'
+import { ContactResponseDto } from '../contact.dto'
+import { ContactService } from '../contact.service'
 
 @ApiTags('contact')
 @Controller('contact')
@@ -27,6 +27,6 @@ export class FindOneContactController {
   @ApiOkResponse({ type: ContactResponseDto })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.contactService.findOne(id);
+    return this.contactService.findOne(id)
   }
 }

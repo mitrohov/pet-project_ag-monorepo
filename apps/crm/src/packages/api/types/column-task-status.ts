@@ -13,7 +13,7 @@ export const PostColumnTaskStatusSchema = object({
   colorId: number()
     .positive('Значение должно быть положительным числом')
     .integer('Значение должно быть целым числом')
-    .required('Это поле обязательное')
+    .required('Это поле обязательное'),
 })
 
 export type PostColumnTaskStatus = InferType<typeof PostColumnTaskStatusSchema>

@@ -33,7 +33,10 @@
         class="boards-task_task-description"
       ></div>
 
-      <div v-if="task.columnTaskStatus?.title" :class="{ 'mt-10': !task.description }">
+      <div
+        v-if="task.columnTaskStatus?.title"
+        :class="{ 'mt-10': !task.description }"
+      >
         {{ task.columnTaskStatus.title }}
       </div>
     </div>
@@ -50,16 +53,22 @@ const props = defineProps<{
   columnId: number
 }>()
 
-const { showTask, openDeleteTaskWarning, openEditTaskForm, dragTask } = useBoardTask()
+const { showTask, openDeleteTaskWarning, openEditTaskForm, dragTask } =
+  useBoardTask()
 
 const taskStyle = computed(() => {
   if (props.task.columnTaskStatus?.color?.code) {
-    return { 'border-left': `3px solid ${props.task.columnTaskStatus.color.code}` }
+    return {
+      'border-left': `3px solid ${props.task.columnTaskStatus.color.code}`,
+    }
   } else return {}
 })
 
 function drag(taskId: number) {
-  const boardDragStartParams: BoardDragStart = { columnId: props.columnId, taskId: taskId }
+  const boardDragStartParams: BoardDragStart = {
+    columnId: props.columnId,
+    taskId: taskId,
+  }
   dragTask(boardDragStartParams)
 }
 </script>

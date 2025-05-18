@@ -19,7 +19,9 @@ export const useSettingsStore = defineStore('settingsStore', () => {
     )
 
     if (defaultEventCategoriesIdsSet) {
-      const json = defaultEventCategoriesIdsSet.value ? defaultEventCategoriesIdsSet.value : '[]'
+      const json = defaultEventCategoriesIdsSet.value
+        ? defaultEventCategoriesIdsSet.value
+        : '[]'
       selectedEventCategoryIds.value = JSON.parse(json) as number[]
       defaultEventCategoriesId.value = defaultEventCategoriesIdsSet.id
     }
@@ -29,12 +31,12 @@ export const useSettingsStore = defineStore('settingsStore', () => {
     if (defaultEventCategoriesId.value) {
       const body = {
         field: 'defaultEventCategoriesIds',
-        value: JSON.stringify(selectedEventCategoryIds.value)
+        value: JSON.stringify(selectedEventCategoryIds.value),
       } as GetSettingsItem
 
       await apiService.settings.updateOneById({
         id: defaultEventCategoriesId.value,
-        body
+        body,
       })
     }
   }
@@ -75,6 +77,6 @@ export const useSettingsStore = defineStore('settingsStore', () => {
     isLoading,
     settingsItems,
     getSettings,
-    onSubmit
+    onSubmit,
   }
 })

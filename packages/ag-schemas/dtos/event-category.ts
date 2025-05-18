@@ -9,43 +9,43 @@ import {
   Min,
   IsPositive,
   IsNotEmpty,
-} from "class-validator";
-import { ColorWithId } from "./color";
+} from 'class-validator'
+import { ColorWithId } from './color'
 
 export class EventCategory {
   @IsString()
-  @MinLength(3, { message: "Название должно быть не более 3 символов" })
-  @MaxLength(50, { message: "Название должно быть не более 50 символов" })
-  title: string;
+  @MinLength(3, { message: 'Название должно быть не более 3 символов' })
+  @MaxLength(50, { message: 'Название должно быть не более 50 символов' })
+  title: string
 
   @IsNumber()
-  @IsPositive({ message: "Значение должно быть положительным числом" })
-  @IsInt({ message: "Значение должно быть целым числом" })
+  @IsPositive({ message: 'Значение должно быть положительным числом' })
+  @IsInt({ message: 'Значение должно быть целым числом' })
   @Min(1)
   @IsOptional()
-  colorId?: number;
+  colorId?: number
 
   @IsBoolean()
   @IsOptional()
-  isMock?: boolean;
+  isMock?: boolean
 
   @IsBoolean()
   @IsOptional()
-  isDeleted?: boolean;
+  isDeleted?: boolean
 
   @IsString()
   @IsNotEmpty()
   @IsOptional()
-  createdAt?: string;
+  createdAt?: string
 }
 
 export class EventCategoryWithId extends EventCategory {
   @IsNumber()
-  @IsPositive({ message: "Значение должно быть положительным числом" })
-  @IsInt({ message: "Значение должно быть целым числом" })
-  id: number;
+  @IsPositive({ message: 'Значение должно быть положительным числом' })
+  @IsInt({ message: 'Значение должно быть целым числом' })
+  id: number
 }
 
 export class EventCategoryAggregation extends EventCategoryWithId {
-  color: ColorWithId;
+  color: ColorWithId
 }

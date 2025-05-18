@@ -15,11 +15,11 @@ export default defineConfig([
     '**/allure-results',
     '**/test-results',
     '**/playwright-report',
-    '**/cache'
+    '**/cache',
   ]),
   {
     rules: {
       '@typescript-eslint/no-explicit-any': 'warn',
     },
-  }
+  },
 ])

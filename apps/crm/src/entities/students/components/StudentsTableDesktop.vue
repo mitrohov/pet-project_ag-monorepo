@@ -45,7 +45,11 @@
         </template>
       </Column>
 
-      <Column field="qtyLessonsPerWeek" header="Количество уроков в неделю" :showFilterMenu="false">
+      <Column
+        field="qtyLessonsPerWeek"
+        header="Количество уроков в неделю"
+        :showFilterMenu="false"
+      >
         <template #filter="{ filterModel, filterCallback }">
           <InputText
             v-model="filterModel.value"
@@ -58,7 +62,11 @@
         </template>
       </Column>
 
-      <Column field="purposeLessonId" header="Цель уроков" :showFilterMenu="false">
+      <Column
+        field="purposeLessonId"
+        header="Цель уроков"
+        :showFilterMenu="false"
+      >
         <template #body="{ data }">
           <div v-if="data.purposeLesson">
             {{ data.purposeLesson.title || '—' }}
@@ -81,7 +89,11 @@
         </template>
       </Column>
 
-      <Column field="lessonTime" header="Длительность урока" :showFilterMenu="false">
+      <Column
+        field="lessonTime"
+        header="Длительность урока"
+        :showFilterMenu="false"
+      >
         <template #body="{ data }">
           <div v-if="data.lessonTime">{{ data.lessonTime }} мин.</div>
           <div v-else>—</div>
@@ -99,7 +111,11 @@
         </template>
       </Column>
 
-      <Column field="lessonCost" header="Стоимость урока" :showFilterMenu="false">
+      <Column
+        field="lessonCost"
+        header="Стоимость урока"
+        :showFilterMenu="false"
+      >
         <template #body="{ data }">
           <div v-if="data.lessonCost">{{ data.lessonCost }}</div>
           <div v-else>—</div>
@@ -120,8 +136,12 @@
       <Column field="schedule" header="Расписание" style="width: 100px">
         <template #body="{ data }">
           <div style="width: 80px" v-if="data.studentSchedules.length">
-            <div v-for="(schedule, index) in data.studentSchedules" :key="index">
-              {{ getDayWeekShortLabel(schedule.dayWeek) }} в {{ formatTime(schedule.time) }}
+            <div
+              v-for="(schedule, index) in data.studentSchedules"
+              :key="index"
+            >
+              {{ getDayWeekShortLabel(schedule.dayWeek) }} в
+              {{ formatTime(schedule.time) }}
             </div>
           </div>
           <div v-else>—</div>
@@ -146,7 +166,10 @@
       <Column>
         <template #body="{ data }">
           <div class="d-flex justify-end">
-            <UITableContextNav :items="contextItems" @onAction="emit('selectStudent', data)" />
+            <UITableContextNav
+              :items="contextItems"
+              @onAction="emit('selectStudent', data)"
+            />
           </div>
         </template>
       </Column>
@@ -159,9 +182,19 @@
 import { ref } from 'vue'
 import { useStudentForm } from '../composables/use-student-form'
 import { useDate } from '@/packages/date'
-import { UITag, UITableContextNav, type TableContextItem } from '@/packages/ui'
-import { Column, DataTable, InputText, MultiSelect, FilterMatchMode } from '@/packages/prime'
-import type { GetEnglishLevel, GetStudent, GetPurposeLesson } from '@/packages/api/types'
+import { UITag, UITableContextNav, type TableContextItem } from '@ag/ui'
+import {
+  Column,
+  DataTable,
+  InputText,
+  MultiSelect,
+  FilterMatchMode,
+} from '@/packages/prime'
+import type {
+  GetEnglishLevel,
+  GetStudent,
+  GetPurposeLesson,
+} from '@/packages/api/types'
 
 const { formatTime } = useDate()
 const { getDayWeekShortLabel } = useStudentForm()
@@ -180,7 +213,7 @@ const globalFilterFields = ref<string[]>([
   'lessonTime',
   'lessonCost',
   'englishLevelId',
-  'purposeLessonId'
+  'purposeLessonId',
 ])
 
 const filters = ref({
@@ -189,7 +222,7 @@ const filters = ref({
   lessonTime: { value: null, matchMode: FilterMatchMode.CONTAINS },
   lessonCost: { value: null, matchMode: FilterMatchMode.CONTAINS },
   englishLevelId: { value: null, matchMode: FilterMatchMode.IN },
-  purposeLessonId: { value: null, matchMode: FilterMatchMode.IN }
+  purposeLessonId: { value: null, matchMode: FilterMatchMode.IN },
 })
 
 const emit = defineEmits<{

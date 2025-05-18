@@ -1,12 +1,12 @@
-import { IsNumber, IsObject, IsOptional } from 'class-validator';
-import { ApiProperty } from '@nestjs/swagger';
-import { EventCategoryResponseDto } from '../../event-category/event-category.dto';
-import { EventDto } from './event.dto';
+import { IsNumber, IsObject, IsOptional } from 'class-validator'
+import { ApiProperty } from '@nestjs/swagger'
+import { EventCategoryResponseDto } from '../../event-category/event-category.dto'
+import { EventDto } from './event.dto'
 
 export class GetEventAggregationResponseDto extends EventDto {
   @IsNumber()
   @ApiProperty({ example: 1 })
-  id: number;
+  id: number
 
   @IsOptional()
   @IsObject()
@@ -22,5 +22,5 @@ export class GetEventAggregationResponseDto extends EventDto {
       },
     },
   })
-  eventCategory?: EventCategoryResponseDto;
+  eventCategory?: EventCategoryResponseDto
 }

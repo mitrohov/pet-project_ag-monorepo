@@ -14,7 +14,7 @@ export function useContactsForm() {
   const isLoading = ref(false)
 
   const { errors, defineField, handleSubmit } = useForm({
-    validationSchema: PostContactSchema
+    validationSchema: PostContactSchema,
   })
 
   const [fio] = defineField('fio')
@@ -47,11 +47,14 @@ export function useContactsForm() {
       mobileNumber: mobileNumber.value,
       socials: socials.value,
       description: description.value,
-      orderPlatformId: orderPlatformId.value
+      orderPlatformId: orderPlatformId.value,
     }
 
     if (contactId.value) {
-      await apiService.contacts.updateOneById({ id: Number(contactId.value), body })
+      await apiService.contacts.updateOneById({
+        id: Number(contactId.value),
+        body,
+      })
     } else {
       await apiService.contacts.createOne({ body })
     }
@@ -69,7 +72,9 @@ export function useContactsForm() {
 
       if (contact) setValues(contact)
       else {
-        const response = await apiService.contacts.getOneById({ id: contactId.value })
+        const response = await apiService.contacts.getOneById({
+          id: contactId.value,
+        })
         if (response) setValues(response)
       }
 
@@ -91,6 +96,6 @@ export function useContactsForm() {
     errors,
     onSubmit,
     routeToContactsTable,
-    initForm
+    initForm,
   }
 }

@@ -9,49 +9,49 @@ import {
   IsPositive,
   IsArray,
   MinLength,
-} from "class-validator";
-import { ColumnTaskWithId } from "./column-task";
+} from 'class-validator'
+import { ColumnTaskWithId } from './column-task'
 
 export class BoardColumn {
   @IsString()
-  @MinLength(3, { message: "Название колонки должно быть не менее 3 символов" })
+  @MinLength(3, { message: 'Название колонки должно быть не менее 3 символов' })
   @MaxLength(200, {
-    message: "Название колонки должно быть не более 200 символов",
+    message: 'Название колонки должно быть не более 200 символов',
   })
-  title: string;
+  title: string
 
   @IsNumber()
   @IsInt()
   @IsPositive()
-  boardId: number;
+  boardId: number
 
   @IsNumber()
   @IsInt()
   @IsPositive()
-  sortIndex: number;
+  sortIndex: number
 
   @IsBoolean()
   @IsOptional()
-  isMock?: boolean;
+  isMock?: boolean
 
   @IsBoolean()
   @IsOptional()
-  isDeleted?: boolean;
+  isDeleted?: boolean
 
   @IsString()
   @IsNotEmpty()
   @IsOptional()
-  createdAt?: string;
+  createdAt?: string
 }
 
 export class BoardColumnWithId extends BoardColumn {
   @IsNumber()
-  @IsPositive({ message: "Значение должно быть положительным числом" })
-  @IsInt({ message: "Значение должно быть целым числом" })
-  id: number;
+  @IsPositive({ message: 'Значение должно быть положительным числом' })
+  @IsInt({ message: 'Значение должно быть целым числом' })
+  id: number
 }
 
 export class BoardColumnAggregation extends BoardColumnWithId {
   @IsArray()
-  columnTasks: ColumnTaskWithId[];
+  columnTasks: ColumnTaskWithId[]
 }

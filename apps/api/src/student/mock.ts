@@ -1,20 +1,20 @@
-import { faker } from '@faker-js/faker';
+import { faker } from '@faker-js/faker'
 
 export class StudentMock {
-  private readonly social = faker.lorem.text();
-  private readonly description = faker.lorem.text();
-  private readonly fio = faker.person.fullName();
-  private readonly phone = faker.phone.number();
-  private readonly englishLevelId = 7;
-  private readonly qtyLessonsPerWeek = faker.number.int({ min: 1, max: 10 });
-  private readonly lessonCost = faker.number.int({ min: 100, max: 3000 });
-  private readonly lessonTime = faker.number.int({ min: 1, max: 29 });
-  private readonly colorId = 148;
-  private readonly purposeLessonId = 8;
-  private readonly isMock = true;
+  private readonly social = faker.lorem.text()
+  private readonly description = faker.lorem.text()
+  private readonly fio = faker.person.fullName()
+  private readonly phone = faker.phone.number()
+  private readonly englishLevelId = 7
+  private readonly qtyLessonsPerWeek = faker.number.int({ min: 1, max: 10 })
+  private readonly lessonCost = faker.number.int({ min: 100, max: 3000 })
+  private readonly lessonTime = faker.number.int({ min: 1, max: 29 })
+  private readonly colorId = 148
+  private readonly purposeLessonId = 8
+  private readonly isMock = true
 }
 
-export const student = new StudentMock();
+export const student = new StudentMock()
 
 export const notValidStudent = {
   fio: 1,
@@ -29,7 +29,7 @@ export const notValidStudent = {
   englishLevelId: '',
   purposeLessonId: '',
   colorId: '',
-};
+}
 
 export const notValidStudentErrors = [
   'fio must be shorter than or equal to 50 characters',
@@ -57,4 +57,4 @@ export const notValidStudentErrors = [
   'purposeLessonId must be a number conforming to the specified constraints',
   'colorId must not be less than 1',
   'colorId must be a number conforming to the specified constraints',
-];
+]

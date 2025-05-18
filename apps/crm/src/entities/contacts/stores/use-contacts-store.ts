@@ -44,6 +44,6 @@ export const useContactsStore = defineStore('contactsStore', () => {
     findContactById,
     openContactForm,
     deleteContact,
-    getContacts
+    getContacts,
   }
 })

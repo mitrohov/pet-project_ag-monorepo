@@ -25,7 +25,7 @@ export const PostPaymentSchema = object({
     .integer('Значение должно быть целым числом')
     .max(999999, 'studentId должно быть не более 999999')
     .required('Это поле обязательное'),
-  messageSent: boolean()
+  messageSent: boolean(),
 })
 
 export type PostPayment = InferType<typeof PostPaymentSchema>

@@ -11,22 +11,22 @@ import {
   ParseIntPipe,
   UseGuards,
   HttpStatus,
-} from '@nestjs/common';
-import { OrderPlatformService } from './order-platform.service';
+} from '@nestjs/common'
+import { OrderPlatformService } from './order-platform.service'
 import {
   ApiOkResponse,
   ApiResponse,
   ApiTags,
   ApiCookieAuth,
-} from '@nestjs/swagger';
+} from '@nestjs/swagger'
 import {
   OrderPlatformResponseDto,
   UpdateOrderPlatformBodyDto,
   CreateOrderPlatformBodyDto,
   DeleteOrderPlatformResponseDto,
-} from './order-platform.dto';
-import { AuthGuard } from '../auth/auth.guard';
-import { SettingsResponseDto } from '../settings/settings.dto';
+} from './order-platform.dto'
+import { AuthGuard } from '../auth/auth.guard'
+import { SettingsResponseDto } from '../settings/settings.dto'
 
 @ApiTags('order-platform')
 @Controller('order-platform')
@@ -40,7 +40,7 @@ export class OrderPlatformController {
   })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   async findAll() {
-    return this.orderPlatformService.findAll();
+    return this.orderPlatformService.findAll()
   }
 
   @Get(':id')
@@ -49,7 +49,7 @@ export class OrderPlatformController {
   @ApiOkResponse({ type: OrderPlatformResponseDto })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.orderPlatformService.findOne(id);
+    return this.orderPlatformService.findOne(id)
   }
 
   @Post()
@@ -59,7 +59,7 @@ export class OrderPlatformController {
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   @UsePipes(new ValidationPipe())
   create(@Body() body: CreateOrderPlatformBodyDto) {
-    return this.orderPlatformService.create(body);
+    return this.orderPlatformService.create(body)
   }
 
   @Patch(':id')
@@ -70,9 +70,9 @@ export class OrderPlatformController {
   @UsePipes(new ValidationPipe())
   update(
     @Param('id', ParseIntPipe) id: number,
-    @Body() body: UpdateOrderPlatformBodyDto,
+    @Body() body: UpdateOrderPlatformBodyDto
   ) {
-    return this.orderPlatformService.update(id, body);
+    return this.orderPlatformService.update(id, body)
   }
 
   @Delete('remove-all-mock')
@@ -81,7 +81,7 @@ export class OrderPlatformController {
   @ApiOkResponse()
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   removeAllMock() {
-    return this.orderPlatformService.removeAllMock();
+    return this.orderPlatformService.removeAllMock()
   }
 
   @Delete(':id')
@@ -90,6 +90,6 @@ export class OrderPlatformController {
   @ApiOkResponse({ type: DeleteOrderPlatformResponseDto })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   remove(@Param('id', ParseIntPipe) id: number) {
-    return this.orderPlatformService.remove(id);
+    return this.orderPlatformService.remove(id)
   }
 }

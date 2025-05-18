@@ -2,7 +2,11 @@
   <div class="events-page">
     <div class="page-header mb-20">События</div>
 
-    <Button label="Добавить" @click="eventsStore.openNewEventForm" class="mb-20" />
+    <Button
+      label="Добавить"
+      @click="eventsStore.openNewEventForm"
+      class="mb-20"
+    />
 
     <EventsTableDesktop
       v-if="isDesktop"
@@ -47,14 +51,14 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { useAgent } from '@/packages/agent'
+import { useAgent } from '@ag/agent'
 import { useEventsStore } from '@/entities/events/stores/use-events-store.ts'
 import { useEventCategoriesStore } from '@/entities/event-categories'
 import { useStudentsStore } from '@/entities/students'
 import EventsTableDesktop from '@/entities/events/components/EventsTableDesktop.vue'
 import EventsTableDesktopMobile from '@/entities/events/components/EventsTableMobile.vue'
 import { Dialog, Button } from '@/packages/prime'
-import { UIDeleteWarningModal, type TableContextItem } from '@/packages/ui'
+import { UIDeleteWarningModal, type TableContextItem } from '@ag/ui'
 import type { GetEvent } from '@/packages/api/types/event.ts'
 
 const router = useRouter()
@@ -66,7 +70,8 @@ const eventCategoriesStore = useEventCategoriesStore()
 const eventsAggregation = computed<GetEvent[]>(() => {
   return eventsStore.events.map((event) => {
     if (eventCategoriesStore.eventCategoriesById[event.eventCategoryId]) {
-      event.eventCategory = eventCategoriesStore.eventCategoriesById[event.eventCategoryId]
+      event.eventCategory =
+        eventCategoriesStore.eventCategoriesById[event.eventCategoryId]
     }
     return event
   })
@@ -81,9 +86,9 @@ const contextItems: TableContextItem[] = [
         icon: 'pi pi-file',
         command: () => {
           eventsStore.openDescription()
-        }
-      }
-    ]
+        },
+      },
+    ],
   },
   {
     label: 'Управление',
@@ -93,9 +98,12 @@ const contextItems: TableContextItem[] = [
         icon: 'pi pi-pencil',
         command: () => {
           if (eventsStore.selectedEventId) {
-            router.push({ name: 'EventsFormPage', query: { id: eventsStore.selectedEventId } })
+            router.push({
+              name: 'EventsFormPage',
+              query: { id: eventsStore.selectedEventId },
+            })
           }
-        }
+        },
       },
       {
         label: 'Дублировать',
@@ -105,7 +113,7 @@ const contextItems: TableContextItem[] = [
             eventsStore.copyEvent(eventsStore.selectedEventId)
             router.push({ name: 'EventsFormPage' })
           }
-        }
+        },
       },
       {
         label: 'Удалить',
@@ -114,9 +122,9 @@ const contextItems: TableContextItem[] = [
           if (eventsStore.selectedEventId) {
             eventsStore.showDeleteWarning = true
           }
-        }
-      }
-    ]
-  }
+        },
+      },
+    ],
+  },
 ]
 </script>

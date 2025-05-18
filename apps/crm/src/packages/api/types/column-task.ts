@@ -9,7 +9,7 @@ export const PostColumnTaskSchema = object({
     .required('Это поле обязательное'),
   description: string().optional(),
   boardColumnId: number().required('Это поле обязательное'),
-  columnTaskStatusId: number().required('Это поле обязательное')
+  columnTaskStatusId: number().required('Это поле обязательное'),
 })
 
 export type PostColumnTask = InferType<typeof PostColumnTaskSchema>

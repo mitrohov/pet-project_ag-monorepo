@@ -6,7 +6,7 @@
   "type": "module",
   "license": "SEE LICENSE IN LICENSE.md",
   "scripts": {
-    "typecheck": "vue-tsc --build",
+    "typecheck": "vue-tsc --noEmit",
     "lint": "eslint . --fix",
     "delete-deps": "rm -rf node_modules"
   },
@@ -17,10 +17,8 @@
   "devDependencies": {
     "vue-tsc": "catalog:",
     "eslint": "catalog:",
-    "prettier": "catalog:",
     "@ag/eslint": "workspace:*",
     "@ag/tsconfig": "workspace:*",
-    "@ag/prettier": "workspace:*",
     "@ag/schemas": "workspace:*"
   }
 }

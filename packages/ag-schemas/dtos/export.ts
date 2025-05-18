@@ -1,13 +1,13 @@
-import { IsString, IsOptional, IsNotEmpty } from "class-validator";
+import { IsString, IsOptional, IsNotEmpty } from 'class-validator'
 
 export class ExportWordDocQuery {
   @IsString()
   @IsNotEmpty()
   @IsOptional()
-  startTime: string;
+  startTime: string
 
   @IsString()
   @IsNotEmpty()
   @IsOptional()
-  endTime: string;
+  endTime: string
 }

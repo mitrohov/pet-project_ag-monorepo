@@ -7,7 +7,7 @@ export const PostBoardColumnSchema = object({
     .max(50, 'Название колонки должно быть не более 50 символов')
     .required('Это поле обязательное'),
   boardId: number().required('Поле boardId обязательное'),
-  sortIndex: number().nullable()
+  sortIndex: number().nullable(),
 })
 
 export type PostBoardColumn = InferType<typeof PostBoardColumnSchema>

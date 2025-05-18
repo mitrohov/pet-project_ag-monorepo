@@ -49,6 +49,6 @@ export const useOrderPlatformsStore = defineStore('orderPlatformsStore', () => {
     orderPlatformsById,
     findOrderPlatformById,
     openOrderPlatformsForm,
-    getOrderPlatforms
+    getOrderPlatforms,
   }
 })

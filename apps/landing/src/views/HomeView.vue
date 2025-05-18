@@ -18,18 +18,18 @@
 </template>
 
 <script lang="ts" setup>
-import HeaderApp from "@/components/HeaderApp.vue";
-import HowLessonBlock from "@/components/HowLessonBlock.vue";
-import ProgressBlock from "@/components/ProgressBlock.vue";
-import InteractiveLearning from "@/components/InteractiveLearning.vue";
-import SimpleApproach from "@/components/SimpleApproach.vue";
-import DevicesBlock from "@/components/DevicesBlock.vue";
-import VideoLesson from "@/components/VideoLesson.vue";
-import LoveBlock from "@/components/LoveBlock.vue";
-import AnswersOnQuestionsBlock from "@/components/AnswersOnQuestionsBlock.vue";
-import FormBlock from "@/components/FormBlock.vue";
-import FooterBlock from "@/components/FooterBlock.vue";
-import LessonsBlock from "@/components/LessonsBlock.vue";
+import HeaderApp from '@/components/HeaderApp.vue'
+import HowLessonBlock from '@/components/HowLessonBlock.vue'
+import ProgressBlock from '@/components/ProgressBlock.vue'
+import InteractiveLearning from '@/components/InteractiveLearning.vue'
+import SimpleApproach from '@/components/SimpleApproach.vue'
+import DevicesBlock from '@/components/DevicesBlock.vue'
+import VideoLesson from '@/components/VideoLesson.vue'
+import LoveBlock from '@/components/LoveBlock.vue'
+import AnswersOnQuestionsBlock from '@/components/AnswersOnQuestionsBlock.vue'
+import FormBlock from '@/components/FormBlock.vue'
+import FooterBlock from '@/components/FooterBlock.vue'
+import LessonsBlock from '@/components/LessonsBlock.vue'
 </script>
 
 <style>

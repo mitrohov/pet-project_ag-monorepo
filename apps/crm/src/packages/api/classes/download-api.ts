@@ -9,13 +9,15 @@ export class DownloadApi extends BaseApi<any, any> {
   async downloadTableSql({
     query,
     url,
-    table
+    table,
   }: {
     query: string
     url: string
     table: string
   }): Promise<void> {
-    const response = await fetch(this.createUrl({ query, url }), { credentials: 'include' })
+    const response = await fetch(this.createUrl({ query, url }), {
+      credentials: 'include',
+    })
 
     if (response.ok) {
       const blob = await response.blob()
@@ -34,13 +36,15 @@ export class DownloadApi extends BaseApi<any, any> {
   async downloadLessonOnWeekWordFile({
     query,
     url,
-    fileName
+    fileName,
   }: {
     query: string
     url: string
     fileName: string
   }): Promise<void> {
-    const response = await fetch(this.createUrl({ query, url }), { credentials: 'include' })
+    const response = await fetch(this.createUrl({ query, url }), {
+      credentials: 'include',
+    })
 
     if (response.ok) {
       const blob = await response.blob()

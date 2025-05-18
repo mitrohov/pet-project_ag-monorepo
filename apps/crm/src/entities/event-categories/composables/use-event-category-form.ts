@@ -3,20 +3,24 @@ import { useForm } from 'vee-validate'
 import { useRoute, useRouter } from 'vue-router'
 import { useApi } from '@/packages/api'
 import { useEventCategoriesStore } from '../stores/use-event-categories-store'
-import { type PostEventCategory, PostEventCategorySchema } from '@/packages/api/types'
+import {
+  type PostEventCategory,
+  PostEventCategorySchema,
+} from '@/packages/api/types'
 
 export function useEventCategoryForm() {
   const router = useRouter()
   const route = useRoute()
   const apiService = useApi()
 
-  const { getEventCategories, findEventCategoryById } = useEventCategoriesStore()
+  const { getEventCategories, findEventCategoryById } =
+    useEventCategoriesStore()
   const isNewEventCategory = computed(() => !route.query.id)
 
   const isLoading = ref<boolean>(!isNewEventCategory.value)
 
   const { errors, defineField, handleSubmit } = useForm({
-    validationSchema: PostEventCategorySchema
+    validationSchema: PostEventCategorySchema,
   })
 
   const [title] = defineField('title')
@@ -39,13 +43,13 @@ export function useEventCategoryForm() {
     isLoading.value = true
     const body: PostEventCategory = {
       title: title.value,
-      colorId: colorId.value
+      colorId: colorId.value,
     }
 
     if (eventCategoryId.value) {
       await apiService.eventCategories.updateOneById({
         id: eventCategoryId.value,
-        body
+        body,
       })
     } else {
       await apiService.eventCategories.createOne({ body })
@@ -66,7 +70,7 @@ export function useEventCategoryForm() {
       if (eventCategory) setValues(eventCategory)
       else {
         const response = await apiService.eventCategories.getOneById({
-          id: Number(route.query.id)
+          id: Number(route.query.id),
         })
 
         if (response) setValues(response)
@@ -89,6 +93,6 @@ export function useEventCategoryForm() {
     isLoading,
     onSubmit,
     routeToEventCategoryTable,
-    initForm
+    initForm,
   }
 }

@@ -20,7 +20,10 @@
 
       <Column header="Шрифт">
         <template #body="slotProps">
-          <div :style="{ background: slotProps.data.color }" class="color-page_color mr-10"></div>
+          <div
+            :style="{ background: slotProps.data.color }"
+            class="color-page_color mr-10"
+          ></div>
         </template>
       </Column>
 
@@ -44,7 +47,7 @@
 <script lang="ts" setup>
 import { useColorsStore } from '@/entities/colors/stores/use-colors-store.ts'
 import { Column, DataTable, Button } from '@/packages/prime'
-import { UINotDataMessage } from '@/packages/ui'
+import { UINotDataMessage } from '@ag/ui'
 
 const colorsStore = useColorsStore()
 </script>

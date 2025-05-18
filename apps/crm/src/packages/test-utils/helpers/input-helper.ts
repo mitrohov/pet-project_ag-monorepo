@@ -19,7 +19,10 @@ export interface CheckInputParams {
   requireIconTestId?: string
 }
 
-export async function inputHelper(params: CheckInputParams, timeOutForRender: number = 10) {
+export async function inputHelper(
+  params: CheckInputParams,
+  timeOutForRender: number = 10
+) {
   const input = params.screen.getByTestId(params.input.testId)
   const newInputValue = 'test@gmail.com'
 
@@ -40,7 +43,9 @@ export async function inputHelper(params: CheckInputParams, timeOutForRender: nu
     await input.fill(params.validation.value)
     await expect(input).toHaveValue(params.validation.value)
 
-    const emailErrorMessage = params.screen.getByTestId(params.validation.testId)
+    const emailErrorMessage = params.screen.getByTestId(
+      params.validation.testId
+    )
 
     await new Promise((resolve) => setTimeout(resolve, timeOutForRender))
 

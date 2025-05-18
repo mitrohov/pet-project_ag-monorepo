@@ -5,16 +5,16 @@ import {
   ParseIntPipe,
   UseGuards,
   HttpStatus,
-} from '@nestjs/common';
-import { EventService } from '../event.service';
+} from '@nestjs/common'
+import { EventService } from '../event.service'
 import {
   ApiOkResponse,
   ApiResponse,
   ApiTags,
   ApiCookieAuth,
-} from '@nestjs/swagger';
-import { DeleteEventResponseDto } from '../dto';
-import { AuthGuard } from '../../auth/auth.guard';
+} from '@nestjs/swagger'
+import { DeleteEventResponseDto } from '../dto'
+import { AuthGuard } from '../../auth/auth.guard'
 
 @ApiTags('event')
 @Controller('event')
@@ -27,6 +27,6 @@ export class RemoveEventController {
   @ApiOkResponse({ type: DeleteEventResponseDto })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   remove(@Param('id', ParseIntPipe) id: number) {
-    return this.eventService.remove(id);
+    return this.eventService.remove(id)
   }
 }

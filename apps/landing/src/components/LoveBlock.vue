@@ -75,7 +75,7 @@
 .love-block-container {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  grid-template-areas: "leftBlock photoBlock rightBlock";
+  grid-template-areas: 'leftBlock photoBlock rightBlock';
 
   .photo {
     width: 100%;
@@ -136,7 +136,7 @@
 @media only screen and (max-width: 830px) {
   .love-block-container {
     grid-template-columns: 1fr;
-    grid-template-areas: "photoBlock" "leftBlock" "rightBlock";
+    grid-template-areas: 'photoBlock' 'leftBlock' 'rightBlock';
   }
   .left-cards,
   .card-love {

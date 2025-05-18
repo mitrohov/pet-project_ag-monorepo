@@ -10,11 +10,15 @@
 
 <script setup lang="ts">
 import { useBoard } from '../composables/use-bord'
-import { UIDeleteWarningModal } from '@/packages/ui'
+import { UIDeleteWarningModal } from '@ag/ui'
 
 const props = defineProps<{
   isBoardsPage?: boolean
 }>()
 
-const { isShowBoardDeleteWarning, isDisabledDeleteWarningButtons, deleteBoard } = useBoard()
+const {
+  isShowBoardDeleteWarning,
+  isDisabledDeleteWarningButtons,
+  deleteBoard,
+} = useBoard()
 </script>

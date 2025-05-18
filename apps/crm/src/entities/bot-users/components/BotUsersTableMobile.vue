@@ -1,6 +1,10 @@
 <template>
   <div v-if="props.botUsers.length > 0" class="card table-mobile">
-    <DataTable v-model:expandedRows="expandedRows" :value="props.botUsers" dataKey="id">
+    <DataTable
+      v-model:expandedRows="expandedRows"
+      :value="props.botUsers"
+      dataKey="id"
+    >
       <Column expander style="width: 5rem" />
 
       <Column header="ФИО">
@@ -8,7 +12,9 @@
           <div class="table-mobile_column-header">
             <UIMobileTableColumnHeader
               :title="
-                slotProps.data.student.fio ? slotProps.data.student.fio : 'Ученик не привязан'
+                slotProps.data.student.fio
+                  ? slotProps.data.student.fio
+                  : 'Ученик не привязан'
               "
               :contextItems="contextItems"
               @onAction="emit('selectedId', slotProps.data.id)"
@@ -41,8 +47,8 @@ import { DataTable, Column } from '@/packages/prime'
 import {
   UIMobileTableExpansion,
   UIMobileTableColumnHeader,
-  type TableContextItem
-} from '@/packages/ui'
+  type TableContextItem,
+} from '@ag/ui'
 import type { GetBotUser } from '@/packages/api/types'
 
 const expandedRows = ref()

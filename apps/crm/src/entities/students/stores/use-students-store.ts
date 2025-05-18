@@ -6,7 +6,11 @@ import { usePaymentsStore } from '@/entities/payments/stores/use-payments-store'
 import { useBotUsersStore } from '@/entities/bot-users/stores/use-bot-users-store'
 import { useAdminMessage } from '@/packages/admin-message'
 import { useApi } from '@/packages/api'
-import type { GetStudent, PostLesson, DatesForLesson } from '@/packages/api/types'
+import type {
+  GetStudent,
+  PostLesson,
+  DatesForLesson,
+} from '@/packages/api/types'
 
 export const useStudentsStore = defineStore('studentsStore', () => {
   const { showUserMessage } = useAdminMessage()
@@ -32,7 +36,11 @@ export const useStudentsStore = defineStore('studentsStore', () => {
     return studentsByIdObj
   })
 
-  function createLessonObj(startTime: Date, endTime: Date, studentId: number): PostLesson {
+  function createLessonObj(
+    startTime: Date,
+    endTime: Date,
+    studentId: number
+  ): PostLesson {
     return {
       startTime: startTime.toISOString(),
       endTime: endTime.toISOString(),
@@ -43,7 +51,7 @@ export const useStudentsStore = defineStore('studentsStore', () => {
       title: 'Урок',
       studentId,
       paymentId: null,
-      description: null
+      description: null,
     }
   }
 
@@ -89,8 +97,15 @@ export const useStudentsStore = defineStore('studentsStore', () => {
     const lessons: PostLesson[] = []
     const today = new Date()
 
-    if (selectedStudent.value && selectedStudent.value.studentSchedules?.length) {
-      const { id: studentId, studentSchedules, lessonTime } = selectedStudent.value
+    if (
+      selectedStudent.value &&
+      selectedStudent.value.studentSchedules?.length
+    ) {
+      const {
+        id: studentId,
+        studentSchedules,
+        lessonTime,
+      } = selectedStudent.value
 
       studentSchedules.forEach((schedule) => {
         const dayWeek = schedule.dayWeek === 7 ? 0 : schedule.dayWeek
@@ -104,7 +119,11 @@ export const useStudentsStore = defineStore('studentsStore', () => {
 
         if (datesForLessons.length) {
           datesForLessons.forEach((dates) => {
-            const lesson = createLessonObj(dates.startTime, dates.endTime, studentId)
+            const lesson = createLessonObj(
+              dates.startTime,
+              dates.endTime,
+              studentId
+            )
             if (new Date(lesson.startTime) > today) lessons.push(lesson)
           })
         }
@@ -119,7 +138,7 @@ export const useStudentsStore = defineStore('studentsStore', () => {
 
     if (selectedStudent.value) {
       const response = await apiService.students.deleteOneById({
-        id: selectedStudent.value.id
+        id: selectedStudent.value.id,
       })
 
       if (response) {
@@ -167,6 +186,6 @@ export const useStudentsStore = defineStore('studentsStore', () => {
     createLessonOnMonth,
     openNewStudentForm,
     getStudents,
-    deleteStudent
+    deleteStudent,
   }
 })

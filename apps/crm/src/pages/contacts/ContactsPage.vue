@@ -2,7 +2,11 @@
   <div class="contact-page">
     <div class="page-header mb-20">Контакты</div>
 
-    <Button label="Добавить" @click="contactsStore.openContactForm" class="mb-20" />
+    <Button
+      label="Добавить"
+      @click="contactsStore.openContactForm"
+      class="mb-20"
+    />
 
     <ContactsTableDesktop
       v-if="isDesktop"
@@ -32,13 +36,13 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { useAgent } from '@/packages/agent'
+import { useAgent } from '@ag/agent'
 import { useContactsStore } from '@/entities/contacts/stores/use-contacts-store.ts'
 import { useOrderPlatformsStore } from '@/entities/order-platforms'
 import ContactsTableDesktop from '@/entities/contacts/components/ContactsTableDesktop.vue'
 import ContactsTableMobile from '@/entities/contacts/components/ContactsTableMobile.vue'
 import { Button } from '@/packages/prime'
-import { UIDeleteWarningModal, type TableContextItem } from '@/packages/ui'
+import { UIDeleteWarningModal, type TableContextItem } from '@ag/ui'
 import type { GetContact } from '@/packages/api/types'
 
 const { isDesktop } = useAgent()
@@ -49,7 +53,8 @@ const orderPlatformsStore = useOrderPlatformsStore()
 const contactsAggregation = computed<GetContact[]>(() => {
   return contactsStore.contacts.map((contact) => {
     if (orderPlatformsStore.orderPlatformsById[contact.orderPlatformId]) {
-      contact.orderPlatform = orderPlatformsStore.orderPlatformsById[contact.orderPlatformId]
+      contact.orderPlatform =
+        orderPlatformsStore.orderPlatformsById[contact.orderPlatformId]
     }
     return contact
   })
@@ -64,9 +69,12 @@ const contextItems: TableContextItem[] = [
         icon: 'pi pi-pencil',
         command: () => {
           if (contactsStore.selectedId) {
-            router.push({ name: 'ContactFormPage', query: { id: contactsStore.selectedId } })
+            router.push({
+              name: 'ContactFormPage',
+              query: { id: contactsStore.selectedId },
+            })
           }
-        }
+        },
       },
       {
         label: 'Удалить',
@@ -75,9 +83,9 @@ const contextItems: TableContextItem[] = [
           if (contactsStore.selectedId) {
             contactsStore.isShowDeleteWarning = true
           }
-        }
-      }
-    ]
-  }
+        },
+      },
+    ],
+  },
 ]
 </script>

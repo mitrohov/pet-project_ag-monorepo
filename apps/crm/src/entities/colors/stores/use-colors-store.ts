@@ -23,7 +23,7 @@ export const useColorsStore = defineStore('colorsStore', () => {
     title: 'Индийский красный',
     code: 'indianRed',
     color: '#000000',
-    backgroundColor: '#CD5C5C'
+    backgroundColor: '#CD5C5C',
   } as const
 
   function getColorScheme(colorId: number): Color {
@@ -69,6 +69,6 @@ export const useColorsStore = defineStore('colorsStore', () => {
     getBackgroundColor,
     getColorScheme,
     getColors,
-    initColorInDataBase
+    initColorInDataBase,
   }
 })

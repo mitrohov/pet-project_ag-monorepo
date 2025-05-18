@@ -1,6 +1,10 @@
 <template>
   <div v-if="props.payments.length > 0" class="card table-mobile">
-    <DataTable v-model:expandedRows="expandedRows" :value="props.payments" dataKey="id">
+    <DataTable
+      v-model:expandedRows="expandedRows"
+      :value="props.payments"
+      dataKey="id"
+    >
       <Column expander style="width: 5rem" />
 
       <Column header="Дата оплаты">
@@ -29,7 +33,10 @@
             {{ slotProps.data.sum || '—' }}
           </UIMobileTableExpansion>
 
-          <UIMobileTableExpansion title="Оплачено уроков" :value="slotProps.data.lessonQty">
+          <UIMobileTableExpansion
+            title="Оплачено уроков"
+            :value="slotProps.data.lessonQty"
+          >
             {{ slotProps.data.lessonQty || '—' }}
           </UIMobileTableExpansion>
 
@@ -53,12 +60,23 @@
             />
           </UIMobileTableExpansion>
 
-          <UIMobileTableExpansion title="Привязанные уроки" :value="slotProps.data.lessonQty">
+          <UIMobileTableExpansion
+            title="Привязанные уроки"
+            :value="slotProps.data.lessonQty"
+          >
             <div v-if="sortEvents(slotProps.data.lessons).length">
-              <span v-for="(event, index) in sortEvents(slotProps.data.lessons)" :key="index">
+              <span
+                v-for="(event, index) in sortEvents(slotProps.data.lessons)"
+                :key="index"
+              >
                 <span v-if="event.title && event.startTime" class="mr-10">
                   {{ index + 1 }}.
-                  {{ formatDate(`${event.startTime}`).split(' ').reverse().join(' ') }}
+                  {{
+                    formatDate(`${event.startTime}`)
+                      .split(' ')
+                      .reverse()
+                      .join(' ')
+                  }}
                 </span>
 
                 <span v-else>—</span>
@@ -80,8 +98,8 @@ import { DataTable, Column, Tag } from '@/packages/prime'
 import {
   UIMobileTableExpansion,
   UIMobileTableColumnHeader,
-  type TableContextItem
-} from '@/packages/ui'
+  type TableContextItem,
+} from '@ag/ui'
 import type { GetEvent, GetPayment } from '@/packages/api/types'
 
 const expandedRows = ref()

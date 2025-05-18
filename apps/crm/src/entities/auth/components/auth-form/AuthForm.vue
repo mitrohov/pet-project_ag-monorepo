@@ -43,21 +43,21 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted } from "vue";
-import { UIInputText } from "@/packages/ui";
-import { Button } from "@/packages/prime";
-import { useAuthForm } from "../../composables/use-auth-form/use-auth-form";
+import { onMounted } from 'vue'
+import { UIInputText } from '@ag/ui'
+import Button from 'primevue/button'
+import { useAuthForm } from '../../composables/use-auth-form/use-auth-form'
 
 const { user, errors, isValidForm, handleSubmit, setDefaultEmailAndPassword } =
-  useAuthForm();
+  useAuthForm()
 
 onMounted(() => {
   setDefaultEmailAndPassword({
-    nodeEnv: import.meta.env.VITE_NODE_ENV || "",
-    mailEnv: import.meta.env.VITE_BASE_LOGIN || "",
-    passwordEnv: import.meta.env.VITE_BASE_PASSWORD || "",
-  });
-});
+    nodeEnv: import.meta.env.VITE_NODE_ENV || '',
+    mailEnv: import.meta.env.VITE_BASE_LOGIN || '',
+    passwordEnv: import.meta.env.VITE_BASE_PASSWORD || '',
+  })
+})
 </script>
 
 <style scoped>

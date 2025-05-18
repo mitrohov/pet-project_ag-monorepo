@@ -3,7 +3,10 @@ import { useForm } from 'vee-validate'
 import { useRouter, useRoute } from 'vue-router'
 import { useApi } from '@/packages/api'
 import { useOrderPlatformsStore } from '../stores/use-order-platforms-store'
-import { PostOrderPlatformSchema, type PostOrderPlatform } from '@/packages/api/types'
+import {
+  PostOrderPlatformSchema,
+  type PostOrderPlatform,
+} from '@/packages/api/types'
 
 export function useOrderPlatformsForm() {
   const router = useRouter()
@@ -16,7 +19,7 @@ export function useOrderPlatformsForm() {
   const selectedPlatformId = computed(() => route.query.id)
 
   const { errors, defineField, handleSubmit } = useForm({
-    validationSchema: PostOrderPlatformSchema
+    validationSchema: PostOrderPlatformSchema,
   })
 
   const [title] = defineField('title')
@@ -31,7 +34,7 @@ export function useOrderPlatformsForm() {
 
   const onSubmit = handleSubmit(async () => {
     const body: PostOrderPlatform = {
-      title: title.value
+      title: title.value,
     }
 
     isLoading.value = true
@@ -39,7 +42,7 @@ export function useOrderPlatformsForm() {
     if (orderPlatformId.value) {
       await apiService.orderPlatform.updateOneById({
         id: orderPlatformId.value,
-        body
+        body,
       })
     } else {
       await apiService.orderPlatform.createOne({ body })
@@ -59,7 +62,7 @@ export function useOrderPlatformsForm() {
       if (orderPlatform) title.value = orderPlatform.title
       else {
         const response = await apiService.orderPlatform.getOneById({
-          id: orderPlatformId.value
+          id: orderPlatformId.value,
         })
 
         if (response) title.value = response.title
@@ -81,6 +84,6 @@ export function useOrderPlatformsForm() {
     selectedPlatformId,
     onSubmit,
     initForm,
-    routeToOrderPlatformsTable
+    routeToOrderPlatformsTable,
   }
 }

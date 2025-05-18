@@ -59,4 +59,3 @@ hero:
       text: Обновления системы
       link: docs/version.html
 ---
-

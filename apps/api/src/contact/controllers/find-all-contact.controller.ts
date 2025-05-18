@@ -1,7 +1,7 @@
-import { Controller, HttpStatus, Get } from '@nestjs/common';
-import { ApiResponse, ApiTags, ApiOkResponse } from '@nestjs/swagger';
-import { ContactResponseDto } from '../contact.dto';
-import { ContactService } from '../contact.service';
+import { Controller, HttpStatus, Get } from '@nestjs/common'
+import { ApiResponse, ApiTags, ApiOkResponse } from '@nestjs/swagger'
+import { ContactResponseDto } from '../contact.dto'
+import { ContactService } from '../contact.service'
 
 @ApiTags('contact')
 @Controller('contact')
@@ -15,6 +15,6 @@ export class FindAllContactController {
   })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   async getAll() {
-    return this.contactService.findAll();
+    return this.contactService.findAll()
   }
 }

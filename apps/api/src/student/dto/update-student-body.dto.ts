@@ -1,3 +1,3 @@
-import { StudentDto } from './student.dto';
+import { StudentDto } from './student.dto'
 
 export class UpdateStudentBodyDto extends StudentDto {}

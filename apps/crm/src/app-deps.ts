@@ -4,12 +4,17 @@ interface Dependencies {
   apiUrl: string
 }
 
-const [useApplicationsDeps, provideApplicationsDeps] = createEntityDeps<Dependencies>()
+const [useApplicationsDeps, provideApplicationsDeps] =
+  createEntityDeps<Dependencies>()
 
 const provideApplicationsMockDeps = (deps?: Partial<Dependencies>) =>
   provideApplicationsDeps({
     apiUrl: import.meta.env.VITE_API_URL,
-    ...deps
+    ...deps,
   })
 
-export { useApplicationsDeps, provideApplicationsDeps, provideApplicationsMockDeps }
+export {
+  useApplicationsDeps,
+  provideApplicationsDeps,
+  provideApplicationsMockDeps,
+}

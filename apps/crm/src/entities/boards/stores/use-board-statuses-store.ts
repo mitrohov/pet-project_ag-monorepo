@@ -18,6 +18,6 @@ export const useBoardStatusesStore = defineStore('boardStatusesStore', () => {
     selectedBoardIds,
     selectedStatusId,
     statusColumns,
-    isShowDeleteStatusWarning
+    isShowDeleteStatusWarning,
   }
 })

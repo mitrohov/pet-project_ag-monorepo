@@ -11,22 +11,22 @@ import {
   ParseIntPipe,
   UseGuards,
   HttpStatus,
-} from '@nestjs/common';
-import { BotUserService } from './bot-user.service';
+} from '@nestjs/common'
+import { BotUserService } from './bot-user.service'
 import {
   ApiOkResponse,
   ApiResponse,
   ApiTags,
   ApiCookieAuth,
-} from '@nestjs/swagger';
+} from '@nestjs/swagger'
 import {
   BotUserResponseDto,
   UpdateBotUserBodyDto,
   CreateBotUserBodyDto,
   DeleteBotUserResponseDto,
-} from './bot-user.dto';
-import { AuthGuard } from '../auth/auth.guard';
-import { SettingsResponseDto } from '../settings/settings.dto';
+} from './bot-user.dto'
+import { AuthGuard } from '../auth/auth.guard'
+import { SettingsResponseDto } from '../settings/settings.dto'
 
 @ApiTags('bot-user')
 @Controller('bot-user')
@@ -40,7 +40,7 @@ export class BotUserController {
   })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   async findAll() {
-    return this.botUserService.findAll();
+    return this.botUserService.findAll()
   }
 
   @Get(':id')
@@ -49,7 +49,7 @@ export class BotUserController {
   @ApiOkResponse({ type: BotUserResponseDto })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.botUserService.findOne(id);
+    return this.botUserService.findOne(id)
   }
 
   @Post()
@@ -59,7 +59,7 @@ export class BotUserController {
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   @UsePipes(new ValidationPipe())
   create(@Body() body: CreateBotUserBodyDto) {
-    return this.botUserService.create(body);
+    return this.botUserService.create(body)
   }
 
   @Patch(':id')
@@ -70,9 +70,9 @@ export class BotUserController {
   @UsePipes(new ValidationPipe())
   update(
     @Param('id', ParseIntPipe) id: number,
-    @Body() body: UpdateBotUserBodyDto,
+    @Body() body: UpdateBotUserBodyDto
   ) {
-    return this.botUserService.update(id, body);
+    return this.botUserService.update(id, body)
   }
 
   @Delete('/remove-all-mock')
@@ -81,7 +81,7 @@ export class BotUserController {
   @ApiOkResponse()
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   removeAllMock() {
-    return this.botUserService.removeAllMock();
+    return this.botUserService.removeAllMock()
   }
 
   @Delete(':id')
@@ -90,6 +90,6 @@ export class BotUserController {
   @ApiOkResponse({ type: DeleteBotUserResponseDto })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   remove(@Param('id', ParseIntPipe) id: number) {
-    return this.botUserService.remove(id);
+    return this.botUserService.remove(id)
   }
 }

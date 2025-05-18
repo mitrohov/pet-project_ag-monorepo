@@ -13,7 +13,7 @@ import { computed, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import AppLayoutDefault from '@/layouts/components/AppLayoutDefault.vue'
 import AppLayoutEmpty from '@/layouts/components/AppLayoutEmpty.vue'
-import { UIProgressSpinner, UIUserMessage } from '@/packages/ui'
+import { UIProgressSpinner, UIUserMessage } from '@ag/ui'
 import { useSettingsStore } from '@/entities/settings/stores/use-settings-store'
 import { useStudentsStore } from '@/entities/students/stores/use-students-store'
 import { useEventCategoriesStore } from '@/entities/event-categories/stores/use-event-categories-store'
@@ -30,7 +30,7 @@ import { useBotUsersStore } from '@/entities/bot-users/stores/use-bot-users-stor
 import { provideApplicationsDeps } from './app-deps.ts'
 
 provideApplicationsDeps({
-  apiUrl: import.meta.env.VITE_API_URL
+  apiUrl: import.meta.env.VITE_API_URL,
 })
 
 const route = useRoute()

@@ -10,7 +10,7 @@
     "build": "run-p typecheck \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",
-    "typecheck": "vue-tsc --build",
+    "typecheck": "vue-tsc --noEmit",
     "lint": "eslint . --fix",
     "format": "prettier --write src/",
     "delete-build": "rm -rf dist",
@@ -26,12 +26,10 @@
     "@vitejs/plugin-vue": "catalog:",
     "@vue/tsconfig": "catalog:",
     "npm-run-all": "catalog:",
-    "prettier": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
     "vue-tsc": "catalog:",
     "eslint": "catalog:",
-    "@ag/eslint": "workspace:*",
-    "@ag/prettier": "workspace:*"
+    "@ag/eslint": "workspace:*"
   }
 }

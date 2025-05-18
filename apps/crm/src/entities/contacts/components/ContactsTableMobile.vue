@@ -1,6 +1,10 @@
 <template>
   <div v-if="props.contacts.length > 0" class="card table-mobile">
-    <DataTable v-model:expandedRows="expandedRows" :value="props.contacts" dataKey="id">
+    <DataTable
+      v-model:expandedRows="expandedRows"
+      :value="props.contacts"
+      dataKey="id"
+    >
       <Column expander style="width: 5rem" />
 
       <Column header="ФИО">
@@ -22,16 +26,25 @@
           </UIMobileTableExpansion>
 
           <UIMobileTableExpansion title="Социальные сети">
-            <div v-if="slotProps.data.socials" v-html="slotProps.data.socials"></div>
+            <div
+              v-if="slotProps.data.socials"
+              v-html="slotProps.data.socials"
+            ></div>
             <div v-else>—</div>
           </UIMobileTableExpansion>
 
           <UIMobileTableExpansion title="Описание">
-            <div v-if="slotProps.data.description" v-html="slotProps.data.description"></div>
+            <div
+              v-if="slotProps.data.description"
+              v-html="slotProps.data.description"
+            ></div>
             <div v-else>—</div>
           </UIMobileTableExpansion>
 
-          <UIMobileTableExpansion v-if="slotProps.data.orderPlatform" title="Откуда контакт">
+          <UIMobileTableExpansion
+            v-if="slotProps.data.orderPlatform"
+            title="Откуда контакт"
+          >
             {{ slotProps.data.orderPlatform?.title || '—' }}
           </UIMobileTableExpansion>
         </div>
@@ -47,8 +60,8 @@ import { DataTable, Column } from '@/packages/prime'
 import {
   UIMobileTableExpansion,
   UIMobileTableColumnHeader,
-  type TableContextItem
-} from '@/packages/ui'
+  type TableContextItem,
+} from '@ag/ui'
 import type { GetContact } from '@/packages/api/types'
 
 const expandedRows = ref()

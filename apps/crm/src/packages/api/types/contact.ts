@@ -6,7 +6,9 @@ export const PostContactSchema = object({
     .min(3, 'ФИО должно быть не менее 3 символов')
     .max(50, 'ФИО должно быть не более 50 символов')
     .required('Это поле обязательное'),
-  mobileNumber: string().max(30, 'Номер должен быть не более 30 символов').nullable(),
+  mobileNumber: string()
+    .max(30, 'Номер должен быть не более 30 символов')
+    .nullable(),
   socials: string()
     .min(3, 'Соц. сети должны быть не менее 3 символов')
     .max(500, 'Соц. сети должны быть не более 500 символов')
@@ -19,7 +21,7 @@ export const PostContactSchema = object({
     .max(999999, 'orderPlatformId должно быть не более 999999')
     .positive('Значение должно быть положительным числом')
     .integer('Значение должно быть целым числом')
-    .nullable()
+    .nullable(),
 })
 
 export type PostContact = InferType<typeof PostContactSchema>

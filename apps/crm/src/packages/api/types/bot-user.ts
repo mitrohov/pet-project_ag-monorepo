@@ -1,4 +1,4 @@
-import { object, string, number, boolean,type InferType } from 'yup'
+import { object, string, number, boolean, type InferType } from 'yup'
 
 export const PostBotUserSchema = object({
   userName: string()
@@ -19,7 +19,7 @@ export const PostBotUserSchema = object({
     .positive('Значение должно быть положительным числом')
     .integer('Значение должно быть целым числом')
     .required('Это поле обязательное'),
-  isActive: boolean().required('Это поле обязательное')
+  isActive: boolean().required('Это поле обязательное'),
 })
 
 export type PostBotUser = InferType<typeof PostBotUserSchema>

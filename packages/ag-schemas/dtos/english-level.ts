@@ -8,35 +8,35 @@ import {
   IsInt,
   IsPositive,
   IsNotEmpty,
-} from "class-validator";
+} from 'class-validator'
 
 export class EnglishLevel {
   @IsString()
   @MinLength(3, {
-    message: "Уровень английского должен быть не менее 1 символа",
+    message: 'Уровень английского должен быть не менее 1 символа',
   })
   @MaxLength(50, {
-    message: "Уровень английского должен быть не более 50 символов",
+    message: 'Уровень английского должен быть не более 50 символов',
   })
-  title: string;
+  title: string
 
   @IsBoolean()
   @IsOptional()
-  isMock?: boolean;
+  isMock?: boolean
 
   @IsBoolean()
   @IsOptional()
-  isDeleted?: boolean;
+  isDeleted?: boolean
 
   @IsString()
   @IsNotEmpty()
   @IsOptional()
-  createdAt?: string;
+  createdAt?: string
 }
 
 export class EnglishLevelWithId extends EnglishLevel {
   @IsNumber()
-  @IsPositive({ message: "Значение должно быть положительным числом" })
-  @IsInt({ message: "Значение должно быть целым числом" })
-  id: number;
+  @IsPositive({ message: 'Значение должно быть положительным числом' })
+  @IsInt({ message: 'Значение должно быть целым числом' })
+  id: number
 }

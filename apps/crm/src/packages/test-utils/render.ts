@@ -13,7 +13,7 @@ vi.mock('import.meta.env', () => ({
   VITE_BASE_LOGIN: import.meta.env.VITE_BASE_LOGIN,
   VITE_API_URL: import.meta.env.VITE_API_URL,
   VITE_BASE_PASSWORD: import.meta.env.VITE_BASE_PASSWORD,
-  VITE_NODE_ENV: import.meta.env.VITE_NODE_ENV
+  VITE_NODE_ENV: import.meta.env.VITE_NODE_ENV,
 }))
 
 const signInMock = vi.fn().mockResolvedValue({
@@ -21,25 +21,31 @@ const signInMock = vi.fn().mockResolvedValue({
   email: 'string',
   iat: 0,
   exp: 0,
-  accessToken: 'string'
+  accessToken: 'string',
 })
 
 vi.mock('@/packages/api', () => ({
   useApi: () => ({
     auth: {
-      signIn: signInMock
-    }
-  })
+      signIn: signInMock,
+    },
+  }),
 }))
 
-// eslint-disable-next-line -- @typescript-eslint/no-explicit-any
-export function renderWithPlugins(component: any, options: Record<string, any> = {}) {
+export function renderWithPlugins(
+  component: any,
+  options: Record<string, any> = {}
+) {
   const router = createRouter({
     history: createWebHistory(),
     routes: [
-      { path: '/:pathMatch(.*)*', name: 'NotFound', component: { template: '<div></div>' } },
-      ...routes
-    ]
+      {
+        path: '/:pathMatch(.*)*',
+        name: 'NotFound',
+        component: { template: '<div></div>' },
+      },
+      ...routes,
+    ],
   })
 
   return render(component, {
@@ -51,16 +57,16 @@ export function renderWithPlugins(component: any, options: Record<string, any> =
           {
             theme: {
               preset: Aura,
-              locale: Russian
+              locale: Russian,
             },
             ripple: true,
-            inputStyle: 'outlined'
-          }
+            inputStyle: 'outlined',
+          },
         ],
-        router
+        router,
       ],
-      ...(options.global || {})
+      ...(options.global || {}),
     },
-    ...options
+    ...options,
   })
 }

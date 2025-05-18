@@ -1,15 +1,15 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: "Документация по CRM",
-  description: "A VitePress Site",
+  title: 'Документация по CRM',
+  description: 'A VitePress Site',
   outDir: './dist',
   themeConfig: {
     nav: [
       { text: 'Домашняя страница', link: '/' },
       { text: 'Лендинг', link: 'https://anastasia-geiko.ru' },
       { text: 'CRM система', link: 'https://crm.anastasia-geiko.ru' },
-      { text: 'Swagger', link: 'https://api.anastasia-geiko.ru/docs' }
+      { text: 'Swagger', link: 'https://api.anastasia-geiko.ru/docs' },
     ],
     sidebar: [
       { text: 'Авторизация', link: '/docs/auth' },
@@ -33,7 +33,7 @@ export default defineConfig({
           { text: 'Цвета', link: '/docs/color' },
           { text: 'Обновления системы', link: '/docs/version' },
           { text: 'Выход', link: '/docs/exit' },
-        ]
+        ],
       },
       {
         text: 'Доски',
@@ -43,12 +43,15 @@ export default defineConfig({
           { text: 'Колонки доски', link: '/docs/board-columns' },
           { text: 'Задачи доски', link: '/docs/column-tasks' },
           { text: 'Доска "Задачи по статусам"', link: '/docs/task-statuses' },
-        ]
+        ],
       },
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/mitrohov/pet-project_ag-monorepo' }
-    ]
-  }
+      {
+        icon: 'github',
+        link: 'https://github.com/mitrohov/pet-project_ag-monorepo',
+      },
+    ],
+  },
 })

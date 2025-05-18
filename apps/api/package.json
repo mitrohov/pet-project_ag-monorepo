@@ -52,7 +52,6 @@
     "@vitest/coverage-v8": "catalog:",
     "eslint": "catalog:",
     "express": "catalog:",
-    "prettier": "catalog:",
     "prisma": "catalog:",
     "supertest": "catalog:",
     "ts-loader": "catalog:",
@@ -61,7 +60,6 @@
     "unplugin-swc": "catalog:",
     "vitest": "catalog:",
     "@ag/eslint": "workspace:*",
-    "@ag/prettier": "workspace:*",
     "@ag/schemas": "workspace:*"
   }
 }

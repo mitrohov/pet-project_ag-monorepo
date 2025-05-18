@@ -6,7 +6,8 @@
 }
 
 html,
-body, #app {
+body,
+#app {
   height: 100%;
   margin: 0;
 }
@@ -22,7 +23,7 @@ a:active {
 }
 
 body {
-  font-family: "Montserrat", "sans-serif";
+  font-family: 'Montserrat', 'sans-serif';
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: 500;
@@ -140,7 +141,8 @@ body {
   font-size: 15px !important;
 }
 
-.p-editor .p-editor-content .ql-editor, .ql-editor .ql-blank {
+.p-editor .p-editor-content .ql-editor,
+.ql-editor .ql-blank {
   background: white !important;
 }
 

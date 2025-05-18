@@ -51,7 +51,7 @@ import { computed, onMounted } from 'vue'
 import { useForm } from 'vee-validate'
 import { useBoardStatuses } from '../../composables/use-board-statuses'
 import { useBoardTask } from '../../composables/use-board-task'
-import { UIInputText, UITextEditor, UISelect, UIFormSubmitButton } from '@/packages/ui'
+import { UIInputText, UITextEditor, UISelect, UIFormSubmitButton } from '@ag/ui'
 import { Dialog } from '@/packages/prime'
 import { PostColumnTaskSchema, type PostColumnTask } from '@/packages/api/types'
 
@@ -59,13 +59,20 @@ const props = defineProps<{
   isStatusBoard: boolean
 }>()
 
-const { task, isShowTaskForm, selectedColumnId, selectedTaskId, createTask, updateTask, getTask } =
-  useBoardTask()
+const {
+  task,
+  isShowTaskForm,
+  selectedColumnId,
+  selectedTaskId,
+  createTask,
+  updateTask,
+  getTask,
+} = useBoardTask()
 
 const { statuses, getStatuses } = useBoardStatuses()
 
 const { errors, defineField, handleSubmit } = useForm({
-  validationSchema: PostColumnTaskSchema
+  validationSchema: PostColumnTaskSchema,
 })
 
 const [title] = defineField('title')
@@ -82,7 +89,7 @@ const onSubmit = handleSubmit(async () => {
     title: title.value,
     description: description.value,
     boardColumnId: boardColumnId.value,
-    columnTaskStatusId: columnTaskStatusId.value
+    columnTaskStatusId: columnTaskStatusId.value,
   }
 
   if (selectedTaskId.value) await updateTask(body, props.isStatusBoard)

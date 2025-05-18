@@ -9,88 +9,88 @@ import {
   Min,
   MinLength,
   IsNotEmpty,
-} from "class-validator";
-import { Transform } from "class-transformer";
-import { StudentWithId } from "./student";
+} from 'class-validator'
+import { Transform } from 'class-transformer'
+import { StudentWithId } from './student'
 
 export class Lesson {
   @IsString()
-  @MinLength(3, { message: "Название урока должно быть не менее 3 символов" })
-  @MaxLength(50, { message: "Название урока должно быть не более 50 символов" })
-  title: string;
+  @MinLength(3, { message: 'Название урока должно быть не менее 3 символов' })
+  @MaxLength(50, { message: 'Название урока должно быть не более 50 символов' })
+  title: string
 
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  startTime: Date;
+  startTime: Date
 
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  endTime: Date;
+  endTime: Date
 
   @IsString()
-  @MaxLength(1000, { message: "Описание должно быть не более 1000 символов" })
+  @MaxLength(1000, { message: 'Описание должно быть не более 1000 символов' })
   @IsOptional()
-  description?: string;
+  description?: string
 
   @IsBoolean()
-  hasHomeWork: boolean;
+  hasHomeWork: boolean
 
   @IsBoolean()
-  isMissed: boolean;
+  isMissed: boolean
 
   @IsBoolean()
-  isReschedule: boolean;
+  isReschedule: boolean
 
   @IsBoolean()
-  isPreparationComplete: boolean;
+  isPreparationComplete: boolean
 
   @IsNumber()
-  @IsPositive({ message: "Значение должно быть положительным числом" })
-  @IsInt({ message: "Значение должно быть целым числом" })
+  @IsPositive({ message: 'Значение должно быть положительным числом' })
+  @IsInt({ message: 'Значение должно быть целым числом' })
   @Min(1)
   @IsOptional()
-  paymentId?: number;
+  paymentId?: number
 
   @IsNumber()
-  @IsPositive({ message: "Значение должно быть положительным числом" })
-  @IsInt({ message: "Значение должно быть целым числом" })
+  @IsPositive({ message: 'Значение должно быть положительным числом' })
+  @IsInt({ message: 'Значение должно быть целым числом' })
   @IsOptional()
-  studentId: number;
+  studentId: number
 
   @IsNumber()
-  @IsPositive({ message: "Значение должно быть положительным числом" })
-  @IsInt({ message: "Значение должно быть целым числом" })
+  @IsPositive({ message: 'Значение должно быть положительным числом' })
+  @IsInt({ message: 'Значение должно быть целым числом' })
   @IsOptional()
-  lessonsLeftToCompleteOnPayment?: number;
+  lessonsLeftToCompleteOnPayment?: number
 
   @IsBoolean()
   @IsOptional()
-  isMock?: boolean;
+  isMock?: boolean
 
   @IsBoolean()
   @IsOptional()
-  isDeleted?: boolean;
+  isDeleted?: boolean
 
   @IsString()
   @IsNotEmpty()
   @IsOptional()
-  createdAt?: string;
+  createdAt?: string
 }
 
 export class LessonWithId extends Lesson {
   @IsNumber()
-  @IsPositive({ message: "Значение должно быть положительным числом" })
-  @IsInt({ message: "Значение должно быть целым числом" })
-  id: number;
-  student?: StudentWithId;
+  @IsPositive({ message: 'Значение должно быть положительным числом' })
+  @IsInt({ message: 'Значение должно быть целым числом' })
+  id: number
+  student?: StudentWithId
 }
 
 export class LessonAggregation extends LessonWithId {
   @IsNumber()
-  @IsPositive({ message: "Значение должно быть положительным числом" })
-  @IsInt({ message: "Значение должно быть целым числом" })
-  paymentLessonQty?: number;
+  @IsPositive({ message: 'Значение должно быть положительным числом' })
+  @IsInt({ message: 'Значение должно быть целым числом' })
+  paymentLessonQty?: number
 }
 
 export interface DatesForLesson {
-  startTime: Date;
-  endTime: Date;
+  startTime: Date
+  endTime: Date
 }

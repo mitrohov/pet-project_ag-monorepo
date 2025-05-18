@@ -1,4 +1,10 @@
-import { IsString, IsNumber, IsInt, IsNotEmpty, IsPositive } from 'class-validator'
+import {
+  IsString,
+  IsNumber,
+  IsInt,
+  IsNotEmpty,
+  IsPositive,
+} from 'class-validator'
 
 export class DayWeek {
   @IsString()

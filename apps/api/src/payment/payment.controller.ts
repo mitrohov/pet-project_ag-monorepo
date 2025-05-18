@@ -3,7 +3,7 @@ import {
   ApiOkResponse,
   ApiResponse,
   ApiTags,
-} from '@nestjs/swagger';
+} from '@nestjs/swagger'
 import {
   Body,
   Controller,
@@ -18,15 +18,15 @@ import {
   UseGuards,
   UsePipes,
   ValidationPipe,
-} from '@nestjs/common';
-import { AuthGuard } from '../auth/auth.guard';
-import { PaymentService } from './payment.service';
-import { GetPaymentResponseDto } from './dto/get-payment-response.dto';
-import { UpdatePaymentBodyDto } from './dto/update-payment-body.dto';
-import { SettingsResponseDto } from '../settings/settings.dto';
-import { CreatePaymentBodyDto } from './dto/create-payment-body.dto';
-import { PaymentAggregationResponseDto } from './dto/get-payment-aggregation-response.dto';
-import { DeleteGetPaymentResponseDto } from './dto/delete.payment-response.dto';
+} from '@nestjs/common'
+import { AuthGuard } from '../auth/auth.guard'
+import { PaymentService } from './payment.service'
+import { GetPaymentResponseDto } from './dto/get-payment-response.dto'
+import { UpdatePaymentBodyDto } from './dto/update-payment-body.dto'
+import { SettingsResponseDto } from '../settings/settings.dto'
+import { CreatePaymentBodyDto } from './dto/create-payment-body.dto'
+import { PaymentAggregationResponseDto } from './dto/get-payment-aggregation-response.dto'
+import { DeleteGetPaymentResponseDto } from './dto/delete.payment-response.dto'
 
 @ApiTags('payment')
 @Controller('payment')
@@ -37,7 +37,7 @@ export class PaymentController {
   @ApiOkResponse({ type: GetPaymentResponseDto })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   getAvailablePayments(@Query('studentId', ParseIntPipe) studentId: string) {
-    return this.paymentService.getAvailablePayments(Number(studentId));
+    return this.paymentService.getAvailablePayments(Number(studentId))
   }
 
   @Get('for-calendar')
@@ -47,7 +47,7 @@ export class PaymentController {
   })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   async findAllForCalendar() {
-    return this.paymentService.findAllForCalendar();
+    return this.paymentService.findAllForCalendar()
   }
 
   @Get(':id')
@@ -56,7 +56,7 @@ export class PaymentController {
   @ApiOkResponse({ type: GetPaymentResponseDto })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.paymentService.findOne(id);
+    return this.paymentService.findOne(id)
   }
 
   @Get()
@@ -66,7 +66,7 @@ export class PaymentController {
   })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   async findAll() {
-    return this.paymentService.findAll();
+    return this.paymentService.findAll()
   }
 
   @Patch('/:id')
@@ -77,9 +77,9 @@ export class PaymentController {
   @UsePipes(new ValidationPipe())
   update(
     @Param('id', ParseIntPipe) id: number,
-    @Body() body: UpdatePaymentBodyDto,
+    @Body() body: UpdatePaymentBodyDto
   ) {
-    return this.paymentService.update(id, body);
+    return this.paymentService.update(id, body)
   }
 
   @Post()
@@ -89,7 +89,7 @@ export class PaymentController {
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   @UsePipes(new ValidationPipe())
   create(@Body() body: CreatePaymentBodyDto) {
-    return this.paymentService.create(body);
+    return this.paymentService.create(body)
   }
 
   @Delete('remove-all-mock')
@@ -98,7 +98,7 @@ export class PaymentController {
   @ApiOkResponse()
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   removeAllMock() {
-    return this.paymentService.removeAllMock();
+    return this.paymentService.removeAllMock()
   }
 
   @Delete(':id')
@@ -107,6 +107,6 @@ export class PaymentController {
   @ApiOkResponse({ type: DeleteGetPaymentResponseDto })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   remove(@Param('id', ParseIntPipe) id: number) {
-    return this.paymentService.remove(id);
+    return this.paymentService.remove(id)
   }
 }

@@ -1,3 +1,3 @@
-import { CreateStudentBodyDto } from './create-student-body.dto';
+import { CreateStudentBodyDto } from './create-student-body.dto'
 
-export type CreateStudentBodyDtoKeys = keyof CreateStudentBodyDto;
+export type CreateStudentBodyDtoKeys = keyof CreateStudentBodyDto

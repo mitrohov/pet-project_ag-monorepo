@@ -22,7 +22,10 @@
       <Column field="">
         <template #body="{ data }">
           <div class="d-flex justify-end">
-            <UITableContextNav :items="contextItems" @onAction="emit('selectedId', data.id)" />
+            <UITableContextNav
+              :items="contextItems"
+              @onAction="emit('selectedId', data.id)"
+            />
           </div>
         </template>
       </Column>
@@ -31,7 +34,7 @@
 </template>
 
 <script lang="ts" setup>
-import { UITag, UITableContextNav, type TableContextItem } from '@/packages/ui'
+import { UITag, UITableContextNav, type TableContextItem } from '@ag/ui'
 import { Column, DataTable } from '@/packages/prime'
 import type { GetEventCategory } from '@/packages/api/types'
 import { useColorsStore } from '@/entities/colors'

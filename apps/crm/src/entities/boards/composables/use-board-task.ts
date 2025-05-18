@@ -3,7 +3,11 @@ import { storeToRefs } from 'pinia'
 import { useBoard } from '../composables/use-bord'
 import { useBoardStatuses } from '../composables/use-board-statuses'
 import { useApi } from '@/packages/api'
-import type { DragTask, GetColumnTask, PostColumnTask } from '@/packages/api/types'
+import type {
+  DragTask,
+  GetColumnTask,
+  PostColumnTask,
+} from '@/packages/api/types'
 
 export function useBoardTask() {
   const { board, getBoard } = useBoard()
@@ -18,13 +22,13 @@ export function useBoardTask() {
     isShowDeleteTask,
     selectedTaskId,
     selectedTask,
-    targetDragTask
+    targetDragTask,
   } = storeToRefs(useBoardTaskStore())
 
   async function getTask() {
     if (selectedTaskId.value) {
       const response = await apiService.columnTask.getOneById({
-        id: selectedTaskId.value
+        id: selectedTaskId.value,
       })
 
       if (response) task.value = response
@@ -41,7 +45,7 @@ export function useBoardTask() {
 
       await apiService.columnTask.updateOneById({
         id: targetDragTask.value.taskId,
-        body
+        body,
       })
 
       await getBoard()
@@ -54,7 +58,7 @@ export function useBoardTask() {
 
       await apiService.columnTask.updateOneById({
         id: targetDragTask.value.taskId,
-        body
+        body,
       })
 
       await updateStatusBoard()
@@ -74,7 +78,7 @@ export function useBoardTask() {
               description: task.description,
               boardColumnId: task.boardColumnId,
               boardColumn: task.boardColumn,
-              columnTaskStatusId: task.columnTaskStatusId
+              columnTaskStatusId: task.columnTaskStatusId,
             }
         })
       })
@@ -89,7 +93,9 @@ export function useBoardTask() {
     )
 
     if (column) {
-      const initBody = column.columnTasks?.find((task) => task.id === targetDragTask.value?.taskId)
+      const initBody = column.columnTasks?.find(
+        (task) => task.id === targetDragTask.value?.taskId
+      )
 
       if (initBody) {
         if (initBody.columnTaskStatus) delete initBody.columnTaskStatus
@@ -112,7 +118,7 @@ export function useBoardTask() {
     if (task.value) {
       await apiService.columnTask.updateOneById({
         id: task.value.id,
-        body
+        body,
       })
       await taskFormSubmitted(isStatusBoard)
     }
@@ -176,6 +182,6 @@ export function useBoardTask() {
     openNewTaskForm,
     deleteTask,
     openDeleteTaskWarning,
-    openEditTaskForm
+    openEditTaskForm,
   }
 }

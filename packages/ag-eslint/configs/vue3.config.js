@@ -1,5 +1,5 @@
 import pluginVue from 'eslint-plugin-vue'
-import vueParser from 'vue-eslint-parser';
+import vueParser from 'vue-eslint-parser'
 import tseslint from 'typescript-eslint'
 import vueTsEslintConfig from '@vue/eslint-config-typescript'
 import pluginVitest from '@vitest/eslint-plugin'
@@ -18,5 +18,5 @@ export const vue3Config = [
       parserOptions: { parser: tseslint.parser },
     },
     ignores: ['**/dist/**', '**/dist-ssr/**', '**/coverage/**'],
-  }
+  },
 ]

@@ -20,13 +20,16 @@
     "build-docs": "pnpm --filter @ag/docs build",
     "dev-landing": "pnpm --filter @ag/landing dev",
     "build-landing": "pnpm --filter @ag/landing build",
-    "lint": "pnpm -r lint",
+    "prettier": "prettier --write '**/*.{js,ts,jsx,tsx,cjs,cts,mjs,mts,vue,astro}'",
+    "lint": "pnpm prettier && pnpm -r lint",
     "typecheck": "pnpm -r typecheck",
     "delete-all-deps": "rm -rf pnpm-lock.yaml && pnpm -r delete-deps && pnpm cache delete",
     "delete-builds": "pnpm -r delete-build",
     "commit": "pnpm typecheck && pnpm lint && git add . && git commit -m 'save changes' && git push"
   },
+  "dependencies": {
+    "prettier": "catalog:"
+  },
   "keywords": [],
-  "packageManager": "pnpm@10.11.0",
-  "eslint": "catalog:"
+  "packageManager": "pnpm@10.11.0"
 }

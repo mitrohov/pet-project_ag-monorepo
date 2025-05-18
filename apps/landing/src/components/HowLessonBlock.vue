@@ -33,7 +33,7 @@
   display: grid;
   grid-template-columns: 3fr 4fr;
   grid-column-gap: 20px;
-  grid-template-areas: "lessonContent lessonImage";
+  grid-template-areas: 'lessonContent lessonImage';
 
   .content {
     display: flex;
@@ -52,7 +52,7 @@
 @media only screen and (max-width: 760px) {
   .how-lesson-block {
     grid-template-columns: none;
-    grid-template-areas: "lessonImage" "lessonContent";
+    grid-template-areas: 'lessonImage' 'lessonContent';
   }
   .content {
     margin-top: 50px;

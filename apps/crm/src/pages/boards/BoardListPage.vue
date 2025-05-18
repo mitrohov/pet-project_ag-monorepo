@@ -5,7 +5,12 @@
 
   <div class="boards">
     <div v-if="boards.length" class="boards_container">
-      <BCard v-if="isHasTasks" :board="statusBoard" :isStatusBoard="true" @getBoards="getBoards" />
+      <BCard
+        v-if="isHasTasks"
+        :board="statusBoard"
+        :isStatusBoard="true"
+        @getBoards="getBoards"
+      />
 
       <BCard v-for="board in boards" :key="board.id" :board="board" />
 
@@ -33,7 +38,7 @@ const {
   isShowBoardForm,
   isShowBoardDeleteWarning,
   openBoardForm,
-  getBoards
+  getBoards,
 } = useBoard()
 
 onMounted(() => {

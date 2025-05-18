@@ -1,4 +1,4 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger'
 import {
   IsBoolean,
   IsEmail,
@@ -6,22 +6,22 @@ import {
   IsOptional,
   IsNumber,
   IsString,
-} from 'class-validator';
+} from 'class-validator'
 
 export class TokenDto {
   @IsString()
   @ApiProperty()
-  accessToken: string;
+  accessToken: string
 }
 
 export class AuthData {
   @ApiProperty({ example: 'user@mail.ru' })
   @IsEmail()
-  email: string;
+  email: string
 
   @ApiProperty({ example: 'dsj34dgUdg' })
   @IsNotEmpty()
-  password: string;
+  password: string
 }
 
 export class SignInBodyDto extends AuthData {}
@@ -29,49 +29,49 @@ export class SignInBodyDto extends AuthData {}
 export class SignUpBodyDto extends AuthData {
   @IsBoolean()
   @IsOptional()
-  isMock?: boolean;
+  isMock?: boolean
 }
 
 export class GetSessionInfoDto {
   @IsNumber()
   @ApiProperty()
-  id: number;
+  id: number
 
   @IsEmail()
   @ApiProperty()
-  email: string;
+  email: string
 
   @IsNumber()
   @ApiProperty()
-  iat: number;
+  iat: number
 
   @IsNumber()
   @ApiProperty()
-  exp: number;
+  exp: number
 }
 
 export class SignUpResponseDto extends GetSessionInfoDto {
   @IsString()
   @ApiProperty()
-  accessToken: string;
+  accessToken: string
 }
 
 export class User {
   @ApiProperty({ example: 'user@mail.ru' })
   @IsEmail()
-  email: string;
+  email: string
 
   @ApiProperty()
   @IsString()
-  hash: string;
+  hash: string
 
   @ApiProperty()
   @IsString()
-  salt: string;
+  salt: string
 }
 
 export class UserResponseDto extends User {
   @IsNumber()
   @ApiProperty({ example: 1 })
-  id: number;
+  id: number
 }

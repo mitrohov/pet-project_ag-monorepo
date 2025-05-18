@@ -5,11 +5,11 @@ import {
   HttpStatus,
   BadRequestException,
   StreamableFile,
-} from '@nestjs/common';
-import { ApiResponse, ApiTags, ApiQuery } from '@nestjs/swagger';
-import { ExportService } from './export.service';
-import { join } from 'path';
-import { createReadStream } from 'fs';
+} from '@nestjs/common'
+import { ApiResponse, ApiTags, ApiQuery } from '@nestjs/swagger'
+import { ExportService } from './export.service'
+import { join } from 'path'
+import { createReadStream } from 'fs'
 
 @ApiTags('export')
 @Controller('export')
@@ -32,16 +32,16 @@ export class ExportController {
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized' })
   async exportEventOnWeekInWordDoc(@Query() query) {
     const createdFile =
-      await this.exportService.exportLessonsOnWeekInWordDoc(query);
+      await this.exportService.exportLessonsOnWeekInWordDoc(query)
 
     if (createdFile) {
-      const file = createReadStream(join(createdFile));
-      return new StreamableFile(file);
+      const file = createReadStream(join(createdFile))
+      return new StreamableFile(file)
     } else {
       throw new BadRequestException('Something bad happened', {
         cause: new Error(),
         description: 'Some error description',
-      });
+      })
     }
   }
 }
