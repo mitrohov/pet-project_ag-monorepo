@@ -147,6 +147,7 @@ body {
 .required-icon {
   font-size: 18px;
   color: red;
+  margin-left: 5px;
 }
 
 .p-error {
@@ -175,4 +176,8 @@ body {
 .p-tag {
   font-size: 12px !important;
   font-weight: 600 !important;
+}
+
+.p-error {
+  font-size: 11px;
 }

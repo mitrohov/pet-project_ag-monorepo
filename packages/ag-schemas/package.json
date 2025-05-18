@@ -6,15 +6,19 @@
   "type": "module",
   "license": "SEE LICENSE IN LICENSE.md",
   "scripts": {
+    "lint": "eslint . --fix",
     "delete-deps": "rm -rf node_modules"
   },
   "dependencies": {
     "@nestjs/swagger": "catalog:",
-    "nestjs-zod": "^4.3.1",
-    "zod": "catalog:"
+    "class-transformer": "catalog:",
+    "class-validator": "catalog:"
   },
   "devDependencies": {
     "@ag/eslint": "workspace:*",
-    "@ag/tsconfig": "workspace:*"
+    "@ag/tsconfig": "workspace:*",
+    "@ag/prettier": "workspace:*",
+    "eslint": "catalog:",
+    "prettier": "catalog:"
   }
 }

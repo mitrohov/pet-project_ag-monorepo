@@ -1,0 +1,26 @@
+{
+  "name": "@ag/form-validation",
+  "author": "mitrohov-dmitriy",
+  "version": "2.0.0",
+  "private": "true",
+  "type": "module",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "scripts": {
+    "typecheck": "vue-tsc --build",
+    "lint": "eslint . --fix",
+    "delete-deps": "rm -rf node_modules"
+  },
+  "peerDependencies": {
+    "vue": "catalog:",
+    "class-validator": "catalog:"
+  },
+  "devDependencies": {
+    "vue-tsc": "catalog:",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "@ag/eslint": "workspace:*",
+    "@ag/tsconfig": "workspace:*",
+    "@ag/prettier": "workspace:*",
+    "@ag/schemas": "workspace:*"
+  }
+}

@@ -31,6 +31,7 @@
     "vite": "catalog:",
     "vue-tsc": "catalog:",
     "eslint": "catalog:",
-    "@ag/eslint": "workspace:*"
+    "@ag/eslint": "workspace:*",
+    "@ag/prettier": "workspace:*"
   }
 }

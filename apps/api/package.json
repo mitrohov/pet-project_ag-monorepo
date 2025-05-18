@@ -40,7 +40,6 @@
     "pizzip": "catalog:"
   },
   "devDependencies": {
-    "@ag/eslint": "workspace:*",
     "@faker-js/faker": "catalog:",
     "@nestjs/cli": "catalog:",
     "@nestjs/schematics": "catalog:",
@@ -60,6 +59,9 @@
     "ts-node": "catalog:",
     "typescript": "catalog:",
     "unplugin-swc": "catalog:",
-    "vitest": "catalog:"
+    "vitest": "catalog:",
+    "@ag/eslint": "workspace:*",
+    "@ag/prettier": "workspace:*",
+    "@ag/schemas": "workspace:*"
   }
 }

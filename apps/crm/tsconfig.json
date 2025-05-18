@@ -2,8 +2,14 @@
   "files": [],
   "compilerOptions": {
     "strict": true,
-    "types": ["@vitest/browser/matchers"]
+    "strictPropertyInitialization": false,
+    "types": ["vitest", "@vitest/browser", "playwright", "@vitest/browser/matchers"]
   },
+  "plugins": [
+    {
+      "name": "typescript-plugin-class-validator"
+    }
+  ],
   "references": [
     {
       "path": "./tsconfig.node.json"

@@ -13,28 +13,35 @@
     "typecheck": "vue-tsc --build",
     "lint": "eslint . --fix",
     "format": "prettier --write src/",
-    "test": "vitest --workspace=vitest.workspace.ts",
+    "test-all": "vitest --workspace=vitest.workspace.ts",
+    "test-browser": "vitest --workspace=vitest.browser.config.ts",
+    "test-node": "vitest --workspace=vitest.node.config.ts",
     "delete-build": "rm -rf dist",
     "delete-deps": "rm -rf node_modules"
   },
   "dependencies": {
-    "primevue": "catalog:",
-    "primeicons": "catalog:",
+    "@faker-js/faker": "catalog:",
+    "@nestjs/swagger": "catalog:",
     "@primeuix/themes": "catalog:",
     "@primevue/core": "catalog:",
-    "@faker-js/faker": "catalog:",
+    "class-validator": "catalog:",
     "flatpickr": "catalog:",
     "pinia": "catalog:",
+    "primeicons": "catalog:",
+    "primevue": "catalog:",
     "qalendar": "catalog:",
     "quill": "catalog:",
     "run-p": "catalog:",
     "vee-validate": "catalog:",
     "vue": "catalog:",
     "vue-router": "catalog:",
-    "yup": "catalog:",
-    "zod": "catalog:"
+    "yup": "catalog:"
   },
   "devDependencies": {
+    "@ag/eslint": "workspace:*",
+    "@ag/form-validation": "workspace:*",
+    "@ag/prettier": "workspace:*",
+    "@ag/schemas": "workspace:*",
     "@playwright/test": "catalog:",
     "@tsconfig/node22": "catalog:",
     "@types/node": "catalog:",
@@ -42,6 +49,7 @@
     "@vitest/browser": "catalog:",
     "@vue/test-utils": "catalog:",
     "@vue/tsconfig": "catalog:",
+    "eslint": "catalog:",
     "npm-run-all": "catalog:",
     "playwright": "catalog:",
     "prettier": "catalog:",
@@ -50,8 +58,6 @@
     "vite-plugin-vue-devtools": "catalog:",
     "vitest": "catalog:",
     "vitest-browser-vue": "catalog:",
-    "vue-tsc": "catalog:",
-    "eslint": "catalog:",
-    "@ag/eslint": "workspace:*"
+    "vue-tsc": "catalog:"
   }
 }

@@ -2,7 +2,6 @@
   <div class="card">
     <div class="auth-form">
       <div class="mb-20" data-testid="auth-page-header">Авторизация</div>
-
       <div style="height: 94px">
         <UIInputText
           v-model="user.email"
@@ -44,20 +43,21 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted } from 'vue'
-import { UIInputText } from '@/packages/ui'
-import { Button } from '@/packages/prime'
-import { useAuthForm } from '@/entities/auth/composables/use-auth-form/use-auth-form.ts'
+import { onMounted } from "vue";
+import { UIInputText } from "@/packages/ui";
+import { Button } from "@/packages/prime";
+import { useAuthForm } from "../../composables/use-auth-form/use-auth-form";
 
-const { user, errors, isValidForm, handleSubmit, setDefaultEmailAndPassword } = useAuthForm()
+const { user, errors, isValidForm, handleSubmit, setDefaultEmailAndPassword } =
+  useAuthForm();
 
 onMounted(() => {
   setDefaultEmailAndPassword({
-    nodeEnv: import.meta.env.VITE_NODE_ENV || '',
-    mailEnv: import.meta.env.VITE_BASE_LOGIN || '',
-    passwordEnv: import.meta.env.VITE_BASE_PASSWORD || ''
-  })
-})
+    nodeEnv: import.meta.env.VITE_NODE_ENV || "",
+    mailEnv: import.meta.env.VITE_BASE_LOGIN || "",
+    passwordEnv: import.meta.env.VITE_BASE_PASSWORD || "",
+  });
+});
 </script>
 
 <style scoped>
