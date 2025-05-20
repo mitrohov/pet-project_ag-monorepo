@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strict": true,
+    "strictPropertyInitialization": false
+  },
+  "extends": "@ag/tsconfig/base.json",
+  "include": ["./**/*"],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "warn"
+  }
+}
