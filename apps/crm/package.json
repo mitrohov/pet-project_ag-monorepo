@@ -17,13 +17,19 @@
     "delete-build": "rm -rf dist",
     "delete-deps": "rm -rf node_modules"
   },
+  "peerDependencies": {
+    "vitest": "catalog:",
+    "vitest-browser-vue": "catalog:",
+    "flatpickr": "catalog:",
+    "eslint": "catalog:",
+    "@ag/eslint": "workspace:*"
+  },
   "dependencies": {
     "@faker-js/faker": "catalog:",
     "@nestjs/swagger": "catalog:",
     "@primeuix/themes": "catalog:",
     "@primevue/core": "catalog:",
     "class-validator": "catalog:",
-    "flatpickr": "catalog:",
     "pinia": "catalog:",
     "primeicons": "catalog:",
     "primevue": "catalog:",
@@ -38,9 +44,9 @@
     "@ag/ui": "workspace:*"
   },
   "devDependencies": {
-    "@ag/eslint": "workspace:*",
     "@ag/form-validation": "workspace:*",
     "@ag/schemas": "workspace:*",
+    "@ag/test-utils": "workspace:*",
     "@playwright/test": "catalog:",
     "@tsconfig/node22": "catalog:",
     "@types/node": "catalog:",
@@ -48,14 +54,11 @@
     "@vitest/browser": "catalog:",
     "@vue/test-utils": "catalog:",
     "@vue/tsconfig": "catalog:",
-    "eslint": "catalog:",
     "npm-run-all": "catalog:",
     "playwright": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
     "vite-plugin-vue-devtools": "catalog:",
-    "vitest": "catalog:",
-    "vitest-browser-vue": "catalog:",
     "vue-tsc": "catalog:"
   }
 }

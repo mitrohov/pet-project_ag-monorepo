@@ -1,9 +1,5 @@
 import { vi, test, describe, beforeEach, expect } from 'vitest'
-import {
-  renderWithPlugins,
-  type Screen,
-  inputHelper,
-} from '@/packages/test-utils'
+import { renderWithPlugins, type Screen, inputHelper } from '@ag/test-utils'
 import AuthForm from '../auth-form/AuthForm.vue'
 import { useAuthForm } from '../../composables/use-auth-form/use-auth-form.ts'
 
