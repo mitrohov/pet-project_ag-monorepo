@@ -28,7 +28,20 @@
     "commit": "pnpm typecheck && pnpm lint && git add . && git commit -m 'save changes' && git push"
   },
   "dependencies": {
-    "prettier": "catalog:"
+    "pinia": "catalog:",
+    "vue-router": "catalog:",
+    "primeicons": "catalog:",
+    "primevue": "catalog:",
+    "@primeuix/themes": "catalog:"
+  },
+  "devDependencies": {
+    "vitest": "catalog:",
+    "vitest-browser-vue": "catalog:",
+    "flatpickr": "catalog:",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "@ag/eslint": "workspace:*",
+    "@ag/tsconfig": "workspace:*"
   },
   "keywords": [],
   "packageManager": "pnpm@10.11.0"

@@ -2,12 +2,12 @@ import { render } from 'vitest-browser-vue'
 import PrimeVue from 'primevue/config'
 import Aura from '@primeuix/themes/aura'
 import 'primeicons/primeicons.css'
-import '@/assets/main.css'
+import './assets/main.css'
 import { Russian } from 'flatpickr/dist/l10n/ru.js'
 import { createPinia } from 'pinia'
 import { vi } from 'vitest'
 import { createRouter, createWebHistory } from 'vue-router'
-import { routes } from '@/router'
+import { routes } from './router'
 
 vi.mock('import.meta.env', () => ({
   VITE_BASE_LOGIN: import.meta.env.VITE_BASE_LOGIN,

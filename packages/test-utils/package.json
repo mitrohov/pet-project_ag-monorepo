@@ -1,22 +1,24 @@
 {
-  "name": "@ag/schemas",
+  "name": "@ag/test-utils",
   "author": "mitrohov-dmitriy",
   "version": "2.0.0",
-  "private": "true",
   "type": "module",
   "license": "SEE LICENSE IN LICENSE.md",
   "scripts": {
     "lint": "eslint . --fix",
     "delete-deps": "rm -rf node_modules"
   },
-  "dependencies": {
-    "@nestjs/swagger": "catalog:",
-    "class-transformer": "catalog:",
-    "class-validator": "catalog:"
-  },
-  "devDependencies": {
+  "peerDependencies": {
+    "vitest": "catalog:",
+    "vitest-browser-vue": "catalog:",
+    "primevue": "catalog:",
+    "primeicons": "catalog:",
+    "flatpickr": "catalog:",
+    "pinia": "catalog:",
     "@ag/eslint": "workspace:*",
     "@ag/tsconfig": "workspace:*",
-    "eslint": "catalog:"
+    "eslint": "catalog:",
+    "vue-router": "catalog:",
+    "@primeuix/themes": "catalog:"
   }
 }

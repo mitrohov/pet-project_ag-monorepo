@@ -20,6 +20,9 @@
     "eslint": "catalog:",
     "@ag/admin-message": "workspace:*",
     "@ag/eslint": "workspace:*",
-    "@ag/tsconfig": "workspace:*"
+    "@ag/tsconfig": "workspace:*",
+    "vitest": "catalog:",
+    "vitest-browser-vue": "catalog:",
+    "@vitest/browser": "catalog:"
   }
 }
