@@ -14,9 +14,11 @@
     "delete-build": "rm -rf dist",
     "delete-deps": "rm -rf node_modules"
   },
-  "devDependencies": {
-    "vitepress": "catalog:",
+  "peerDependencies": {
     "@ag/eslint": "workspace:*",
     "eslint": "catalog:"
+  },
+  "devDependencies": {
+    "vitepress": "catalog:"
   }
 }

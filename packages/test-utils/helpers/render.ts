@@ -1,25 +1,14 @@
 /// <reference types="vite/client" />
-
-import type { Component } from 'vue'
 import { render } from 'vitest-browser-vue'
 import PrimeVue from 'primevue/config'
 import Aura from '@primeuix/themes/aura'
 import 'primeicons/primeicons.css'
-import '@ag/assets/css/common.css'
+import 'packages/ag-assets/css/common.css'
 import { Russian } from 'flatpickr/dist/l10n/ru.js'
 import { createPinia } from 'pinia'
 import { vi } from 'vitest'
 import { createRouter, createWebHistory } from 'vue-router'
-
-interface RouteMeta {
-  layout: string
-}
-interface Route {
-  path: string
-  name: string
-  component: () => Component
-  meta: RouteMeta
-}
+import type { RouteRecordRaw } from 'vue-router'
 
 vi.mock('import.meta.env', () => ({
   VITE_BASE_LOGIN: import.meta.env.VITE_BASE_LOGIN,
@@ -47,7 +36,7 @@ vi.mock('@/packages/api', () => ({
 export function renderWithPlugins(
   component: any,
   options: Record<string, any> = {},
-  routes: Route[] = []
+  routes: RouteRecordRaw[] = []
 ) {
   const router = createRouter({
     history: createWebHistory(),

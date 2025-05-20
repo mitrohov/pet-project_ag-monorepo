@@ -11,9 +11,7 @@
     "delete-deps": "rm -rf ../cookie/node_modules"
   },
   "peerDependencies": {
-    "vue": "catalog:"
-  },
-  "devDependencies": {
+    "vue": "catalog:",
     "vue-tsc": "catalog:",
     "eslint": "catalog:",
     "@ag/eslint": "workspace:*",

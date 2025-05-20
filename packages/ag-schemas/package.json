@@ -9,12 +9,10 @@
     "lint": "eslint . --fix",
     "delete-deps": "rm -rf node_modules"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@nestjs/swagger": "catalog:",
     "class-transformer": "catalog:",
-    "class-validator": "catalog:"
-  },
-  "devDependencies": {
+    "class-validator": "catalog:",
     "@ag/eslint": "workspace:*",
     "@ag/tsconfig": "workspace:*",
     "eslint": "catalog:"

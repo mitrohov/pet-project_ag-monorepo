@@ -5,7 +5,7 @@ import App from './App.vue'
 import router from './router'
 import Aura from '@primeuix/themes/aura'
 import 'primeicons/primeicons.css'
-import './assets/main.css'
+import '@ag/assets/css/common.css'
 import { Russian } from 'flatpickr/dist/l10n/ru.js'
 
 const app = createApp(App)

@@ -10,19 +10,17 @@
     "lint": "eslint . --fix",
     "delete-deps": "rm -rf ../ui/node_modules"
   },
-  "dependencies": {
+  "peerDependencies": {
+    "@ag/admin-message": "workspace:*",
+    "vitest-browser-vue": "catalog:",
+    "@vitest/browser": "catalog:",
     "vue": "catalog:",
     "vue-router": "catalog:",
-    "primevue": "catalog:"
-  },
-  "devDependencies": {
+    "primevue": "catalog:",
     "vue-tsc": "catalog:",
     "eslint": "catalog:",
-    "@ag/admin-message": "workspace:*",
     "@ag/eslint": "workspace:*",
     "@ag/tsconfig": "workspace:*",
-    "vitest": "catalog:",
-    "vitest-browser-vue": "catalog:",
-    "@vitest/browser": "catalog:"
+    "vitest": "catalog:"
   }
 }

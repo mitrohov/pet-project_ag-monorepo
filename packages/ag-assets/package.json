@@ -1,5 +1,5 @@
 {
-  "name": "@ag/schemas",
+  "name": "@ag/assets",
   "author": "mitrohov-dmitriy",
   "version": "2.0.0",
   "private": "true",
@@ -10,9 +10,6 @@
     "delete-deps": "rm -rf node_modules"
   },
   "peerDependencies": {
-    "@nestjs/swagger": "catalog:",
-    "class-transformer": "catalog:",
-    "class-validator": "catalog:",
     "@ag/eslint": "workspace:*",
     "@ag/tsconfig": "workspace:*",
     "eslint": "catalog:"

@@ -28,20 +28,45 @@
     "commit": "pnpm typecheck && pnpm lint && git add . && git commit -m 'save changes' && git push"
   },
   "dependencies": {
+    "@nestjs/swagger": "catalog:",
+    "class-transformer": "catalog:",
+    "run-p": "catalog:",
+    "class-validator": "catalog:",
+    "vue": "catalog:",
     "pinia": "catalog:",
     "vue-router": "catalog:",
     "primeicons": "catalog:",
     "primevue": "catalog:",
-    "@primeuix/themes": "catalog:"
+    "@primevue/core": "catalog:",
+    "@primeuix/themes": "catalog:",
+    "@ag/agent": "workspace:*",
+    "@ag/ui": "workspace:*",
+    "@ag/form-validation": "workspace:*",
+    "@ag/schemas": "workspace:*",
+    "@ag/test-utils": "workspace:*",
+    "@ag/admin-message": "workspace:*",
+    "@ag/assets": "workspace:*",
+    "qalendar": "catalog:",
+    "quill": "catalog:"
   },
   "devDependencies": {
+    "typescript": "catalog:",
+    "vue-tsc": "catalog:",
+    "vite": "catalog:",
     "vitest": "catalog:",
     "vitest-browser-vue": "catalog:",
     "flatpickr": "catalog:",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "@ag/eslint": "workspace:*",
-    "@ag/tsconfig": "workspace:*"
+    "@ag/tsconfig": "workspace:*",
+    "@faker-js/faker": "catalog:",
+    "npm-run-all": "catalog:",
+    "@vitejs/plugin-vue": "catalog:",
+    "@tsconfig/node22": "catalog:",
+    "@types/node": "catalog:",
+    "@vitest/browser": "catalog:",
+    "@vue/tsconfig": "catalog:"
   },
   "keywords": [],
   "packageManager": "pnpm@10.11.0"

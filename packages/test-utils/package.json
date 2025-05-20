@@ -9,14 +9,16 @@
     "delete-deps": "rm -rf node_modules"
   },
   "peerDependencies": {
+    "vue": "catalog:",
+    "@ag/assets": "workspace:*",
+    "@ag/eslint": "workspace:*",
+    "@ag/tsconfig": "workspace:*",
     "vitest": "catalog:",
     "vitest-browser-vue": "catalog:",
     "primevue": "catalog:",
     "primeicons": "catalog:",
     "flatpickr": "catalog:",
     "pinia": "catalog:",
-    "@ag/eslint": "workspace:*",
-    "@ag/tsconfig": "workspace:*",
     "eslint": "catalog:",
     "vue-router": "catalog:",
     "@primeuix/themes": "catalog:"

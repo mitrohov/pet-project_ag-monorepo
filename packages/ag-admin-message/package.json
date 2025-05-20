@@ -10,13 +10,10 @@
     "lint": "eslint . --fix",
     "delete-deps": "rm -rf ../ui/node_modules"
   },
-  "dependencies": {
-    "vue": "catalog:"
-  },
-  "devDependencies": {
+  "peerDependencies": {
+    "vue": "catalog:",
     "vue-tsc": "catalog:",
     "eslint": "catalog:",
-    "@ag/admin-message": "workspace:*",
     "@ag/eslint": "workspace:*",
     "@ag/tsconfig": "workspace:*"
   }

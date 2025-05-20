@@ -16,20 +16,20 @@
     "delete-build": "rm -rf dist",
     "delete-deps": "rm -rf node_modules"
   },
-  "dependencies": {
+  "peerDependencies": {
     "vue": "catalog:",
-    "vue-router": "catalog:"
+    "vue-router": "catalog:",
+    "npm-run-all": "catalog:",
+    "vite": "catalog:",
+    "vue-tsc": "catalog:",
+    "eslint": "catalog:",
+    "@ag/eslint": "workspace:*",
+    "typescript": "catalog:",
+    "@vitejs/plugin-vue": "catalog:"
   },
   "devDependencies": {
     "@tsconfig/node22": "catalog:",
     "@types/node": "catalog:",
-    "@vitejs/plugin-vue": "catalog:",
-    "@vue/tsconfig": "catalog:",
-    "npm-run-all": "catalog:",
-    "typescript": "catalog:",
-    "vite": "catalog:",
-    "vue-tsc": "catalog:",
-    "eslint": "catalog:",
-    "@ag/eslint": "workspace:*"
+    "@vue/tsconfig": "catalog:"
   }
 }

@@ -10,10 +10,8 @@
     "lint": "eslint . --fix",
     "delete-deps": "rm -rf node_modules"
   },
-  "peerDependencies": {
-    "vue": "catalog:"
-  },
-  "devDependencies": {
+  "peerDependenciesMeta": {
+    "vue": "catalog:",
     "vue-tsc": "catalog:",
     "eslint": "catalog:",
     "@ag/eslint": "workspace:*",

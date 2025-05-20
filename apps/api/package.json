@@ -39,8 +39,15 @@
     "moment-timezone": "catalog:",
     "pizzip": "catalog:"
   },
-  "devDependencies": {
+  "peerDependencies": {
     "@faker-js/faker": "catalog:",
+    "eslint": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:",
+    "@ag/eslint": "workspace:*",
+    "@ag/schemas": "workspace:*"
+  },
+  "devDependencies": {
     "@nestjs/cli": "catalog:",
     "@nestjs/schematics": "catalog:",
     "@nestjs/testing": "catalog:",
@@ -50,16 +57,11 @@
     "@types/node": "catalog:",
     "@types/supertest": "catalog:",
     "@vitest/coverage-v8": "catalog:",
-    "eslint": "catalog:",
     "express": "catalog:",
     "prisma": "catalog:",
     "supertest": "catalog:",
     "ts-loader": "catalog:",
     "ts-node": "catalog:",
-    "typescript": "catalog:",
-    "unplugin-swc": "catalog:",
-    "vitest": "catalog:",
-    "@ag/eslint": "workspace:*",
-    "@ag/schemas": "workspace:*"
+    "unplugin-swc": "catalog:"
   }
 }

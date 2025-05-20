@@ -12,9 +12,7 @@
   },
   "peerDependencies": {
     "vue": "catalog:",
-    "class-validator": "catalog:"
-  },
-  "devDependencies": {
+    "class-validator": "catalog:",
     "vue-tsc": "catalog:",
     "eslint": "catalog:",
     "@ag/eslint": "workspace:*",
