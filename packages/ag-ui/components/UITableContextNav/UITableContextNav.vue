@@ -18,7 +18,7 @@
 import { ref } from 'vue'
 import Button from 'primevue/button'
 import Menu from 'primevue/menu'
-import { type TableContextItem } from '../types'
+import { type TableContextItem } from '../../types'
 
 const props = defineProps<{
   items: TableContextItem[]

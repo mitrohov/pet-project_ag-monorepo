@@ -10,8 +10,8 @@
 </template>
 
 <script setup lang="ts">
-import UITableContextNav from './UITableContextNav.vue'
-import type { TableContextItem } from '../types'
+import UITableContextNav from '../UITableContextNav/UITableContextNav.vue'
+import type { TableContextItem } from '../../types'
 
 const props = defineProps<{
   title: string

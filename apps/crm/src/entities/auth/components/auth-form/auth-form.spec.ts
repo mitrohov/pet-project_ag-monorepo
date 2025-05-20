@@ -29,10 +29,6 @@ describe('Форма авторизации', () => {
     Object.assign(screen, renderWithPlugins(AuthForm))
   })
 
-  test('todo', async () => {
-    expect(1).toBe(1)
-  })
-
   test('Форма имеет заголовок', async () => {
     const header = screen.getByTestId('auth-page-header')
     await expect(header).toBeVisible()
