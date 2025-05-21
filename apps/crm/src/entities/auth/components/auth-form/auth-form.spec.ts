@@ -1,5 +1,6 @@
 import { vi, test, describe, beforeEach, expect } from 'vitest'
-import { renderWithPlugins, type Screen, inputHelper } from '@ag/test-utils'
+import { useRenderComponent, inputHelper } from '@ag/test-utils'
+import { page } from '@vitest/browser/context'
 import AuthForm from '../auth-form/AuthForm.vue'
 import { useAuthForm } from '../../composables/use-auth-form/use-auth-form.ts'
 
@@ -23,21 +24,23 @@ vi.mock(
 )
 
 describe('Форма авторизации', () => {
-  const screen = {} as Screen
+  const { renderWithPlugins } = useRenderComponent()
 
   beforeEach(async () => {
-    Object.assign(screen, renderWithPlugins(AuthForm))
+    renderWithPlugins({
+      component: AuthForm,
+    })
   })
 
   test('Форма имеет заголовок', async () => {
-    const header = screen.getByTestId('auth-page-header')
-    await expect(header).toBeVisible()
+    const header = page.getByTestId('auth-page-header')
+    await expect.element(header).toBeInTheDocument()
     expect(header).toHaveTextContent('Авторизация')
   })
 
   test('Форма имеет обязательное поле ввода почты', async () => {
     await inputHelper({
-      screen,
+      page,
       input: {
         testId: 'auth-page-email-input',
         value: 'sdf3dsf',
@@ -54,7 +57,7 @@ describe('Форма авторизации', () => {
 
   test('Форма имеет поле ввода пароля', async () => {
     await inputHelper({
-      screen,
+      page,
       input: {
         testId: 'auth-page-password-input',
         value: 'sdf3dsf',
@@ -70,8 +73,8 @@ describe('Форма авторизации', () => {
   })
 
   test('Форма заполняется значениями из env', async () => {
-    const emailInput = screen.getByTestId('auth-page-email-input')
-    const passwordInput = screen.getByTestId('auth-page-password-input')
+    const emailInput = page.getByTestId('auth-page-email-input')
+    const passwordInput = page.getByTestId('auth-page-password-input')
 
     const emailFromEnv = import.meta.env.VITE_BASE_LOGIN || ''
     const passwordFromEnv = import.meta.env.VITE_BASE_PASSWORD || ''
@@ -81,14 +84,15 @@ describe('Форма авторизации', () => {
   })
 
   test('Форма имеет кнопку входа', async () => {
-    const enterButton = screen.getByTestId('auth-page-enter-btn')
+    const enterButton = page.getByTestId('auth-page-enter-btn')
 
-    await expect(enterButton).toBeVisible()
+    await expect.element(enterButton).toBeInTheDocument()
+
     expect(enterButton).toHaveTextContent('Войти')
   })
 
   test('Клик по кнопке "Войти" вызывает функцию submitAuthForm"', async () => {
-    const enterButton = screen.getByTestId('auth-page-enter-btn')
+    const enterButton = page.getByTestId('auth-page-enter-btn')
 
     await enterButton.click()
 

@@ -1,3 +1,3 @@
-export * from './helpers/render'
+export { useRenderComponent } from './composables/use-render-component'
 export * from './helpers/input-helper'
-export * from './helpers/types'
+export * from './types'

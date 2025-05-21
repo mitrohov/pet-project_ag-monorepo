@@ -6,6 +6,7 @@
   "author": "mitrohov-dmitriy",
   "license": "SEE LICENSE IN LICENSE.md",
   "scripts": {
+    "first-start": "pnpm -r i && pnpm generate-client",
     "up": "pnpm -r i && pnpm delete-builds",
     "up-deep": "pnpm delete-all-deps && pnpm delete-builds && pnpm -r i",
     "dev-crm": "pnpm --filter @ag/crm dev",

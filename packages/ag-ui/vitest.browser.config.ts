@@ -11,7 +11,7 @@ export default defineConfig({
   },
   test: {
     name: 'browser-tests',
-    include: ['src/**/*.spec.ts'],
+    include: ['./**/*.spec.ts'],
     setupFiles: ['vitest-browser-vue'],
     testTimeout: 5000,
     hookTimeout: 5000,

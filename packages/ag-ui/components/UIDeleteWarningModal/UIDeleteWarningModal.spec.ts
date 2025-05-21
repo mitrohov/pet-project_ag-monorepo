@@ -1,61 +1,97 @@
-// import { test, describe, beforeEach, expect } from 'vitest'
-// import { renderWithPlugins, type Screen } from '@ag/test-utils'
-// import UIDeleteWarningModal from './UIDeleteWarningModal.vue'
-//
-// describe('UIDeleteWarningModal компонент', () => {
-//   const screen = {} as Screen
-//
-//   beforeEach(async () => {
-//     Object.assign(screen, renderWithPlugins(UIDeleteWarningModal))
-//   })
-//
-//   test('модальное окно корректно отображается', async () => {
-//     const modal = screen.getByTestId('delete-warning-modal')
-//     expect(modal).toBeTruthy()
-//   })
-//
-//   test('содержит заголовок с предупреждением', async () => {
-//     const title = screen.getByTestId('modal-title')
-//     expect(title.textContent).toContain('Подтверждение удаления')
-//   })
-//
-//   test('содержит текст предупреждения', async () => {
-//     const content = screen.getByTestId('modal-content')
-//     expect(content.textContent).toContain('Вы действительно хотите удалить')
-//   })
-//
-//   test('имеет кнопку подтверждения удаления', async () => {
-//     const confirmButton = screen.getByTestId('confirm-delete-button')
-//     expect(confirmButton).toBeTruthy()
-//     expect(confirmButton.textContent).toContain('Удалить')
-//   })
-//
-//   test('имеет кнопку отмены', async () => {
-//     const cancelButton = screen.getByTestId('cancel-delete-button')
-//     expect(cancelButton).toBeTruthy()
-//     expect(cancelButton.textContent).toContain('Отмена')
-//   })
-//
-//   test('эмитит событие при подтверждении удаления', async () => {
-//     const confirmButton = screen.getByTestId('confirm-delete-button')
-//     await confirmButton.click()
-//
-//     // Проверяем, что событие было эмитировано
-//     expect(screen.emitted('confirm')).toBeTruthy()
-//   })
-//
-//   test('эмитит событие при отмене', async () => {
-//     const cancelButton = screen.getByTestId('cancel-delete-button')
-//     await cancelButton.click()
-//
-//     // Проверяем, что событие было эмитировано
-//     expect(screen.emitted('cancel')).toBeTruthy()
-//   })
-//
-//   test('закрывается при нажатии на оверлей', async () => {
-//     const overlay = screen.getByTestId('modal-overlay')
-//     await overlay.click()
-//
-//     expect(screen.emitted('close')).toBeTruthy()
-//   })
-// })
+import { test, describe, expect, vi } from 'vitest'
+import { useRenderComponent } from '@ag/test-utils'
+import { defineComponent, h } from 'vue'
+import { page } from '@vitest/browser/context'
+import UIDeleteWarningModal from './UIDeleteWarningModal.vue'
+
+describe('UIDeleteWarningModal компонент', () => {
+  const { renderWithPlugins } = useRenderComponent()
+
+  const defaultComponentOptions = {
+    props: {
+      show: true,
+      message: 'Текст предупреждения об удалении',
+    },
+  }
+
+  const deleteBtnTestId = 'ui-delete-warning-modal-delete-button'
+
+  test('Модальное окно изначально не отображается', async () => {
+    renderWithPlugins({
+      component: UIDeleteWarningModal,
+      options: {
+        props: {
+          show: false,
+          message: 'Текст предупреждения об удалении',
+        },
+      },
+    })
+
+    const modal = page.getByText('Предупреждение о удалении')
+
+    await expect.element(modal).not.toBeInTheDocument()
+  })
+
+  test('Модальное окно корректно отображается содержит текст предупреждения', async () => {
+    renderWithPlugins({
+      component: UIDeleteWarningModal,
+      options: defaultComponentOptions,
+    })
+
+    const modal = page.getByText('Предупреждение о удалении')
+    const modalMessage = page.getByText('Текст предупреждения об удалении')
+
+    await expect.element(modal).toBeInTheDocument()
+    await expect.element(modalMessage).toBeInTheDocument()
+  })
+
+  test('Имеет кнопку подтверждения удаления', async () => {
+    renderWithPlugins({
+      component: UIDeleteWarningModal,
+      options: defaultComponentOptions,
+    })
+
+    const deleteButton = page.getByTestId(deleteBtnTestId)
+
+    await expect.element(deleteButton).toBeInTheDocument()
+  })
+
+  test('Имеет кнопку отмены', async () => {
+    renderWithPlugins({
+      component: UIDeleteWarningModal,
+      options: defaultComponentOptions,
+    })
+
+    const closeModalBtn = page.getByRole('button', { name: 'close' })
+
+    await expect.element(closeModalBtn).toBeInTheDocument()
+  })
+
+  test('Эмитит событие при подтверждении удаления', async () => {
+    const deleteSpy = vi.fn()
+
+    const Wrapper = defineComponent({
+      setup() {
+        return () =>
+          h(UIDeleteWarningModal, {
+            show: true,
+            message: 'Текст',
+            onDelete: deleteSpy,
+          })
+      },
+    })
+
+    renderWithPlugins({
+      component: Wrapper,
+      options: defaultComponentOptions,
+    })
+
+    const deleteButton = page.getByTestId(deleteBtnTestId)
+
+    await expect.element(deleteButton).toBeInTheDocument()
+
+    await deleteButton.click()
+
+    expect(deleteSpy).toHaveBeenCalledTimes(1)
+  })
+})

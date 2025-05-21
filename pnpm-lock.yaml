@@ -819,6 +819,9 @@ importers:
       '@ag/eslint':
         specifier: workspace:*
         version: link:../ag-eslint
+      '@ag/schemas':
+        specifier: workspace:*
+        version: link:../ag-schemas
       '@ag/tsconfig':
         specifier: workspace:*
         version: link:../ag-tsconfig

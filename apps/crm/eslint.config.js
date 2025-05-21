@@ -8,9 +8,9 @@ export default defineConfig([
   {
     rules: {
       'vitest/expect-expect': 'off',
-      'playwright/expect-expect': 'off',
       'playwright/no-conditional-in-test': 'off',
       '@typescript-eslint/no-explicit-any': 'warn',
+      'playwright/expect-expect': 'off',
     },
   },
 ])

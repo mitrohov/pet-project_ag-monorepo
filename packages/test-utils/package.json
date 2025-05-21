@@ -13,6 +13,7 @@
     "@ag/assets": "workspace:*",
     "@ag/eslint": "workspace:*",
     "@ag/tsconfig": "workspace:*",
+    "@ag/schemas": "workspace:*",
     "vitest": "catalog:",
     "vitest-browser-vue": "catalog:",
     "primevue": "catalog:",

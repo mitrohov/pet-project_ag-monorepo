@@ -15,6 +15,7 @@
           :disabled="props.isDisabledButtons"
           :icon="props.isDisabledButtons ? 'pi pi-spin pi-spinner' : undefined"
           :label="props.isDisabledButtons ? undefined : 'Удалить'"
+          data-testid="ui-delete-warning-modal-delete-button"
           severity="danger"
           @click="emit('delete')"
         />
