@@ -22,6 +22,7 @@
     "pinia": "catalog:",
     "eslint": "catalog:",
     "vue-router": "catalog:",
-    "@primeuix/themes": "catalog:"
+    "@primeuix/themes": "catalog:",
+    "vue-component-type-helpers": "catalog:"
   }
 }

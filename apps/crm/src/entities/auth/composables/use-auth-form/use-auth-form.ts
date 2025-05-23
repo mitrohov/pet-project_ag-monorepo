@@ -44,6 +44,7 @@ export function useAuthForm() {
   }
 
   async function handleSubmit() {
+    console.log('original')
     await validateForm()
 
     if (isValidForm.value) {

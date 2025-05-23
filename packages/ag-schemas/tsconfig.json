@@ -1,9 +1,17 @@
 {
   "compilerOptions": {
+    "noEmit": false,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "strict": true,
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false,
+    "rootDir": "./",
+    "noEmitOnError": false,
+    "declaration": false,
+    "sourceMap": false,
+    "module": "ESNext",
+    "target": "ESNext",
+    "moduleResolution": "node",
   },
   "extends": "@ag/tsconfig/base.json",
   "include": ["./**/*"],

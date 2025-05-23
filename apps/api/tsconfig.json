@@ -16,9 +16,8 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
-    "paths": {},
     "removeComments": false,
-    "stripInternal": false
+    "stripInternal": false,
   },
   "include": ["src", "src/assets"]
 }
