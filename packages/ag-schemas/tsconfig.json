@@ -1,21 +1,26 @@
 {
   "compilerOptions": {
-    "noEmit": false,
+    "allowJs": true,
+    "module": "commonjs",
+    "target": "esnext",
+    "outDir": "./dist",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "declaration": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "strict": true,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
     "strictPropertyInitialization": false,
-    "rootDir": "./",
-    "noEmitOnError": false,
-    "declaration": false,
-    "sourceMap": false,
-    "module": "ESNext",
-    "target": "ESNext",
-    "moduleResolution": "node",
+    "noImplicitThis": true,
+    "strictBindCallApply": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "skipLibCheck": true
   },
-  "extends": "@ag/tsconfig/base.json",
-  "include": ["./**/*"],
-  "rules": {
-    "@typescript-eslint/no-explicit-any": "warn"
-  }
+  "include": [
+    "./src"
+  ],
+  "exclude": [
+    "dist", "node_modules"]
 }

@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger'
-import { Payment, PaymentWithId } from '../dtos/payment'
+import { Payment } from '../../dtos/src/payment'
 
 export class PaymentForSwagger extends Payment {
   @ApiProperty({ example: 'Оплата за февраль' })
@@ -27,7 +27,7 @@ export class PaymentForSwagger extends Payment {
   declare isDeleted?: boolean
 }
 
-export class PaymentWithIdForSwagger extends PaymentWithId {
+export class PaymentWithIdForSwagger extends PaymentForSwagger {
   @ApiProperty({ example: 1 })
   declare id: number
 

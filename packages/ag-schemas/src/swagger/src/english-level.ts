@@ -1,12 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger'
-import { EventCategory, EventCategoryWithId } from '../dtos/event-category'
+import { EnglishLevel } from '../../dtos'
 
-export class EventCategoryForSwagger extends EventCategory {
-  @ApiProperty({ example: 'Домашние дела' })
+export class EnglishLevelForSwagger extends EnglishLevel {
+  @ApiProperty({ example: 'C1' })
   declare title: string
-
-  @ApiProperty({ example: 1 })
-  declare colorId?: number
 
   @ApiProperty({ example: false })
   declare isMock?: boolean
@@ -18,7 +15,7 @@ export class EventCategoryForSwagger extends EventCategory {
   declare createdAt?: string
 }
 
-export class EventCategoryWithIdForSwagger extends EventCategoryWithId {
+export class EnglishLevelWithIdForSwagger extends EnglishLevelForSwagger {
   @ApiProperty({ example: 1 })
   declare id: number
 }

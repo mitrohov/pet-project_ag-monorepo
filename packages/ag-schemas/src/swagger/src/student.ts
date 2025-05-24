@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger'
-import { Student, StudentWithId } from '../dtos/student'
+import { Student } from '../../dtos'
 
 export class StudentForSwagger extends Student {
   @ApiProperty({ example: 'Иванов Иван Иванович' })
@@ -39,7 +39,7 @@ export class StudentForSwagger extends Student {
   declare colorId?: number
 }
 
-export class StudentWithIdForSwagger extends StudentWithId {
+export class StudentWithIdForSwagger extends StudentForSwagger {
   @ApiProperty({ example: 1 })
   declare id: number
 }

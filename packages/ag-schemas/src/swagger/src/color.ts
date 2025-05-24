@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger'
-import { Color, ColorWithId } from '../dtos/color'
+import { Color } from '../../dtos'
 
 export class ColorForSwagger extends Color {
   @ApiProperty({ example: 'Индийский красный' })
@@ -24,7 +24,7 @@ export class ColorForSwagger extends Color {
   declare createdAt?: string
 }
 
-export class ColorWithIdForSwagger extends ColorWithId {
+export class ColorWithIdForSwagger extends ColorForSwagger {
   @ApiProperty({ example: 1 })
   declare id: number
 }

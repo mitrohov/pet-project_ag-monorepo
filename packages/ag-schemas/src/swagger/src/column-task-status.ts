@@ -1,8 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger'
-import {
-  ColumnTaskStatus,
-  ColumnTaskStatusWithId,
-} from '../dtos/column-task-status'
+import { ColumnTaskStatus } from '../../dtos'
 
 export class ColumnTaskStatusForSwagger extends ColumnTaskStatus {
   @ApiProperty({ example: 'В работе' })
@@ -21,7 +18,7 @@ export class ColumnTaskStatusForSwagger extends ColumnTaskStatus {
   declare createdAt?: string
 }
 
-export class ColumnTaskStatusWithIdForSwagger extends ColumnTaskStatusWithId {
+export class ColumnTaskStatusWithIdForSwagger extends ColumnTaskStatusForSwagger {
   @ApiProperty({ example: 1 })
   declare id: number
 }

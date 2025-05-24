@@ -1,9 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger'
 import { Transform } from 'class-transformer'
-import {
-  StudentSchedule,
-  StudentScheduleWithId,
-} from '../dtos/student-schedule'
+import { StudentSchedule } from '../../dtos'
 
 export class StudentScheduleForSwagger extends StudentSchedule {
   @ApiProperty({ example: 3 })
@@ -26,7 +23,7 @@ export class StudentScheduleForSwagger extends StudentSchedule {
   declare createdAt?: string
 }
 
-export class StudentScheduleWithIdForSwagger extends StudentScheduleWithId {
+export class StudentScheduleWithIdForSwagger extends StudentScheduleForSwagger {
   @ApiProperty({ example: 1 })
   declare id: number
 }

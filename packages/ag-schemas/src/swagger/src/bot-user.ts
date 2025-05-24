@@ -1,10 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger'
-import { BotUser, BotUserWithId } from '../dtos/bot-user'
-
-export enum UserRole {
-  ADMIN = 'admin',
-  USER = 'user',
-}
+import { BotUser, UserRole } from '../../dtos'
 
 export class BotUserForSwagger extends BotUser {
   @ApiProperty({ example: 'admin', enum: UserRole })
@@ -31,7 +26,7 @@ export class BotUserForSwagger extends BotUser {
   declare createdAt?: string
 }
 
-export class BotUserWithIdForSwagger extends BotUserWithId {
+export class BotUserWithIdForSwagger extends BotUserForSwagger {
   @ApiProperty({ example: 1 })
   declare id: number
 }

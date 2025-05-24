@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger'
-import { Board, BoardWithId } from '../dtos/board'
+import { Board } from '../../dtos'
 
 export class BoardForSwagger extends Board {
   @ApiProperty({ example: 'Планы по видео' })
@@ -15,7 +15,7 @@ export class BoardForSwagger extends Board {
   declare createdAt?: string
 }
 
-export class BoardWithIdForSwagger extends BoardWithId {
+export class BoardWithIdForSwagger extends BoardForSwagger {
   @ApiProperty({ example: 1 })
   declare id: number
 }

@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger'
-import { PaymentWithId } from '../dtos/payment'
-import { CalendarItem, CalendarItemAggregation } from '../dtos/event-calendar'
-import { ColorWithId } from '../dtos/color'
+import { PaymentWithId } from '../../dtos/src/payment'
+import { CalendarItem, CalendarItemAggregation } from '../../dtos'
+import { ColorWithId, CalendarItemTime } from '../../dtos'
 
 export class CalendarItemForSwagger extends CalendarItem {
   @ApiProperty({ example: 'Синий' })
@@ -9,12 +9,6 @@ export class CalendarItemForSwagger extends CalendarItem {
 
   @ApiProperty({ example: 'Blue' })
   declare code: string
-}
-
-export class CalendarItemTime {
-  declare start: string
-
-  declare end: string
 }
 
 export class CalendarItemAggregationForSwagger extends CalendarItemAggregation {

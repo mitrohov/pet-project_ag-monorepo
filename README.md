@@ -11,13 +11,13 @@
 
 ## Быстрые команды для работы с проектом (от корня проекта):
 
-### Первый запуск проекта. Установка всех зависимостей и генерация Prisma Client
+### Первый запуск проекта. Установка всех зависимостей, генерация Prisma Client, компиляция всех библиотек
 
 ```bash
 pnpm first-start
 ```
 
-### Рекурсивная установка зависимостей и удаление папок dist
+### Рекурсивная установка зависимостей и удаление папок dist во всех workspaces и потом компиляция пакетов
 
 ```bash
 pnpm up
@@ -101,6 +101,18 @@ pnpm dev-landing
 pnpm build-landing
 ```
 
+### Запускает сборку во всех пакетах
+
+```bash
+pnpm build-packages
+```
+
+### Запускает сборку во всех пакетах и приложениях
+
+```bash
+pnpm build-all
+```
+
 ### Рекурсивный запуск eslint проверки во всех workspaces
 
 ```bash
@@ -125,7 +137,15 @@ pnpm delete-all-deps
 pnpm delete-builds
 ```
 
-### Быстрый коммит в main ветку с стандартным commit-message
+### Быстрый коммит в main ветку с стандартным commit-message.
+
+Выполняет скрипты в порядке:
+1. typecheck
+2. lint
+3. build-all
+4. git add
+5. git commit
+6. git push
 
 ```bash
 pnpm commit

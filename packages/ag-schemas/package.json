@@ -1,22 +1,22 @@
 {
   "name": "@ag/schemas",
-  "author": "mitrohov-dmitriy",
   "version": "2.0.0",
+  "author": "mitrohov-dmitriy",
   "private": "true",
-  "type": "module",
+  "main": "dist/index.js",
   "license": "SEE LICENSE IN LICENSE.md",
   "scripts": {
-    "dev": "npx tsc --watch",
-    "build": "npx tsc",
+    "dev": "pnpm delete-build && npx tsc --watch",
+    "build": "pnpm delete-build && npx tsc",
     "lint": "eslint . --fix",
-    "delete-deps": "rm -rf node_modules"
+    "typecheck": "vue-tsc --noEmit",
+    "delete-build": "rm -rf dist"
   },
   "peerDependencies": {
     "@nestjs/swagger": "catalog:",
     "class-transformer": "catalog:",
     "class-validator": "catalog:",
     "@ag/eslint": "workspace:*",
-    "@ag/tsconfig": "workspace:*",
     "eslint": "catalog:"
   }
 }

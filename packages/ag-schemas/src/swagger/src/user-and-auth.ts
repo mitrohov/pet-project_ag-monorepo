@@ -1,11 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger'
-import {
-  Token,
-  SessionInfo,
-  SingInUser,
-  User,
-  UserWithId,
-} from '../dtos/user-and-auth'
+import { Token, SessionInfo, SingInUser, User, UserWithId } from '../../dtos'
 
 export class TokenForSwagger extends Token {
   @ApiProperty()

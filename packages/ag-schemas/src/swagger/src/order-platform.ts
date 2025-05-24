@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger'
-import { OrderPlatform, OrderPlatformWithId } from '../dtos/order-platform'
+import { OrderPlatform } from '../../dtos'
 
 export class OrderPlatformForSwagger extends OrderPlatform {
   @ApiProperty({ example: 'Instagram' })
@@ -15,7 +15,7 @@ export class OrderPlatformForSwagger extends OrderPlatform {
   declare createdAt?: string
 }
 
-export class OrderPlatformWithIdForSwagger extends OrderPlatformWithId {
+export class OrderPlatformWithIdForSwagger extends OrderPlatformForSwagger {
   @ApiProperty({ example: 1 })
   declare id: number
 }

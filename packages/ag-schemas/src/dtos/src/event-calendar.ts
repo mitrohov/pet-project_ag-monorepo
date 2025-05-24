@@ -11,6 +11,7 @@ import {
   IsPositive,
 } from 'class-validator'
 import { PaymentWithId } from './payment'
+import { ColorWithId } from './color'
 
 export class CalendarItem {
   @IsString()
@@ -20,13 +21,6 @@ export class CalendarItem {
   @IsString()
   @MaxLength(50, { message: '' })
   code: string
-}
-
-export class ColorWithId extends CalendarItem {
-  @IsNumber()
-  @IsPositive({ message: 'Значение должно быть положительным числом' })
-  @IsInt({ message: 'Значение должно быть целым числом' })
-  id: number
 }
 
 export class CalendarItemTime {

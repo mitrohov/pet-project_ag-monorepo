@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger'
-import { Event, EventAggregationWithId } from '../dtos/event'
+import { Event } from '../../dtos'
 
 export class EventForSwagger extends Event {
   @ApiProperty({ example: 'Съемка reals' })
@@ -27,7 +27,7 @@ export class EventForSwagger extends Event {
   declare createdAt?: string
 }
 
-export class EventAggregationWithIdForSwagger extends EventAggregationWithId {
+export class EventAggregationWithIdForSwagger extends EventForSwagger {
   @ApiProperty({ example: 1 })
   declare id: number
 }

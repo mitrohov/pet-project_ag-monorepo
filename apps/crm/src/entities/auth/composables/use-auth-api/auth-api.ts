@@ -1,4 +1,4 @@
-import { SingInUser, SignInResponse } from '@ag/schemas/dtos/user-and-auth'
+import { SingInUser, SignInResponse } from '@ag/schemas/dto.ts'
 
 export function useAuthApi() {
   const apiUrl = import.meta.env.VITE_API_URL

@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger'
-import { ColumnTask, ColumnTaskWithId } from '../dtos/column-task'
+import { ColumnTask } from '../../dtos'
 
 export class ColumnTaskForSwagger extends ColumnTask {
   @ApiProperty({ example: 'Монтаж ролика' })
@@ -24,7 +24,7 @@ export class ColumnTaskForSwagger extends ColumnTask {
   declare createdAt?: string
 }
 
-export class ColumnTaskWithIdForSwagger extends ColumnTaskWithId {
+export class ColumnTaskWithIdForSwagger extends ColumnTaskForSwagger {
   @ApiProperty({ example: 1 })
   declare id: number
 }

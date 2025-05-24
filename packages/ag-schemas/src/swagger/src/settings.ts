@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger'
-import { Settings, SettingsWithId } from '../dtos/settings'
+import { Settings } from '../../dtos'
 
 export class SettingsForSwagger extends Settings {
   @ApiProperty({ example: 'hoursPerMonth' })
@@ -18,7 +18,7 @@ export class SettingsForSwagger extends Settings {
   declare createdAt?: string
 }
 
-export class SettingsWithIdForSwagger extends SettingsWithId {
+export class SettingsWithIdForSwagger extends SettingsForSwagger {
   @ApiProperty({ example: 1 })
   declare id: number
 }

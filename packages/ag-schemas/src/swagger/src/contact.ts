@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger'
-import { Contact, ContactWithId } from '../dtos/contact'
+import { Contact } from '../../dtos'
 
 export class ContactForSwagger extends Contact {
   @ApiProperty({ example: 'Иванов Иван Иванович' })
@@ -27,7 +27,7 @@ export class ContactForSwagger extends Contact {
   declare createdAt?: string
 }
 
-export class ContactWithIdForSwagger extends ContactWithId {
+export class ContactWithIdForSwagger extends ContactForSwagger {
   @ApiProperty({ example: 1 })
   declare id: number
 }

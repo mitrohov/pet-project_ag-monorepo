@@ -20,7 +20,7 @@
     "delete-build": "rm -rf dist",
     "delete-deps": "rm -rf node_modules"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@grammyjs/hydrate": "catalog:",
     "@nestjs/common": "catalog:",
     "@nestjs/core": "catalog:",
@@ -37,17 +37,13 @@
     "grammy": "catalog:",
     "moment": "catalog:",
     "moment-timezone": "catalog:",
-    "pizzip": "catalog:"
-  },
-  "peerDependencies": {
+    "pizzip": "catalog:",
+    "@ag/schemas": "workspace:*",
     "@faker-js/faker": "catalog:",
     "eslint": "catalog:",
     "typescript": "catalog:",
     "vitest": "catalog:",
     "@ag/eslint": "workspace:*",
-    "@ag/schemas": "workspace:*"
-  },
-  "devDependencies": {
     "@nestjs/cli": "catalog:",
     "@nestjs/schematics": "catalog:",
     "@nestjs/testing": "catalog:",

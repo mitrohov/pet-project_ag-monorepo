@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger'
 import { Transform } from 'class-transformer'
-import { Lesson, LessonWithId } from '../dtos/lesson'
+import { Lesson } from '../../dtos'
 
 export class LessonForSwagger extends Lesson {
   @ApiProperty({ example: 'Урок с Анищенко' })
@@ -48,7 +48,7 @@ export class LessonForSwagger extends Lesson {
   declare createdAt?: string
 }
 
-export class LessonWithIdForSwagger extends LessonWithId {
+export class LessonWithIdForSwagger extends LessonForSwagger {
   @ApiProperty({ example: 1 })
   declare id: number
 }

@@ -239,6 +239,24 @@ importers:
       '@ag/ui':
         specifier: workspace:*
         version: link:packages/ag-ui
+      '@grammyjs/hydrate':
+        specifier: 'catalog:'
+        version: 1.4.1(grammy@1.36.1)
+      '@nestjs/common':
+        specifier: 'catalog:'
+        version: 11.1.0(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)
+      '@nestjs/core':
+        specifier: 'catalog:'
+        version: 11.1.0(@nestjs/common@11.1.0(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/platform-express@11.1.0)(reflect-metadata@0.2.2)(rxjs@7.8.2)
+      '@nestjs/jwt':
+        specifier: 'catalog:'
+        version: 11.0.0(@nestjs/common@11.1.0(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))
+      '@nestjs/mapped-types':
+        specifier: 'catalog:'
+        version: 2.1.0(@nestjs/common@11.1.0(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)
+      '@nestjs/platform-express':
+        specifier: 'catalog:'
+        version: 11.1.0(@nestjs/common@11.1.0(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.0)
       '@nestjs/swagger':
         specifier: 'catalog:'
         version: 11.2.0(@nestjs/common@11.1.0(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.0)(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)
@@ -248,15 +266,39 @@ importers:
       '@primevue/core':
         specifier: 'catalog:'
         version: 4.3.4(vue@3.5.13(typescript@5.8.3))
+      '@prisma/client':
+        specifier: 'catalog:'
+        version: 6.7.0(prisma@6.7.0(typescript@5.8.3))(typescript@5.8.3)
       class-transformer:
         specifier: 'catalog:'
         version: 0.5.1
       class-validator:
         specifier: 'catalog:'
         version: 0.14.2
+      cookie-parser:
+        specifier: 'catalog:'
+        version: 1.4.7
+      docxtemplater:
+        specifier: 'catalog:'
+        version: 3.61.2
+      dotenv:
+        specifier: 'catalog:'
+        version: 16.5.0
+      grammy:
+        specifier: 'catalog:'
+        version: 1.36.1
+      moment:
+        specifier: 'catalog:'
+        version: 2.30.1
+      moment-timezone:
+        specifier: 'catalog:'
+        version: 0.5.48
       pinia:
         specifier: 'catalog:'
         version: 3.0.2(typescript@5.8.3)(vue@3.5.13(typescript@5.8.3))
+      pizzip:
+        specifier: 'catalog:'
+        version: 3.1.8
       primeicons:
         specifier: 'catalog:'
         version: 7.0.0
@@ -288,24 +330,51 @@ importers:
       '@faker-js/faker':
         specifier: 'catalog:'
         version: 9.7.0
+      '@nestjs/cli':
+        specifier: 'catalog:'
+        version: 11.0.7(@swc/cli@0.6.0(@swc/core@1.11.24)(chokidar@4.0.3))(@swc/core@1.11.24)(@types/node@22.15.17)(esbuild@0.25.4)
+      '@nestjs/schematics':
+        specifier: 'catalog:'
+        version: 11.0.5(chokidar@4.0.3)(typescript@5.8.3)
+      '@nestjs/testing':
+        specifier: 'catalog:'
+        version: 11.1.0(@nestjs/common@11.1.0(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.0)(@nestjs/platform-express@11.1.0)
+      '@swc/core':
+        specifier: 'catalog:'
+        version: 1.11.24
       '@tsconfig/node22':
         specifier: 'catalog:'
         version: 22.0.1
+      '@types/cookie-parser':
+        specifier: 'catalog:'
+        version: 1.4.8(@types/express@5.0.1)
+      '@types/express':
+        specifier: 'catalog:'
+        version: 5.0.1
       '@types/node':
         specifier: 'catalog:'
         version: 22.15.17
+      '@types/supertest':
+        specifier: 'catalog:'
+        version: 6.0.3
       '@vitejs/plugin-vue':
         specifier: 'catalog:'
         version: 5.2.4(vite@6.3.5(@types/node@22.15.17)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.8.0))(vue@3.5.13(typescript@5.8.3))
       '@vitest/browser':
         specifier: 'catalog:'
         version: 3.1.3(playwright@1.52.0)(vite@6.3.5(@types/node@22.15.17)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.8.0))(vitest@3.1.3)
+      '@vitest/coverage-v8':
+        specifier: 'catalog:'
+        version: 3.1.3(@vitest/browser@3.1.3)(vitest@3.1.3)
       '@vue/tsconfig':
         specifier: 'catalog:'
         version: 0.7.0(typescript@5.8.3)(vue@3.5.13(typescript@5.8.3))
       eslint:
         specifier: 'catalog:'
         version: 9.26.0(jiti@2.4.2)
+      express:
+        specifier: 'catalog:'
+        version: 5.1.0
       flatpickr:
         specifier: 'catalog:'
         version: 4.6.13
@@ -315,9 +384,24 @@ importers:
       prettier:
         specifier: 'catalog:'
         version: 3.5.3
+      prisma:
+        specifier: 'catalog:'
+        version: 6.7.0(typescript@5.8.3)
+      supertest:
+        specifier: 'catalog:'
+        version: 7.1.0
+      ts-loader:
+        specifier: 'catalog:'
+        version: 9.5.2(typescript@5.8.3)(webpack@5.99.6(@swc/core@1.11.24)(esbuild@0.25.4))
+      ts-node:
+        specifier: 'catalog:'
+        version: 10.9.2(@swc/core@1.11.24)(@types/node@22.15.17)(typescript@5.8.3)
       typescript:
         specifier: 'catalog:'
         version: 5.8.3
+      unplugin-swc:
+        specifier: 'catalog:'
+        version: 1.5.2(@swc/core@1.11.24)(rollup@4.40.2)
       vite:
         specifier: 'catalog:'
         version: 6.3.5(@types/node@22.15.17)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.8.0)
@@ -348,6 +432,9 @@ importers:
       '@grammyjs/hydrate':
         specifier: 'catalog:'
         version: 1.4.1(grammy@1.36.1)
+      '@nestjs/cli':
+        specifier: 'catalog:'
+        version: 11.0.7(@swc/cli@0.6.0(@swc/core@1.11.24)(chokidar@4.0.3))(@swc/core@1.11.24)(@types/node@22.15.17)(esbuild@0.25.4)
       '@nestjs/common':
         specifier: 'catalog:'
         version: 11.1.0(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -363,58 +450,18 @@ importers:
       '@nestjs/platform-express':
         specifier: 'catalog:'
         version: 11.1.0(@nestjs/common@11.1.0(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.0)
-      '@nestjs/swagger':
-        specifier: 'catalog:'
-        version: 11.2.0(@nestjs/common@11.1.0(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.0)(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)
-      '@prisma/client':
-        specifier: 'catalog:'
-        version: 6.7.0(prisma@6.7.0(typescript@5.8.3))(typescript@5.8.3)
-      class-transformer:
-        specifier: 'catalog:'
-        version: 0.5.1
-      class-validator:
-        specifier: 'catalog:'
-        version: 0.14.2
-      cookie-parser:
-        specifier: 'catalog:'
-        version: 1.4.7
-      docxtemplater:
-        specifier: 'catalog:'
-        version: 3.61.2
-      dotenv:
-        specifier: 'catalog:'
-        version: 16.5.0
-      eslint:
-        specifier: 'catalog:'
-        version: 9.26.0(jiti@2.4.2)
-      grammy:
-        specifier: 'catalog:'
-        version: 1.36.1
-      moment:
-        specifier: 'catalog:'
-        version: 2.30.1
-      moment-timezone:
-        specifier: 'catalog:'
-        version: 0.5.48
-      pizzip:
-        specifier: 'catalog:'
-        version: 3.1.8
-      typescript:
-        specifier: 'catalog:'
-        version: 5.8.3
-      vitest:
-        specifier: 'catalog:'
-        version: 3.1.3(@types/node@22.15.17)(@vitest/browser@3.1.3)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.8.0)
-    devDependencies:
-      '@nestjs/cli':
-        specifier: 'catalog:'
-        version: 11.0.7(@swc/cli@0.6.0(@swc/core@1.11.24)(chokidar@4.0.3))(@swc/core@1.11.24)(@types/node@22.15.17)(esbuild@0.25.4)
       '@nestjs/schematics':
         specifier: 'catalog:'
         version: 11.0.5(chokidar@4.0.3)(typescript@5.8.3)
+      '@nestjs/swagger':
+        specifier: 'catalog:'
+        version: 11.2.0(@nestjs/common@11.1.0(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.0)(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)
       '@nestjs/testing':
         specifier: 'catalog:'
         version: 11.1.0(@nestjs/common@11.1.0(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.0)(@nestjs/platform-express@11.1.0)
+      '@prisma/client':
+        specifier: 'catalog:'
+        version: 6.7.0(prisma@6.7.0(typescript@5.8.3))(typescript@5.8.3)
       '@swc/core':
         specifier: 'catalog:'
         version: 1.11.24
@@ -433,9 +480,39 @@ importers:
       '@vitest/coverage-v8':
         specifier: 'catalog:'
         version: 3.1.3(@vitest/browser@3.1.3)(vitest@3.1.3)
+      class-transformer:
+        specifier: 'catalog:'
+        version: 0.5.1
+      class-validator:
+        specifier: 'catalog:'
+        version: 0.14.2
+      cookie-parser:
+        specifier: 'catalog:'
+        version: 1.4.7
+      docxtemplater:
+        specifier: 'catalog:'
+        version: 3.61.2
+      dotenv:
+        specifier: 'catalog:'
+        version: 16.5.0
+      eslint:
+        specifier: 'catalog:'
+        version: 9.26.0(jiti@2.4.2)
       express:
         specifier: 'catalog:'
         version: 5.1.0
+      grammy:
+        specifier: 'catalog:'
+        version: 1.36.1
+      moment:
+        specifier: 'catalog:'
+        version: 2.30.1
+      moment-timezone:
+        specifier: 'catalog:'
+        version: 0.5.48
+      pizzip:
+        specifier: 'catalog:'
+        version: 3.1.8
       prisma:
         specifier: 'catalog:'
         version: 6.7.0(typescript@5.8.3)
@@ -448,9 +525,15 @@ importers:
       ts-node:
         specifier: 'catalog:'
         version: 10.9.2(@swc/core@1.11.24)(@types/node@22.15.17)(typescript@5.8.3)
+      typescript:
+        specifier: 'catalog:'
+        version: 5.8.3
       unplugin-swc:
         specifier: 'catalog:'
         version: 1.5.2(@swc/core@1.11.24)(rollup@4.40.2)
+      vitest:
+        specifier: 'catalog:'
+        version: 3.1.3(@types/node@22.15.17)(@vitest/browser@3.1.3)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.8.0)
 
   apps/crm:
     dependencies:
@@ -759,9 +842,6 @@ importers:
       '@ag/eslint':
         specifier: workspace:*
         version: link:../ag-eslint
-      '@ag/tsconfig':
-        specifier: workspace:*
-        version: link:../ag-tsconfig
       '@nestjs/swagger':
         specifier: 'catalog:'
         version: 11.2.0(@nestjs/common@11.1.0(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.0)(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)

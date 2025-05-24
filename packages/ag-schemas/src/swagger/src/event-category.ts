@@ -1,9 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger'
-import { PurposeLesson, PurposeLessonWithId } from '../dtos/purpose-lesson'
+import { EventCategory } from '../../dtos'
 
-export class PurposeLessonForSwagger extends PurposeLesson {
-  @ApiProperty({ example: 'Английский для работы' })
+export class EventCategoryForSwagger extends EventCategory {
+  @ApiProperty({ example: 'Домашние дела' })
   declare title: string
+
+  @ApiProperty({ example: 1 })
+  declare colorId?: number
 
   @ApiProperty({ example: false })
   declare isMock?: boolean
@@ -15,7 +18,7 @@ export class PurposeLessonForSwagger extends PurposeLesson {
   declare createdAt?: string
 }
 
-export class PurposeLessonWithIdForSwagger extends PurposeLessonWithId {
+export class EventCategoryWithIdForSwagger extends EventCategoryForSwagger {
   @ApiProperty({ example: 1 })
   declare id: number
 }

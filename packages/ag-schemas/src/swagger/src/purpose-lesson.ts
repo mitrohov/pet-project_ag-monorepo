@@ -1,13 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger'
-import { BoardColumn, BoardColumnWithId } from '../dtos/board-column'
+import { PurposeLesson } from '../../dtos/src/purpose-lesson'
 
-export class BoardColumnForSwagger extends BoardColumn {
-  @ApiProperty({ example: 'Backlog' })
+export class PurposeLessonForSwagger extends PurposeLesson {
+  @ApiProperty({ example: 'Английский для работы' })
   declare title: string
-
-  declare boardId: number
-
-  declare sortIndex: number
 
   @ApiProperty({ example: false })
   declare isMock?: boolean
@@ -19,7 +15,7 @@ export class BoardColumnForSwagger extends BoardColumn {
   declare createdAt?: string
 }
 
-export class BoardColumnWithIdForSwagger extends BoardColumnWithId {
+export class PurposeLessonWithIdForSwagger extends PurposeLessonForSwagger {
   @ApiProperty({ example: 1 })
   declare id: number
 }

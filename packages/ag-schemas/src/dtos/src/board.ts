@@ -45,8 +45,3 @@ export class BoardAggregation extends BoardWithId {
   @IsArray()
   boardColumns: BoardColumnWithId[]
 }
-
-export interface BoardDragStartParams {
-  columnId: number
-  taskId: number
-}

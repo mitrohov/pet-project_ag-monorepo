@@ -1,6 +1,6 @@
 import { ref, watch, type Ref } from 'vue'
 import { validate, type ValidationError } from 'class-validator'
-import type { Constructor, InstanceObject } from '@ag/schemas/types/shared.ts'
+import type { Constructor, InstanceObject } from '@ag/schemas/types'
 
 export function useValidationForm<T>(
   initialClass: Constructor<InstanceObject>,

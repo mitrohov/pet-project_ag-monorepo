@@ -2,7 +2,7 @@ import { useRouter } from 'vue-router'
 import { useAdminMessage } from '@/packages/admin-message'
 import { useValidationForm } from '@ag/form-validation/composables/use-form-validation.ts'
 import { useAuthApi } from '../use-auth-api/auth-api'
-import { SingInUser, SignInResponse } from '@ag/schemas/dtos/user-and-auth.ts'
+import { SingInUser, SignInResponse } from '@ag/schemas/dto.ts'
 
 interface SetDefaultEmailAndPasswordParams {
   nodeEnv: string
