@@ -13,7 +13,7 @@
     "dev-crm": "pnpm --filter @ag/crm dev",
     "build-crm": "pnpm --filter @ag/crm build",
     "dev-api": "pnpm --filter @ag/api dev",
-    "build-api": "pnpm build-packages && pnpm --filter @ag/api build",
+    "build-api": "pnpm build-packages && pnpm generate-client && pnpm --filter @ag/api build",
     "start-api": "pnpm --filter @ag/api start:prod",
     "studio": "pnpm --filter @ag/api studio",
     "migrate": "pnpm --filter @ag/api migrate",
