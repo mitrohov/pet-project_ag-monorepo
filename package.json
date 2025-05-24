@@ -30,7 +30,7 @@
     "delete-all-deps": "rm -rf pnpm-lock.yaml && pnpm -r delete-deps && pnpm cache delete",
     "delete-builds": "pnpm -r delete-build",
     "test-all": "pnpm -r test-all",
-    "commit": "pnpm typecheck && pnpm lint && pnpm build-all && git add . && git commit -m 'save changes' && git push"
+    "commit": "./scripts/commit.sh"
   },
 
   "dependencies": {
