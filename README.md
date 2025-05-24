@@ -11,6 +11,23 @@
 
 ## Быстрые команды для работы с проектом (от корня проекта):
 
+### Делает исполняемым файл scripts/init.sh
+
+```bash
+pnpm init-scripts
+```
+
+После этого становится доступно:
+
+- Alias "pm" для команды "pnpm", например:
+```bash
+  pm dev-crm
+```
+- Возможность использования скрипта "commit" с указанием commit message например:
+```bash
+  pnpm commit "My commit message")
+````
+
 ### Первый запуск проекта. Установка всех зависимостей, генерация Prisma Client, компиляция всех библиотек
 
 ```bash
@@ -139,6 +156,12 @@ pnpm delete-builds
 
 ### Быстрый коммит в main ветку с стандартным commit-message.
 
+Для использования обязательно 1 раз выполнить команду
+```bash 
+  pnpm init-scripts
+```
+чтобы сделать исполняемым файл scripts/init.sh.
+
 Выполняет скрипты в порядке:
 1. typecheck
 2. lint
@@ -149,4 +172,17 @@ pnpm delete-builds
 
 ```bash
 pnpm commit
+```
+
+## Alias "pm"
+Для удобства после выполнения скрипта:
+
+```bash
+pnpm script-init
+```
+
+Становится доступным alias `pm`, например:
+
+```bash
+pm dev-crm
 ```

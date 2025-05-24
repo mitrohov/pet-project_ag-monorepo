@@ -6,7 +6,7 @@
   "author": "mitrohov-dmitriy",
   "license": "SEE LICENSE IN LICENSE.md",
   "scripts": {
-    "init-scripts": "",
+    "init-scripts": "chmod +x scripts/init.sh",
     "first-start": "pnpm -r i && pnpm generate-client && build-packages",
     "up": "pnpm -r i && pnpm delete-builds && pnpm build-packages",
     "up-deep": "pnpm delete-all-deps && pnpm delete-builds && pnpm -r i && pnpm build-packages",
@@ -31,7 +31,7 @@
     "delete-all-deps": "rm -rf pnpm-lock.yaml && pnpm -r delete-deps && pnpm cache delete",
     "delete-builds": "pnpm -r delete-build",
     "test-all": "pnpm -r test-all",
-    "commit": "./scripts/commit.sh"
+    "commit": "scripts/init.sh"
   },
 
   "dependencies": {
